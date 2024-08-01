@@ -16011,6 +16011,50 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.tec9.sounds.fire_single = "mp9_fire_single"
 			end	
 
+			if self.mg36 then --Hinaomi's MJP36
+				self.mg36.has_description = false
+				self.mg36.damage_type = "machine_gun"	
+				self.mg36.categories = {
+						"lmg",
+						"smg"
+				}			
+				self.mg36.BURST_FIRE = 3
+				self.mg36.ADAPTIVE_BURST_SIZE = false
+				self.mg36.fire_mode_data.fire_rate = 0.08
+				self.mg36.AMMO_MAX = 300
+				self.mg36.CLIP_AMMO_MAX = 100
+				self.mg36.tactical_reload = 1
+				self.mg36.kick = self.stat_info.kick_tables.even_recoil
+				self.mg36.supported = true
+				self.mg36.ads_speed = 0.350
+				self.mg36.damage_falloff = {
+					start_dist = 2200,
+					end_dist = 6100,
+					min_mult = 0.4166
+				}
+				self.mg36.stats = {
+					damage = 24,
+					spread = 55,
+					recoil = 81,
+					spread_moving = 8,
+					zoom = 1,
+					concealment = 20,
+					suppression = 10,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 200,
+					value = 1,
+					reload = 20
+				}
+				self.mg36.stats_modifiers = nil
+				self.mg36.sms = sms_preset.lmg_48
+				self.mg36.weapon_movement_penalty = sms_preset.lmg_48
+				self.mg36.timers.equip = 1.2
+				self.mg36.reload_speed_multiplier = 0.74
+				self.mg36.sounds = deep_clone(self.g36.sounds)
+				self.mg36.panic_suppression_chance = 0.05
+			end
+
 			if self.sks then
 				self.sks.categories = { 
 					"assault_rifle",
@@ -17325,6 +17369,152 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.fang45.sounds.stop_fire = "mp5_stop"
 				self.fang45.timers = deep_clone(self.new_m4.timers)
 			end
+
+			if self.m4cqb then --Mira's MK 18 Mod 0
+						self.m4cqb.has_description = true				
+						self.m4cqb.fire_mode_data.fire_rate = 0.085714285
+						self.m4cqb.CLIP_AMMO_MAX = 20
+						self.m4cqb.AMMO_MAX = 75								
+						self.m4cqb.kick = self.stat_info.kick_tables.moderate_kick
+						self.m4cqb.categories = {
+							"assault_rifle"
+						}
+						self.m4cqb.panic_suppression_chance = 0.05
+						self.m4cqb.supported = true
+						self.m4cqb.ads_speed = 0.280
+						self.m4cqb.damage_falloff = {
+							start_dist = 2100,
+							end_dist = 6800,
+							min_mult = 0.4166
+						}
+						self.m4cqb.stats = {
+							damage = 24,
+							spread = 81,
+							recoil = 83,
+							spread_moving = 6,
+							zoom = 1,
+							concealment = 26,
+							suppression = 9,
+							alert_size = 2,
+							extra_ammo = 101,
+							total_ammo_mod = 200,
+							value = 1,
+							reload = 20
+						}
+						self.m4cqb.stats_modifiers = nil
+						self.m4cqb.timers.reload_not_empty = 1.9 
+						self.m4cqb.timers.reload_empty = 3.4	
+						self.m4cqb.timers.reload_exit_empty = 0.35
+						self.m4cqb.timers.reload_exit_not_empty = 0.65
+			end
+
+				if self.hkg14976 then --Mira's HK433
+					self.hkg14976.recategorize = { "light_ar" }
+					self.hkg14976.damage_type = "assault_rifle"
+					self.hkg14976.has_description = false		
+					self.hkg14976.AMMO_MAX = 150
+					self.hkg14976.CLIP_AMMO_MAX = 30
+					self.hkg14976.fire_mode_data.fire_rate = 0.08571428571
+					self.hkg14976.kick = self.stat_info.kick_tables.moderate_kick
+					self.hkg14976.supported = true
+					self.hkg14976.ads_speed = 0.280
+					self.hkg14976.damage_falloff = {
+						start_dist = 2000,
+						end_dist = 6500,
+						min_mult = 0.4166
+					}
+					self.hkg14976.stats = {
+						damage = 24,
+						spread = 81,
+						recoil = 83,
+						spread_moving = 6,
+						zoom = 1,
+						concealment = 25,
+						suppression = 8,
+						alert_size = 2,
+						extra_ammo = 101,
+						total_ammo_mod = 200,
+						value = 1,
+						reload = 20
+					}
+					self.hkg14976.stats_modifiers = nil
+					self.hkg14976.reload_speed_multiplier = 0.8
+					self.hkg14976.panic_suppression_chance = 0.05
+			end
+
+			if self.op68 then --Mira's ACR-C
+						self.op68.has_description = false		
+						self.op68.categories = {
+							"assault_rifle"
+						}
+						self.op68.CLIP_AMMO_MAX = 30
+						self.op68.AMMO_MAX = 90
+						self.op68.fire_mode_data.fire_rate = 0.092308
+						self.op68.auto.fire_rate = 0.092308
+						self.op68.panic_suppression_chance = 0.05
+						self.op68.kick = self.stat_info.kick_tables.even_recoil
+						self.op68.supported = true
+						self.op68.ads_speed = 0.220
+						self.op68.damage_falloff = {
+							start_dist = 1500,
+							end_dist = 5500,
+							min_mult = 0.5
+						}
+						self.op68.stats = {
+							damage = 20,
+							spread = 70,
+							recoil = 78,
+							spread_moving = 8,
+							zoom = 1,
+							concealment = 23,
+							suppression = 10,
+							alert_size = 2,
+							extra_ammo = 101,
+							total_ammo_mod = 200,
+							value = 1,
+							reload = 20
+						}
+						self.op68.stats_modifiers = nil
+						self.op68.timers.reload_exit_empty = 0.8
+						self.op68.timers.reload_exit_not_empty = 0.85
+			end
+
+			if self.shieldgirl then --Mira's MDR-C
+						self.shieldgirl.has_description = false		
+						self.shieldgirl.categories = {
+							"assault_rifle"
+						}
+						self.shieldgirl.CLIP_AMMO_MAX = 30
+						self.shieldgirl.AMMO_MAX = 75
+						self.shieldgirl.fire_mode_data.fire_rate = 0.08
+						self.shieldgirl.auto.fire_rate = 0.08
+						self.shieldgirl.panic_suppression_chance = 0.05
+						self.shieldgirl.kick = self.stat_info.kick_tables.even_recoil
+						self.shieldgirl.supported = true
+						self.shieldgirl.ads_speed = 0.220
+						self.shieldgirl.damage_falloff = {
+							start_dist = 1500,
+							end_dist = 5000,
+							min_mult = 0.5
+						}
+						self.shieldgirl.stats = {
+							damage = 24,
+							spread = 70,
+							recoil = 78,
+							spread_moving = 8,
+							zoom = 1,
+							concealment = 28,
+							suppression = 10,
+							alert_size = 2,
+							extra_ammo = 101,
+							total_ammo_mod = 200,
+							value = 1,
+							reload = 20
+						}
+						self.shieldgirl.stats_modifiers = nil
+						self.shieldgirl.reload_speed_multiplier = 0.8
+			end
+
 			
 			if self.troglodyte then --Leon and Mira's AWM-F
 				self.troglodyte.recategorize = { "heavy_snp" }
@@ -19763,6 +19953,52 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.madsen_mg.weapon_movement_penalty = sms_preset.lmg_120
 			end
 		
+				if self.negev then
+					self.negev.categories = {
+						"lmg",
+						"smg"
+					}
+					self.negev.has_description = false
+					self.negev.CLIP_AMMO_MAX = 200
+					self.negev.AMMO_MAX = 300
+					self.negev.fire_mode_data.fire_rate = 0.0706
+					self.negev.kick = self.stat_info.kick_tables.horizontal_left_recoil_mg
+					self.negev.always_use_standing = true
+					self.negev.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+					self.negev.supported = true
+					self.negev.ads_speed = 0.420
+					self.negev.damage_falloff = {
+						start_dist = 2200,
+						end_dist = 7700,
+						min_mult = 0.4166
+					}
+					self.negev.stats = {
+						damage = 24,
+						spread = 55,
+						recoil = 82,
+						spread_moving = 5,
+						zoom = 1,
+						concealment = 18,
+						suppression = 8,
+						alert_size = 2,
+						extra_ammo = 101,
+						total_ammo_mod = 200,
+						value = 9,
+						reload = 20
+					}
+					self.negev.shell_ejection = "_dmc/effects/shell_lmg_down"
+					self.negev.stats_modifiers = nil
+					self.negev.sounds.spin_start = "wp_m249_lever_release"
+					self.negev.spin_up_shoot = true
+					self.negev.spin_up_t = 0.08
+					self.negev.spin_down_t = 0.00000001
+					self.negev.timers.equip = 1.2
+					self.negev.panic_suppression_chance = 0.05
+					self.negev.reload_speed_multiplier = 0.8
+					self.negev.sms = sms_preset.lmg_48
+					self.negev.weapon_movement_penalty = sms_preset.lmg_48
+			end
+
 		--[[     TANGERINE'S MODS     ]]--
 			if self.ar47 then --Tangerine's AR-47
 				self.ar47.recategorize = { "heavy_ar" }	

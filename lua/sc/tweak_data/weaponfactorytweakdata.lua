@@ -33622,6 +33622,208 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.wpn_fps_shot_stf12.override.wpn_fps_upg_a_dragons_breath = deep_clone(shot_ammo.a_dragons_breath_pump_override)
 		end
 
+		if self.parts.wpn_fps_ass_op68_mag_rangerplate then -- Mira's ACR-C
+			self.parts.wpn_fps_ass_op68_mag_rangerplate.supported = true
+			self.parts.wpn_fps_ass_op68_mag_rangerplate.stats = {
+				value = 1,
+				concealment = -1,
+				reload = 4
+			}
+		end
+
+		if self.parts.wpn_fps_ass_op68_stanag_20 then
+			self.parts.wpn_fps_ass_op68_stanag_20.supported = true
+			self.parts.wpn_fps_ass_op68_stanag_20.stats = {
+				value = 2,
+				concealment = 1,
+				reload = 2,
+				extra_ammo = -10
+			}
+		end
+
+		if self.parts.wpn_fps_ass_op68_stanag_30 then
+			self.parts.wpn_fps_ass_op68_stanag_30.supported = true
+			self.parts.wpn_fps_ass_op68_stanag_30.stats = {
+				value = 3,
+				concealment = 1
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_ba_m4 then -- Mira's MK18 Mod 0
+			self.parts.wpn_fps_smg_m4cqb_ba_m4.supported = true
+			self.parts.wpn_fps_smg_m4cqb_ba_m4.stats = {
+				value = 1,
+				concealment = -3,
+				recoil = 2,
+				spread = 3
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_ba_m933 then
+			self.parts.wpn_fps_smg_m4cqb_ba_m933.supported = true
+			self.parts.wpn_fps_smg_m4cqb_ba_m933.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 3,
+				spread = 1
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_m_stanag30 then
+			self.parts.wpn_fps_smg_m4cqb_m_stanag30.supported = true
+			self.parts.wpn_fps_smg_m4cqb_m_stanag30.stats = {
+				value = 1,
+				concealment = -1,
+				reload = -1,
+				extra_ammo = 10
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_m_pmag then
+			self.parts.wpn_fps_smg_m4cqb_m_pmag.supported = true
+			self.parts.wpn_fps_smg_m4cqb_m_pmag.stats = {
+				value = 2,
+				concealment = -1,
+				reload = -1,
+				extra_ammo = 10
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_st_troy then
+			self.parts.wpn_fps_smg_m4cqb_st_troy.supported = true
+			self.parts.wpn_fps_smg_m4cqb_st_troy.stats = {
+				value = 1,
+				concealment = 5,
+				recoil = -5,
+				spread = -3
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_st_ubr then
+			self.parts.wpn_fps_smg_m4cqb_st_ubr.supported = true
+			self.parts.wpn_fps_smg_m4cqb_st_ubr.stats = {
+				value = 1,
+				concealment = -3,
+				recoil = 2,
+				spread = 1
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_st_sopmod then
+			self.parts.wpn_fps_smg_m4cqb_st_sopmod.supported = true
+			self.parts.wpn_fps_smg_m4cqb_st_sopmod.stats = {
+				value = 1,
+				concealment = 1,
+				recoil = 1
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_st_ctr then
+			self.parts.wpn_fps_smg_m4cqb_st_ctr.supported = true
+			self.parts.wpn_fps_smg_m4cqb_st_ctr.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 2
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_m_magpul then
+			self.parts.wpn_fps_smg_m4cqb_m_magpul.supported = true
+			self.parts.wpn_fps_smg_m4cqb_m_magpul.stats = {
+				value = 1,
+				concealment = -1,
+				reload = 4
+			}
+		end
+
+		if self.parts.wpn_fps_smg_m4cqb_m_ranger then
+			self.parts.wpn_fps_smg_m4cqb_m_ranger.supported = true
+			self.parts.wpn_fps_smg_m4cqb_m_ranger.stats = {
+				value = 1,
+				concealment = -2,
+				reload = 2,
+				extra_ammo = 10
+			}
+		end
+
+		if self.parts.wpn_fps_ass_hkg14976_b_11in then -- Mira's HK433
+			self.parts.wpn_fps_ass_hkg14976_b_11in.supported = true
+			self.parts.wpn_fps_ass_hkg14976_b_11in.stats = {
+				value = 1,
+				concealment = 2,
+				spread = -3
+			}
+		end
+
+		if self.parts.wpn_fps_ass_hkg14976_b_145in then
+			self.parts.wpn_fps_ass_hkg14976_b_145in.supported = true
+			self.parts.wpn_fps_ass_hkg14976_b_145in.stats = {
+				value = 1,
+				concealment = -1,
+				spread = 2
+			}
+		end
+
+		if self.parts.wpn_fps_ass_hkg14976_hg_long then
+			self.parts.wpn_fps_ass_hkg14976_hg_long.supported = true
+			self.parts.wpn_fps_ass_hkg14976_hg_long.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 1
+			}
+		end
+
+		if self.parts.wpn_fps_ass_hkg14976_s_marksman then
+			self.parts.wpn_fps_ass_hkg14976_s_marksman.supported = true
+			self.parts.wpn_fps_ass_hkg14976_s_marksman.stats = {
+				value = 1,
+				concealment = -2,
+				recoil = 2,
+				spread = 1
+			}
+		end
+
+		if self.parts.wpn_fps_ass_hkg14976_s_telescopic then
+			self.parts.wpn_fps_ass_hkg14976_s_telescopic.supported = true
+			self.parts.wpn_fps_ass_hkg14976_s_telescopic.stats = {
+				value = 1,
+				concealment = 3,
+				recoil = -3,
+				spread = -1
+			}
+		end
+
+		if self.parts.wpn_fps_ass_shieldgirl_pmag_20 then -- Mira's MDR-C
+			self.parts.wpn_fps_ass_shieldgirl_pmag_20.supported = true
+			self.parts.wpn_fps_ass_shieldgirl_pmag_20.stats = {
+				value = 1,
+				concealment = 2,
+				extra_ammo = -10,
+				reload = 2
+			}
+		end
+
+		if self.parts.wpn_fps_ass_shieldgirl_pmag_40 then
+			self.parts.wpn_fps_ass_shieldgirl_pmag_40.supported = true
+			self.parts.wpn_fps_ass_shieldgirl_pmag_40.stats = {
+				value = 1,
+				concealment = -2,
+				extra_ammo = 10,
+				reload = -2
+			}
+		end
+
+		if self.parts.wpn_fps_ass_shieldgirl_mag_rangerplate then
+			self.parts.wpn_fps_ass_shieldgirl_mag_rangerplate.supported = true
+			self.parts.wpn_fps_ass_shieldgirl_mag_rangerplate.stats = {
+				value = 1,
+				concealment = -1,
+				accuracy = -1,
+				reload = 4
+			}
+		end
+
+
 		if self.parts.wpn_fps_pis_coltds_b_std then --Mira's Colt Detective
 			self.parts.wpn_fps_pis_coltds_b_ext.supported = true
 			self.parts.wpn_fps_pis_coltds_b_ext.stats = deep_clone(barrels.long_b1_stats)
