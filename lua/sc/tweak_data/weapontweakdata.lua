@@ -14456,6 +14456,41 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.lapd.timers = deep_clone(self.new_raging_bull.timers)
 			end
 
+			if self.ak556 then --Carl's AK 5.56					
+				self.ak556.has_description = false					
+				self.ak556.tactical_reload = 1
+				self.ak556.categories = {
+					"assault_rifle"
+				}
+				self.ak556.CLIP_AMMO_MAX = 30
+				self.ak556.AMMO_MAX = 75
+				self.ak556.kick = self.stat_info.kick_tables.even_recoil
+				self.ak556.supported = true
+				self.ak556.ads_speed = 0.200
+				self.ak556.damage_falloff = {
+					start_dist = 1200,
+					end_dist = 3800,
+					min_mult = 0.3
+				}
+				self.ak556.stats = {
+					damage = 24,
+					spread = 76,
+					recoil = 81,
+					spread_moving = 8,
+					zoom = 1,
+					concealment = 27,
+					suppression = 11,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 200,
+					value = 1,
+					reload = 20
+				}
+				self.ak556.stats_modifiers = nil
+				self.ak556.panic_suppression_chance = 0.05
+			end
+
+
 		--[[     ZDANN'S MODS     ]]--
 			if self.akm_nomag then --Leather Dann's Early Access AK
 				self.akm_nomag.warsaw = true
@@ -17462,11 +17497,11 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.op68.stats = {
 							damage = 20,
-							spread = 70,
-							recoil = 78,
+							spread = 73,
+							recoil = 80,
 							spread_moving = 8,
 							zoom = 1,
-							concealment = 23,
+							concealment = 28,
 							suppression = 10,
 							alert_size = 2,
 							extra_ammo = 101,
@@ -17500,7 +17535,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.shieldgirl.stats = {
 							damage = 24,
 							spread = 70,
-							recoil = 78,
+							recoil = 80,
 							spread_moving = 8,
 							zoom = 1,
 							concealment = 28,
@@ -19994,7 +20029,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.negev.spin_down_t = 0.00000001
 					self.negev.timers.equip = 1.2
 					self.negev.panic_suppression_chance = 0.05
-					self.negev.reload_speed_multiplier = 0.8
+					self.negev.reload_speed_multiplier = 0.84
 					self.negev.sms = sms_preset.lmg_48
 					self.negev.weapon_movement_penalty = sms_preset.lmg_48
 			end
@@ -20690,6 +20725,91 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.amt.timers = deep_clone(self.deagle.timers)
 		end	
 
+		if self.k3 then
+					self.k3.categories = {
+						"lmg",
+						"smg"
+					}
+					self.k3.has_description = true
+					self.k3.CLIP_AMMO_MAX = 45
+					self.k3.AMMO_MAX = 300
+					self.k3.fire_mode_data.fire_rate = 0.08571428571
+					self.k3.kick = self.stat_info.kick_tables.horizontal_left_recoil_mg
+					self.k3.always_use_standing = true
+					self.k3.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+					self.k3.supported = true
+					self.k3.ads_speed = 0.420
+					self.k3.damage_falloff = {
+						start_dist = 2200,
+						end_dist = 7700,
+						min_mult = 0.4166
+					}
+					self.k3.stats = {
+						damage = 24,
+						spread = 66,
+						recoil = 81,
+						spread_moving = 5,
+						zoom = 1,
+						concealment = 18,
+						suppression = 8,
+						alert_size = 2,
+						extra_ammo = 101,
+						total_ammo_mod = 200,
+						value = 9,
+						reload = 20
+					}
+					self.k3.shell_ejection = "_dmc/effects/shell_lmg_down"
+					self.k3.sms = sms_preset.lmg_48
+					self.k3.weapon_movement_penalty = sms_preset.lmg_48
+					self.k3.stats_modifiers = nil
+					self.k3.sounds.spin_start = "wp_m249_lever_release"
+					self.k3.spin_up_shoot = true
+					self.k3.spin_up_t = 0.08
+					self.k3.spin_down_t = 0.00000001
+					self.k3.timers.equip = 1.2
+					self.k3.timers.reload_exit_empty = 1.2
+					self.k3.timers.reload_exit_not_empty = 1.2
+					self.k3.panic_suppression_chance = 0.05
+					self.k3.reload_speed_multiplier = 1.21
+		end
+
+		if self.k1a7 then
+						self.k1a7.has_description = false		
+						self.k1a7.categories = {
+							"assault_rifle"
+						}
+						self.k1a7.CLIP_AMMO_MAX = 30
+						self.k1a7.AMMO_MAX = 90
+						self.k1a7.fire_mode_data.fire_rate = 0.0667
+						self.k1a7.auto.fire_rate = 0.0667
+						self.k1a7.panic_suppression_chance = 0.05
+						self.k1a7.kick = self.stat_info.kick_tables.even_recoil
+						self.k1a7.supported = true
+						self.k1a7.ads_speed = 0.220
+						self.k1a7.damage_falloff = {
+							start_dist = 1600,
+							end_dist = 5500,
+							min_mult = 0.5
+						}
+						self.k1a7.stats = {
+							damage = 20,
+							spread = 73,
+							recoil = 81,
+							spread_moving = 8,
+							zoom = 1,
+							concealment = 28,
+							suppression = 10,
+							alert_size = 2,
+							extra_ammo = 101,
+							total_ammo_mod = 200,
+							value = 1,
+							reload = 20
+						}
+						self.k1a7.stats_modifiers = nil
+						self.k1a7.timers.reload_exit_empty = 0.8
+						self.k1a7.timers.reload_exit_not_empty = 0.85
+		end
+
 		if self.xr2 then --KillerKrayola + Pawcio + splish's BO3 XR-2
 			self.xr2.categories = { 
 				"assault_rifle",
@@ -20981,6 +21101,40 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.fg42.sounds.fire_single = "hk23e_fire_single"
 			self.fg42.sounds.fire_auto = "hk23e_fire"
 			self.fg42.sounds.stop_fire = "hk23e_stop"
+		end
+
+			if self.kurz_919 then
+						self.kurz_919.CLIP_AMMO_MAX = 15
+						self.kurz_919.auto.fire_rate = 0.0666666666666667
+						self.kurz_919.fire_mode_data.fire_rate = 0.0666666666666667
+						self.kurz_919.AMMO_MAX = 90
+						self.kurz_919.kick = self.stat_info.kick_tables.even_recoil
+						self.kurz_919.supported = true
+						self.kurz_919.ads_speed = 0.160
+						self.kurz_919.damage_falloff = {
+							start_dist = 1300,
+							end_dist = 4500,
+							min_mult = 0.3
+						}
+						self.kurz_919.stats = {
+							damage = 20,
+							spread = 63,
+							recoil = 85,
+							spread_moving = 8,
+							zoom = 1,
+							concealment = 31,
+							suppression = 11,
+							alert_size = 2,
+							extra_ammo = 101,
+							total_ammo_mod = 200,
+							value = 1,
+							reload = 20
+						}
+						self.kurz_919.stats_modifiers = nil
+						self.kurz_919.panic_suppression_chance = 0.05
+						self.kurz_919.reload_speed_multiplier = 1.3
+						self.kurz_919.timers.reload_exit_empty = 0.6
+						self.kurz_919.timers.reload_exit_not_empty = 0.85	
 		end
 
 		if self.pm then --Silent Enforcer's Makarov

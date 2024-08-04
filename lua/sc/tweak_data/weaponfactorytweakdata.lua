@@ -36175,6 +36175,26 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_pis_amt_g_rosewood.stats = deep_clone(grips.recoil_acc)																		
 	end
 
+		if self.parts.wpn_fps_lmg_k3_m_quad then -- Alcat101's K3
+			self.parts.wpn_fps_lmg_k3_m_quad.supported = true
+			self.parts.wpn_fps_lmg_k3_m_quad.stats = {
+				value = 1,
+				extra_ammo = 15,
+				concealment = -2,
+				reload = -2
+			}
+		end
+
+		if self.parts.wpn_fps_lmg_k3_s_retract then
+			self.parts.wpn_fps_lmg_k3_s_retract.supported = true
+			self.parts.wpn_fps_lmg_k3_s_retract.stats = {
+				value = 1,
+				recoil = -2,
+				concealment = 2
+			}
+		end
+
+
 	--Rex's Bubba Mosin Parts
 	if self.parts.wpn_fps_snp_mosin_barrel_bubba then
 		self.parts.wpn_fps_snp_mosin_body_bubba.supported = true
@@ -37832,6 +37852,35 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		self.parts.wpn_fps_svd_upg_s_draco.stats = deep_clone(stocks.fixed_to_folder_stats)
 		self.parts.wpn_fps_svd_upg_s_draco.custom_stats = deep_clone(stocks.fixed_to_folder_stats)
 	end
+
+		if self.parts.wpn_fps_smg_kurz_919_m_curve_30 then
+			self.parts.wpn_fps_smg_kurz_919_m_curve_30.supported = true
+			self.parts.wpn_fps_smg_kurz_919_m_curve_30.stats = {
+				value = 1,
+				concealment = -1,
+				extra_ammo = 15,
+				reload = -2
+			}
+		end
+
+		if self.parts.wpn_fps_smg_kurz_919_m_waffle_30 then
+			self.parts.wpn_fps_smg_kurz_919_m_waffle_30.supported = true
+			self.parts.wpn_fps_smg_kurz_919_m_waffle_30.stats = {
+				value = 2,
+				concealment = -1,
+				extra_ammo = 15,
+				reload = -2
+			}
+		end
+
+		if self.parts.wpn_fps_smg_kurz_919_st_pdw then
+			self.parts.wpn_fps_smg_kurz_919_st_pdw.supported = true
+			self.parts.wpn_fps_smg_kurz_919_st_pdw.stats = {
+				value = 1,
+				concealment = -4,
+				recoil = 3
+			}
+		end
 
 	if self.parts.wpn_fps_lmg_fg42_frame_std then --Killerwolf's FG42
 
