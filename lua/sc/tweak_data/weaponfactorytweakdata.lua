@@ -24334,6 +24334,16 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
+		if self.parts.wpn_fps_upg_mg4_mag_pouch then
+			self.parts.wpn_fps_upg_mg4_mag_pouch.supported = true
+			self.parts.wpn_fps_upg_mg4_mag_pouch.stats = {
+				value = 1,
+				concealment = 2,
+				extra_ammo = -50,
+				reload = 4
+			}
+		end
+
 		if self.parts.wpn_fps_upg_mg4_barrel_long then
 			self.parts.wpn_fps_upg_mg4_barrel_long.supported = true
 			self.parts.wpn_fps_upg_mg4_barrel_long.stats = {
