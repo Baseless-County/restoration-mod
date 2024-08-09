@@ -24307,6 +24307,110 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 		--ATTACHMENTS
 
+		if self.parts.wpn_fps_upg_mg4_stock_removed then
+			self.parts.wpn_fps_upg_mg4_stock_removed.supported = true
+			self.parts.wpn_fps_upg_mg4_stock_removed.stats = {
+				value = 1,
+				concealment = 3,
+				recoil = -2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mg4_grip_cord then
+			self.parts.wpn_fps_upg_mg4_grip_cord.supported = true
+			self.parts.wpn_fps_upg_mg4_grip_cord.stats = {
+				value = 1,
+				concealment = -1,
+				spread = 1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mg4_stock_straps then
+			self.parts.wpn_fps_upg_mg4_stock_straps.supported = true
+			self.parts.wpn_fps_upg_mg4_stock_straps.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mg4_barrel_long then
+			self.parts.wpn_fps_upg_mg4_barrel_long.supported = true
+			self.parts.wpn_fps_upg_mg4_barrel_long.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 1,
+				spread = 1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mg4_barrel_short then
+			self.parts.wpn_fps_upg_mg4_barrel_short.supported = true
+			self.parts.wpn_fps_upg_mg4_barrel_short.stats = {
+				value = 1,
+				concealment = 2,
+				spread = -2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mg4_heatshield then
+			self.parts.wpn_fps_upg_mg4_heatshield.supported = true
+			self.parts.wpn_fps_upg_mg4_heatshield.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_lsat_barrel_long then
+			self.parts.wpn_fps_upg_lsat_barrel_long.supported = true
+			self.parts.wpn_fps_upg_lsat_barrel_long.stats = {
+				value = 1,
+				concealment = -2,
+				spread = 1,
+				recoil = 2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_lsat_barrel_short then
+			self.parts.wpn_fps_upg_lsat_barrel_short.supported = true
+			self.parts.wpn_fps_upg_lsat_barrel_short.stats = {
+				value = 1,
+				concealment = 2,
+				accuracy = -2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_lsat_fab_ptk then
+			self.parts.wpn_fps_upg_lsat_fab_ptk.supported = true
+			self.parts.wpn_fps_upg_lsat_fab_ptk.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_lsat_magpul_afg then
+			self.parts.wpn_fps_upg_lsat_magpul_afg.supported = true
+			self.parts.wpn_fps_upg_lsat_magpul_afg.stats = {
+				value = 1,
+				concealment = -1,
+				spread = 1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_lsat_stock_collapsed then
+			self.parts.wpn_fps_upg_lsat_stock_collapsed.supported = true
+			self.parts.wpn_fps_upg_lsat_stock_collapsed.stats = {
+				value = 1,
+				concealment = 2,
+				recoil = -3
+			}
+		end
+
+
+
+
 			if self.parts.wpn_fps_upg_o_snp_m4flipup_rear then --Pawcio's Ironsights Pack
 				local iron_sights = {
 					--Full
@@ -33649,7 +33753,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
-		if self.parts.wpn_fps_smg_m4cqb_ba_m4 then -- Mira's MK18 Mod 0
+		if self.parts.wpn_fps_smg_m4cqb_ba_m4 then -- Mira's MK 18 Mod 0
 			self.parts.wpn_fps_smg_m4cqb_ba_m4.supported = true
 			self.parts.wpn_fps_smg_m4cqb_ba_m4.stats = {
 				value = 1,
@@ -33820,6 +33924,45 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				concealment = -1,
 				accuracy = -1,
 				reload = 4
+			}
+		end
+
+		if self.parts.wpn_fps_ass_qbz97b_mag_magpul then
+			self.parts.wpn_fps_ass_qbz97b_mag_magpul.supported = true
+			self.parts.wpn_fps_ass_qbz97b_mag_magpul.stats = {
+				value = 1,
+				concealment = -1,
+				accuracy = -1,
+				reload = 4
+			}
+		end
+
+		if self.parts.wpn_fps_ass_qbz97b_95b_body then
+			self.parts.wpn_fps_ass_qbz97b_95b_body.supported = true
+			self.parts.wpn_fps_ass_qbz97b_95b_body.stats = {
+				value = 1,
+				recoil = 1,
+				concealment = -1,
+				accuracy = 1
+			}
+		end
+
+		if self.parts.wpn_fps_ass_qbz97b_mag_short then
+			self.parts.wpn_fps_ass_qbz97b_mag_short.supported = true
+			self.parts.wpn_fps_ass_qbz97b_mag_short.stats = {
+				value = 1,
+				concealment = 2,
+				extra_ammo = -10,
+				reload = 2
+			}
+		end
+
+		if self.parts.wpn_fps_snp_apairofmelons_fg_patrol then
+			self.parts.wpn_fps_snp_apairofmelons_fg_patrol.supported = true
+			self.parts.wpn_fps_snp_apairofmelons_fg_patrol.stats = {
+				value = 2,
+				concealment = 2,
+				recoil = -2
 			}
 		end
 
@@ -34287,6 +34430,112 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_ass_tilt_stock_none.stats = deep_clone(stocks.remove_folder_stats)
 			self.parts.wpn_fps_ass_tilt_stock_none.custom_stats = deep_clone(stocks.remove_folder_stats)
 		end
+
+		if self.parts.wpn_fps_smg_pdr_m_pmag then -- Carl's PDR	
+			self.parts.wpn_fps_smg_pdr_m_pmag.supported = true		
+			self.parts.wpn_fps_smg_pdr_m_pmag.stats = {
+					value = 3,
+					concealment = -1,
+					reload = 4,
+					spread = -1
+				}	
+		end
+
+		if self.parts.wpn_fps_ass_mk18s_tacstock then -- Carl's MK18 Specialist	
+			self.parts.wpn_fps_ass_mk18s_tacstock.supported = true		
+			self.parts.wpn_fps_ass_mk18s_tacstock.stats = {
+					value = 1,
+					concealment = -1,
+					recoil = 1
+				}	
+		end
+
+		if self.parts.wpn_fps_ass_mk18s_vg_ptk then
+			self.parts.wpn_fps_ass_mk18s_vg_ptk.supported = true		
+			self.parts.wpn_fps_ass_mk18s_vg_ptk.stats = {
+					value = 2,
+					concealment = -1,
+					spread = 1
+				}	
+		end
+
+		if self.parts.wpn_fps_ass_mk18s_mag_big then
+			self.parts.wpn_fps_ass_mk18s_mag_big.supported = true		
+			self.parts.wpn_fps_ass_mk18s_mag_big.stats = {
+					value = 3,
+					concealment = -2,
+					extra_ammo = 30,
+					reload = -5,
+					spread = -1
+				}	
+		end
+
+		if self.parts.wpn_fps_ass_mk18s_mag_speed then
+			self.parts.wpn_fps_ass_mk18s_mag_speed.supported = true		
+			self.parts.wpn_fps_ass_mk18s_mag_speed.stats = {
+					value = 4,
+					concealment = -1,
+					reload = 4,
+					spread = -1
+				}	
+		end
+
+		if self.parts.wpn_fps_ass_mk18s_mag_smol then
+			self.parts.wpn_fps_ass_mk18s_mag_smol.supported = true		
+			self.parts.wpn_fps_ass_mk18s_mag_smol.stats = {
+					value = 4,
+					concealment = 2,
+					reload = 2
+				}	
+		end
+
+		if self.parts.wpn_fps_lmg_pecheneg_fg then	
+			self.parts.wpn_fps_lmg_pecheneg_fg.supported = true
+			self.parts.wpn_fps_lmg_pecheneg_fg.stats = {
+					value = 2,
+					recoil = 2,
+					concealment = -1
+				}
+		end
+
+		if self.parts.wpn_fps_lmg_negev_fg_stick then	
+			self.parts.wpn_fps_lmg_negev_fg_stick.supported = true
+			self.parts.wpn_fps_lmg_negev_fg_stick.stats = {
+					value = 2,
+					recoil = 4,
+					concealment = -4
+				}
+		end
+
+		if self.parts.wpn_fps_lmg_negev_b_long then	
+			self.parts.wpn_fps_lmg_negev_b_long.supported = true
+			self.parts.wpn_fps_lmg_negev_b_long.stats = {
+					value = 2,
+					recoil = 1,
+					spread = 2,
+					concealment = -2
+				}
+		end
+
+		if self.parts.wpn_fps_lmg_negev_s_folded then	
+			self.parts.wpn_fps_lmg_negev_s_folded.supported = true
+			self.parts.wpn_fps_lmg_negev_s_folded.stats = {
+					value = 2,
+					recoil = -3,
+					concealment = 2
+				}
+		end
+
+		if self.parts.wpn_fps_smg_pdr_m_short then	
+			self.parts.wpn_fps_smg_pdr_m_short.supported = true		
+			self.parts.wpn_fps_smg_pdr_m_short.stats = {
+					value = 3,
+					concealment = 1,
+					reload = 2,
+					extra_ammo = -10
+				}	
+		end
+
 
 	--[[ ZDANN'S MODS ]]
 
