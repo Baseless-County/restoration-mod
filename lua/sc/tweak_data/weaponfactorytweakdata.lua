@@ -3179,7 +3179,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_content_jobs", "resmod_content_job
 	self.parts.wpn_fps_upg_m4_m_quad.stats = {
 		value = 3,
 		concealment = -4,
-		reload = -6,
+		reload = -2,
 		extra_ammo = 30
 	}
 	
@@ -3217,7 +3217,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_content_jobs", "resmod_content_job
 		value = 3,
 		concealment = -4,
 		extra_ammo = 30,
-		reload = -6
+		reload = -2
 	}
 	self.parts.wpn_fps_upg_ak_m_quad.custom_stats = {
 		ads_speed_mult = 1.1
@@ -3689,7 +3689,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_m4", "resmod_m4", function(self)
 		stats = {
 			value = 9,
 			extra_ammo = 70,
-			reload = -9,
+			reload = -4,
 			concealment = -7
 		},
 		custom_stats = {
@@ -3709,7 +3709,6 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_m4", "resmod_m4", function(self)
 	self.parts.wpn_fps_upg_m4_m_pmag.stats = {
 		value = 1,
 		concealment = 1,
-		extra_ammo = -5,
 		reload = 3
 	}
 	self.parts.wpn_fps_upg_m4_m_pmag.custom_stats = { 
@@ -4959,7 +4958,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_ak_parts", "resmod_ak_parts", func
 			value = 5,
 			concealment = -6,
 			extra_ammo = 45,
-			reload = -8
+			reload = -4
 		},
 		custom_stats = {
 			ads_speed_mult = 1.15
@@ -24303,6 +24302,58 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 --Custom weapon shit here--
 	
+		if self.parts.wpn_fps_shot_saiga_m_quick then
+			self.parts.wpn_fps_shot_saiga_m_quick.supported = true
+			self.parts.wpn_fps_shot_saiga_m_quick.stats = {
+				value = 1,
+				reload = 4,
+				concealment = -1,
+				spread = -1
+			}
+		end
+	
+		if self.parts.wpn_fps_ass_s552_m_quick then
+			self.parts.wpn_fps_ass_s552_m_quick.supported = true
+			self.parts.wpn_fps_ass_s552_m_quick.stats = {
+				value = 1,
+				reload = 4,
+				concealment = -1,
+				spread = -1
+			}
+		end
+	
+		if self.parts.wpn_fps_smg_tec9_m_quick then
+			self.parts.wpn_fps_smg_tec9_m_quick.supported = true
+			self.parts.wpn_fps_smg_tec9_m_quick.stats = {
+				value = 1,
+				reload = 4,
+				concealment = -1,
+				spread = -1
+			}
+		end
+	
+		if self.parts.wpn_fps_smg_mp9_m_quick then
+			self.parts.wpn_fps_smg_mp9_m_quick.supported = true
+			self.parts.wpn_fps_smg_mp9_m_quick.stats = {
+				value = 1,
+				extra_ammo = 10,
+				reload = 2,
+				concealment = -1,
+				spread = -1
+			}
+		end
+	
+		if self.parts.wpn_fps_smg_mp7_m_quick then
+			self.parts.wpn_fps_smg_mp7_m_quick.supported = true
+			self.parts.wpn_fps_smg_mp7_m_quick.stats = {
+				value = 1,
+				extra_ammo = 20,
+				reload = 2,
+				concealment = -1,
+				spread = -1
+			}
+		end
+
 	--[[ PAWCIO'S MODS ]]
 
 		--ATTACHMENTS
@@ -24313,6 +24364,61 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				value = 1,
 				concealment = 3,
 				recoil = -2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_svu_dtk2 then
+			self.parts.wpn_fps_upg_svu_dtk2.supported = true
+			self.parts.wpn_fps_upg_svu_dtk2.stats = {
+				value = 1,
+				concealment = -2,
+				recoil = 3
+			}
+		end
+
+		if self.parts.wpn_fps_upg_svu_grip_plastic then
+			self.parts.wpn_fps_upg_svu_grip_plastic.supported = true
+			self.parts.wpn_fps_upg_svu_grip_plastic.stats = {
+				value = 1,
+				concealment = 1,
+				recoil = -1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_svu_handguard_plastic then
+			self.parts.wpn_fps_upg_svu_handguard_plastic.supported = true
+			self.parts.wpn_fps_upg_svu_handguard_plastic.stats = {
+				value = 1,
+				concealment = 1,
+				recoil = -1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_aek971_mag_magpul then
+			self.parts.wpn_fps_upg_aek971_mag_magpul.supported = true
+			self.parts.wpn_fps_upg_aek971_mag_magpul.stats = {
+				value = 1,
+				accuracy = -1,
+				concealment = -1,
+				reload = 4
+			}
+		end
+
+		if self.parts.wpn_fps_upg_aek971_mag_rpk then
+			self.parts.wpn_fps_upg_aek971_mag_rpk.supported = true
+			self.parts.wpn_fps_upg_aek971_mag_rpk.stats = {
+				value = 1,
+				extra_ammo = 15,
+				concealment = -2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_aek971_stock_pad then
+			self.parts.wpn_fps_upg_aek971_stock_pad.supported = true
+			self.parts.wpn_fps_upg_aek971_stock_pad.stats = {
+				value = 1,
+				concealment = -2,
+				spread = 3
 			}
 		end
 
@@ -26331,6 +26437,29 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			end
 
 	--[[ RJC9000'S MODS ]]
+
+		if self.parts.wpn_fps_shot_romeo870_barrel_short then
+			self.parts.wpn_fps_shot_romeo870_barrel_short.supported = true
+			self.parts.wpn_fps_shot_romeo870_barrel_short.stats = {
+				value = 1,
+				concealment = 3,
+				recoil = -1,
+				spread = -2,
+				extra_ammo = -1
+			}
+		end
+
+		if self.parts.wpn_fps_shot_romeo870_stock_no then
+			self.parts.wpn_fps_shot_romeo870_stock_no.supported = true
+			self.parts.wpn_fps_shot_romeo870_stock_no.stats = {
+				value = 1,
+				concealment = 4,
+				recoil = -2
+			}
+		end
+
+
+
 
 		--TTI GEN-12
 		if self.parts.wpn_fps_shot_tti_dracarys_eotech then
