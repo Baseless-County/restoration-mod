@@ -8651,7 +8651,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						recoil = 81,
 						spread_moving = 5,
 						zoom = 1,
-						concealment = 18,
+						concealment = 22,
 						suppression = 8,
 						alert_size = 2,
 						extra_ammo = 101,
@@ -8669,7 +8669,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.m249.timers.reload_exit_empty = 1.2
 					self.m249.timers.reload_exit_not_empty = 1.2
 					self.m249.panic_suppression_chance = 0.05
-					self.m249.reload_speed_multiplier = 0.88
+					self.m249.reload_speed_multiplier = 0.99
 			
 				--IM AT SOUP (KAC ChainSAW)
 					self.kacchainsaw.categories = {
@@ -8915,13 +8915,15 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.hk21.desc_id = "bm_hk21_sc_desc"
 						self.hk21.has_description = true
 						self.hk21.CLIP_AMMO_MAX = 100
-						self.hk21.AMMO_MAX = 160
+						self.hk21.AMMO_MAX = 300
 						self.hk21.fire_mode_data.fire_rate = 0.075
 						self.hk21.CAN_TOGGLE_FIREMODE = true
 						self.hk21.BURST_FIRE = 3
 						self.hk21.BURST_FIRE_RECOIL_MULTIPLIER = 0.75
-						self.hk21.BURST_FIRE_LAST_RECOIL_MULTIPLIER  = 1.1
+						self.hk21.BURST_FIRE_LAST_RECOIL_MULTIPLIER  = 1.15
 						self.hk21.BURST_DELAY = 0.18
+						self.hk21.sms = sms_preset.lmg_60
+						self.hk21.weapon_movement_penalty = sms_preset.lmg_60
 						self.hk21.fake_semi_anims = true
 						self.hk21.kick = self.stat_info.kick_tables.horizontal_right_recoil_mg
 						self.hk21.always_use_standing = true
@@ -8931,17 +8933,17 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.hk21.supported = true
 						self.hk21.ads_speed = 0.520
 						self.hk21.damage_falloff = {
-							start_dist = 1600,
-							end_dist = 5100,
+							start_dist = 2000,
+							end_dist = 5500,
 							min_mult = 0.44444
 						}
 						self.hk21.stats = {
-							damage = 45,
+							damage = 30,
 							spread = 61,
-							recoil = 67,
+							recoil = 77,
 							spread_moving = 7,
 							zoom = 1,
-							concealment = 15,
+							concealment = 18,
 							suppression = 6,
 							alert_size = 2,
 							extra_ammo = 101,
@@ -8950,7 +8952,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							reload = 20
 						}
 						self.hk21.stats_modifiers = nil
-						self.hk21.reload_speed_multiplier = 0.88
+						self.hk21.reload_speed_multiplier = 1.1
 						self.hk21.bipod_req_scope = true
 						self.hk21.animations.ignore_nonemptyreload = true
 						self.hk21.timers.reload_not_empty = self.hk21.timers.reload_empty
@@ -9007,26 +9009,28 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							"mmg"
 						}
 						self.m60.CLIP_AMMO_MAX = 75
-						self.m60.AMMO_MAX = 120
-						self.m60.fire_mode_data.fire_rate = 0.1034482
+						self.m60.AMMO_MAX = 300
+						self.m60.sms = sms_preset.lmg_60
+						self.m60.weapon_movement_penalty = sms_preset.lmg_60
+						self.m60.fire_mode_data.fire_rate = 0.1090909
 						self.m60.kick = self.stat_info.kick_tables.horizontal_right_recoil_mg
 						self.m60.always_use_standing = true
 						self.m60.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 						self.m60.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 						self.m60.supported = true
-						self.m60.ads_speed = 0.560
+						self.m60.ads_speed = 0.450
 						self.m60.damage_falloff = {
-							start_dist = 1400,
-							end_dist = 6000,
-							min_mult = 0.33333
+							start_dist = 2500,
+							end_dist = 7500,
+							min_mult = 0.5
 						}
 						self.m60.stats = {
-							damage = 60,
+							damage = 30,
 							spread = 61,
 							recoil = 65,
 							spread_moving = 5,
 							zoom = 1,
-							concealment = 14,
+							concealment = 20,
 							suppression = 5,
 							alert_size = 2,
 							extra_ammo = 101,
@@ -9037,14 +9041,11 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.m60.stats_modifiers = nil
 						self.m60.bipod_req_scope = true
 						self.m60.panic_suppression_chance = 0.05
-						self.m60.reload_speed_multiplier = 0.75
+						self.m60.reload_speed_multiplier = 1.175
 						self.m60.sounds.spin_start = "wp_m60_reload_lever_release"
 						self.m60.spin_up_shoot = true
 						self.m60.spin_up_t = 0.1
 						self.m60.spin_down_t = 0.00000001
-						self.m60.timers.reload_exit_empty = 1.4
-						self.m60.timers.reload_not_empty = 4.7
-						self.m60.timers.reload_exit_not_empty = 2.8
 			
 					--KSP 58
 						self.par.has_description = true
@@ -9689,7 +9690,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							"assault_rifle"
 						}
 						self.olympic.CLIP_AMMO_MAX = 30
-						self.olympic.AMMO_MAX = 90
+						self.olympic.AMMO_MAX = 180
 						self.olympic.fire_mode_data.fire_rate = 0.075
 						self.olympic.auto.fire_rate = 0.075
 						self.olympic.panic_suppression_chance = 0.05
@@ -9707,7 +9708,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							recoil = 81,
 							spread_moving = 8,
 							zoom = 1,
-							concealment = 28,
+							concealment = 31,
 							suppression = 10,
 							alert_size = 2,
 							extra_ammo = 101,
@@ -9805,7 +9806,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.hajk.desc_id = "bm_menu_sc_hajk_desc"
 						self.hajk.has_description = true				
 						self.hajk.fire_mode_data.fire_rate = 0.085714285
-						self.hajk.AMMO_MAX = 75
+						self.hajk.AMMO_MAX = 150
 						self.hajk.BURST_FIRE = 2
 						self.hajk.BURST_DELAY = 0.06
 						self.hajk.BURST_FIRE_RECOIL_MULTIPLIER = 0.75
@@ -14107,7 +14108,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						spread = 78,
 						recoil = 79,
 						zoom = 1,
-						concealment = 27,
+						concealment = 30,
 						alert_size = 2,
 						suppression = 20,
 						extra_ammo = 101,
@@ -14633,7 +14634,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.ak556.damage_falloff = {
 					start_dist = 1500,
 					end_dist = 3800,
-					min_mult = 0.3333
+					min_mult = 0.5
 				}
 				self.ak556.stats = {
 					damage = 24,
@@ -14965,7 +14966,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			if self.aek971 then
 						self.aek971.desc_id = "bm_ak74_sc_desc"
 						self.aek971.has_description = false					
-						self.aek971.AMMO_MAX = 180
+						self.aek971.AMMO_MAX = 240
 						self.aek971.tactical_reload = 1
 						self.aek971.fire_mode_data.fire_rate = 0.0666666666666667
 						self.aek971.kick = self.stat_info.kick_tables.right_recoil
@@ -14982,7 +14983,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							recoil = 96,
 							spread_moving = 6,
 							zoom = 1,
-							concealment = 18,
+							concealment = 20,
 							suppression = 9,
 							alert_size = 2,
 							extra_ammo = 101,
@@ -17397,7 +17398,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.m60e4.sounds.magazine_empty = "wp_rifle_slide_lock"
 				self.m60e4.sms = sms_preset.lmg_60
 				self.m60e4.weapon_movement_penalty = sms_preset.lmg_60
-				self.m60e4.fire_mode_data.fire_rate = 0.12
+				self.m60e4.fire_mode_data.fire_rate = 0.1
 				self.m60e4.CAN_TOGGLE_FIREMODE = false
 				self.m60e4.CLIP_AMMO_MAX = 100
 				self.m60e4.AMMO_MAX = 300
@@ -17405,11 +17406,11 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.m60e4.always_use_standing = true
 				self.m60e4.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
 				self.m60e4.supported = true
-				self.m60e4.ads_speed = 0.500
+				self.m60e4.ads_speed = 0.450
 				self.m60e4.damage_falloff = {
-					start_dist = 2200,
-					end_dist = 7400,
-					min_mult = 0.33333
+					start_dist = 2500,
+					end_dist = 7500,
+					min_mult = 0.5
 				}
 				self.m60e4.stats = {
 					damage = 30,
@@ -17417,7 +17418,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					recoil = 69,
 					spread_moving = 5,
 					zoom = 1,
-					concealment = 18,
+					concealment = 20,
 					suppression = 5,
 					alert_size = 2,
 					extra_ammo = 101,
@@ -17430,8 +17431,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.m60e4.spin_up_shoot = true
 				self.m60e4.spin_up_t = 0.1
 				self.m60e4.spin_down_t = 0.00000001
-				self.m60e4.reload_speed_multiplier = 0.95
-				self.m60e4.timers = deep_clone(self.m60.timers)
+				self.m60e4.reload_speed_multiplier = 1.0
 				self.m60e4.panic_suppression_chance = 0.05
 			end
 
@@ -19131,7 +19131,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.stoner63a.BURST_FIRE = false
 				self.stoner63a.CAN_TOGGLE_FIREMODE = false
 				self.stoner63a.fire_mode_data.fire_rate = 0.0829875
-				self.stoner63a.AMMO_MAX = 300
+				self.stoner63a.AMMO_MAX = 400
 				self.stoner63a.kick = self.stat_info.kick_tables.horizontal_right_recoil_mg
 				self.stoner63a.always_use_standing = true
 				self.stoner63a.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
@@ -19162,7 +19162,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.stoner63a.spin_up_shoot = true
 				self.stoner63a.spin_up_t = 0.07
 				self.stoner63a.spin_down_t = 0.00000001
-				self.stoner63a.reload_speed_multiplier = 0.98
+				self.stoner63a.reload_speed_multiplier = 1.0
 				self.stoner63a.sms = sms_preset.lmg_48
 				self.stoner63a.weapon_movement_penalty = sms_preset.lmg_48
 				self.stoner63a.timers.equip = 1.2
@@ -21647,7 +21647,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.kurz_919.CLIP_AMMO_MAX = 15
 						self.kurz_919.auto.fire_rate = 0.0666666666666667
 						self.kurz_919.fire_mode_data.fire_rate = 0.0666666666666667
-						self.kurz_919.AMMO_MAX = 90
+						self.kurz_919.AMMO_MAX = 180
 						self.kurz_919.kick = self.stat_info.kick_tables.even_recoil
 						self.kurz_919.supported = true
 						self.kurz_919.ads_speed = 0.160
