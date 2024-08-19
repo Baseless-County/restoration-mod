@@ -38,20 +38,7 @@ function CopSound:init(unit)
 		ids_func("units/payday2/characters/ene_city_heavy_r870_sc/ene_city_heavy_r870_sc"),
 		ids_func("units/payday2/characters/ene_city_heavy_r870_sc/ene_city_heavy_r870_sc_husk"),	
 		ids_func("units/payday2/characters/ene_shield_gensec/ene_shield_gensec"),
-		ids_func("units/payday2/characters/ene_shield_gensec/ene_shield_gensec_husk"),
-		--US Zeals
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_1/ene_zeal_city_1"),
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_1/ene_zeal_city_1_husk"),
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_2/ene_zeal_city_2"),
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_2/ene_zeal_city_2_husk"),	
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_3/ene_zeal_city_3"),
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_3/ene_zeal_city_3_husk"),	
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_sc/ene_zeal_swat_heavy_sc"),
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_sc/ene_zeal_swat_heavy_sc_husk"),		
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_r870_sc/ene_zeal_swat_heavy_r870_sc"),
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_r870_sc/ene_zeal_swat_heavy_r870_sc_husk"),		
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc"),
-		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc_husk"),		
+		ids_func("units/payday2/characters/ene_shield_gensec/ene_shield_gensec_husk"),		
 		--NYPD Blue SWATs
 		ids_func("units/pd2_mod_nypd/characters/ene_nypd_swat_1/ene_nypd_swat_1"),
 		ids_func("units/pd2_mod_nypd/characters/ene_nypd_swat_1/ene_nypd_swat_1_husk"),		
@@ -128,7 +115,20 @@ function CopSound:init(unit)
 		ids_func("units/pd2_mod_lapd/characters/ene_city_swat_1/ene_city_swat_1"),
 		ids_func("units/pd2_mod_lapd/characters/ene_city_swat_1/ene_city_swat_1_husk"),		
 		ids_func("units/pd2_mod_lapd/characters/ene_city_swat_2/ene_city_swat_2"),
-		ids_func("units/pd2_mod_lapd/characters/ene_city_swat_2/ene_city_swat_2_husk")		
+		ids_func("units/pd2_mod_lapd/characters/ene_city_swat_2/ene_city_swat_2_husk"),
+		--US NGs
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_1/ene_zeal_city_1"),
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_1/ene_zeal_city_1_husk"),
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_2/ene_zeal_city_2"),
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_2/ene_zeal_city_2_husk"),	
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_3/ene_zeal_city_3"),
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_city_3/ene_zeal_city_3_husk"),	
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_sc/ene_zeal_swat_heavy_sc"),
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_sc/ene_zeal_swat_heavy_sc_husk"),		
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_r870_sc/ene_zeal_swat_heavy_r870_sc"),
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_heavy_r870_sc/ene_zeal_swat_heavy_r870_sc_husk"),		
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc"),
+		ids_func("units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc_husk")		
 	}
 	local american_taser_list = {
 		ids_func("units/payday2/characters/ene_tazer_1_sc/ene_tazer_1_sc"),

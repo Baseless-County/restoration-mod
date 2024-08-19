@@ -1,0 +1,14 @@
+<materials version="3">
+	<material name="mtr_ene_acc_zeal_swat_helmet" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP:RL_COPS" version="2">
+		<bump_normal_texture 	file="units/pd2_dlc_gitgud/characters/shared_textures/helmet_ng_nm"/>
+		<diffuse_texture 		file="units/pd2_dlc_gitgud/characters/shared_textures/helmet_ng_df"/>
+	</material>
+
+	<material name="mtr_ene_acc_zeal_swat_helmet_lod1" render_template="opacity:CUBE_ENVIRONMENT_MAPPING:CUBE_FRESNEL:DIFFUSE_TEXTURE" version="2">
+        <variable value="0 1 0.2" type="vector3" name="fresnel_settings"/>
+		<opacity_texture 	file="units/pd2_dlc_gitgud/characters/shared_textures/helmet_ng_op"/>
+		<diffuse_texture 		file="units/pd2_dlc_gitgud/characters/shared_textures/helmet_ng_df"/>
+        <reflection_texture type="cubemap" global_texture="current_global_texture"/>
+	</material>
+	
+</materials>

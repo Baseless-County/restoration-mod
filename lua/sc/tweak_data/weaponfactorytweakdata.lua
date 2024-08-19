@@ -374,7 +374,7 @@ local stocks = {
 			--stocks.adj_acc_stats
 			adj_acc_stats = {
 				value = 3,
-				recoil = -2,
+				recoil = -1,
 				spread = 1
 			},
 		--Adjustable > Folder +Con -Stab
@@ -4134,7 +4134,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_g18c", "resmod_g18c", function(sel
 		value = 6,
 		extra_ammo = 16,
 		concealment = -2,
-		reload = -4
+		reload = -1
 	}
 	self.parts.wpn_fps_pis_g18c_m_mag_33rnd.bullet_objects = {
 		amount = 1,
@@ -5535,7 +5535,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_saiga", "resmod_saiga", function(s
 		stats = {
 			value = 1, 
 			extra_ammo = 15,
-			reload = -7, 
+			reload = -2, 
 			concealment = -5
 		},
 		custom_stats = {
@@ -17268,7 +17268,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_basset", "resmod_basset", function
 	self.parts.wpn_fps_sho_basset_m_extended.stats = {
 		value = 1, 
 		extra_ammo = 5, 
-		reload = -4, 
+		reload = -1, 
 		concealment = -2
 	}
 
@@ -24366,6 +24366,26 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
+		if self.parts.wpn_fps_upg_mg3_bolt_heavy then
+			self.parts.wpn_fps_upg_mg3_bolt_heavy.supported = true
+			self.parts.wpn_fps_upg_mg3_bolt_heavy.stats = {
+				value = 3,
+				accuracy = 2,
+				recoil = 2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mg3_mag_box then
+			self.parts.wpn_fps_upg_mg3_mag_box.supported = true
+			self.parts.wpn_fps_upg_mg3_mag_box.stats = {
+				value = 1,
+				concealment = -2,
+				reload = -2,
+				extra_ammo = 50
+			}
+		end
+
+
 		if self.parts.wpn_fps_upg_svu_dtk2 then
 			self.parts.wpn_fps_upg_svu_dtk2.supported = true
 			self.parts.wpn_fps_upg_svu_dtk2.stats = {
@@ -31341,8 +31361,8 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_ass_scar_m_extended.stats = {
 					value = 2,
 					extra_ammo = 10,
-					concealment = -1,
-					reload = -3
+					reload = 4,
+					concealment = -2
 				}
 				self.parts.wpn_fps_ass_scar_m_extended.custom_stats = {
 					ads_speed_mult = 1.025
@@ -34596,6 +34616,34 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				}
 		end
 
+		if self.parts.wpn_fps_upg_mk17_m_quick then	
+			self.parts.wpn_fps_upg_mk17_m_quick.supported = true
+			self.parts.wpn_fps_upg_mk17_m_quick.stats = {
+					value = 2,
+					accuracy = -1,
+					reload = 4,
+					concealment = -1
+				}
+		end
+
+		if self.parts.wpn_fps_upg_mk17_s_extended then	
+			self.parts.wpn_fps_upg_mk17_s_extended.supported = true
+			self.parts.wpn_fps_upg_mk17_s_extended.stats = {
+					value = 2,
+					recoil = 3,
+					concealment = -2
+				}
+		end
+
+		if self.parts.wpn_fps_upg_mk17_b_smol then	
+			self.parts.wpn_fps_upg_mk17_b_smol.supported = true
+			self.parts.wpn_fps_upg_mk17_b_smol.stats = {
+					value = 2,
+					accuracy = -2,
+					concealment = 2
+				}
+		end
+
 		if self.parts.wpn_fps_ass_ak556_bigmag then	
 			self.parts.wpn_fps_ass_ak556_bigmag.supported = true
 			self.parts.wpn_fps_ass_ak556_bigmag.stats = {
@@ -36003,7 +36051,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 					total_ammo_mod = 99,
 					spread = 1,
 					recoil = 14,
-					extra_ammo = 60,
+					extra_ammo = 30,
 					reload = -1,
 					concealment = -3
 				}
@@ -36171,6 +36219,18 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		end
 
 	--[[ SILENT ENFORCER'S MODS ]]
+
+
+		if self.parts.wpn_fps_shot_qbs_extended then
+			self.parts.wpn_fps_shot_qbs_extended.supported = true
+			self.parts.wpn_fps_shot_qbs_extended.stats = {
+				value = 1,
+				concealment = -2,
+				recoil = 2
+			}
+		end
+
+
 
 		if self.parts.wpn_fps_lmg_mg34_rec then --Silent Enforcer's MG34
 			self.parts.wpn_fps_lmg_mg34_rec.visibility = nil
@@ -36542,7 +36602,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		self.parts.wpn_fps_upg_m4_m_x15drum.stats = { 
 			value = 3,
 			concealment = -3,
-			reload = -5,
+			reload = -1,
 			extra_ammo = 20
 		}
 		self.wpn_fps_ass_amcar.override.wpn_fps_upg_m4_m_pmag20 = {
@@ -36550,7 +36610,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			stats = {
 				value = 3,
 				concealment = -3,
-				reload = -5,
+				reload = -1,
 				extra_ammo = 30
 			}
 		}				
@@ -36607,6 +36667,61 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				concealment = 2
 			}
 		end
+
+		if self.parts.wpn_fps_shot_serbu_b_loco then
+			self.parts.wpn_fps_shot_serbu_b_loco.supported = true
+			self.parts.wpn_fps_shot_serbu_b_loco.stats = {
+				value = 1,
+				recoil = 2,
+				extra_ammo = 4,
+				concealment = -3
+			}
+		end
+
+		if self.parts.wpn_fps_lmg_par_m_can then
+			self.parts.wpn_fps_lmg_par_m_can.supported = true
+			self.parts.wpn_fps_lmg_par_m_can.stats = {
+				value = 1,
+				reload = -4,
+				extra_ammo = 150,
+				concealment = -5
+			}
+		end
+
+		if self.parts.wpn_fps_lmg_par_s_early then
+			self.parts.wpn_fps_lmg_par_s_early.supported = true
+			self.parts.wpn_fps_lmg_par_s_early.stats = {
+				value = 1,
+				recoil = 2,
+				concealment = -1
+			}
+		end
+
+		if self.parts.wpn_fps_lmg_par_fg_heat then
+			self.parts.wpn_fps_lmg_par_fg_heat.supported = true
+			self.parts.wpn_fps_lmg_par_fg_heat.stats = {
+				value = 1,
+				recoil = 2,
+				concealment = -1
+			}
+		end
+
+		if self.parts.wpn_fps_lmg_mg5_fg_shield then
+			self.parts.wpn_fps_lmg_mg5_fg_shield.supported = true
+			self.parts.wpn_fps_lmg_mg5_fg_shield.stats = {
+				value = 1,
+				recoil = 1
+			}
+		end
+
+		if self.parts.wpn_fps_lmg_mg5_fg_angled then
+			self.parts.wpn_fps_lmg_mg5_fg_angled.supported = true
+			self.parts.wpn_fps_lmg_mg5_fg_angled.stats = {
+				value = 1,
+				spread = 1
+			}
+		end
+
 
 
 	--Rex's Bubba Mosin Parts
@@ -38293,6 +38408,15 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				value = 1,
 				concealment = -4,
 				recoil = 3
+			}
+		end
+
+		if self.parts.wpn_fps_sho_heffy_12g_m_poly_10 then
+			self.parts.wpn_fps_sho_heffy_12g_m_poly_10.supported = true
+			self.parts.wpn_fps_sho_heffy_12g_m_poly_10.stats = {
+				value = 1,
+				concealment = -3,
+				extra_ammo = 5
 			}
 		end
 

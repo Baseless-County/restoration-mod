@@ -1,0 +1,12 @@
+<materials version="3">
+	<material name="mtr_ene_acc_zeal_swat_helmet" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP:RL_COPS" version="2">
+		<bump_normal_texture 	file="units/payday2/characters/ene_veteran_cop_1/body_il"/>
+		<diffuse_texture 		file="units/payday2/characters/ene_veteran_cop_1/mask_il"/>
+	</material>
+
+	<material name="mtr_ene_acc_zeal_swat_helmet_lod1" render_template="generic:DIFFUSE_TEXTURE:NORMALMAP:RL_COPS" version="2">
+		<bump_normal_texture 	file="units/payday2/characters/ene_veteran_cop_1/body_il"/>
+		<diffuse_texture 		file="units/payday2/characters/ene_veteran_cop_1/mask_il"/>
+	</material>
+	
+</materials>
