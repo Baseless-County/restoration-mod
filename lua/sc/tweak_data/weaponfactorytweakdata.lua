@@ -24357,12 +24357,62 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 		--ATTACHMENTS
 
+		if self.parts.wpn_fps_upg_ppk20_mag_dual then
+			self.parts.wpn_fps_upg_ppk20_mag_dual.supported = true
+			self.parts.wpn_fps_upg_ppk20_mag_dual.stats = {
+				value = 1,
+				concealment = -1,
+				reload = 4,
+				spread = -1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mpx_mag_dual then
+			self.parts.wpn_fps_upg_mpx_mag_dual.supported = true
+			self.parts.wpn_fps_upg_mpx_mag_dual.stats = {
+				value = 1,
+				concealment = -1,
+				reload = 4,
+				spread = -1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mpx_mag_dual then
+			self.parts.wpn_fps_upg_mpx_mag_dual.supported = true
+			self.parts.wpn_fps_upg_mpx_mag_dual.stats = {
+				value = 1,
+				concealment = -1,
+				reload = 4,
+				spread = -1
+			}
+		end
+
 		if self.parts.wpn_fps_upg_mg4_stock_removed then
 			self.parts.wpn_fps_upg_mg4_stock_removed.supported = true
 			self.parts.wpn_fps_upg_mg4_stock_removed.stats = {
 				value = 1,
 				concealment = 3,
 				recoil = -2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_xm8_barrel_long then
+			self.parts.wpn_fps_upg_xm8_barrel_long.supported = true
+			self.parts.wpn_fps_upg_xm8_barrel_long.stats = {
+				value = 1,
+				concealment = -2,
+				recoil = 1,
+				spread = 1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_xm8_cmag then
+			self.parts.wpn_fps_upg_xm8_cmag.supported = true
+			self.parts.wpn_fps_upg_xm8_cmag.stats = {
+				value = 1,
+				concealment = -7,
+				extra_ammo = 70,
+				reload = -3
 			}
 		end
 
@@ -24492,7 +24542,6 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_upg_mg4_heatshield.supported = true
 			self.parts.wpn_fps_upg_mg4_heatshield.stats = {
 				value = 1,
-				concealment = -1,
 				recoil = 1
 			}
 		end
@@ -36721,6 +36770,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				spread = 1
 			}
 		end
+
 
 
 
