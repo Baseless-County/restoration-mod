@@ -24419,8 +24419,8 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		if self.parts.wpn_fps_upg_mg3_bolt_heavy then
 			self.parts.wpn_fps_upg_mg3_bolt_heavy.supported = true
 			self.parts.wpn_fps_upg_mg3_bolt_heavy.stats = {
-				value = 3,
-				accuracy = 2,
+				value = 2,
+				spread = 2,
 				recoil = 2
 			}
 		end
@@ -24561,7 +24561,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_upg_lsat_barrel_short.stats = {
 				value = 1,
 				concealment = 2,
-				accuracy = -2
+				spread = -2
 			}
 		end
 
@@ -26464,6 +26464,24 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				}
 				self.parts.wpn_fps_upg_m60e4_stock_e6.custom_stats = nil
 			end
+
+		if self.parts.wpn_fps_upg_m60e4_grip_e6 then
+			self.parts.wpn_fps_upg_m60e4_grip_e6.supported = true
+			self.parts.wpn_fps_upg_m60e4_grip_e6.stats = {
+				value = 1,
+				recoil = 2,
+				concealment = -1
+			}
+		end
+
+		if self.parts.wpn_fps_upg_m60e4_topcover_e6 then
+			self.parts.wpn_fps_upg_m60e4_topcover_e6.supported = true
+			self.parts.wpn_fps_upg_m60e4_topcover_e6.stats = {
+				value = 1,
+				recoil = 2,
+				concealment = -1
+			}
+		end
 
 			if self.parts.wpn_fps_smg_aug9mm_irons then
 				self.parts.wpn_fps_upg_aug9mm_barrel_long.supported = true
@@ -34008,6 +34026,15 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
+		if self.parts.wpn_fps_smg_m4cqb_m_pmag30 then
+			self.parts.wpn_fps_smg_m4cqb_m_pmag30.supported = true
+			self.parts.wpn_fps_smg_m4cqb_m_pmag30.stats = {
+				value = 2,
+				concealment = -1,
+				extra_ammo = 10
+			}
+		end
+
 		if self.parts.wpn_fps_smg_m4cqb_st_troy then
 			self.parts.wpn_fps_smg_m4cqb_st_troy.supported = true
 			self.parts.wpn_fps_smg_m4cqb_st_troy.stats = {
@@ -36771,6 +36798,14 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
+		if self.parts.wpn_fps_lmg_mg5_s_strap then
+			self.parts.wpn_fps_lmg_mg5_s_strap.supported = true
+			self.parts.wpn_fps_lmg_mg5_s_strap.stats = {
+				value = 1,
+				recoil = 1,
+				concealment = -1
+			}
+		end
 
 
 
