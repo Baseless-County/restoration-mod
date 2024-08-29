@@ -36754,6 +36754,16 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
+		if self.parts.wpn_fps_shot_serbu_b_loco then
+			self.parts.wpn_fps_shot_serbu_b_loco.supported = true
+			self.parts.wpn_fps_shot_serbu_b_loco.custom_stats = {
+				value = 1,
+				ads_speed_mult = 1.2,
+				falloff_start_mult = 1.61,
+				falloff_end_mult = 2.0
+			}
+		end
+
 		if self.parts.wpn_fps_lmg_par_m_can then
 			self.parts.wpn_fps_lmg_par_m_can.supported = true
 			self.parts.wpn_fps_lmg_par_m_can.stats = {

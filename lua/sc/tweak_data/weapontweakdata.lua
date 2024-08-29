@@ -9065,12 +9065,12 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.par.damage_falloff = {
 							start_dist = 2200,
 							end_dist = 7000,
-							min_mult = 0.33333
+							min_mult = 0.5
 						}
 						self.par.stats = {
 							damage = 45,
-							spread = 61,
-							recoil = 71,
+							spread = 62,
+							recoil = 75,
 							spread_moving = 5,
 							zoom = 1,
 							concealment = 21,
@@ -12297,7 +12297,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							recoil = 39,
 							spread_moving = 6,
 							zoom = 1,
-							concealment = 27,
+							concealment = 30,
 							suppression = 7,
 							alert_size = 2,
 							extra_ammo = 101,
@@ -15265,7 +15265,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.zweihander.reload_speed_multiplier = 1.3
 			end
 
-			if self.mg4 then
+			if self.mg4 then  --Pawcio's H&K HK123
 					self.mg4.categories = {
 						"lmg",
 						"smg"
@@ -15311,7 +15311,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.mg4.timers.reload_exit_empty = 1.2
 					self.mg4.timers.reload_exit_not_empty = 1.2
 					self.mg4.panic_suppression_chance = 0.05
-					self.mg4.reload_speed_multiplier = 1.0
+					self.mg4.reload_speed_multiplier = 1.15
 			end
 
 			if self.lsat then
@@ -20818,7 +20818,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						recoil = 82,
 						spread_moving = 5,
 						zoom = 1,
-						concealment = 18,
+						concealment = 22,
 						suppression = 8,
 						alert_size = 2,
 						extra_ammo = 101,
@@ -20834,7 +20834,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.negev.spin_down_t = 0.00000001
 					self.negev.timers.equip = 1.2
 					self.negev.panic_suppression_chance = 0.05
-					self.negev.reload_speed_multiplier = 1.0
+					self.negev.reload_speed_multiplier = 1.1
 					self.negev.sms = sms_preset.lmg_48
 					self.negev.weapon_movement_penalty = sms_preset.lmg_48
 			end

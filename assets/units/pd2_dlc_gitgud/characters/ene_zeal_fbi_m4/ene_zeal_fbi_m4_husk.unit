@@ -4,14 +4,14 @@
 	<object file="units/pd2_dlc_gitgud/characters/ene_zeal_fbi_m4/ene_zeal_fbi_m4" />
 
 	<dependencies>
-		<depends_on unit="units/payday2/weapons/wpn_npc_s553/wpn_npc_s553" />
+		<depends_on unit="units/payday2/weapons/wpn_npc_m4/wpn_npc_m4" />
 	</dependencies>
 
 	<extensions>
 		<extension name="unit_data" class="ScriptUnitData" />
 		<extension name="base" class="HuskCopBase" >
 			<var name="_tweak_table" value="fbi" />
-			<var name="_default_weapon_id" value="s553_zeal" />
+			<var name="_default_weapon_id" value="m4" />
 		</extension>
 		<extension name="inventory" class="HuskCopInventory" />
 		<extension name="brain" class="HuskCopBrain" />

@@ -1,24 +1,21 @@
 <?xml version="1.0"?>
 <dynamic_object>
-	<diesel materials="units/pd2_dlc_gitgud/characters/ene_acc_zeal_medic_helmet/ene_acc_zeal_medic_helmet" orientation_object="rp_ene_acc_murkywater_medic_helmet" />
+	<diesel materials="units/pd2_dlc_gitgud/characters/ene_zeal_medic/ene_zeal_medic" orientation_object="rp_ene_acc_swat_heavy_helmet" />
 	
 	<bodies>
-	 <body name="static_body" enabled="true" template="small_prop" pushed_by_mover="false" ang_damping="0.9">
-			<object name="rp_ene_acc_murkywater_medic_helmet" />
-			<object name="c_box" collision_type="convex" mass="1.5" />
+	<body name="static_body" enabled="true" template="small_prop" pushed_by_mover="false" ang_damping="0.9">
+			<object name="rp_ene_acc_swat_heavy_helmet" />
+			<object name="c_sphere_front" 	collision_type="sphere" mass="0.6" />
+			<object name="c_sphere_rear" 	collision_type="sphere" mass="0.6" />
+			<object name="c_box" 			collision_type="box" 	mass="0.3" />
 		</body>
 	</bodies>
 
-	<decal_surfaces default_material="cloth">
+	<decal_surfaces default_material="steel_no_decal">
 	</decal_surfaces>
 
 	<graphics>
-		<graphic_group name="grp_ene_acc_murkywater_medic_helmet" enabled="true" culling_object="c_box">
-				<lod_object name="lod_helmet">
-					<object name="g_helmet_lod1" enabled="true"  max_distance="1000" />
-					<object name="g_helmet_lod2" enabled="true" />
-				</lod_object>
-		</graphic_group>
+		<object name="g_helmet" enabled="true" />
 	</graphics>
 	
 </dynamic_object>

@@ -10,7 +10,7 @@
 		</body>
 		<body name="head" enabled="true" template="character" friction="0.6" collision_class="ragdoll">
 			<object name="Head"/>
-			<object collision_type="sphere" mass="4" padding="-15" name="c_sphere_head_ragdoll"/>
+			<object name="c_sphere_head" collision_type="sphere"/>
 		</body>
 		<body name="mover_blocker" enabled="true" template="mover_blocker" keyframed="true" collision_class="ragdoll">
 			<object name="root_point"/>
@@ -190,27 +190,16 @@
 		</constraint>
 	</constraints>
 
-	<decal_surfaces default_material="flesh" >
-		<decal_mesh name="dm_helmet" enabled="true" material="steel_no_decal" />
-	</decal_surfaces>
+	<decal_surfaces default_material="flesh" />
 
 	<graphics>
 		<graphic_group name="character" enabled="true" culling_object="g_body">
 
-			<lod_object name="g_body_lod">
-				<object name="g_body" enabled="true"  max_distance="2000" />
-				<object name="g_body_lod1" enabled="true" />
+			<lod_object name="lod_body">
+				<object name="g_body" 		enabled="true"  max_distance="3000"  max_draw_lod="0" />
+				<object name="g_body_lod1" 	enabled="true" lod="1" />
 			</lod_object>
 
-			<lod_object name="g_head_lod">
-				<object name="g_head" enabled="true"  max_distance="2000" />
-				<object name="g_head_lod1" enabled="true" />
-			</lod_object>
-
-			<lod_object name="g_helmet_lod">
-				<object name="g_helmet_lod1" enabled="true"  max_distance="2000" />
-				<object name="g_helmet_lod2" enabled="true" />
-			</lod_object>
 			<object name="s_body" enabled="true" shadow_caster="true"/>
 			
 		</graphic_group>
