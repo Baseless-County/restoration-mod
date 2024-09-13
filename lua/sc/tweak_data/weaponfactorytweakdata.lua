@@ -6505,7 +6505,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_mp5", "resmod_mp5", function(self)
 			value = 9,
 			extra_ammo = 40,
 			concealment = -5,
-			reload = -7
+			reload = -2
 		},
 		custom_stats = {
 			ads_speed_mult = 1.15
@@ -13606,7 +13606,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_aa12", "resmod_aa12", function(sel
 	self.parts.wpn_fps_sho_aa12_mag_drum.stats = {
 		value = 1,
 		extra_ammo = 12,
-		reload = -6,
+		reload = -2,
 		concealment = -5
 	}
 
@@ -24330,7 +24330,17 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				spread = -1
 			}
 		end
-	
+		
+		if self.parts.wpn_fps_smg_cobray_m_quick then
+			self.parts.wpn_fps_smg_cobray_m_quick.supported = true
+			self.parts.wpn_fps_smg_cobray_m_quick.stats = {
+				value = 1,
+				reload = 4,
+				concealment = -1,
+				spread = -1
+			}
+		end
+
 		if self.parts.wpn_fps_smg_mp9_m_quick then
 			self.parts.wpn_fps_smg_mp9_m_quick.supported = true
 			self.parts.wpn_fps_smg_mp9_m_quick.stats = {
@@ -24491,7 +24501,25 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
-		if self.parts.wpn_fps_upg_mg4_grip_cord then
+		if self.parts.wpn_fps_upg_cbjms_stock_extended then -- Pawcio's CBJ-MS
+			self.parts.wpn_fps_upg_cbjms_stock_extended.supported = true
+			self.parts.wpn_fps_upg_cbjms_stock_extended.stats = {
+				value = 1,
+				concealment = -1,
+				recoil = 2
+			}
+		end
+
+		if self.parts.wpn_fps_upg_cbjms_drum_mag then
+			self.parts.wpn_fps_upg_cbjms_drum_mag.supported = true
+			self.parts.wpn_fps_upg_cbjms_drum_mag.stats = {
+				extra_ammo = 70,
+				reload = -3,
+				concealment = -7
+			}
+		end
+
+		if self.parts.wpn_fps_upg_mg4_grip_cord then -- Pawcio's HK123
 			self.parts.wpn_fps_upg_mg4_grip_cord.supported = true
 			self.parts.wpn_fps_upg_mg4_grip_cord.stats = {
 				value = 1,
@@ -36759,8 +36787,8 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_shot_serbu_b_loco.custom_stats = {
 				value = 1,
 				ads_speed_mult = 1.2,
-				falloff_start_mult = 1.61,
-				falloff_end_mult = 2.0
+				falloff_start_mult = 1.7,
+				falloff_end_mult = 1.8
 			}
 		end
 
@@ -36792,6 +36820,11 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
+			if self.parts.wpn_fps_lmg_mg5_mag then
+				self.parts.wpn_fps_lmg_mg5_mag.stats = { value = 0 }
+				self.parts.wpn_fps_lmg_mg5_mag.custom_stats = nil
+		end
+
 		if self.parts.wpn_fps_lmg_mg5_fg_shield then
 			self.parts.wpn_fps_lmg_mg5_fg_shield.supported = true
 			self.parts.wpn_fps_lmg_mg5_fg_shield.stats = {
@@ -36813,6 +36846,25 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_lmg_mg5_s_strap.stats = {
 				value = 1,
 				recoil = 1,
+				concealment = -1
+			}
+		end
+
+		if self.parts.wpn_fps_mp_peepee_m_extended then
+			self.parts.wpn_fps_mp_peepee_m_extended.supported = true
+			self.parts.wpn_fps_mp_peepee_m_extended.stats = {
+				value = 1,
+				extra_ammo = 24,
+				concealment = -2,
+				reload = -2
+			}
+		end
+
+		if self.parts.wpn_fps_mp_peepee_s_wire then
+			self.parts.wpn_fps_mp_peepee_s_wire.supported = true
+			self.parts.wpn_fps_mp_peepee_s_wire.stats = {
+				value = 1,
+				recoil = 2,
 				concealment = -1
 			}
 		end

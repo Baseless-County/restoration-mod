@@ -433,8 +433,8 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		6, --BV
 		8, --HBV
 		11, --Flak (2 increments + 1)
-		13, --CTV
-		18 --ICTV (2 increments + 1)
+		18, --CTV
+		48 --ICTV (2 increments + 1)
 	}
 	
 	self.values.player.body_armor.movement = { --*increments of 0.04
@@ -444,7 +444,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.88,
 		0.72, --4 increments
 		0.7, --0.5 increments
-		0.6 --2.5 increments
+		0.3 --2.5 increments
 	}
 	self.values.player.body_armor.dodge = { --*increments of 0.1
 		0.2,
@@ -471,7 +471,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		22,
 		16,	--3 increments
 		8, --4 increments
-		4 --2 increments
+		1 --2 increments
 	}
 	self.values.player.body_armor.damage_shake = { --increments of 0.1
 		1.0,
@@ -480,7 +480,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.7,
 		0.5,
 		0.4,
-		0.2
+		0.1
 	}
 	self.values.player.body_armor.stamina = { --increments of 0.05
 		1,
@@ -489,7 +489,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.85,
 		0.75,
 		0.7,
-		0.6
+		0.3
 	}
 	self.values.player.body_armor.skill_ammo_mul = { --UNUSED, increments of 0.02
 		1,
@@ -508,7 +508,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.15,
 		0.20, --1 increment instead of 2
 		0.15, --subtract 1 increment instead of adding 1
-		0.10 --subtract 1 increment instead of adding 2
+		0.20 --subtract 1 increment instead of adding 2
 	}
 	self.values.player.body_armor.regen_delay = { --increments of 0.25
 		2.25,
@@ -517,7 +517,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		3.00,
 		3.50,
 		3.75,
-		4.25
+		7.00
 	}
 
 	self.values.rep_upgrades.values = {0}
