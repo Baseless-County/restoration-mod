@@ -433,7 +433,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		6, --BV
 		8, --HBV
 		11, --Flak (2 increments + 1)
-		18, --CTV
+		23, --CTV
 		48 --ICTV (2 increments + 1)
 	}
 	
@@ -443,7 +443,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.92,
 		0.88,
 		0.72, --4 increments
-		0.7, --0.5 increments
+		0.6, --0.5 increments
 		0.3 --2.5 increments
 	}
 	self.values.player.body_armor.dodge = { --*increments of 0.1
@@ -470,7 +470,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		24,
 		22,
 		16,	--3 increments
-		8, --4 increments
+		4, --4 increments
 		1 --2 increments
 	}
 	self.values.player.body_armor.damage_shake = { --increments of 0.1
@@ -480,7 +480,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.7,
 		0.5,
 		0.4,
-		0.1
+		0.2
 	}
 	self.values.player.body_armor.stamina = { --increments of 0.05
 		1,
@@ -488,7 +488,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.9,
 		0.85,
 		0.75,
-		0.7,
+		0.6,
 		0.3
 	}
 	self.values.player.body_armor.skill_ammo_mul = { --UNUSED, increments of 0.02
@@ -508,7 +508,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.15,
 		0.20, --1 increment instead of 2
 		0.15, --subtract 1 increment instead of adding 1
-		0.20 --subtract 1 increment instead of adding 2
+		0.40 --subtract 1 increment instead of adding 2
 	}
 	self.values.player.body_armor.regen_delay = { --increments of 0.25
 		2.25,
@@ -516,7 +516,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		2.75,
 		3.00,
 		3.50,
-		3.75,
+		4.25,
 		7.00
 	}
 
@@ -673,8 +673,8 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 
 			--Uppers
 				self.values.first_aid_kit.quantity = {
-					3, --Basic
-					6 --Ace
+					6, --Basic
+					9 --Ace
 				}
 				--Ace
 					self.values.first_aid_kit.uppers_cooldown = 60
@@ -1438,7 +1438,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 				self.skill_descs.ecm_2x = {
 					skill_value_b1 = tostring(self.values.player.marked_inc_dmg_distance[1][2] % 1 * 100).."%", -- +damage if player position > distance
 					skill_value_b2 = tostring(self.values.player.marked_inc_dmg_distance[1][1]/100), -- distance to get +damage
-					skill_value_p1 = tostring(self.values.player.marked_enemy_damage_mul) -- extra damage on all marked enemies
+					skill_value_p1 = tostring((self.values.player.marked_enemy_damage_mul - 1) * 100).."%" -- extra damage on all marked enemies
 				}
 
 			
@@ -1555,7 +1555,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 						skill_value_b1 = tostring((1 - self.values.player.knockback_resistance [1]) * 100).."%", -- knockback resistance
 						skill_value_b2 = tostring(self.values.player.taser_malfunction[1].chance_to_trigger * 100).."%", -- taser malfunction trigger chance
 						skill_value_p1 = tostring(self.values.player.escape_taser[1]), -- escape time
-						skill_value_p2 = tostring(self.counter_taser_damage) -- Damage to taser when counter tase happen
+						skill_value_p2 = tostring(self.counter_taser_damage * 100).."%" -- Damage to taser when counter tase happen
 					}
 
 			--Sneaky Bastard
