@@ -19156,6 +19156,48 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.stango44.timers.reload_exit_empty = 0.7
 			end
 
+			if self.stango44 then --"STG-44" (FUCK YOU SLEDGEHAMMER)
+				self.stango44.categories = { "assault_rifle" }
+				self.stango44.recategorize = { "heavy_ar" }
+				self.stango44.damage_type = "assault_rifle"
+				self.stango44.tactical_reload = 1
+				self.stango44.fire_mode_data.fire_rate = 0.1
+				self.stango44.CLIP_AMMO_MAX = 20
+				self.stango44.AMMO_MAX = 120
+				self.stango44.CAN_TOGGLE_FIREMODE = true
+				self.stango44.FIRE_MODE = "auto"
+				self.stango44.kick = {}
+				self.stango44.kick = self.stat_info.kick_tables.right_kick
+				self.stango44.supported = true
+				self.stango44.ads_speed = 0.260
+				self.stango44.damage_falloff = {
+					start_dist = 3600,
+					end_dist = 5300,
+					min_mult = 0.3
+				}	
+				self.stango44.stats = {
+					damage = 30,
+					spread = 81,
+					recoil = 79,
+					spread_moving = 5,
+					zoom = 1,
+					concealment = 25,
+					suppression = 10,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 200,
+					value = 9,
+					reload = 20
+				}
+				self.stango44.stats_modifiers = nil
+				self.stango44.panic_suppression_chance = 0.05
+				self.stango44.reload_speed_multiplier = 0.9
+				self.stango44.timers.reload_not_empty = 1.44
+				self.stango44.timers.reload_exit_not_empty = 0.6
+				self.stango44.timers.reload_empty = 2.4
+				self.stango44.timers.reload_exit_empty = 0.7
+			end
+
 			if self.acr_2012 then --ACR
 				self.acr_2012.categories = { "assault_rifle" }
 				self.acr_2012.recategorize = { "light_ar" }
