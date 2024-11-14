@@ -1555,15 +1555,14 @@ local grips = {
 				supported = true,
 				stats = {
 					value = 10,
-					spread = 30,
-					total_ammo_mod = -102,
+					spread = 70,
 					damage = 0
 				},
 				custom_stats = {
 					ads_speed_mult = 1.0,
 					hip_mult = 3,
 					ammo_pickup_max_mul = 1.00,
-					ammo_pickup_min_mul = 0.55,
+					ammo_pickup_min_mul = 0.95,
 					ignore_statistic = true,
 					block_b_storm = true,
 					rays = 1,

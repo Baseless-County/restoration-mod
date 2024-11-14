@@ -11394,7 +11394,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						min_mult = 0.5
 					}
 					self.m95.stats = {
-						damage = 180,
+						damage = 200,
 						spread = 96,
 						recoil = 11,
 						spread_moving = 8,
@@ -16413,7 +16413,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.g36k.BURST_FIRE = 3
 				self.g36k.ADAPTIVE_BURST_SIZE = false
 				self.g36k.fire_mode_data.fire_rate = 0.08
-				self.g36k.AMMO_MAX = 240
+				self.g36k.AMMO_MAX = 210
 				self.g36k.CLIP_AMMO_MAX = 30
 				self.g36k.kick = self.stat_info.kick_tables.even_recoil
 				self.g36k.supported = true
@@ -18162,7 +18162,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						reload = 20
 					}
 					self.hkg14976.stats_modifiers = nil
-					self.hkg14976.reload_speed_multiplier = 0.90
+					self.hkg14976.reload_speed_multiplier = 0.8
 					self.hkg14976.panic_suppression_chance = 0.05
 			end
 
@@ -20039,7 +20039,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mike4_2022.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 				self.mike4_2022.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
 				self.mike4_2022.tactical_reload = 1
-				self.mike4_2022.AMMO_MAX = 150
+				self.mike4_2022.AMMO_MAX = 210
 				self.mike4_2022.fire_mode_data.fire_rate = 0.074074
 				self.mike4_2022.kick = self.stat_info.kick_tables.left_kick
 				self.mike4_2022.supported = true
@@ -20735,11 +20735,12 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.pd3_lynx.recategorize = { "antim_snp" }
 				self.pd3_lynx.hs_mult = 2
+				self.pd3_lynx.use_data.selection_index = 1
 				self.pd3_lynx.damage_type = "anti_materiel"
 				self.pd3_lynx.is_bullpup = true
 				self.pd3_lynx.upgrade_blocks = nil
 				self.pd3_lynx.CLIP_AMMO_MAX = 5
-				self.pd3_lynx.AMMO_MAX = 18
+				self.pd3_lynx.AMMO_MAX = 15
 				self.pd3_lynx.tactical_reload = 1
 				self.pd3_lynx.muzzleflash = "effects/payday2/particles/weapons/50cal_auto_fps"
 				self.pd3_lynx.fire_mode_data.fire_rate = 0.545454
@@ -20753,7 +20754,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					min_mult = 0.5
 				}
 				self.pd3_lynx.stats = {
-					damage = 120,
+					damage = 200,
 					spread = 93,
 					recoil = 7,
 					spread_moving = 8,
