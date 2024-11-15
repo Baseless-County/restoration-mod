@@ -14463,8 +14463,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.pecheneg.nato = true
 				self.pecheneg.lock_slide = true
 				self.pecheneg.sounds.magazine_empty = "wp_rifle_slide_lock"
-				self.pecheneg.sms = sms_preset.lmg_90
-				self.pecheneg.weapon_movement_penalty = sms_preset.lmg_90
+				self.pecheneg.sms = sms_preset.lmg_48
+				self.pecheneg.weapon_movement_penalty = sms_preset.lmg_48
 				self.pecheneg.fire_mode_data.fire_rate = 0.1
 				self.pecheneg.CAN_TOGGLE_FIREMODE = false
 				self.pecheneg.CLIP_AMMO_MAX = 150
@@ -14481,11 +14481,11 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.pecheneg.stats = {
 					damage = 45,
-					spread = 65,
-					recoil = 75,
+					spread = 66,
+					recoil = 76,
 					spread_moving = 5,
 					zoom = 1,
-					concealment = 18,
+					concealment = 19,
 					suppression = 5,
 					alert_size = 2,
 					extra_ammo = 101,
@@ -14505,7 +14505,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			if self.mk18s then
 						self.mk18s.use_data.selection_index = 1
 						self.mk18s.has_description = false				
-						self.mk18s.fire_mode_data.fire_rate = 0.085714285
+						self.mk18s.fire_mode_data.fire_rate = 0.0740740740740741
 						self.mk18s.AMMO_MAX = 150	
 						self.mk18s.tactical_reload = 1							
 						self.mk18s.kick = self.stat_info.kick_tables.moderate_kick
