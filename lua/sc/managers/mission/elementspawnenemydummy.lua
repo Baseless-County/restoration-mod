@@ -1511,7 +1511,7 @@ ElementSpawnEnemyDummy.faction_mapping = {
 				"units/pd2_dlc_bex/characters/ene_medic_mp5/ene_medic_mp5",
 				"units/pd2_dlc_bex/characters/ene_medic_mp5/ene_medic_mp5",
 				"units/pd2_dlc_bex/characters/ene_medic_mp5/ene_medic_mp5",
-				"units/pd2_mod_reapers/characters/ene_subject_enforcer/ene_subject_enforcer"
+				"units/pd2_mod_reapers/characters/ene_akan_lpf/ene_akan_lpf"
 			},
 			taser = {
 				"units/pd2_dlc_bex/characters/ene_tazer_1/ene_tazer_1",

@@ -21212,11 +21212,65 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		
 		--[[     HYLIE'S MODS     ]]--
 
+			if self.bp12 then
+				self.bp12.recategorize = { "light_shot" }
+				self.bp12.categories = { "shotgun" }
+				self.bp12.damage_type = "shotgun"
+				self.bp12.damage_type_single_ray = "sniper"
+				self.bp12.burst = nil
+				self.bp12.fire_mode_data.burst_cooldown = nil
+				self.bp12.BURST_COUNT = nil
+				self.bp12.BURST_FIRE_DEFAULT = true
+				self.bp12.BURST_ONLY = true
+				self.bp12.LOCK_BURST = true
+				self.bp12.BURST_FIRE = 3
+				self.bp12.BURST_DELAY = 0.5
+				self.bp12.BURST_FIRE_RECOIL_MULTIPLIER = 0.75
+				self.bp12.BURST_FIRE_LAST_RECOIL_MULTIPLIER = 1.05
+				self.bp12.tactical_reload = 1
+				self.bp12.CLIP_AMMO_MAX = 12
+				self.bp12.fire_mode_data.fire_rate = 0.13333
+				self.bp12.AMMO_MAX = 60
+				self.bp12.kick = self.stat_info.kick_tables.vertical_kick
+				self.bp12.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps" --"effects/particles/shotgun/shotgun_gen"
+				self.bp12.FIRE_MODE = "single"				
+				self.bp12.rays = 9
+				self.bp12.supported = true
+				self.bp12.ads_speed = 0.340
+				self.bp12.damage_falloff = {
+					start_dist = 400,
+					end_dist = 2600,
+					min_mult = 0.15
+				}
+				self.bp12.stats = {
+					damage = 120,
+					spread = 25,
+					recoil = 37,
+					spread_moving = 7,
+					zoom = 1,
+					concealment = 22,
+					suppression = 8,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 200,
+					value = 1,
+					reload = 20
+				}
+				self.bp12.stats_modifiers = nil
+				self.bp12.panic_suppression_chance = 0.05
+				self.bp12.lock_slide = true
+				self.bp12.sounds.magazine_empty = "wp_rifle_slide_lock"
+				self.bp12.timers.reload_empty = 2.65
+				self.bp12.timers.reload_exit_empty = 0.6
+				self.bp12.timers.reload_exit_not_empty = 0.7
+			end
+
 			if self.or12 then
 				self.or12.recategorize = { "light_shot" }
 				self.or12.categories = { "shotgun" }
 				self.or12.damage_type = "shotgun"
 				self.or12.damage_type_single_ray = "sniper"
+				self.or12.tactical_reload = 1
 				self.or12.CLIP_AMMO_MAX = 30
 				self.or12.BURST_FIRE = false
 				self.or12.fire_mode_data.fire_rate = 0.15
@@ -21254,7 +21308,6 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.or12.spin_up_shoot = nil
 				self.or12.spin_up_t = nil
 				self.or12.spin_down_t = nil
-				self.or12.sounds.magazine_empty = "wp_rifle_slide_lock"
 				self.or12.panic_suppression_chance = 0.05
 				self.or12.reload_speed_multiplier = 0.8
 				self.or12.timers.reload_not_empty = 2.8
