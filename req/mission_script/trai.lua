@@ -3,10 +3,20 @@ local bravo_guard_table = {
 	"units/pd2_mod_bravo/characters/ene_bravo_guard_2/ene_bravo_guard_2",
 	"units/pd2_mod_bravo/characters/ene_bravo_guard_1/ene_bravo_guard_1",
 	"units/pd2_mod_bravo/characters/ene_bravo_guard_2/ene_bravo_guard_2",
+	"units/pd2_mod_bravo/characters/ene_bravo_guard_1/ene_bravo_guard_1",
+	"units/pd2_mod_bravo/characters/ene_bravo_guard_2/ene_bravo_guard_2",
 	"units/pd2_mod_bravo/characters/ene_bravo_guard_3/ene_bravo_guard_3"
 }
+local bravo_snipers = {
+	"units/pd2_mod_nypd/characters/ene_sniper_1/ene_sniper_1",
+	"units/pd2_mod_nypd/characters/ene_sniper_1/ene_sniper_1",
+	"units/pd2_mod_bravo/characters/ene_bravo_dmr_scripted/ene_bravo_dmr_scripted"
+}
+local difficulty = tweak_data:difficulty_to_index(Global.game_settings and Global.game_settings.difficulty or "normal")
+local sniper = (difficulty == 4 and bravo_snipers or difficulty >= 5 and "units/pd2_mod_bravo/characters/ene_bravo_dmr_scripted/ene_bravo_dmr_scripted")
 local sniper_trigger_times = {
 	values = {
+			enemy = sniper,
             trigger_times = 0
 		}
 }
@@ -45,6 +55,7 @@ return {
 		}
 	},
 	--Fixed snipers being able to spawn only once
+	--also adds bravo snipers replacing regulars on ovk+
 	[100368] = sniper_trigger_times,
 	[100369] = sniper_trigger_times,
 	[100370] = sniper_trigger_times,

@@ -2556,6 +2556,25 @@ if level_id == "moon" then
 		"units/payday2/characters/ene_security_4/ene_security_4"
 	}		
 end
+--Marshal Sharpshooters replacing OMNIA Titan Snipers on Texas heists
+if level_id == "dinner" or level_id == "ranc" then
+	ElementSpawnEnemyDummy.faction_mapping.nypd.sm_wish.sniper = {
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_2/ene_male_marshal_marksman_2"
+	}
+	ElementSpawnEnemyDummy.faction_mapping.lapd.sm_wish.sniper = {
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
+		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_2/ene_male_marshal_marksman_2"
+	}
+end	
 
 ElementSpawnEnemyDummy.faction_mapping.america.normal = ElementSpawnEnemyDummy.faction_mapping.america.overkill
 ElementSpawnEnemyDummy.faction_mapping.america.hard = ElementSpawnEnemyDummy.faction_mapping.america.overkill
