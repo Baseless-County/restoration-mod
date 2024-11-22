@@ -2564,7 +2564,7 @@ if level_id == "dinner" or level_id == "ranc" then
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
-		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_2/ene_male_marshal_marksman_2"
+		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_scripted_2/ene_male_marshal_marksman_scripted_2"
 	}
 	ElementSpawnEnemyDummy.faction_mapping.lapd.sm_wish.sniper = {
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
@@ -2572,7 +2572,7 @@ if level_id == "dinner" or level_id == "ranc" then
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
-		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_2/ene_male_marshal_marksman_2"
+		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_scripted_2/ene_male_marshal_marksman_scripted_2"
 	}
 end	
 

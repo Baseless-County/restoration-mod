@@ -1770,7 +1770,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_melee_watson_info"] = "\"잠깐 아플 뿐이야, 알겠지?\"\n\n#{stats_positive}#120##의 독 피해를 가하고 #{skill_color}#4##초 동안 #{skill_color}#0.5##초마다 #{skill_color}#50%##의 확률로 행동을 방해할 수 있는 알 수 없는 혼합물이 들어 있습니다.", 
 
 		--That oinky sploinky
-		["bm_melee_piggy_hammer_info"] = "꿀꿀이.\n\n특수 및 엘리트 적에게 #{skill_color}#100%##만큼 더 많은 피해를 가하고, 성공적으로 적중 시 일정 확률로 아래의 #{risk}#무작위 효과## 중 하나를 가합니다.\n-#{skill_color}#12%## 확률로 #{important_1}#출혈##\n-#{skill_color}#7%## 확률로 #{ghost_color}#감전##\n-#{skill_color}#5%## 확률로 #{stats_positive}#독##\n-#{skill_color}#1%## 확률로 #{risk}#즉사##", --Piggu
+		["bm_melee_piggy_hammer_info"] = "꿀꿀이.\n\n특수 및 엘리트 적에게 #{skill_color}#100%##만큼 더 많은 피해를 가하고, 성공적으로 적중 시 일정 확률로 다음 #{risk}#무작위 효과## 중 하나를 가합니다.\n-#{skill_color}#12%## 확률로 #{important_1}#출혈##\n-#{skill_color}#7%## 확률로 #{ghost_color}#감전##\n-#{skill_color}#5%## 확률로 #{stats_positive}#독##\n-#{skill_color}#1%## 확률로 #{risk}#즉사##", --Piggu
 
 		--Knuckle Daggers, Push Daggers
 		["bm_melee_specialist_info"] = "나이프가 두 배면 재미도 두 배.\n\n근접 공격은 첫 번째 공격 이후부터 매 공격마다 #{skill_color}#2배##의 피해를 가합니다.", 
@@ -2773,7 +2773,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					--MW2023 STG-44 (FUCK YOU, SLEDGEHAMMER)
 					["bm_w_stango44"] = "\"STG-44\"",
 					["bm_wp_wpn_fps_ass_stango44_magazine_40"] = "30발 탄창",					
-			
+					--HD2 AR-23
+					["bm_w_ar23_penetrator"] = "AR-23P Liberator Penetrator",
+					["bm_wp_ck_penetrator_desc"] = "방탄복을 관통하도록 설계된 AR-23의 변형 중 하나입니다.",
+					["bm_w_ar23_concussive"] = "AR-23C Liberator Concussive",
+					["bm_wp_ck_concussive_desc"] = "#{skill_color}#충격탄##과 개조된 레드 닷 조준경이 장착된 AR-23의 변형 중 하나입니다.\n\n#{skill_color}#충격탄은 최대 20m 떨어진 적을 넘어뜨립니다.##\n\n#{risk}#넘어뜨림의 사거리는 수정할 수 없으며 점사 사격 모드가 제거됩니다.##",
+					
 			--[[ DMRs ]]
 				--Little Friend
 				["bm_m203_weapon_sc_desc_pc"] = "스카페이스의 개인용 \"Little Friend\"이자 AMR-16의 큰 언니.\n\n#{skill_color}#방탄복을 관통하여 피해의 25%를 가합니다.##\n#{skill_color}#$BTN_BIPOD## 키를 눌러 하부에 장착된 유탄 발사기로 전환합니다.",
