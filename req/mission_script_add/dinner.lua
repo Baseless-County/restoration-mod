@@ -13,7 +13,9 @@ local difficulty = tweak_data:difficulty_to_index(Global.game_settings and Globa
 local pro_job = Global.game_settings and Global.game_settings.one_down
 local enabled_chance_snipers = math.random() < 0.45
 local diff_scaling = 0.085 * difficulty
-local murkyman = murkywater_table
+local murkyman_1 = "units/pd2_mod_sharks/characters/ene_fbi_swat_1/ene_fbi_swat_1"
+local murkyman_2 = "units/pd2_mod_sharks/characters/ene_fbi_swat_2/ene_fbi_swat_2"
+local murkyman_3 = "units/pd2_mod_sharks/characters/ene_fbi_swat_3/ene_fbi_swat_3"
 local shield = ((difficulty >= 6 and pro_job) and "units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault" or difficulty == 8 and "units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc" or difficulty == 7 and "units/pd2_mod_nypd/characters/ene_shield_gensec/ene_shield_gensec" or difficulty == 6 and "units/pd2_mod_nypd/characters/ene_shield_1/ene_shield_1") or "units/pd2_mod_nypd/characters/ene_nypd_shield/ene_nypd_shield"
 local sniper = (difficulty == 8 and "units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper" or difficulty == 7 and "units/pd2_mod_nypd/characters/ene_sniper_3/ene_sniper_3" or difficulty == 6 and "units/payday2/characters/ene_sniper_2_sc/ene_sniper_2_sc") or "units/pd2_mod_nypd/characters/ene_sniper_1/ene_sniper_1"
 local tank = (difficulty == 8 and "units/pd2_dlc_gitgud/characters/ene_bulldozer_minigun/ene_bulldozer_minigun") or "units/pd2_mod_nypd/characters/ene_bulldozer_1/ene_bulldozer_1"
@@ -176,8 +178,18 @@ local optsSniper_3 = {
     },
     enabled = (overkill_above and enabled_chance_snipers)
 }
-local optsMurky = {
-    enemy = murkyman,
+local optsMurky_Rifle = {
+    enemy = murkyman_1,
+	participate_to_group_ai = true,
+    enabled = true
+}
+local optsMurky_Shotgun = {
+    enemy = murkyman_2,
+	participate_to_group_ai = true,
+    enabled = true
+}
+local optsMurky_SMG = {
+    enemy = murkyman_3,
 	participate_to_group_ai = true,
     enabled = true
 }
@@ -488,84 +500,84 @@ return {
             "murky_1",
             Vector3(-8611, 3648, -72),
             Rotation(-90, 0, -0),
-            optsMurky
+            optsMurky_Rifle
         ),
 		restoration:gen_dummy(
             400029,
             "murky_2",
             Vector3(-8611, 3750, -72),
             Rotation(-90, 0, -0),
-            optsMurky
+            optsMurky_Shotgun
         ),
 		restoration:gen_dummy(
             400030,
             "murky_3",
             Vector3(-8525, 3669, -72),
             Rotation(-90, 0, -0),
-            optsMurky
+            optsMurky_SMG
         ),
 		restoration:gen_dummy(
             400031,
             "murky_4",
             Vector3(-8525, 3750, -72),
             Rotation(-90, 0, -0),
-            optsMurky
+            optsMurky_SMG
         ),
 		restoration:gen_dummy(
             400032,
             "murky_5",
             Vector3(-7567, 7768, 898.834),
             Rotation(0, 0, -0),
-            optsMurky
+            optsMurky_Shotgun
         ),
 		restoration:gen_dummy(
             400033,
             "murky_6",
             Vector3(-7653, 7768, 898.834),
             Rotation(0, 0, -0),
-            optsMurky
+            optsMurky_Shotgun
         ),
 		restoration:gen_dummy(
             400034,
             "murky_7",
             Vector3(-7653, 7838, 898.834),
             Rotation(0, 0, -0),
-            optsMurky
+            optsMurky_Rifle
         ),
 		restoration:gen_dummy(
             400035,
             "murky_8",
             Vector3(-7567, 7838, 898.834),
             Rotation(0, 0, -0),
-            optsMurky
+            optsMurky_Rifle
         ),
 		restoration:gen_dummy(
             400036,
             "murky_9",
             Vector3(-6933, 9746, 9.261),
             Rotation(90, -0, -0),
-            optsMurky
+            optsMurky_SMG
         ),
 		restoration:gen_dummy(
             400037,
             "murky_10",
             Vector3(-6933, 9666, 9.261),
             Rotation(90, -0, -0),
-            optsMurky
+            optsMurky_SMG
         ),
 		restoration:gen_dummy(
             400038,
             "murky_11",
             Vector3(-7011, 9744, 9.261),
             Rotation(90, -0, -0),
-            optsMurky
+            optsMurky_Rifle
         ),
 		restoration:gen_dummy(
             400039,
             "murky_12",
             Vector3(-7011, 9668, 9.261),
             Rotation(90, -0, -0),
-            optsMurky
+            optsMurky_Rifle
         ),
 		restoration:gen_dummytrigger(
             400040,
@@ -674,28 +686,28 @@ return {
             "murky_13",
             Vector3(-11422.900, 5427.540, 282.287),
             Rotation(-30, 0, -0),
-            optsMurky
+            optsMurky_Shotgun
         ),
 		restoration:gen_dummy(
             400059,
             "murky_14",
             Vector3(-11450.400, 5379.910, 282.287),
             Rotation(-30, 0, -0),
-            optsMurky
+            optsMurky_Shotgun
         ),
 		restoration:gen_dummy(
             400060,
             "murky_15",
             Vector3(-11472.900, 5340.940, 282.287),
             Rotation(-30, 0, -0),
-            optsMurky
+            optsMurky_SMG
         ),
 		restoration:gen_dummy(
             400061,
             "murky_16",
             Vector3(-11496.900, 5299.370, 282.287),
             Rotation(-30, 0, -0),
-            optsMurky
+            optsMurky_SMG
         ),
 		restoration:gen_dummytrigger(
             400062,
