@@ -6054,9 +6054,9 @@ Hooks:PostHook(BlackMarketTweakData, "init", "CustomMelee", function(self, tweak
 	end
 
 	self.melee_weapons.halloween_sword.attack_pattern = "bm_melee_pattern_great_no_stab"
-	self.melee_weapons.great.stats.raycasts = 16
-	self.melee_weapons.great.stats.raycasts_h = 30
-	self.melee_weapons.great.stats.raycasts_charge = nil
+	self.melee_weapons.halloween_sword.stats.raycasts = 16
+	self.melee_weapons.halloween_sword.stats.raycasts_h = 30
+	self.melee_weapons.halloween_sword.stats.raycasts_charge = nil
 	self.melee_weapons.halloween_sword.anim_attack_charged_vars = nil
 	self.melee_weapons.halloween_sword.stats.min_damage_effect = 4.5
 	self.melee_weapons.halloween_sword.stats.max_damage_effect = 9.0

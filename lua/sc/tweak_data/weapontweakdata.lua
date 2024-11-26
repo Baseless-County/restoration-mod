@@ -20030,6 +20030,50 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.malima.panic_suppression_chance = 0.05
 			end
 
+			if self.rmary2 then --RJC9000's B06 Goblin Mk2
+				self.rmary2.categories = { 
+					"assault_rifle",
+					"dmr_l"
+				}
+				self.rmary2.recategorize = { "dmr_ar" }
+				self.rmary2.damage_type = "assault_rifle"
+				self.rmary2.is_bullpup = true
+				self.rmary2.upgrade_blocks = nil
+				self.rmary2.CLIP_AMMO_MAX = 20
+				self.rmary2.AMMO_MAX = 90
+				self.rmary2.fire_mode_data.fire_rate = 0.10169491
+				self.rmary2.FIRE_MODE = "single"		
+				self.rmary2.CAN_TOGGLE_FIREMODE = true
+				self.rmary2.BURST_FIRE = false
+				self.rmary2.kick = deep_clone(self.stat_info.kick_tables.vertical_kick)
+				self.rmary2.descope_on_dmg = true
+				self.rmary2.supported = true
+				self.rmary2.ads_speed = 0.300
+				self.rmary2.damage_falloff = {
+					start_dist = 900,
+					end_dist = 7000,
+					min_mult = 0.53333
+				}
+				self.rmary2.stats = {
+					damage = 45,
+					spread = 91,
+					recoil = 81,
+					spread_moving = 8,
+					zoom = 1,
+					concealment = 23,
+					suppression = 4,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 400,
+					value = 9,
+					reload = 20
+				}
+				self.rmary2.armor_piercing_chance = 0.25
+				self.rmary2.stats_modifiers = nil
+				self.rmary2.panic_suppression_chance = 0.05
+				self.rmary2.sounds.magazine_empty = "wp_rifle_slide_lock"
+			end
+
 			--MW2022 M4
 			if self.mike4_2022 then
 				self.mike4_2022.nato = true

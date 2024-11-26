@@ -125,7 +125,7 @@ ElementSpawnEnemyDummy.faction_mapping = {
 			},
 			security_3 = {
 				"units/pd2_dlc1/characters/ene_security_gensec_3/ene_security_gensec_3"
-			},	
+			},
 			swat_1 = {
 				"units/payday2/characters/ene_city_swat_1_sc/ene_city_swat_1_sc",
 				"units/payday2/characters/ene_city_swat_3_sc/ene_city_swat_3_sc"
@@ -462,7 +462,7 @@ ElementSpawnEnemyDummy.faction_mapping = {
 			cop_4 = "units/pd2_mod_reapers/characters/ene_cop_4/ene_cop_4",
 			fbi_1 = "units/pd2_mod_reapers/characters/ene_fbi_1/ene_fbi_1",
 			fbi_2 = "units/pd2_mod_reapers/characters/ene_fbi_2/ene_fbi_2",
-			fbi_3 = "units/pd2_mod_reapers/characters/ene_fbi_3/ene_fbi_3",	
+			fbi_3 = "units/pd2_mod_reapers/characters/ene_fbi_3/ene_fbi_3",
 			swat_1 = {
 				"units/pd2_mod_reapers/characters/ene_city_swat_1/ene_city_swat_1",
 				"units/pd2_mod_reapers/characters/ene_city_swat_3/ene_city_swat_3"
@@ -1925,7 +1925,7 @@ ElementSpawnEnemyDummy.faction_mapping = {
 			tsniper = "units/pd2_dlc_vip/characters/ene_titan_sniper/ene_titan_sniper"
 		}
 	},
-	--LAPD 
+	--LAPD
 	lapd = {
 		--LAPD SWAT
 		overkill = {
@@ -2267,7 +2267,7 @@ ElementSpawnEnemyDummy.faction_mapping = {
 			grenadier = "units/pd2_dlc_gitgud/characters/ene_grenadier_1/ene_grenadier_1",
 			tsniper = "units/pd2_dlc_vip/characters/ene_titan_sniper/ene_titan_sniper"
 		}
-	},	
+	},
 	--FBI
 	fbi = {
 		--SWAT
@@ -2549,12 +2549,12 @@ if level_id == "moon" then
 		"units/payday2/characters/ene_security_1/ene_security_1",
 		"units/payday2/characters/ene_security_3/ene_security_3",
 		"units/payday2/characters/ene_security_4/ene_security_4"
-	}	
+	}
 	ElementSpawnEnemyDummy.faction_mapping.america.easy_wish.security_1 = {
 		"units/payday2/characters/ene_security_1/ene_security_1",
 		"units/payday2/characters/ene_security_3/ene_security_3",
 		"units/payday2/characters/ene_security_4/ene_security_4"
-	}		
+	}
 end
 --Marshal Sharpshooters replacing OMNIA Titan Snipers on Texas heists
 if level_id == "dinner" or level_id == "ranc" then
@@ -2574,7 +2574,7 @@ if level_id == "dinner" or level_id == "ranc" then
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_scripted_2/ene_male_marshal_marksman_scripted_2"
 	}
-end	
+end
 
 ElementSpawnEnemyDummy.faction_mapping.america.normal = ElementSpawnEnemyDummy.faction_mapping.america.overkill
 ElementSpawnEnemyDummy.faction_mapping.america.hard = ElementSpawnEnemyDummy.faction_mapping.america.overkill
@@ -2823,7 +2823,7 @@ ElementSpawnEnemyDummy.enemy_mapping = {
 	[Idstring("units/pd2_dlc_mad/characters/ene_rus_shield_c45/ene_rus_shield_c45"):key()] = "fsb_shield",
 	[Idstring("units/pd2_dlc_mad/characters/ene_rus_shield_sr2/ene_rus_shield_sr2"):key()] = "fsb_shield",
 	[Idstring("units/pd2_dlc_mad/characters/ene_rus_shield_sr2_city/ene_rus_shield_sr2_city"):key()] = "fsb_shield"
-	
+
 }
 
 local difficulty
@@ -2833,18 +2833,40 @@ else
 	difficulty = Global.game_settings and Global.game_settings.difficulty or "normal"
 end
 
-local mission_script_elements = restoration:mission_script_patches()
 Hooks:PostHook(ElementSpawnEnemyDummy, "init", "sh_init", function (self)
-        local element_mapping = mission_script_elements and mission_script_elements[self._id]
-        self._enemy_mapping = element_mapping and element_mapping.enemy
-		
-	local ai_type = tweak_data.levels:get_ai_group_type()
-	local mapped_name = self.enemy_mapping[self._enemy_name:key()]
-	local mapped_unit = self.faction_mapping[ai_type] and self.faction_mapping[ai_type][difficulty] and self.faction_mapping[ai_type][difficulty][mapped_name]
+	local enemy_mapping = self.enemy_mapping
+	local faction_mapping = self.faction_mapping[tweak_data.levels:get_ai_group_type()]
+	faction_mapping = faction_mapping and faction_mapping[difficulty]
+
+	local mapped_name = enemy_mapping[self._enemy_name:key()]
+	local mapped_unit = faction_mapping and faction_mapping[mapped_name]
 	if type(mapped_unit) == "table" then
 		self._enemy_table = mapped_unit
 	elseif mapped_unit then
 		self._enemy_name = Idstring(mapped_unit)
+	end
+
+	-- possible enemy tables for gen_dummy
+	if self._values.enemy_table then
+		if faction_mapping then
+			self._enemy_table = {}
+
+			for _, name in pairs(self._values.enemy_table) do
+				local mapped = faction_mapping[enemy_mapping[name:key()]] or nil
+
+				if type(mapped) == "table" then
+					table.list_append(self._enemy_table, mapped)
+				elseif mapped then
+					table.insert(self._enemy_table, mapped)
+				end
+			end
+
+			if not next(self._enemy_table) then
+				self._enemy_table = nil
+			end
+		end
+
+		self._values.enemy_table = nil
 	end
 end)
 
