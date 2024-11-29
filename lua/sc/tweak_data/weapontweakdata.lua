@@ -9766,7 +9766,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							"assault_rifle"
 						}
 						self.komodo.CLIP_AMMO_MAX = 30
-						self.komodo.AMMO_MAX = 75
+						self.komodo.AMMO_MAX = 150
 						self.komodo.fire_mode_data.fire_rate = 0.08
 						self.komodo.panic_suppression_chance = 0.05
 						self.komodo.kick = self.stat_info.kick_tables.moderate_kick	
@@ -9780,7 +9780,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.komodo.stats = {
 							damage = 24,
 							spread = 81,
-							recoil = 75,
+							recoil = 79,
 							spread_moving = 8,
 							zoom = 1,
 							concealment = 27,
@@ -11858,7 +11858,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.benelli.desc_id = "bm_benelli_sc_desc"
 						self.benelli.use_data.selection_index = 1
 						self.benelli.has_description = true					
-						self.benelli.AMMO_MAX = 30
+						self.benelli.AMMO_MAX = 60
 						self.benelli.CLIP_AMMO_MAX = 5
 						self.benelli.rays = 9
 						self.benelli.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps" --"effects/particles/shotgun/shotgun_gen"
@@ -20791,7 +20791,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.pd3_lynx.sms = sms_preset.semi_snp_amr
 				self.pd3_lynx.kick = deep_clone(self.stat_info.kick_tables.vertical_kick)
 				self.pd3_lynx.supported = true
-				self.pd3_lynx.ads_speed = 0.620
+				self.pd3_lynx.ads_speed = 0.500
 				self.pd3_lynx.damage_falloff = {
 					start_dist = 8000,
 					end_dist = 20000,
@@ -20803,7 +20803,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					recoil = 7,
 					spread_moving = 8,
 					zoom = 1,
-					concealment = 13,
+					concealment = 21,
 					suppression = 4,
 					alert_size = 2,
 					extra_ammo = 101,
@@ -21253,7 +21253,48 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.m27gear.panic_suppression_chance = 0.05
 				end
 
-		
+
+		--[[     youngrich99'S MODS     ]]--
+
+				if self.bren2 then
+					self.bren2.nato = true
+					self.bren2.recategorize = { "light_ar" }
+					self.bren2.damage_type = "assault_rifle"
+					self.bren2.has_description = false						
+					self.bren2.tactical_reload = 1		
+					self.bren2.AMMO_MAX = 210
+					self.bren2.sounds.fire = "m16_fire_single"
+					self.bren2.sounds.fire_single = "m16_fire_single"
+					self.bren2.sounds.fire_auto = "m16_fire"
+					self.bren2.fire_mode_data.fire_rate = 0.0705882352941176
+					self.bren2.kick = self.stat_info.kick_tables.moderate_kick
+					self.bren2.supported = true
+					self.bren2.ads_speed = 0.280
+					self.bren2.damage_falloff = {
+						start_dist = 2200,
+						end_dist = 6500,
+						min_mult = 0.4166
+					}
+					self.bren2.stats = {
+						damage = 24,
+						spread = 81,
+						recoil = 83,
+						spread_moving = 6,
+						zoom = 1,
+						concealment = 25,
+						suppression = 8,
+						alert_size = 2,
+						extra_ammo = 101,
+						total_ammo_mod = 200,
+						value = 1,
+						reload = 20
+					}
+					self.bren2.stats_modifiers = nil
+					self.bren2.reload_speed_multiplier = 1.0
+					self.bren2.panic_suppression_chance = 0.05
+				end
+
+
 		--[[     HYLIE'S MODS     ]]--
 
 			if self.bp12 then
@@ -23530,7 +23571,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					weap.smt_mult = 5
 					weap.smt_range = { 0.75, 1.35 }
 				end
-				weap.ene_hs_mult = 0.25
+				weap.ene_hs_mult = 1.0
 			end
 
 			if table.contains(weap.categories, "akimbo") then
