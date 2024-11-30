@@ -1543,12 +1543,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		--X46
 		["bm_melee_x46_info"] = "X46 나이프는 부분적으로 톱니 모양의 보위 블레이드 구성을 가진 6인치 길이의 A2 코팅 강철 단일 조각으로, 가짜 상단 칼날이 있습니다.\n통합 가드와 유리 파쇄기 폼멜 팁.\n이 나이프의 다목적 현장 디자인은 긴급 상황뿐 아니라 전장에서도 유용하게 사용됩니다.",
 		--Gunther
-		["bm_melee_dingdong_info"] = "쇠망치.\n공성추.\n지렛대\n이 세 가지 도구는 모두 문을 빠르게 통과해야 하는 강도에게 필수적인 돌파 도구입니다.\n딩동은 이 세 가지 도구를 팀원만큼 긴밀하게 하나의 패키지로 결합했습니다.",
+		["bm_melee_dingdong_info"] = "쇠망치.\n공성추.\n지렛대\n이 세 가지 도구는 모두 문을 빠르게 통과해야 하는 강도에게 필수적인 돌파 도구입니다.\n딩동은 이 세 가지 도구를 팀원만큼 긴밀하게 하나의 패키지로 결합했습니다.\n\n완전히 충전된 공격은 #{skill_color}#25%##만큼 더 빨리 나가여, 더 빠른 후속 공격이 가능합니다.",
 
 		--Cleaver girl
 		["bm_melee_cleaver_info"] = "그는 때리고, 베고, 해킹하고 있다.\n\n몸과 팔다리에 대한 전반적인 효과가 증가하는 대신 헤드샷 피해가 #{important_1}#50%##만큼 감소합니다.",
 		--Batshit insane
-		["bm_melee_bat_info"] = "야구 배트, 그 이상도 이하도 아닙니다.\n\n스포츠에 사용하기 위해 만들어진 것이지만 훨씬 더 사악한 일에 쓰이게 될 겁니다.",
+		["bm_melee_bat_info"] = "야구 배트, 그 이상도 이하도 아닙니다.\n\n스포츠에 사용하기 위해 만들어진 것이지만 훨씬 더 사악한 일에 쓰이게 될 겁니다.\n\n완전히 충전된 공격은 #{skill_color}#25%##만큼 더 빨리 나가여, 더 빠른 후속 공격이 가능합니다.",
 		--Machete
 		["bm_melee_machete_info"] = "당신은 사람에게 해를 가하는 걸 좋아하죠. 그래서 이 더럽고 오래된 마체테를 쓰는 거고요.\n벌어진 상처, 엉성하게 잘린 사지, 그리고 적들의 피를 얼리는 비명 소리가 당신을 계속 나아가게 만듭니다.\n\n참으로 잔인하고 잔혹한 강도의 무기죠.",
 		--Fireaxe
@@ -1645,7 +1645,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 			["bm_melee_2077tkata_info"] = "나노 필라멘트로 가열된 칼날.\n카타나의 가장 순수한 정수, 추가 기능과 개조 없이 오직 뜨거운 강철만 사용되었습니다.\n\n완전히 충전된 공격은 #{heat_warm_color}#적을 불태워## #{skill_color}#3##초 동안 #{heat_warm_color}#120##의 화염 피해를 가합니다.",
 
 		--Ayy L-Maul
-		["bm_melee_alien_maul_info"] = "Alienware Alpha 출시를 기념하기 위해 만들어진 망치입니다.",
+		["bm_melee_alien_maul_info"] = "Alienware Alpha 출시를 기념하기 위해 만들어진 망치입니다.\n\n완전히 충전된 공격은 #{skill_color}#25%##만큼 더 빨리 나가여, 더 빠른 후속 공격이 가능합니다.",
 
 		--Beardy
 		["bm_melee_beardy_info"] = "바이킹들은 페이건 북부의 어두운 숲에서 나타났고, 아이슬란드에서 이스탄불까지 피비린내 나는 파괴의 흔적을 남겼습니다.\n그들의 무기는 양손으로 드는 턱수염 도끼였습니다.",
@@ -1696,7 +1696,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_melee_shawn_info"] = "양털 깎기가 스포츠의 종목에 들어간다는 사실을 알고 계셨나요? 그럼 새로운 스포츠를 만들어볼까요? 경찰 털 깎기는 어떻습니까? 기각이라뇨? 왜 안 되죠? 뭐 어쨋든... 마음대로 사용하셔도 될거 같네요...",
 		--Crook
 		["bm_melee_stick"] = "양치기의 지팡이",
-		["bm_melee_stick_info"] = "강도질을 너무 많이 해서 지쳤나요? 늙고 현명해 보이고 싶으신가요? 경찰의 얼굴을 박살내고 싶으신가요? 양치기의 지팡이는 모든 것을 할 수 있습니다.",
+		["bm_melee_stick_info"] = "강도질을 너무 많이 해서 지쳤나요? 늙고 현명해 보이고 싶으신가요? 경찰의 얼굴을 박살내고 싶으신가요? 양치기의 지팡이는 모든 것을 할 수 있습니다.\n\n완전히 충전된 공격은 #{skill_color}#25%##만큼 더 빨리 나가여, 더 빠른 후속 공격이 가능합니다.",
 
 		--Pounder Nailgun
 		["bm_melee_nin_info"] = "파운더는 울프가 가장 좋아하는 못 박는 총입니다.\n\n누군가가 그 이름에 관해 물으면 울프는 재빨리 이름을 \"파운더\"로 수정하고 그들이 말하듯이 그는 \"박혔군!\"라고 소리칩니다.\n\n짧은 유효 사거리와 즉시 꽂히는 못을 발사하고 여전히 근접 공격으로 간주됩니다.",
@@ -1743,7 +1743,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_melee_ohwell_info"] = "카타나와 함께 탄토는 모든 사무라이의 필수품이었습니다.\n\n이 탄토는 켄토의 것이었지만 그가 어디서 얻었는지는 알려지지 않았습니다.",
 
 		--Spoon
-		["bm_melee_spoon_info"] = "딱 한 스푼만?", 
+		["bm_melee_spoon_info"] = "딱 한 스푼만?\n\n완전히 충전된 공격은 #{skill_color}#25%##만큼 더 빨리 나가여, 더 빠른 후속 공격이 가능합니다.", 
 		--Gold Spoon
 		["bm_melee_spoon_gold_info"] = "먹어라, 먹어라, 먹어라, 먹어라!\n\n#{skill_color}#50%## 확률로 #{heat_warm_color}#120##의 화염 피해를 가하고 #{skill_color}#3##초 동안 적을 방해합니다.", 
 			["bm_melee_fire_info"] = "#{skill_color}#50%## 확률로 #{heat_warm_color}#120##의 화염 피해를 가하고 #{skill_color}#3##초 동안 적을 방해합니다.",
@@ -1758,10 +1758,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_melee_sap_info"] = "레더 샙은 신사의 무기입니다.\n\n이걸 적의 머리를 가볍게 두드려 쓰려트려보세요. 듀크는 래더 셉을 우아함과 잔혹함을 약간 담아 휘두르는데, 때로는 그것이 지나쳐서 필요 이상으로 피해를 입힙니다.\n\n그러니 휘두르든 말든 주의해서 사용해야 합니다.",
 
 		--Hockey Stick
-		["bm_melee_hockey_info"] = "아름답게 만들어진 나무 막대. 퍽을 골대에 박아넣고 이빨을 존나게 박살내는 데 아주 적합합니다.", 
+		["bm_melee_hockey_info"] = "아름답게 만들어진 나무 막대. 퍽을 골대에 박아넣고 이빨을 존나게 박살내는 데 아주 적합합니다.\n\n완전히 충전된 공격은 #{skill_color}#50%##만큼 더 빨리 나가여, 더 빠른 후속 공격이 가능합니다.", 
 
 		--Ruler
-		["bm_melee_meter_info"] = "양손 거대 자는 우리가 만든 가장 큰 자입니다. 하지만 크기에 속지 마세요. 이 멋진 자는 다루기 힘들거나 꼴사납지가 않죠.", 
+		["bm_melee_meter_info"] = "양손 거대 자는 우리가 만든 가장 큰 자입니다. 하지만 크기에 속지 마세요. 이 멋진 자는 다루기 힘들거나 꼴사납지가 않죠.\n\n완전히 충전된 공격은 #{skill_color}#50%##만큼 더 빨리 나가여, 더 빠른 후속 공격이 가능합니다.", 
 
 		--Hooked
 		["bm_melee_catch_info"] = "갈고리는 신뢰할 수 있는 도구이며 솔직하게 말하자면 로켓 과학이 아니죠. 튼튼한 금속 갈고리가 달린 그 원목 손잡이는 충분히 단순하고 간단해 보이지 않나요? 갈고리는 엄청난 난장판을 일으킬 것입니다.\n\n그 용도는 적을 어떻게 낚을지에 대한 뒤틀린 상상력에 의해서만 제한됩니다. 가령 상대의 입을 찔러 죽이거나 몸을 잡아채는 정도?\n\n정신 바싹 차리고, 끔직한 걸 들고 싸우십시오.", 
@@ -5453,7 +5453,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 	
 				--Bulletproof--
 				["menu_iron_man_sc"] = "방탄갑옷",
-				["menu_iron_man_desc_sc"] = "베이식: #{owned}#$basic##\n당신의 방탄복은 더 이상 관통되지 않습니다.\n\n#{risk}#주의: 자기 피해에는 적용되지 않습니다.##\n\n에이스: #{owned}#$pro##\n방탄량이 가득 찬 경우, 최대 방탄량의 #{skill_color}#$skill_value_p1##에 해당하는 수치만큼 피해를 덜 받습니다.\n\n당신의 방탄량 회복 속도를 #{skill_color}#$skill_value_p2##만큼 상승시킵니다. $anarc_disable",
+				["menu_iron_man_desc_sc"] = "베이식: #{owned}#$basic##\n방탄복이 파괴되기 전까지는 체력 피해를 입지 않습니다.\n\n#{risk}#주의: 추락 피해, 장비로 인한 자가 피해, 클로커의 발차기나 테이저의 전기 충격으로 인해 쓰러졌을 때의 발생하는 피해에는 피해 차단이 적용되지 않습니다.##\n\n에이스: #{owned}#$pro##\n방탄량이 가득 찬 경우, 최대 방탄량의 #{skill_color}#$skill_value_p1##에 해당하는 수치만큼 피해를 덜 받습니다.\n\n당신의 방탄량 회복 속도를 #{skill_color}#$skill_value_p2##만큼 상승시킵니다. $anarc_disable",
 
 			--[[   BREACHER SUBTREE   ]]--
 				--Silent Drilling--
@@ -5551,7 +5551,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 				--Shockproof
 				["menu_insulation_beta_sc"] = "절연갑옷",
-				["menu_insulation_beta_desc_sc"] = "베이식: #{owned}#$basic##\n#{skill_color}#더 이상 전기 충격에 당해도 강제로 사격을 하지 않게 되며## 테이저의 전기 공격이 #{skill_color}#$skill_value_b2##의 확률로 역효과를 일으켜 테이저를 넘어트리게 만듭니다.\n\n#{risk}#주의: 전기 충격으로 인한 명중률과 반동 패널티는 여전히 적용됩니다.##\n\n적의 총격으로 인한 밀쳐지는 강도가 #{skill_color}#$skill_value_b1##만큼 감소합니다.\n\n에이스: #{owned}#$pro##\n테이저에 맞은 후 #{skill_color}#$skill_value_p1##초 이내에 테이저와 상호작용하면 테이저를 #{skill_color}#역감전시키고## 테이저의 최대 체력의 #{skill_color}#$skill_value_p2##만큼 피해를 가합니다.\n\n타이탄 테이저의 공격의 감속 효과와 지속 시간이 #{skill_color}#50%##만큼 감소합니다.",
+				["menu_insulation_beta_desc_sc"] = "베이식: #{owned}#$basic##\n#{skill_color}#더 이상 전기 충격에 당해도 강제로 사격을 하지 않게 되며## 테이저의 전기 충격이 #{skill_color}#$skill_value_b2##의 확률로 역효과를 일으켜 테이저를 넘어트리게 만듭니다.\n\n#{risk}#주의: 전기 충격으로 인한 명중률과 반동 패널티는 여전히 적용됩니다.##\n\n적의 총격으로 인한 밀쳐지는 강도가 #{skill_color}#$skill_value_b1##만큼 감소합니다.\n\n에이스: #{owned}#$pro##\n테이저에 맞은 후 #{skill_color}#$skill_value_p1##초 이내에 테이저와 상호작용하면 테이저를 #{skill_color}#역감전시키고## 테이저의 최대 체력의 #{skill_color}#$skill_value_p2##만큼 피해를 가합니다.\n\n타이탄 테이저의 공격의 감속 효과와 지속 시간이 #{skill_color}#50%##만큼 감소합니다.",
 
 				--Sneaky Bastard--
 				["menu_jail_diet_beta_desc_sc"] = "베이식: #{owned}#$basic##\n당신의 착용감이 #{risk}#$skill_value_b3##부터 #{risk}#$skill_value_b2##포인트만큼 감소할 때마다 회피 포인트가 #{skill_color}#$skill_value_b1##만큼 상승합니다. 최대 회피 상승률은 #{skill_color}#$skill_value_b4##입니다.\n\n에이스: #{owned}#$pro##\n당신의 착용감이 #{risk}#$skill_value_b3##부터 #{risk}#$skill_value_p2##포인트만큼 감소할 때마다 회피 포인트가 #{skill_color}#$skill_value_b1##만큼 상승합니다. 최대 회피 상승률은 #{skill_color}#$skill_value_b4##입니다.\n\n당신의 방탄량이 고갈될 때 적에게 가해지는 첫 번째 타격은 회피 미터를 최대 체력의 #{skill_color}#$skill_value_p2##만큼 회복시킵니다.",
@@ -5640,7 +5640,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 				--Counter-Strike--
 				["menu_drop_soap_beta_sc"] = "카운터 스트라이크",
-				["menu_drop_soap_beta_desc_sc"] = "베이식: #{owned}#$basic##\n근접 무기를 충전하고 있을 때 클로커의 점프킥에 반격하여 클로커를 넘어뜨릴 수 있습니다.\n\n클로커 발차기와 테이저 전기 충격에 #{skill_color}#20%##만큼의 받는 피해가 감소합니다.\n\n에이스: #{owned}#$pro##\n이제 근접 무기를 충전하고 있을 때 클로커의 돌진 킥에 반격하여 클로커를 넘어뜨릴 수 있습니다.\n\n근접 무기를 충전하는 동안 원거리 공격에 #{skill_color}#10%##만큼의 받는 피해가 감소합니다.\n\n클로커 발차기와 테이저 전기 충격에 #{skill_color}#30%##만큼의 받는 피해가 추가로 감소합니다.",
+				["menu_drop_soap_beta_desc_sc"] = "베이식: #{owned}#$basic##\n근접 무기를 충전하고 있을 때 클로커의 점프킥에 반격하여 클로커를 넘어뜨릴 수 있습니다.\n\n클로커 발차기와 테이저 전기 충격에 #{skill_color}#20%##만큼의 받는 피해가 감소합니다.\n\n에이스: #{owned}#$pro##\n이제 근접 무기를 충전하고 있을 때 클로커의 돌진 킥에 반격하여 클로커를 넘어뜨릴 수 있습니다.\n\n근접 무기를 충전하는 동안 원거리 공격에 #{skill_color}#10%##만큼의 받는 피해가 감소합니다.\n\n클로커의 발차기와 테이저의 전기 충격에 #{skill_color}#30%##만큼의 받는 피해가 추가로 감소합니다.",
 
 				--Pumping Iron--
 				["menu_steroids_beta_sc"] = "펌핑 아이언",

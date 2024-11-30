@@ -6865,7 +6865,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.rsh12.can_shoot_through_enemy_unlim = true
 						self.rsh12.can_shoot_through_shield = true
 						self.rsh12.can_shoot_through_wall = true
-						self.rsh12.object_damage_mult = 2
+						self.rsh12.object_damage_mult = 1.8
 						self.rsh12.armor_piercing_chance = 1
 
 				--SECONDARIES
@@ -7351,7 +7351,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.peacemaker.stats_modifiers = nil
 						self.peacemaker.panic_suppression_chance = 0.05
-						self.peacemaker.object_damage_mult = 2
+						self.peacemaker.object_damage_mult = 1.8
 						self.peacemaker.armor_piercing_chance = 1
 						self.peacemaker.can_shoot_through_enemy = true
 						self.peacemaker.can_shoot_through_enemy_unlim = true
@@ -13336,7 +13336,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.shatters_fury.can_shoot_through_shield = true
 			self.shatters_fury.can_shoot_through_wall = true
 			self.shatters_fury.armor_piercing_chance = 1
-			self.shatters_fury.object_damage_mult = 2
+			self.shatters_fury.object_damage_mult = 1.8
 			--self.shatters_fury.animations.reload_name_id = "chinchilla"
 			self.shatters_fury.reload_speed_multiplier = 0.9
 			self.shatters_fury.force_shake = true
@@ -19936,7 +19936,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.swhiskey.spin_up_shoot = true
 				self.swhiskey.spin_up_t = 0.08
 				self.swhiskey.spin_down_t = 0.00000001
-				self.swhiskey.object_damage_mult = 2
+				self.swhiskey.object_damage_mult = 1.8
 				self.swhiskey.timers.reload_exit_empty = 0.55
 				self.swhiskey.timers.reload_empty = 2.93
 				self.swhiskey.timers.reload_exit_not_empty = 0.55
@@ -21752,7 +21752,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.hhpc.stats_modifiers = nil
 				self.hhpc.armor_piercing_chance = 1
-				self.hhpc.object_damage_mult = 2
+				self.hhpc.object_damage_mult = 1.8
 				self.hhpc.reload_speed_multiplier = 0.9
 				self.hhpc.panic_suppression_chance = 0.05
 				self.hhpc.timers.reload_exit_empty = 0.5
@@ -23498,7 +23498,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				if weap.damage_type == "anti_materiel" then
 					weap.object_damage_mult = 4
 				elseif weap.damage_type == "sniper" then
-					weap.object_damage_mult = 2
+					weap.object_damage_mult = 1.8
 					if (weap.categories[2] and weap.categories[2] == "semi_snp") or (weap.categories[1] == "assault_rifle") then
 						weap.object_damage_mult = 1.2
 					end
@@ -23514,7 +23514,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					--weap.object_damage_mult = 1
 				end
 				if weap.damage_type_single_ray == "sniper" then
-					weap.object_damage_mult_single_ray = 2
+					weap.object_damage_mult_single_ray = 1.8
 					if weap.recategorize[1] == "light_shot" then
 						weap.object_damage_mult_single_ray = 1.2
 					end
