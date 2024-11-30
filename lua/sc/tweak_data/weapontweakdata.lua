@@ -15229,8 +15229,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					}
 					self.mg3.CLIP_AMMO_MAX = 50
 					self.mg3.AMMO_MAX = 300
-					self.mg3.weapon_movement_penalty = sms_preset.lmg_90
-					self.mg3.sms = sms_preset.lmg_90
+					self.mg3.weapon_movement_penalty = sms_preset.lmg_48
+					self.mg3.sms = sms_preset.lmg_48
 					self.mg3.fire_mode_data.fire_rate = 0.0545454545454545
 					self.mg3.CAN_TOGGLE_FIREMODE = false
 					self.mg3.BURST_FIRE = false
