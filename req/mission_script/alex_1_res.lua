@@ -12,9 +12,6 @@ local cloaker = (difficulty == 8 and cloaker_ds_table) or "units/payday2/charact
 local cloaker_chopper =  {
 	values = {
 		enemy = cloaker
-	},
-	on_executed = {
-		{id = 101636, delay = 0}
 	}
 }
 return {

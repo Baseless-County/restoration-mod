@@ -2659,6 +2659,24 @@ Hooks:PreHook(PlayerStandard, "update", "ResWeaponUpdate", function(self, t, dt)
 	if self._state_data.in_full_steelsight and not self:in_steelsight() then
 		self._state_data.in_full_steelsight = nil
 	end
+
+	if weapon._set_burst_mode and weapon.in_burst_mode then
+		if weapon._burst_ads_toggle then
+			if self:in_steelsight() and not weapon:in_burst_mode() then
+				weapon:_set_burst_mode(true, true)
+			elseif not self:in_steelsight()and weapon:in_burst_mode() and not self:_in_burst() then
+				weapon:_set_burst_mode(false, true)
+				managers.hud:set_teammate_weapon_firemode(HUDManager.PLAYER_PANEL, self._unit:inventory():equipped_selection(), weapon:fire_mode())
+			end
+		elseif weapon._burst_hipfire_toggle then
+			if self:in_steelsight() and weapon:in_burst_mode() and not self:_in_burst() then
+				weapon:_set_burst_mode(false, true)
+				managers.hud:set_teammate_weapon_firemode(HUDManager.PLAYER_PANEL, self._unit:inventory():equipped_selection(), weapon:fire_mode())
+			elseif not self:in_steelsight() and not weapon:in_burst_mode() then
+				weapon:_set_burst_mode(true, true)
+			end
+		end
+	end
 	
 end)
 
@@ -3280,8 +3298,10 @@ function PlayerStandard:full_steelsight()
 	local weap_hold = weap_base.weapon_hold and weap_base:weapon_hold() or weap_base:get_name_id()
 	local is_bow = table.contains(weap_base:weapon_tweak_data().categories, "bow")
 	local force_ads_recoil_anims = weap_base and weap_base:weapon_tweak_data().always_play_anims
-	if weap_base and weap_base:alt_fire_active() and weap_base._alt_fire_data and weap_base._alt_fire_data.ignore_always_play_anims then
-		force_ads_recoil_anims = nil
+	if weap_base then
+		if weap_base:alt_fire_active() and weap_base._alt_fire_data and weap_base._alt_fire_data.ignore_always_play_anims then
+			force_ads_recoil_anims = nil
+		end
 	end
 	local is_turret = managers.player:current_state() and managers.player:current_state() == "player_turret"
 	local zippy = weap_base and weap_base:weapon_tweak_data().zippy
