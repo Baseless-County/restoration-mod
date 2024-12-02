@@ -2851,6 +2851,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Weapons", function(loc
 					["bm_w_sierra458_beo_desc"] = "갱단의 무기 제작자인 체인스는 Tecci Tactical 소총을 대체할 강력하면서도 높은 발사 속도를 지닌 소총을 개발하기 시작했습니다.\n\n#{skill_color}#방탄복, 적, 최대 대미지 사거리 내에 있는 방패 그리고 얇은 벽을 관통할 수 있습니다.##",
 					["bm_wp_wpn_fps_snp_sierra458_m_bush_desc"] = ".458 SOCOM 탄을 #{stats_positive}#독이 함유된 .450 Bushmaster## 탄으로 전환합니다. 이 탄은 #{stats_positive}#4초 동안 초당 30씩 피해를 가하고 적을 기절시킬 수 있습니다.##\n\n#{important_1}#더 이상 다수의 적을 관통할 수 없습니다.##",
 					["bm_w_sierra458_ivy_desc"] = "갱단의 무기 제작자인 체인스는 Tecci Tactical 소총을 대체할 강력하면서도 높은 발사 속도를 지닌 소총을 개발하기 시작했습니다.\n\n#{skill_color}#방탄복을 관통하여 50%의 피해를 가하고 얇은 벽을 관통할 수 있고## #{stats_positive}#독탄으로 시간이 지남에 따라 피해를 가합니다.##",
+					["bm_w_bulldog_desc"] = "Bulldog 소총으로 적을 쓰러뜨리는 것은 일종의 행복감을 의미합니다.\n\n#{risk}#이 무기는 비조준 상태에서 완전 자동으로 발사되고, 조준 상태에서는 점사로 발사합니다.##",
 			
 			--[[ SNIPERS ]]
 				--MSR

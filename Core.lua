@@ -820,6 +820,7 @@ function restoration:require(file)
 	return io.file_is_readable(path) and blt.vm.dofile(path)
 end
 
+--Mission Script
 function restoration:mission_script_patches()
 	if self._mission_script_patches == nil then
 		local level_id = Global.game_settings and Global.game_settings.level_id
@@ -830,8 +831,21 @@ function restoration:mission_script_patches()
 	return self._mission_script_patches
 end
 
+--Mission script but it can touch instances
+function restoration:instance_script_patches()
+		if self._instance_script_patches == nil then
+			local level_id = Global.game_settings and Global.game_settings.level_id
 
---mission_script_add allows to add actual custom stuff to heists
+			if level_id then
+				self._instance_script_patches = self:require("instance_script/" .. level_id:gsub('_skip1$', ''):gsub('_skip2$', ''):gsub("_night$", ""):gsub("_day$", "")) or false
+			end
+		end
+
+		return self._instance_script_patches
+	end
+
+
+--Mission script but it can add new functions to heists
 function restoration:mission_script_add()
 		restoration.loaded_elements = false
 		if self._mission_script_add == nil then
