@@ -1359,6 +1359,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_wp_upg_a_halfthatkit_tecci_desc"] = "Adds a 25% movement speed penalty while the weapon is equipped.\n\nIncreases weapon's ammo pickup by 50%.",
 
 		--Legendary Skins--
+		["bm_menu_legendary"] = "Weapon Skin Set",
 		["bm_menu_sc_legendary_ak"] = "Vlad's Rodina",
 		["bm_menu_sc_legendary_flamethrower"] = "Dragon Lord",
 		["bm_menu_sc_legendary_deagle"] = "Midas Touch",
