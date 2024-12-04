@@ -3220,7 +3220,6 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_content_jobs", "resmod_content_job
 	self.parts.wpn_fps_upg_m4_m_quad.stats = {
 		value = 3,
 		concealment = -4,
-		reload = -1,
 		extra_ammo = 30
 	}
 	
@@ -3257,8 +3256,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_content_jobs", "resmod_content_job
 	self.parts.wpn_fps_upg_ak_m_quad.stats = {
 		value = 3,
 		concealment = -4,
-		extra_ammo = 30,
-		reload = -1
+		extra_ammo = 30
 	}
 	self.parts.wpn_fps_upg_ak_m_quad.custom_stats = {
 		ads_speed_mult = 1.1
@@ -4758,7 +4756,6 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_x_olympic", "resmod_x_olympic", fu
 		stats = {
 			value = 3,
 			concealment = -4,
-			reload = -1,
 			extra_ammo = 60
 		}
 	}
@@ -8834,7 +8831,6 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_rpk", "resmod_rpk", function(self)
 		fps_animation_weight = "ban_mag",
 		stats = {
 			value = 6,
-			recoil = -2,
 			concealment = 1,
 			reload = 4,
 			extra_ammo = -15
@@ -22407,7 +22403,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_hcar", "resmod_hcar", function(sel
 	self.parts.wpn_fps_lmg_hcar_m_drum.stats = {
 		extra_ammo = 25,
 		value = 10,
-		reload = -7,
+		reload = -1,
 		concealment = -2
 	}
 	self.parts.wpn_fps_lmg_hcar_m_drum.custom_stats = {
@@ -37188,7 +37184,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_lmg_par_m_can.stats = {
 				value = 1,
 				reload = -4,
-				extra_ammo = 150,
+				extra_ammo = 100,
 				concealment = -5
 			}
 		end

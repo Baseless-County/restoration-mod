@@ -9055,10 +9055,12 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							"smg",
 							"mmg"
 						}
-						self.par.CLIP_AMMO_MAX = 50
+						self.par.CLIP_AMMO_MAX = 100
 						self.par.fire_mode_data.fire_rate = 0.092307
 						self.par.AMMO_MAX = 300
 						self.par.kick = {}
+						self.par.sms = sms_preset.lmg_48
+						self.par.weapon_movement_penalty = sms_preset.lmg_48
 						self.par.kick = self.stat_info.kick_tables.horizontal_left_recoil_mg
 						self.par.always_use_standing = true
 						self.par.panic_suppression_chance = 0.05
@@ -9087,7 +9089,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.par.stats_modifiers = nil
 						self.par.no_bipod_anims = true
-						self.par.reload_speed_multiplier = 1.3
+						self.par.reload_speed_multiplier = 1.1
 						self.par.sounds.spin_start = "wp_m249_lever_release"
 						self.par.spin_up_shoot = true
 						self.par.spin_up_t = 0.1
@@ -9884,7 +9886,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.l85a2.desc_id = "bm_l85a2_sc_desc"
 						self.l85a2.has_description = true
 						self.l85a2.CLIP_AMMO_MAX = 30
-						self.l85a2.AMMO_MAX = 120
+						self.l85a2.AMMO_MAX = 180
 						self.l85a2.FIRE_MODE = "auto"
 						self.l85a2.fire_mode_data = {}
 						self.l85a2.fire_mode_data.fire_rate = 0.096
@@ -9906,7 +9908,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							recoil = 89,
 							spread_moving = 6,
 							zoom = 1,
-							concealment = 22,
+							concealment = 25,
 							suppression = 8,
 							alert_size = 2,
 							extra_ammo = 101,
@@ -17672,7 +17674,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.m60e4.sounds.magazine_empty = "wp_rifle_slide_lock"
 				self.m60e4.sms = sms_preset.lmg_48
 				self.m60e4.weapon_movement_penalty = sms_preset.lmg_48
-				self.m60e4.fire_mode_data.fire_rate = 0.1
+				self.m60e4.fire_mode_data.fire_rate = 0.103448275862069
 				self.m60e4.CAN_TOGGLE_FIREMODE = false
 				self.m60e4.CLIP_AMMO_MAX = 100
 				self.m60e4.AMMO_MAX = 300
@@ -18627,7 +18629,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.romeo870_sec.fire_mode_data.fire_rate = 0.5
 			self.romeo870_sec.fire_rate_multiplier = 0.9
 			self.romeo870_sec.CLIP_AMMO_MAX = 6
-			self.romeo870_sec.AMMO_MAX = 24
+			self.romeo870_sec.AMMO_MAX = 40
 			self.romeo870_sec.supported = true
 			self.romeo870_sec.ads_speed = 0.300
 			self.romeo870_sec.damage_falloff = {
