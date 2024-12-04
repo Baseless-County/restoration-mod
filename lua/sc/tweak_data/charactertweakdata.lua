@@ -692,8 +692,9 @@ function CharacterTweakData:_init_omnia_lpf(presets)
 	self.omnia_lpf.weapon_voice = "2"
 	self.omnia_lpf.experience.cable_tie = "tie_swat"	
 	if self:get_ai_group_type() == "russia" or self:get_ai_group_type() == "federales" then
-		self.omnia_lpf.speech_prefix_p1 = self._prefix_data_p1.medic()
+		self.omnia_lpf.speech_prefix_p1 = "rmdc"
 		self.omnia_lpf.speech_prefix_count = nil
+		self.omnia_lpf.speech_prefix_p2 = nil
 		self.omnia_lpf.spawn_sound_event = "rmdc_entrance"
 	else
 		self.omnia_lpf.speech_prefix_p1 = "piss and shit"
@@ -2716,6 +2717,13 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_titan_assault = deep_clone(self.tank_titan)
 	self.tank_titan_assault.tags = {"law", "tank", "special", "tank_titan"}
 	self.tank_titan_assault.spawn_sound_event_2 = "cloaker_spawn"
+	if self:get_ai_group_type() == "federales" then
+		self.tank_titan_assault.dt_suppress = {
+			range = 600
+	}
+	else
+		self.tank_titan_assault.dt_suppress = nil
+	end
 	table.insert(self._enemy_list, "tank_titan_assault")
 
 	--Halloween Bulldozer (Black)
@@ -2740,7 +2748,6 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_hw.weapon = deep_clone(presets.weapon.normal)
 	self.tank_hw.ignore_headshot = false
 	self.tank_hw.melee_anims = nil
-	self.tank_hw.move_speed = presets.move_speed.very_slow
 	table.insert(self._enemy_list, "tank_hw")	
 	
 	--Benelli (Bravo) Dozer
