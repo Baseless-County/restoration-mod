@@ -1641,5 +1641,37 @@ if twb.weapon_skins.mg42_cnuy_hina then --Version 0.5.0
 		end
 	end
 
+	twb.weapon_skins.c96_cnuy_satsuki.default_blueprint = {
+		"wpn_fps_pis_c96_b_standard",
+		"wpn_fps_pis_c96_body_standard",
+		"wpn_fps_pis_c96_m_standard",
+		"wpn_fps_pis_c96_g_standard",
+		"wpn_fps_pis_c96_cnuy_satsuki"
+	}
+	twb.weapon_skins.c96_cnuy_satsuki.parts.wpn_fps_pis_c96_body_standard = deep_clone(twb.weapon_skins.c96_cnuy_satsuki.parts.wpn_fps_pis_c96_body_mkultra)
+	twb.weapon_skins.c96_cnuy_satsuki.parts.wpn_fps_pis_c96_g_standard = deep_clone(twb.weapon_skins.c96_cnuy_satsuki.parts.wpn_fps_pis_c96_g_mkultra)
+
+	twb.weapon_skins.m4_cnuy_saori.default_blueprint = {
+		"wpn_fps_upg_m4_g_mgrip",
+		"wpn_fps_m4_lower_reciever",
+		"wpn_fps_m4_uupg_upper_radian",
+		"wpn_fps_m4_uupg_b_short",
+		"wpn_fps_m4_uupg_fg_lr300",
+		"wpn_fps_upg_m4_m_l5",
+		"wpn_fps_upg_m4_s_pts",
+		"wpn_fps_m4_uupg_draghandle",
+		"wpn_fps_upg_o_aimpoint",
+		"wpn_fps_amcar_bolt_standard",
+		"wpn_fps_upg_ns_ass_smg_firepig",
+		"wpn_fps_ass_m4_cnuy_saori"
+	}
+	for k, used_part_id in ipairs(twf.wpn_fps_ass_m4.uses_parts) do
+		if twf.parts[used_part_id] and twf.parts[used_part_id].type then
+			if twf.parts[used_part_id].type == "foregrip" then
+				twb.weapon_skins.m4_cnuy_saori.parts[used_part_id] = deep_clone(twb.weapon_skins.m4_cnuy_saori.parts.wpn_fps_upg_ass_m4_fg_vanitas)
+			end
+		end
+	end
+
 end
 

@@ -1354,6 +1354,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_wp_upg_a_halfthatkit_tecci_desc"] = "무기를 장착하는 동안 이동 속도가 25%만큼 감소합니다.\n\n무기의 탄약 회수률이 50% 증가합니다.",
 
 		--Legendary Skins--
+		["bm_menu_legendary"] = "무기 스킨 세트",
 		["bm_menu_sc_legendary_ak"] = "Vlad's Rodina",
 		["bm_menu_sc_legendary_flamethrower"] = "Dragon Lord",
 		["bm_menu_sc_legendary_deagle"] = "Midas Touch",
@@ -2124,10 +2125,10 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		--Blackmarket gui per-armor skill descriptions.
 		["bm_menu_append_milliseconds"] = "ms",
 		["bm_menu_dodge_grace"] = "희피 시 추가 유예 시간: #{skill_color}#$grace_bonus##",
-		["bm_menu_dodge_grace_cap"] = "회피 유예 기간이 현재 작업의 #{important_1}#프로 잡## 등급 및 ",
-		["bm_menu_dodge_grace_jp_cap"] = "#{risk}#$risk_level## 리스크 레벨로",
-		["bm_menu_dodge_grace_both"] = " 인해 ",
-		["bm_menu_dodge_grace_diff_cap"] = "#{important_1}#$grace_bonus_cap##로 제한되었습니다.",
+		["bm_menu_dodge_grace_cap"] = "프로 잡과 난이도 여부에 따라 현재 작업의 회피 유예 시간이 #{important_1}#$grace_bonus_cap##로 제한됩니다.",
+		["bm_menu_dodge_grace_jp_cap"] = " #{important_1}#프로 잡##",
+		["bm_menu_dodge_grace_both"] = " 및 ",
+		["bm_menu_dodge_grace_diff_cap"] = "#{risk}#$risk_level##",
 
 		["bm_menu_armor_grinding_1"] = "간격당 방탄복 재생량: #{skill_color}#$passive_armor_regen##",
 		["bm_menu_armor_grinding_2"] = "간격당 방탄복 재생량: #{skill_color}#$passive_armor_regen## \n적에게 피해를 가할 시 방탄복 재생량: #{skill_color}#$active_armor_regen##",
