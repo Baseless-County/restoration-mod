@@ -20117,6 +20117,46 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mike4_2022.timers.reload_not_empty = 2.35
 			end
 
+			if self.mike4 then CoD: MW 2019 M4A1
+				self.mike4.nato = true
+				self.mike4.use_data.selection_index = 1
+				self.mike4.recategorize = { "light_ar" }
+				self.mike4.damage_type = "assault_rifle"
+				self.mike4.has_description = false
+				self.mike4.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.mike4.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
+				self.mike4.tactical_reload = 1
+				self.mike4.AMMO_MAX = 210
+				self.mike4.fire_mode_data.fire_rate = 0.074074
+				self.mike4.kick = self.stat_info.kick_tables.left_kick
+				self.mike4.supported = true
+				self.mike4.ads_speed = 0.240
+				self.mike4.damage_falloff = {
+					start_dist = 2600,
+					end_dist = 4500,
+					min_mult = 0.4166
+				}
+				self.mike4.stats = {
+					damage = 24,
+					spread = 81,
+					recoil = 87,
+					zoom = 1,
+					concealment = 26,
+					suppression = 8,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 200,
+					value = 1,
+					reload = 20
+				}
+				self.mike4.stats_modifiers = nil
+				self.mike4.reload_speed_multiplier = 1.36
+				self.mike4.panic_suppression_chance = 0.05
+				self.mike4.timers.reload_empty = 3
+				self.mike4.timers.reload_exit_empty = 0.55
+				self.mike4.timers.reload_exit_not_empty = 1.2
+				self.mike4.timers.reload_not_empty = 2.35
+			end
 
 			if self.xmike2010 then --MW2022 SPX80
 				self.xmike2010.recategorize = { "heavy_snp" }

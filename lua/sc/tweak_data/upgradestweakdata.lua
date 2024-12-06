@@ -434,7 +434,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		8, --HBV
 		11, --Flak (2 increments + 1)
 		23, --CTV
-		48 --ICTV (2 increments + 1)
+		58 --ICTV (2 increments + 1)
 	}
 	
 	self.values.player.body_armor.movement = { --*increments of 0.04
