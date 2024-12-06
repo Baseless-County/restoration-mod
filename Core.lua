@@ -318,6 +318,8 @@ function restoration:Init()
 		--Custom Heists below--
 		"junk", --Doghouse
 		"run_res", --Whurr's Heat Street Edit
+		"secret_stash", --Undercover (MapAdd Version)
+		"bridge", --Green Bridge (MapAdd Version)
 		"knk_jwl", --Knockover: Jewerly Store
 		"RogueCompany", --Rogue Company
 		"Gambling_room", --Underground Bargains
