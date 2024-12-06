@@ -20117,7 +20117,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mike4_2022.timers.reload_not_empty = 2.35
 			end
 
-			if self.mike4 then CoD: MW 2019 M4A1
+			if self.mike4 then --CoD: MW 2019 M4A1
 				self.mike4.nato = true
 				self.mike4.use_data.selection_index = 1
 				self.mike4.recategorize = { "light_ar" }
