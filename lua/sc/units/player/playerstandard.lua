@@ -102,7 +102,7 @@ function PlayerStandard:_add_unit_to_char_table(char_table, unit, unit_type, ...
 	end
 end
 
-function PlayerStandard:push(vel, override_vel, override_vel_mult, allow_sprint)
+function PlayerStandard:push(vel, override_vel, override_vel_mult, allow_sprint, force_crouch)
 	local override_vel_mult = override_vel_mult or 0
 	if self._unit:mover() then
 		if override_vel then
@@ -115,6 +115,9 @@ function PlayerStandard:push(vel, override_vel, override_vel_mult, allow_sprint)
 	end
 	if not allow_sprint then
 		self:_interupt_action_running(managers.player:player_timer():time())
+	end
+	if force_crouch then
+		self:_start_action_ducking(managers.player:player_timer():time(), true)
 	end
 end
 
@@ -218,7 +221,7 @@ function PlayerStandard:_interupt_action_interact(t, input, complete)
 	end
 end
 
-function PlayerStandard:_start_action_ducking(t)
+function PlayerStandard:_start_action_ducking(t, no_slide)
 	--Here!
 	if self:_on_zipline() then
 		return
@@ -238,7 +241,7 @@ function PlayerStandard:_start_action_ducking(t)
 	self._ext_network:send("action_change_pose", 2, self._unit:position())
 	self:_upd_attention()
 	
-	if AdvMov and PlayerStandard._check_slide then
+	if AdvMov and PlayerStandard._check_slide and not no_slide then
 		self:_check_slide()
 	end
 end
