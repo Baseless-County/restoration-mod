@@ -4731,6 +4731,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["menu_pro_warning"] = "이 작업은 프로 잡입니다! 실패할 경우, 재시작을 할 수 없고, 전체 계약이 파기됩니다.\n또한 하이스트가 끝날 무렵 더 강력한 적들이 배치되는 탈출 차량 출발 이벤트가 발생할 수도 있습니다.\n프로 잡을 완료하면 25%의 돈과 경험치 보너스를 받을 수 있습니다.",
 
 		["menu_asset_lock_additional_assets_pro"] = "프로 잡에서는 사용이 불가능합니다!",
+		["menu_asset_buy_all_req_skill"] = "##NOT AVAILABLE!##",
 
 		["cn_menu_contract_daypay_header"] = "일일 보상:",
 		["cn_menu_contract_jobpay_header"] = "작업 보수:",
@@ -5036,7 +5037,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 		["mutator_fatroll"] = "팻 롤",
 		["menu_mutator_fatroll"] = "유예 기간 (초 단위)",
-		["mutator_fatroll_desc"] = "사용자 정의 피해 유예 값 (초 단위).",
+		["mutator_fatroll_desc"] = "피해 유예 값을 바꿉니다. (초 단위).",
 		["mutator_fatroll_longdesc"] = "플레이어와 AI 팀원의 피해 유예를 특정 값으로 변경합니다. 피해 유예는 대미지 인스턴스가 계산되는 빈도에 영향을 미치며, 값이 낮을수록 더 짧은 시간에 더 많은 피해를 입게 됩니다.",
 		
 		["mutator_overheal"] = "과치료 전문의",

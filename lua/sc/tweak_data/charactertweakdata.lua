@@ -3018,9 +3018,10 @@ function CharacterTweakData:_init_shield(presets)
 	self.shield.tags = {"law", "shield", "special"}
 	self.shield.experience = {}
 	self.shield.weapon = deep_clone(presets.weapon.normal)
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	self.shield.static_weapon_preset = true
 	self.shield.detection = presets.detection.normal
 	self.shield.HEALTH_INIT = 15
@@ -6159,9 +6160,10 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.normal.mp9.spread = 30
 	presets.weapon.normal.mp9.miss_dis = 15
 	presets.weapon.normal.mp9.RELOAD_SPEED = 1
-	presets.weapon.normal.mp9.melee_speed = nil
-	presets.weapon.normal.mp9.melee_dmg = nil
-	presets.weapon.normal.mp9.melee_retry_delay = nil
+	presets.weapon.normal.mp9.melee_speed = enemy_melee_speed.normal
+	presets.weapon.normal.mp9.melee_dmg = enemy_melee_damage_base
+	presets.weapon.normal.mp9.melee_retry_delay = {2, 2}
+	presets.weapon.normal.mp9.melee_range = 250
 	presets.weapon.normal.mp9.range = {
 		close = 500,
 		optimal = 1200,
@@ -8583,9 +8585,10 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.good.mp9.spread = 30
 	presets.weapon.good.mp9.miss_dis = 15
 	presets.weapon.good.mp9.RELOAD_SPEED = 1
-	presets.weapon.good.mp9.melee_speed = nil
-	presets.weapon.good.mp9.melee_dmg = nil
-	presets.weapon.good.mp9.melee_retry_delay = nil
+	presets.weapon.good.mp9.melee_speed = enemy_melee_speed.good
+	presets.weapon.good.mp9.melee_dmg = enemy_melee_damage_good
+	presets.weapon.good.mp9.melee_retry_delay = {2, 2}
+	presets.weapon.good.mp9.melee_range = 250
 	presets.weapon.good.mp9.range = {
 		close = 500,
 		optimal = 1200,
@@ -10756,9 +10759,10 @@ function CharacterTweakData:_presets(tweak_data)
 	presets.weapon.expert.mp9.spread = 30
 	presets.weapon.expert.mp9.miss_dis = 15
 	presets.weapon.expert.mp9.RELOAD_SPEED = 1
-	presets.weapon.expert.mp9.melee_speed = nil
-	presets.weapon.expert.mp9.melee_dmg = nil
-	presets.weapon.expert.mp9.melee_retry_delay = nil
+	presets.weapon.expert.mp9.melee_speed = enemy_melee_speed.expert
+	presets.weapon.expert.mp9.melee_dmg = enemy_melee_damage_expert
+	presets.weapon.expert.mp9.melee_retry_delay = {2, 2}
+	presets.weapon.expert.mp9.melee_range = 250
 	presets.weapon.expert.mp9.range = {
 		close = 500,
 		optimal = 1200,
@@ -13101,6 +13105,10 @@ function CharacterTweakData:_presets(tweak_data)
 			}
 		}					
 	}
+	presets.weapon.deathwish.mp9.melee_speed = enemy_melee_speed.deathwish
+	presets.weapon.deathwish.mp9.melee_dmg = enemy_melee_damage_deathwish
+	presets.weapon.deathwish.mp9.melee_retry_delay = {2, 2}
+	presets.weapon.deathwish.mp9.melee_range = 250	
 	presets.weapon.deathwish.mp9.FALLOFF = {
 		{
 			r = 100,
@@ -17305,9 +17313,10 @@ function CharacterTweakData:_set_easy()
 	
 	self:_set_characters_dodge_preset("athletic")
 	self:_set_characters_melee_preset("1", "1")
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
 	self.presets.gang_member_damage.HEALTH_INIT = 25
@@ -17367,9 +17376,10 @@ function CharacterTweakData:_set_normal()
 		
 	self:_set_characters_dodge_preset("athletic")
 	self:_set_characters_melee_preset("1", "1")
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
 	self.presets.gang_member_damage.HEALTH_INIT = 50
@@ -17429,9 +17439,10 @@ function CharacterTweakData:_set_hard()
 		
 	self:_set_characters_dodge_preset("athletic")
 	self:_set_characters_melee_preset("1", "1")
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
 	self.presets.gang_member_damage.HEALTH_INIT = 75
@@ -17491,9 +17502,10 @@ function CharacterTweakData:_set_overkill()
 							
 	self:_set_characters_dodge_preset("athletic_very_hard")
 	self:_set_characters_melee_preset("1.5", "1")
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	self.flashbang_multiplier = 2
 	self.concussion_multiplier = 1
 	self.presets.gang_member_damage.HEALTH_INIT = 100
@@ -17550,9 +17562,10 @@ function CharacterTweakData:_set_overkill_145()
 	self.swat.can_shoot_while_dodging = true
 	self.hrt.can_shoot_while_dodging = true	
 	
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	self.autumn.damage.bullet_damage_mul = 0.6
 		
 	self.flashbang_multiplier = 2
@@ -17605,9 +17618,10 @@ function CharacterTweakData:_set_easy_wish()
 	self.city_swat_titan_assault.melee_weapon_dmg_multiplier = 1.5
 	self.weekend_lmg.melee_weapon_dmg_multiplier = 1.5		
 				
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 
 	self.city_swat.weapon = deep_clone(self.presets.weapon.good)
 	self.city_swat.dodge = self.presets.dodge.athletic_very_hard	
@@ -17658,9 +17672,10 @@ function CharacterTweakData:_set_overkill_290()
 	self.spooc.kick_damage = 6.0
 	self.taser.shock_damage = 6.0
 
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	self.shield.damage.explosion_damage_mul = 0.7		
 	
 	self.fbi_swat.weapon = deep_clone(self.presets.weapon.expert)
@@ -17786,9 +17801,10 @@ function CharacterTweakData:_set_sm_wish()
 	--Winters' shields are immune to ECM feedback effects :)
 	self.phalanx_minion.ecm_vulnerability = 0
 	
-	self.shield.weapon.is_pistol.melee_speed = nil
-	self.shield.weapon.is_pistol.melee_dmg = nil
-	self.shield.weapon.is_pistol.melee_retry_delay = nil
+	self.shield.weapon.is_pistol.melee_speed = enemy_melee_speed.normal
+	self.shield.weapon.is_pistol.melee_dmg = enemy_melee_damage_base
+	self.shield.weapon.is_pistol.melee_retry_delay = {2, 2}
+	self.shield.weapon.is_pistol.melee_range = 250
 	
 	--No Glint versions of weapons	
 	self.weap_unit_names[table.index_of(self.weap_ids, "m14_sniper_npc")] = Idstring("units/payday2/weapons/wpn_npc_sniper_sc/wpn_npc_sniper_sc")

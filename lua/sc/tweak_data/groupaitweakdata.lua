@@ -21228,7 +21228,7 @@ function GroupAITweakData:_init_task_data(difficulty_index, difficulty)
 				0
 			},
 			--Slowly get replaced by GenSec boys
-			GS_heavys = {
+			GS_Heavys = {
 				0,
 				0.125,
 				0.22

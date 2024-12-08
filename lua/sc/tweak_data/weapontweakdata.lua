@@ -1573,12 +1573,17 @@ local crew_wep_preset = {
 		self.swat_van_turret_module.DAMAGE = 2
 		self.swat_van_turret_module.DAMAGE_MUL_RANGE = {
 			{1000, 1},
-			{2000, 1},
-			{3000, 1}
+			{2000, 0.66},
+			{3000, 0.33}
 		}
 		self.swat_van_turret_module.SUPPRESSION = 1
 		self.swat_van_turret_module.SPREAD = 3
-		self.swat_van_turret_module.FIRE_RANGE = 4000
+		--Just so all they do is protect cop spawn points instead of shredding you at range, the heist is shit enough
+		if job == "hox_1" or job == "xmn_hox1" then
+			self.swat_van_turret_module.FIRE_RANGE = 1000
+		else
+			self.swat_van_turret_module.FIRE_RANGE = 4000
+		end
 		self.swat_van_turret_module.CLIP_SIZE = 200
 		self.swat_van_turret_module.AUTO_RELOAD = true
 		self.swat_van_turret_module.AUTO_RELOAD_DURATION = 8
@@ -1653,8 +1658,8 @@ local crew_wep_preset = {
 		self.crate_turret_module.DAMAGE = 2
 		self.crate_turret_module.DAMAGE_MUL_RANGE = {
 			{1000, 1},
-			{2000, 1},
-			{3000, 1}
+			{2000, 0.66},
+			{3000, 0.33}
 		}
 		self.crate_turret_module.SUPPRESSION = 1
 		self.crate_turret_module.SPREAD = 3
@@ -1735,8 +1740,8 @@ local crew_wep_preset = {
 		self.ceiling_turret_module.DAMAGE = 2
 		self.ceiling_turret_module.DAMAGE_MUL_RANGE = {
 			{1000, 1},
-			{2000, 1},
-			{3000, 1}
+			{2000, 0.66},
+			{3000, 0.33}
 		}
 		self.ceiling_turret_module.SUPPRESSION = 1
 		self.ceiling_turret_module.SPREAD = 3
@@ -1815,8 +1820,8 @@ local crew_wep_preset = {
 		self.aa_turret_module.DAMAGE = 2
 		self.aa_turret_module.DAMAGE_MUL_RANGE = {
 			{1000, 1},
-			{2000, 1},
-			{3000, 1}
+			{2000, 0.66},
+			{3000, 0.33}
 		}
 		self.aa_turret_module.SUPPRESSION = 1
 		self.aa_turret_module.SPREAD = 3

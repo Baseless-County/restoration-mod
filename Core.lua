@@ -307,7 +307,7 @@ function restoration:Init()
 		"pent", --Mountain Master Heist
 		"rvd1", --Reservoir Dogs Day 1, lots of scripted spawns and little cover
 		"sand", --The Ukrainian Prisoner
-		"deep", --Crude Awakening
+		"deep", --Crude Awakening	
 		--Skirmish heists below
 		"skm_big2",
 		"skm_mallcrasher",
@@ -365,6 +365,8 @@ function restoration:Init()
 		"fex", --Buluc's Mansion
 		"peta2", --Goats day 2
 		"nail",	--Lab Rats
+		"hox_1", --Hoxout D1
+		"xmn_hox_1", --Xmas edition			
 		--Skirmish heists below
 		"skmc_mad",
 		"skm_red2",
