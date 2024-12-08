@@ -1556,16 +1556,12 @@ local grips = {
 				supported = true,
 				stats = {
 					value = 10,
-					recoil = -30,
-					total_ammo_mod = -204,
-					concealment = -4,
+					spread = 60,
 					damage = 0
 				},
 				custom_stats = {
 					ads_speed_mult = 1.1,
 					hip_mult = 3,
-					ammo_pickup_max_mul = 0.55,
-					ammo_pickup_min_mul = 0.55,
 					ignore_statistic = true,
 					block_b_storm = true,
 					rays = 1,
@@ -1577,16 +1573,12 @@ local grips = {
 				supported = true,
 				stats = {
 					value = 10,
-					recoil = -30,
-					total_ammo_mod = -204,
-					concealment = -4,
+					spread = 60,
 					damage = 0
 				},
 				custom_stats = {
 					ads_speed_mult = 1.1,
 					hip_mult = 3,
-					ammo_pickup_max_mul = 0.55,
-					ammo_pickup_min_mul = 0.55,
 					ignore_statistic = true,
 					block_b_storm = true,
 					rays = 1,
@@ -1599,16 +1591,12 @@ local grips = {
 				supported = true,
 				stats = {
 					value = 10,
-					total_ammo_mod = -204,
-					recoil = -30,
-					concealment = -4,
+					spread = 60,
 					damage = 0
 				},
 				custom_stats = {
 					ads_speed_mult = 1.1,
 					hip_mult = 3,
-					ammo_pickup_max_mul = 0.55,
-					ammo_pickup_min_mul = 0.55,
 					ignore_statistic = true,
 					block_b_storm = true,
 					rays = 1,
@@ -1619,17 +1607,12 @@ local grips = {
 			a_explosive_heavy_override = {
 				stats = {
 					value = 10,
-					total_ammo_mod = -204,
-					damage = 0,
-					recoil = -30,
-					concealment = -4,
-					moving_spread = 3
+					spread = 60,
+					damage = 0
 				},
 				custom_stats = {
 					ads_speed_mult = 1.1,
 					hip_mult = 3,
-					ammo_pickup_max_mul = 0.55,
-					ammo_pickup_min_mul = 0.55,
 					ignore_statistic = true,
 					rays = 1,
 					block_b_storm = true,	
@@ -13722,7 +13705,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_aa12", "resmod_aa12", function(sel
 	self.parts.wpn_fps_sho_aa12_mag_drum.stats = {
 		value = 1,
 		extra_ammo = 12,
-		reload = -6,
+		reload = -2,
 		concealment = -2
 	}
 
@@ -29353,6 +29336,19 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.wpn_fps_ass_nova4_npc.override = deep_clone(self.wpn_fps_ass_nova4.override)
 			self.wpn_fps_ass_nova4_npc.uses_parts = deep_clone(self.wpn_fps_ass_nova4.uses_parts)
 		end
+
+
+		if self.parts.wpn_fps_ass_mike4_handguard_fsp then -- MW2019 M4A1
+			self.parts.wpn_fps_ass_mike4_handguard_fsp.supported = true
+			self.parts.wpn_fps_ass_mike4_handguard_fsp.stats = {
+				value = 1,
+				concealment = -2,
+				recoil = 1,
+				spread = 2
+			}
+		end
+
+
 
 		if self.parts.wpn_fps_ass_mike4_2022_grip then --MW2022 M4
 			self.parts.wpn_fps_ass_mike4_2022_handguard.supported = true

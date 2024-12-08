@@ -7281,7 +7281,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.deagle.fire_mode_data.fire_rate = 0.17647058
 						self.deagle.kick = self.stat_info.kick_tables.moderate_right_kick
 						self.deagle.CLIP_AMMO_MAX = 7
-						self.deagle.AMMO_MAX = 20
+						self.deagle.AMMO_MAX = 35
 						self.deagle.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
 						self.deagle.no_auto_anims = true
 						self.deagle.supported = true
@@ -8506,7 +8506,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.mac10.panic_suppression_chance = 0.05
 
 					--chicago typewriter
-						self.m1928.use_data.selection_index = 1
+						self.m1928.use_data.selection_index = 2
 						self.m1928.desc_id = "bm_thompson_sc_desc"
 						self.m1928.has_description = true
 						self.m1928.fire_mode_data.fire_rate = 0.08571428
@@ -20090,7 +20090,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mike4_2022.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 				self.mike4_2022.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
 				self.mike4_2022.tactical_reload = 1
-				self.mike4_2022.AMMO_MAX = 210
+				self.mike4_2022.AMMO_MAX = 150
 				self.mike4_2022.fire_mode_data.fire_rate = 0.074074
 				self.mike4_2022.kick = self.stat_info.kick_tables.left_kick
 				self.mike4_2022.supported = true
@@ -20131,14 +20131,14 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mike4.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 				self.mike4.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
 				self.mike4.tactical_reload = 1
-				self.mike4.AMMO_MAX = 210
-				self.mike4.fire_mode_data.fire_rate = 0.074074
-				self.mike4.kick = self.stat_info.kick_tables.left_kick
+				self.mike4.AMMO_MAX = 150
+				self.mike4.fire_mode_data.fire_rate = 0.072
+				self.mike4.kick = self.stat_info.kick_tables.moderate_kick
 				self.mike4.supported = true
 				self.mike4.ads_speed = 0.240
 				self.mike4.damage_falloff = {
 					start_dist = 2600,
-					end_dist = 4500,
+					end_dist = 6500,
 					min_mult = 0.4166
 				}
 				self.mike4.stats = {
@@ -20155,12 +20155,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					reload = 20
 				}
 				self.mike4.stats_modifiers = nil
-				self.mike4.reload_speed_multiplier = 1.36
-				self.mike4.panic_suppression_chance = 0.05
-				self.mike4.timers.reload_empty = 3
-				self.mike4.timers.reload_exit_empty = 0.55
-				self.mike4.timers.reload_exit_not_empty = 1.2
-				self.mike4.timers.reload_not_empty = 2.35
+				self.mike4.reload_speed_multiplier = 1.0
 			end
 
 			if self.xmike2010 then --MW2022 SPX80
@@ -20834,7 +20829,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.pd3_lynx.AMMO_MAX = 15
 				self.pd3_lynx.tactical_reload = 1
 				self.pd3_lynx.muzzleflash = "effects/payday2/particles/weapons/50cal_auto_fps"
-				self.pd3_lynx.fire_mode_data.fire_rate = 0.545454
+				self.pd3_lynx.fire_mode_data.fire_rate = 0.2
 				self.pd3_lynx.sms = sms_preset.semi_snp_amr
 				self.pd3_lynx.kick = deep_clone(self.stat_info.kick_tables.vertical_kick)
 				self.pd3_lynx.supported = true
