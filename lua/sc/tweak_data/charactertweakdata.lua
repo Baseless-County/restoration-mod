@@ -3241,6 +3241,9 @@ function CharacterTweakData:_init_phalanx_vip(presets)
 	self.phalanx_vip_break.marshal_logic = true	
 	self.phalanx_vip_break.can_be_healed = false
 	self.phalanx_vip_break.tmp_invulnerable_on_tweak_change = 15
+	--Just in case
+	self.phalanx_vip_break.melee_push_multiplier = 1
+	self.phalanx_vip_break.melee_force_crouch = false	
 	table.insert(self._enemy_list, "phalanx_vip_break")		
 end
 

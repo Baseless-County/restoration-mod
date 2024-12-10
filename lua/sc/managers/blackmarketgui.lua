@@ -4937,6 +4937,16 @@ function BlackMarketGui:update_info_text()
 					end
 					table.insert(updated_texts[4].resource_color, tweak_data.screen_colors.important_1)
 				end
+				
+				local magazine_envy = Global.mutators.mutator_values.MutatorMagazineMartyr and Global.mutators.mutator_values.MutatorMagazineMartyr.enabled
+				if magazine_envy and (weapon_tweak.keep_ammo == 1 or weapon_tweak.timers.shotgun_reload or weapon_tweak.timers.shotgun_reload_exit_empty) then
+					if slot_data.global_value and slot_data.global_value ~= "normal" or weapon_tweak.has_description then
+						updated_texts[4].text = updated_texts[4].text .. "\n##" .. managers.localization:text("mutator_letthesleepinggoddie_no_effect") .. "##"
+					else
+						updated_texts[4].text = updated_texts[4].text .. " ##" .. managers.localization:text("mutator_letthesleepinggoddie_no_effect") .. "##"
+					end
+					table.insert(updated_texts[4].resource_color, tweak_data.screen_colors.mutators_color)
+				end
 	
 	
 

@@ -227,11 +227,11 @@ Hooks:Add("LocalizationManagerPostInit", "ResMod_english_Localization", function
 		["RestorationModQueuedShootingBurstExcludeTitleID"] = "Mid-Burst Input Buffer Limit",
 		["RestorationModQueuedShootingBurstExcludeDescID"] = "Limits the buffering of fire inputs made *during* a burst to weapons that have a burst delay *below* the value (ms) set by this option.",
 		["RestorationModNoADSRecoilAnimsTitleID"] = "No ADS Recoil Animations",
-		["RestorationModNoADSRecoilAnimsDescID"] = "Enable/disable ADS recoil animations. Some weapons are not affected by this option (i.e. Manually operated guns, bows, flamethrowers)",
+		["RestorationModNoADSRecoilAnimsDescID"] = "Enable/disable ADS recoil animations. Some weapons are not affected by this option (i.e. Manually operated guns, bows, flamethrowers).",
 		["RestorationModNoSwapOnReviveTitleID"] = "No Forced Weapon Swap on Revive",
 		["RestorationModNoSwapOnReviveDescID"] = "Disables the forced weapon swap upon being revived when going down with a primary without Undying Aced.",
 		["RestorationModManualReloadsTitleID"] = "Manual Reloads",
-		["RestorationModManualReloadsDescID"] = "Disables automatic reloads when your magazine is empty.",
+		["RestorationModManualReloadsDescID"] = "Disables automatic reloads when your magazine is empty. NOTE: Setting is ignored if the \"Reload Marathon\" mutator is active.",
 		["RestorationModSecondSightSprintTitleID"] = "Sprint button for second sight toggle",
 		["RestorationModSecondSightSprintDescID"] = "Use the sprint button instead of the gadget button to toggle secondary sights while ADS.\nWhile enabled gadgets can be toggled as they could prior to U232 but you cannot enter a sprint while ADS.",
 		["RestorationModADSTransitionStyleTitleID"] = "ADS Style",
@@ -5059,7 +5059,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["mutator_bo_flashbang"] = "Your Opinion - My Choice",
 		["menu_mutator_flashbang_cooking_time"] = "Fuse Time (in seconds)",
 		["mutator_bo_flashbang_desc"] = "Flashbangs are now indestructible.",
-		["mutator_bo_flashbang_longdesc"] = "Flashbangs are now indestructible.",
+		["mutator_bo_flashbang_longdesc"] = "Flashbangs are now indestructible; fuse time can also be lowered.",
 
 		["mutator_grenade_mayhem"] = "Total Carnage!",
 		["menu_mutator_grenade_mayhem_usuals_toggle"] = "Include Commons and Elites",
@@ -5109,6 +5109,16 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["mutator_CG22"] = "A Criminal Carol",
 		["mutator_CG22_desc"] = "Some heists will have a christmas tree that spawns presents to shred or give to Hajrudin.",
 		["mutator_CG22_longdesc"] = "PAYDAY 2 2022 Christmas Event:\n\nChristmas Trees that appear on some heists will drop Christmas presents. Christmas Presents can either be shredded for temporary buffs during the heist, or given to Hajrudin for bonus XP, Cash, or Continental Coins. Doing either has a chance to spawn the Freeze-Thrower wielding Snowman Dozer.",
+
+		["mutator_thecandlesburnoutforyou"] = "Reload Marathon",
+		["mutator_thecandlesburnoutforyou_desc"] = "You must manually reload your weapon when its magazine is empty.",
+		["mutator_thecandlesburnoutforyou_longdesc"] = "You must manually reload your weapon when its magazine is empty.",
+
+		["mutator_letthesleepinggoddie"] = "Magazine Martyr",
+		["mutator_letthesleepinggoddie_desc"] = "You will lose the ammo currently loaded in your weapon after non-empty reloads.",
+		["mutator_letthesleepinggoddie_longdesc"] = "You will lose the ammo currently loaded in your weapon after non-empty reloads.\n\n NOTE: weapons that retain their ammo for their reload (per-round loading, retention reloads, etc.) as well as reloads triggered by skills are exempt from the effects of this mutator.",
+		["mutator_letthesleepinggoddie_no_effect"] = "Unaffected by the \"Magazine Martyr\" mutator.",
+
 
 		["menu_cg22_post_objective_1_desc"] = "Kill 200 enemies with any sniper rifle.",
 		["menu_cg22_post_objective_2_desc"] = "Kill 15 Cloakers with the North Star rifle on Very Hard or above.",

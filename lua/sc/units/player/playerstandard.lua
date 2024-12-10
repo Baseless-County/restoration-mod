@@ -673,7 +673,7 @@ PlayerStandard._primary_action_funcs = {
 
 			return true
 		end,
-		single = function (self, t, input, params, weap_unit, weap_base)
+		singleeee = function (self, t, input, params, weap_unit, weap_base) --effectively disabled; will fallback to the "default" behavior listed above
 			if weap_base.should_reload_immediately and weap_base:should_reload_immediately() then
 				self:_start_action_reload_enter(t)
 			else
@@ -844,6 +844,9 @@ PlayerStandard._primary_action_get_value = {
 					end
 				end
 			end
+			if weap_base:clip_empty() then
+				self:_start_action_reload_enter(t)
+			end
 		end,
 		auto = function (self, t, input, params, weap_unit, weap_base, start_shooting, fire_on_release, ...)
 			if self._spin_up_shoot or input.btn_primary_attack_state then
@@ -928,6 +931,7 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 				if weap_base and weap_base:alt_fire_active() and weap_base._alt_fire_data and weap_base._alt_fire_data.ignore_always_play_anims then
 					force_ads_recoil_anims = nil
 				end
+				local manual_reloads = tweak_data.weapon.stat_info.reload_marathon or restoration.Options:GetValue("OTHER/WeaponHandling/ManualReloads")
 				local queue_inputs = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShooting")
 				local queue_window = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShootingWindow") or 0.5
 				local queue_exlude = restoration.Options:GetValue("OTHER/WeaponHandling/QueuedShootingExclude") or 0.6
@@ -953,7 +957,6 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 					self._queue_burst = nil
 					self._queue_fire = nil
 
-					local manual_reloads = restoration.Options:GetValue("OTHER/WeaponHandling/ManualReloads")
 					if params and params.no_reload or self:_is_using_bipod() --[[or is_pro]] or manual_reloads then
 						if input.btn_primary_attack_press then
 							weap_base:dryfire()
@@ -1310,10 +1313,16 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 							end
 						end
 
-						if fire_mode == "single" and self._spin_up_shoot then
-							self._spin_up_shoot = nil
-							self._already_fired = true
+						if fire_mode == "single" then
+							if self._spin_up_shoot then
+								self._spin_up_shoot = nil
+								self._already_fired = true
+							end
+							if weap_base:clip_empty() and not manual_reloads then
+								self:_start_action_reload_enter(t)
+							end
 						end
+
 
 					weap_base._jammed = nil
 					else
