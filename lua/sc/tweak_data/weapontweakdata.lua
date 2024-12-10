@@ -13968,6 +13968,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						reload = 20
 					}
 					self.sg416.stats_modifiers = nil
+					self.sg416.sounds.magazine_empty = "wp_rifle_slide_lock"
 					self.sg416.reload_speed_multiplier = 1.15
 					self.sg416.timers.reload_not_empty = self.new_m4.timers.reload_not_empty
 					self.sg416.timers.reload_empty = self.new_m4.timers.reload_empty
@@ -19332,6 +19333,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.m4_usasoc.stats_modifiers = nil
 				self.m4_usasoc.panic_suppression_chance = 0.05
 				self.m4_usasoc.sounds.magazine_empty = "wp_rifle_slide_lock"
+				self.m4_usasoc.keep_ammo = 1
 				self.m4_usasoc.reload_speed_multiplier = 1.08
 				self.m4_usasoc.timers.reload_empty = 3
 				self.m4_usasoc.timers.reload_exit_empty = 0.55
@@ -19894,6 +19896,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					reload = 20
 				}
 				self.tti_dracarys.stats_modifiers = nil
+				self.tti_dracarys.keep_ammo = 1
 				self.tti_dracarys.panic_suppression_chance = 0.05
 				self.tti_dracarys.sounds.magazine_empty = "wp_rifle_slide_lock"
 				self.tti_dracarys.reload_speed_multiplier = 0.9
@@ -20115,6 +20118,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.mike4_2022.stats_modifiers = nil
 				self.mike4_2022.reload_speed_multiplier = 1.36
+				self.mike4_2022.keep_ammo = 1
 				self.mike4_2022.panic_suppression_chance = 0.05
 				self.mike4_2022.timers.reload_empty = 3
 				self.mike4_2022.timers.reload_exit_empty = 0.55
