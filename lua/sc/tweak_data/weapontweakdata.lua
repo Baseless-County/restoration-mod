@@ -1535,7 +1535,7 @@ local crew_wep_preset = {
 	--Vanilla Deagle, less lethal
 	function WeaponTweakData:_init_data_deagle_npc()
 		self.deagle_npc = deep_clone(self.raging_bull_npc)
-		self.deagle_npc.DAMAGE = 1.2
+		self.deagle_npc.DAMAGE = 2.4 --same dmg as titan shield's beretta
 		self.deagle_npc.CLIP_AMMO_MAX = 8
 		self.deagle_npc.sounds.prefix = "deagle_npc"
 		self.deagle_npc.anim_usage = "is_pistol"

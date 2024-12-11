@@ -1374,113 +1374,6 @@ function CharacterTweakData:_init_marshal_marksman(presets)
 	table.insert(self._enemy_list, "marshal_marksman")
 end
 
-function CharacterTweakData:_init_marshal_shield(presets)
-	self.marshal_shield = deep_clone(presets.base)
-	self.marshal_shield.tags = {
-		"law",
-		"shield"
-	}
-	self.marshal_shield.experience = {}
-	self.marshal_shield.weapon = deep_clone(presets.weapon.normal)
-	self.marshal_shield.static_weapon_preset = true
-	self.marshal_shield.detection = presets.detection.normal
-	self.marshal_shield.HEALTH_INIT = 13
-	self.marshal_shield.headshot_dmg_mul = 2.2
-	self.marshal_shield.allowed_stances = {
-		cbt = true
-	}
-	self.marshal_shield.allowed_poses = {
-		crouch = true
-	}
-	self.marshal_shield.always_face_enemy = true
-	self.marshal_shield.move_speed = presets.move_speed.fast
-	self.marshal_shield.no_run_start = true
-	self.marshal_shield.no_run_stop = true
-	self.marshal_shield.no_retreat = true
-	self.marshal_shield.no_arrest = true
-	self.marshal_shield.surrender = nil
-	self.marshal_shield.rotation_speed = 0.75
-	self.marshal_shield.ecm_vulnerability = 0
-	self.marshal_shield.ecm_hurts = {
-		ears = {
-			max_duration = 0,
-			min_duration = 0
-		}
-	}
-	self.marshal_shield.rescue_hostages = false
-	self.marshal_shield.deathguard = false
-	self.marshal_shield.no_equip_anim = true
-	self.marshal_shield.wall_fwd_offset = 100
-	self.marshal_shield.damage.explosion_damage_mul = 0.8
-	self.marshal_shield.calls_in = nil
-	self.marshal_shield.ignore_medic_revive_animation = true
-	self.marshal_shield.shooting_death = false
-	self.marshal_shield.damage.hurt_severity = presets.hurt_severities.no_hurts
-	self.marshal_shield.damage.shield_knocked = false
-	self.marshal_shield.immune_to_concussion = true
-	self.marshal_shield.damage.immune_to_knockback = true
-	self.marshal_shield.immune_to_knock_down = true
-	self.marshal_shield.use_animation_on_fire_damage = false
-	self.marshal_shield.melee_push_multiplier = 2
-	self.marshal_shield.melee_force_crouch = true
-	self.marshal_shield.flammable = true
-	self.marshal_shield.weapon_voice = "3"
-	self.marshal_shield.experience.cable_tie = "tie_swat"
-	self.marshal_shield.speech_prefix_p1 = "cum"
-	self.marshal_shield.speech_prefix_p2 = nil
-	self.marshal_shield.speech_prefix_count = nil
-	self.marshal_shield.yellow_blood = nil
-	self.marshal_shield.no_asu = true
-	if self:get_ai_group_type() == "russia" then
-		self.marshal_shield.custom_voicework = "tswat_ru"
-	elseif self:get_ai_group_type() == "murkywater" then
-		self.marshal_shield.custom_voicework = "bravo_elite_murky"	
-	elseif self:get_ai_group_type() == "federales" then
-		self.marshal_shield.custom_voicework = "bravo_elite_mex"
-	else
-		self.marshal_shield.custom_voicework = "bravo_dmr"
-	end		
-	self.marshal_shield.speech_prefix_count = nil
-	self.marshal_shield.priority_shout = "f31"
-	self.marshal_shield.access = "shield"
-	self.marshal_shield.chatter = presets.enemy_chatter.shield
-	self.marshal_shield.announce_incomming = "incomming_shield"
-	self.marshal_shield.spawn_sound_event = "shield_identification"
-	self.marshal_shield.steal_loot = nil
-	self.marshal_shield.no_mutator_weapon_override = true
-	self.marshal_shield.is_special = true
-	table.insert(self._enemy_list, "marshal_shield")
-
-	self.marshal_shield_break = deep_clone(self.marshal_shield)
-	self.marshal_shield_break.rotation_speed = 3
-	self.marshal_shield_break.tags = {
-		"law"
-	}
-	self.marshal_shield_break.HEALTH_INIT = 22.5
-	self.marshal_shield_break.headshot_dmg_mul = 2.2
-	self.marshal_shield_break.allowed_stances = nil
-	self.marshal_shield_break.allowed_poses = nil
-	self.marshal_shield_break.no_equip_anim = nil
-	self.marshal_shield_break.no_run_start = nil
-	self.marshal_shield_break.no_run_stop = nil
-	self.marshal_shield_break.always_face_enemy = nil
-	self.marshal_shield_break.wall_fwd_offset = nil
-	self.marshal_shield_break.priority_shout = nil
-	self.marshal_shield_break.access = "swat"
-	
-	self.marshal_shield_break.chatter = presets.enemy_chatter.swat
-	self.marshal_shield_break.announce_incomming = nil
-	self.marshal_shield_break.damage.hurt_severity = presets.hurt_severities.base
-	self.marshal_shield_break.damage.explosion_damage_mul = 1
-	self.marshal_shield_break.use_animation_on_fire_damage = nil
-	self.marshal_shield_break.damage.shield_knocked = nil
-	self.marshal_shield_break.modify_health_on_tweak_change = true
-	self.marshal_shield_break.tmp_invulnerable_on_tweak_change = 1.5 --still better than 3 seconds
-	self.marshal_shield_break.no_mutator_weapon_override = true
-	self.marshal_shield_break.unintimidateable = true
-	self.marshal_shield_break.no_asu = true
-	table.insert(self._enemy_list, "marshal_shield_break")
-end
 
 function CharacterTweakData:_init_gangster(presets)
 	self.gangster = deep_clone(presets.base)
@@ -2670,6 +2563,7 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_skull.headshot_dmg_mul = 9.5
 	self.tank_skull.damage.explosion_damage_mul = 1.5
 	self.tank_skull.damage.rocket_damage_mul = 1.5
+	self.tank_skull.melee_push_multiplier = 2 --he punches you harder now
 	self.tank_skull.move_speed = presets.move_speed.very_slow
 	self.tank_skull.spawn_sound_event = self._prefix_data_p1.bulldozer() .. "_entrance_elite"
 	table.insert(self._enemy_list, "tank_skull")
@@ -3149,6 +3043,36 @@ function CharacterTweakData:_init_phalanx_minion(presets)
 	self.phalanx_minion_assault.spawn_sound_event_3 = "hos_shield_indication_sound_terminator_style" --that's a big ass name
 	self.phalanx_minion_assault.no_retreat = false
 	table.insert(self._enemy_list, "phalanx_minion_assault")
+end
+
+function CharacterTweakData:_init_marshal_shield(presets)
+	--Clones Titan Shield
+	self.marshal_shield = deep_clone(self.phalanx_minion_assault)
+	self.marshal_shield.yellow_blood = nil
+	if self:get_ai_group_type() == "russia" then
+		self.marshal_shield.custom_voicework = "tswat_ru"
+	elseif self:get_ai_group_type() == "murkywater" then
+		self.marshal_shield.custom_voicework = "bravo_elite_murky"	
+	elseif self:get_ai_group_type() == "federales" then
+		self.marshal_shield.custom_voicework = "bravo_elite_mex"
+	else
+		self.marshal_shield.custom_voicework = "bravo_dmr"
+	end	
+	table.insert(self._enemy_list, "marshal_shield")
+
+	--Clones Titan SWAT
+	self.marshal_shield_break = deep_clone(self.city_swat_titan_assault)
+	self.marshal_shield_break.yellow_blood = nil
+	if self:get_ai_group_type() == "russia" then
+		self.marshal_shield_break.custom_voicework = "tswat_ru"
+	elseif self:get_ai_group_type() == "murkywater" then
+		self.marshal_shield_break.custom_voicework = "bravo_elite_murky"	
+	elseif self:get_ai_group_type() == "federales" then
+		self.marshal_shield_break.custom_voicework = "bravo_elite_mex"
+	else
+		self.marshal_shield_break.custom_voicework = "bravo_dmr"
+	end	
+	table.insert(self._enemy_list, "marshal_shield_break")
 end
 
 function CharacterTweakData:_init_phalanx_vip(presets)

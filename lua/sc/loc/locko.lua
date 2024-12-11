@@ -5111,7 +5111,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 		["mutator_letthesleepinggoddie"] = "탄창 희생",
 		["mutator_letthesleepinggoddie_desc"] = "탄창이 비어 있지 않은 채 재장전을 하면 현재 장전된 탄을 잃게 됩니다.",
-		["mutator_letthesleepinggoddie_longdesc"] = "탄창이 비어 있지 않은 채 재장전을 하면 현재 장전된 탄을 잃게 됩니다.\n\n주의: 재장전을 할 시 탄을 유지하는 무기(한 발당 장전, 유지 재장전 등)와 스킬에 의해 발동되는 재장전은 이 뮤테이터의 효과에서 제외됩니다.",
+		["mutator_letthesleepinggoddie_longdesc"] = "탄창이 비어 있지 않은 채 재장전을 하면 현재 장전된 탄을 잃게 됩니다.\n\n주의: 재장전하는 동안 탄을 유지하는 무기(한 발당 장전, 유지 재장전 등)와 스킬에 의해 발동되는 재장전은 이 뮤테이터의 효과에서 제외됩니다.",
 		["mutator_letthesleepinggoddie_no_effect"] = "\"탄창 희생\" 뮤테이터에 영향을 받지 않습니다.",
 
 

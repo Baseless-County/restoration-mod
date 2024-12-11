@@ -2556,8 +2556,10 @@ if level_id == "moon" then
 		"units/payday2/characters/ene_security_4/ene_security_4"
 	}
 end
---Marshal Sharpshooters replacing OMNIA Titan Snipers on Texas heists
-if level_id == "dinner" or level_id == "ranc" then
+--Marshal Sharpshooters/Shields replacing OMNIA Titan Snipers/Shields on Texas heists
+--Snipers in Lost in Transit are affected by lua edit
+if level_id == "dinner" or level_id == "ranc" or level_id == "trai" or level_id == "corp" then
+	--Snipers
 	ElementSpawnEnemyDummy.faction_mapping.nypd.sm_wish.sniper = {
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
@@ -2573,6 +2575,31 @@ if level_id == "dinner" or level_id == "ranc" then
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_gitgud/characters/ene_zeal_sniper/ene_zeal_sniper",
 		"units/pd2_dlc_usm1/characters/ene_male_marshal_marksman_scripted_2/ene_male_marshal_marksman_scripted_2"
+	}
+	--Shields
+	ElementSpawnEnemyDummy.faction_mapping.nypd.easy_wish.tshield = "units/pd2_dlc_usm2/characters/ene_male_marshal_shield_1/ene_male_marshal_shield_1"
+	ElementSpawnEnemyDummy.faction_mapping.nypd.overkill_290.tshield = "units/pd2_dlc_usm2/characters/ene_male_marshal_shield_1/ene_male_marshal_shield_1"
+	ElementSpawnEnemyDummy.faction_mapping.nypd.sm_wish.tshield = "units/pd2_dlc_usm2/characters/ene_male_marshal_shield_2/ene_male_marshal_shield_2"
+
+	ElementSpawnEnemyDummy.faction_mapping.lapd.easy_wish.tshield = "units/pd2_dlc_usm2/characters/ene_male_marshal_shield_1/ene_male_marshal_shield_1"
+	ElementSpawnEnemyDummy.faction_mapping.lapd.overkill_290.tshield = "units/pd2_dlc_usm2/characters/ene_male_marshal_shield_1/ene_male_marshal_shield_1"
+	ElementSpawnEnemyDummy.faction_mapping.lapd.sm_wish.tshield = "units/pd2_dlc_usm2/characters/ene_male_marshal_shield_2/ene_male_marshal_shield_2"
+
+	ElementSpawnEnemyDummy.faction_mapping.nypd.sm_wish.shield = {
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_usm2/characters/ene_male_marshal_shield_2/ene_male_marshal_shield_2"
+	}
+	ElementSpawnEnemyDummy.faction_mapping.lapd.sm_wish.shield = {
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_gitgud/characters/ene_zeal_swat_shield_sc/ene_zeal_swat_shield_sc",
+		"units/pd2_dlc_usm2/characters/ene_male_marshal_shield_2/ene_male_marshal_shield_2"
 	}
 end
 --Bravo Sharpshooters replacing OMNIA Titan Snipers
