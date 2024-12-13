@@ -5111,12 +5111,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["mutator_CG22_longdesc"] = "PAYDAY 2 2022 Christmas Event:\n\nChristmas Trees that appear on some heists will drop Christmas presents. Christmas Presents can either be shredded for temporary buffs during the heist, or given to Hajrudin for bonus XP, Cash, or Continental Coins. Doing either has a chance to spawn the Freeze-Thrower wielding Snowman Dozer.",
 
 		["mutator_thecandlesburnoutforyou"] = "Reload Marathon",
-		["mutator_thecandlesburnoutforyou_desc"] = "You must manually reload your weapon when its magazine is empty.",
-		["mutator_thecandlesburnoutforyou_longdesc"] = "You must manually reload your weapon when its magazine is empty.",
+		["mutator_thecandlesburnoutforyou_desc"] = "Disables the auto-reload that occurs when emptying your magazine; Reloads require a manual input",
+		["mutator_thecandlesburnoutforyou_longdesc"] = "Disables the auto-reload that occurs when emptying your magazine; Reloads require a manual input",
 
 		["mutator_letthesleepinggoddie"] = "Magazine Martyr",
-		["mutator_letthesleepinggoddie_desc"] = "You will lose the ammo currently loaded in your weapon after non-empty reloads.",
-		["mutator_letthesleepinggoddie_longdesc"] = "You will lose the ammo currently loaded in your weapon after non-empty reloads.\n\nNote: Weapons that retain their ammo during their reload (per-round loading, retention reloads, etc.) as well as reloads triggered by skills are exempt from the effects of this mutator.",
+		["mutator_letthesleepinggoddie_desc"] = "Upon a non-empty reload, ammo from the previous magazine is lost.",
+		["mutator_letthesleepinggoddie_longdesc"] = "Upon a non-empty reload, ammo from the previous magazine is lost.\n\nNote: Weapons that retain their ammo during their reload (per-round loading, retention reloads, etc.) as well as reloads triggered by skills are exempt from the effects of this mutator.",
 		["mutator_letthesleepinggoddie_no_effect"] = "Unaffected by the \"Magazine Martyr\" mutator.",
 
 

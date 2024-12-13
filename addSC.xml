@@ -1280,6 +1280,10 @@
 	<texture			path="units/pd2_dlc_usm1/characters/shared_textures/ene_marshal_body_merc_df" force="true"/>		
 	<texture			path="units/pd2_dlc_usm1/characters/shared_textures/ene_marshal_equipment_df" force="true"/>
 	<texture			path="units/pd2_dlc_usm1/characters/shared_textures/ene_marshal_equipment_merc_df" force="true"/>
+
+	<!--Marshal Shields-->
+	<sequence_manager	path="units/pd2_dlc_usm2/characters/ene_acc_marshal_shield_1/marshal_shield_1"/>	
+	<sequence_manager	path="units/pd2_dlc_usm2/characters/ene_acc_marshal_shield_2/marshal_shield_2"/>	
 	
 	<!--LPF and Medic (over-)healing Effects-->
 	<effect path="effects/pd2_mod_omnia/particles/character/overkillpack/mega_alien_eyes"/>
