@@ -5106,12 +5106,12 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["mutator_CG22_longdesc"] = "PAYDAY 2 2022년 크리스마스 이벤트:\n\n하이스트에 나타나는 크리스마스 트리는 크리스마스 선물을 떨어뜨립니다. 크리스마스 선물은 하이스트 도중에 분쇄하여 일시적인 버프를 받거나, 하이루딘에게 주어 보너스 경험치, 현금 또는 컨티넨탈 코인를 얻을 수 있습니다. 둘 중 하나를 수행하면 일정 확률로 냉기 방사기를 사용하는 스노우맨 도저가 스폰합니다.",		
 
 		["mutator_thecandlesburnoutforyou"] = "재장전 마라톤",
-		["mutator_thecandlesburnoutforyou_desc"] = "탄창이 비었을 때 수동으로 재장전합니다",
-		["mutator_thecandlesburnoutforyou_longdesc"] = "탄창이 비었을 때 수동으로 재장전합니다.",
+		["mutator_thecandlesburnoutforyou_desc"] = "자동 재장전을 비활성화 하며, 탄창이 비었을 때 수동으로 재장전해야 합니다.",
+		["mutator_thecandlesburnoutforyou_longdesc"] = "자동 재장전을 비활성화 하며, 탄창이 비었을 때 수동으로 재장전해야 합니다.",
 
 		["mutator_letthesleepinggoddie"] = "탄창 희생",
-		["mutator_letthesleepinggoddie_desc"] = "탄창이 비어 있지 않은 채 재장전을 하면 현재 장전된 탄을 잃게 됩니다.",
-		["mutator_letthesleepinggoddie_longdesc"] = "탄창이 비어 있지 않은 채 재장전을 하면 현재 장전된 탄을 잃게 됩니다.\n\n주의: 재장전하는 동안 탄을 유지하는 무기(한 발당 장전, 유지 재장전 등)와 스킬에 의해 발동되는 재장전은 이 뮤테이터의 효과에서 제외됩니다.",
+		["mutator_letthesleepinggoddie_desc"] = "비어 있지 않은 탄창을 재장전할 시 이전 탄창의 탄약이 사라집니다.",
+		["mutator_letthesleepinggoddie_longdesc"] = "비어 있지 않은 탄창을 재장전할 시 이전 탄창의 탄약이 사라집니다.\n\n주의: 재장전하는 동안 탄을 유지하는 무기(한 발당 장전, 유지 재장전 등)와 스킬에 의해 발동되는 재장전은 이 뮤테이터의 효과에서 제외됩니다.",
 		["mutator_letthesleepinggoddie_no_effect"] = "\"탄창 희생\" 뮤테이터에 영향을 받지 않습니다.",
 
 
