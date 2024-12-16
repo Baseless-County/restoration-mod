@@ -19243,6 +19243,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.acr_2012.stats_modifiers = nil
 				self.acr_2012.panic_suppression_chance = 0.05
+				self.acr_2012.lock_slide = true
+				self.acr_2012.lock_slide_alt = true
+				self.acr_2012.sounds.magazine_empty = "wp_rifle_slide_lock"
 				self.acr_2012.timers.reload_empty = 2.58
 				self.acr_2012.timers.reload_exit_empty = 0.7
 				self.acr_2012.timers.reload_not_empty = 1.65
