@@ -6100,7 +6100,7 @@ Hooks:PostHook(BlackMarketTweakData, "init", "CustomMelee", function(self, tweak
 	self.melee_weapons.zweihander.stats.charge_bonus_start = 0.9
 	self.melee_weapons.zweihander.stats.charge_bonus_range = 50
 	self.melee_weapons.zweihander.stats.concealment = 25
-	self.melee_weapons.zweihander.stats.speed_mult = 0.8
+	self.melee_weapons.zweihander.stats.speed_mult = 0.77
 	self.melee_weapons.zweihander.counter_damage = 18
 
 	self.melee_weapons.broad.anim_attack_charged_vars = nil
