@@ -5700,9 +5700,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Perk_Decks", function(
 		["menu_st_category_mod"] = "모드",
 
 		--Shared Perks--
-		["menu_deckall_2_desc_sc"] = "헤드샷 대미지가 #{skill_color}#25%## 증가합니다.\n\n당신은 추가로 #{skill_color}#25%##만큼의 대미지를 더 줍니다.\n\n#{risk}#주의:## #{important_1}#투척 무기, 발사기에는## #{risk}#대미지 증가가 적용되지 않습니다.##",
+		["menu_deckall_2_desc_sc"] = "헤드샷 대미지가 #{skill_color}#25%## 증가합니다.\n\n#{risk}#프로 잡이 아닐때의## 재장전 속도가 #{skill_color}#10%## 빨라집니다.\n\n당신은 추가로 #{skill_color}#25%##만큼의 대미지를 더 줍니다.\n\n#{risk}#주의:## #{important_1}#투척 무기, 발사기에는## #{risk}#대미지 증가가 적용되지 않습니다.##",
 		["menu_deckall_4_desc_sc"] = "방탄복의 기동성이 #{skill_color}#1##만큼 증가합니다.\n\n방탄복으로 인해 발생하는 속도 감소 효과가 #{skill_color}#15%##만큼 감소합니다.\n\n하이스트를 끝낼 때마다 얻는 경험치가 #{skill_color}#45%##만큼 증가합니다.\n\n당신은 추가로 #{skill_color}#25%##만큼의 대미지를 더 줍니다.\n\n#{risk}#주의:## #{important_1}#투척 무기, 발사기에는## #{risk}#대미지 증가가 적용되지 않습니다.##",
-		["menu_deckall_6_desc_sc"] = "하이스트 도중 당신과 당신의 팀원이 투척물을 보충할 수 있는 #{skill_color}#투척물 가방##을 소지할 수 있게 됩니다.\n\n당신은 추가로 #{skill_color}#25%##만큼의 대미지를 더 줍니다.\n\n#{risk}#주의:## #{important_1}#투척 무기, 발사기에는## #{risk}#대미지 증가가 적용되지 않습니다.##",
+		["menu_deckall_6_desc_sc"] = "하이스트 도중 당신과 당신의 팀원이 투척물을 보충할 수 있는 #{skill_color}#투척물 가방##을 소지할 수 있게 됩니다.\n\n#{risk}#프로 잡이 아닐때의## 탄약 회수량이 #{skill_color}#35%##만큼 증가합니다.\n\n당신은 추가로 #{skill_color}#25%##만큼의 대미지를 더 줍니다.\n\n#{risk}#주의:## #{important_1}#투척 무기, 발사기에는## #{risk}#대미지 증가가 적용되지 않습니다.##",
 		["menu_deckall_8_desc_sc"] = "의료 가방과 상호 작용하는 속도를 #{skill_color}#20%##만큼 상승시킵니다.\n\n당신은 추가로 #{skill_color}#25%##만큼의 대미지를 더 줍니다.\n\n#{risk}#주의:## #{important_1}#투척 무기, 발사기에는## #{risk}#대미지 증가가 적용되지 않습니다.##",
 
 		--Crook--

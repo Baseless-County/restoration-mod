@@ -1205,9 +1205,11 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 							end
 						end
 						local srm = weap_base._srm
-						local shots_fired = srm and math.max(weap_base._shots_fired - 1 - (srm[3] or 0), 0)  or 0
+						local shots_fired = srm and math.max(weap_base._shot_recoil_count - 1 - (srm[3] or 0), 0)  or 0
 						local shots_fired_mult = srm and math.round(100000 * math.clamp( 1 - (shots_fired * srm[1]) , srm[2][1], srm[2][2])) / 100000
 						local recoil_multiplier = (weap_base:recoil() + weap_base:recoil_addend()) * weap_base:recoil_multiplier() * (shots_fired_mult or 1)
+						local stance_mults = weap_tweak_data.stance_multipliers or nil
+						recoil_multiplier = recoil_multiplier * ((stance_mults and (self._state_data.in_steelsight and stance_mults.steelsight or self._state_data.ducking and stance_mults.crouching or stance_mults.standing)) or 1)
 						local recoil_count = weap_base._shot_recoil_count or 0
 						local recoil_stage = nil
 						if weap_tweak_data.kick_pattern then
@@ -1389,7 +1391,7 @@ function PlayerStandard:_check_stop_shooting()
 			if (not weap_base.akimbo or weap_base:weapon_tweak_data().allow_akimbo_autofire) then
 				self._ext_network:send("sync_stop_auto_fire_sound", 0)
 			end
-			weap_base._next_fire_allowed = weap_base._next_fire_allowed + (next_fire * ((srm and srm[2][2] > 1 and 0.45) or 0.15) )
+			weap_base._next_fire_allowed = weap_base._next_fire_allowed + (next_fire * 0.2)
 		end
 		local weap_hold = weap_base.weapon_hold and weap_base:weapon_hold() or weap_base:get_name_id()
 		local is_bow = table.contains(weap_base:weapon_tweak_data().categories, "bow")
@@ -2768,12 +2770,19 @@ function PlayerStandard:_last_shot_t(t, dt)
 		end
 	end
 end
+
 function PlayerStandard:_last_shot_recoil_t(t, dt)
 	local weapon = alive(self._equipped_unit) and self._equipped_unit:base()
 	local fire_rate = weapon and weapon:weapon_fire_rate()
+	local weapon_tweak = weapon and weapon:weapon_tweak_data()
+	local base_fire_rate_multiplier = weapon_tweak.fire_rate_multiplier or 1
+	local in_burst = weapon:in_burst_mode()
+	local auto_burst = in_burst and weapon._auto_burst
+	local burst_delay = (in_burst and weapon._burst_delay) or 0
+	local max_t = 0.4
 	if weapon then
 		if self._shooting then
-			self._last_recoil_t = (fire_rate / weapon:fire_rate_multiplier()) * 2
+			self._last_recoil_t = math.clamp( ((fire_rate + burst_delay) / weapon:fire_rate_multiplier()) * 2 , math.max(0, math.lerp( 0.125, -0.25, fire_rate )) , max_t / ((not auto_burst and (weapon:fire_rate_multiplier() / base_fire_rate_multiplier) ) or 1) )
 		else
 			if self._last_recoil_t then
 				self._last_recoil_t = self._last_recoil_t - dt
@@ -2785,6 +2794,7 @@ function PlayerStandard:_last_shot_recoil_t(t, dt)
 		end
 	end
 end
+
 
 
 function PlayerStandard:_shooting_move_speed_timer(t, dt)
