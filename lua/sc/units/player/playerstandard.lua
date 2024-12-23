@@ -1216,7 +1216,7 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 							local function shot_recoil_pattern(shot_count, recoil_table)
 								local stage = nil
 								for i, k in pairs(recoil_table) do
-									if shot_count >= recoil_table[i][1] then
+									if type(i) == "number" and shot_count >= recoil_table[i][1] then
 										stage = i
 									end
 								end
@@ -2779,10 +2779,10 @@ function PlayerStandard:_last_shot_recoil_t(t, dt)
 	local in_burst = weapon:in_burst_mode()
 	local auto_burst = in_burst and weapon._auto_burst
 	local burst_delay = (in_burst and weapon._burst_delay) or 0
-	local max_t = 0.4
+	local max_t = weapon_tweak.kick_pattern and weapon_tweak.kick_pattern.max_t or 0.35
 	if weapon then
 		if self._shooting then
-			self._last_recoil_t = math.clamp( ((fire_rate + burst_delay) / weapon:fire_rate_multiplier()) * 2 , math.max(0, math.lerp( 0.125, -0.25, fire_rate )) , max_t / ((not auto_burst and (weapon:fire_rate_multiplier() / base_fire_rate_multiplier) ) or 1) )
+			self._last_recoil_t = math.clamp( ((fire_rate + burst_delay) / (weapon:fire_rate_multiplier() * 0.8)) * 2 , math.max(0, math.lerp( 0.2, -0.25, fire_rate + burst_delay )) , max_t + burst_delay / ((not auto_burst and (weapon:fire_rate_multiplier() / base_fire_rate_multiplier) ) or 1) )
 		else
 			if self._last_recoil_t then
 				self._last_recoil_t = self._last_recoil_t - dt
@@ -4474,6 +4474,7 @@ function PlayerStandard:_start_action_unequip_weapon(t, data)
 	self._spin_up_shoot = nil
 	self._queue_burst = nil
 	self._queue_fire = nil
+	self._last_recoil_t = nil
 
 	local result = self._ext_camera:play_redirect(self:get_animation("unequip"), speed_multiplier)
 
