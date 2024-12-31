@@ -490,8 +490,8 @@ function restoration:Init()
 	--OMNIA
 	restoration.omnia_support = {
 		"wetwork", --Wetworks
-		"bluewave" --Bluewave
-		--"wetwork_burn"
+		"bluewave", --Bluewave
+		"wetwork_burn" --Burnout
 	}
 	
 	restoration.Environment_Settings_Table = {} --leave blank, it will generate contents based on the table below
