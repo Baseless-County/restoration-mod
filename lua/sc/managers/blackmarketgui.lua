@@ -5239,16 +5239,17 @@ function BlackMarketGui:update_info_text()
 		local current_diff = Global.game_settings.difficulty or "easy"
 		local is_pro = Global.game_settings and Global.game_settings.one_down
 		local difficulty_id = math.max(0, (tweak_data:difficulty_to_index(current_diff) or 0) - 2)
+		local grace_cap = nil
 		dodge_rating = math.clamp((dodge_rating + mod_dodge + skill_dodge) * 1000, 0, 450)
 		if dodge_rating and dodge_rating > 0 then
 			local description = managers.localization:text("bm_menu_dodge_grace", { grace_bonus = dodge_rating .. managers.localization:text("bm_menu_append_milliseconds") } )
 			local diff_desc = ""
 			local diff_reduction = difficulty_id and ((((difficulty_id == 4 or difficulty_id == 5) and 0.35) or (difficulty_id == 6 and 0.25) or 0.45) - ((is_pro and 0.1) or 0)) or 0.45
-			local grace_cap = (0.45 - (0.45 - diff_reduction)) * 1000
+			grace_cap = (0.45 - (0.45 - diff_reduction)) * 1000
 			for color_id in string.gmatch(description, "#%{(.-)%}#") do
 				table.insert(updated_texts[4].resource_color,  tweak_data.screen_colors[dodge_rating == 450 and "stat_maxed" or color_id])
 			end
-			if difficulty_id > 3 or is_pro then
+			if (difficulty_id > 3 or is_pro) and dodge_rating > grace_cap then
 				diff_desc = "\n" .. managers.localization:text("bm_menu_dodge_grace_cap", { grace_bonus_cap = grace_cap .. managers.localization:text("bm_menu_append_milliseconds") } ) ..
 				((is_pro and managers.localization:text("bm_menu_dodge_grace_jp_cap")) or "") ..
 				((is_pro and difficulty_id > 3 and managers.localization:text("bm_menu_dodge_grace_both")) or "") ..
@@ -5261,6 +5262,25 @@ function BlackMarketGui:update_info_text()
 
 			description = description:gsub("#%{(.-)%}#", "##") .. ((dodge_rating > (grace_cap + 0.01)) and diff_desc:gsub("#%{(.-)%}#", "##") or "")
 			updated_texts[4].text = updated_texts[4].text .. description
+		end
+		local has_advmov = (_G.AdvMov and true) or false
+		if has_advmov then
+			local dash_stats = tweak_data.upgrades.values.player.dash_stats
+			local dash_grace_t = math.min(dash_stats.grace_cap * 1000, (dash_stats.grace_t * 1000) + (dodge_rating * dash_stats.add_mult))
+			local dash_grace_dodge_t = math.min(dash_stats.grace_cap_dodge * 1000, (dash_stats.grace_t * 1000) + (dodge_rating * dash_stats.add_mult_dodge) )
+
+			local description = managers.localization:text("bm_menu_dash_grace", { dash_grace = dash_grace_t .. managers.localization:text("bm_menu_append_milliseconds") })
+			for color_id in string.gmatch(description, "#%{(.-)%}#") do
+				table.insert(updated_texts[4].resource_color,  tweak_data.screen_colors[dash_grace_t == dash_stats.grace_cap * 1000 and "stat_maxed" or color_id])
+			end
+			if dodge_rating > 0  then
+				description = description .. managers.localization:text("bm_menu_dash_grace_dodge", { dash_grace_dodge = dash_grace_dodge_t .. managers.localization:text("bm_menu_append_milliseconds") })
+				for color_id in string.gmatch(description, "#%{(.-)%}#") do
+					table.insert(updated_texts[4].resource_color,  tweak_data.screen_colors[dash_grace_dodge_t == dash_stats.grace_cap_dodge * 1000 and "stat_maxed" or color_id])
+				end
+			end
+			description = description:gsub("#%{(.-)%}#", "##") 
+			updated_texts[4].text = updated_texts[4].text .. ((dodge_rating > 0 and "\n") or "") .. description
 		end
 		updated_texts[4].below_stats = true
 	elseif identifier == self.identifiers.armor_skins then
@@ -6567,6 +6587,40 @@ function BlackMarketGui:update_info_text()
 		self._rename_caret:set_w(2)
 		self._rename_caret:set_h(h)
 		self._rename_caret:set_world_position(x + w, y)
+	end
+end
+
+function BlackMarketGui:_set_detection(value, maxed_reached, min_reached)
+	local detection_value = self._detection_panel:child("detection_value")
+
+	detection_value:set_text(math.round(value * 100))
+
+	local detection_ring_left_bg = self._detection_panel:child("detection_left_bg")
+	local _, _, w, _ = detection_value:text_rect()
+
+	detection_value:set_x(detection_ring_left_bg:x() + detection_ring_left_bg:w() / 2 - w / 2)
+	self._detection_panel:child("detection_left"):set_color(Color(0.5 + value * 0.5, 1, 1))
+	self._detection_panel:child("detection_right"):set_color(Color(0.5 + value * 0.5, 1, 1))
+
+	local detection_text = self._detection_panel:child("detection_text")
+
+	local has_advmov = (_G.AdvMov and true) or false
+	local dash_stats = has_advmov and tweak_data.upgrades.values.player.dash_stats
+	local dash_limit = has_advmov and ( dash_stats.limit + managers.player:get_value_from_risk_upgrade( managers.player:upgrade_value("player", "detection_risk_dash_count") ) )
+	local advmov_desc = has_advmov and ( " - " .. managers.localization:text("bm_menu_stats_dash_limit") .. " " .. tostring(dash_limit)) or ""
+
+	if maxed_reached then
+		detection_text:set_text(utf8.to_upper(managers.localization:text("bm_menu_stats_max_detection") .. ((has_advmov and advmov_desc) or "") ))
+		detection_text:set_color(Color(255, 255, 42, 0) / 255)
+		detection_value:set_color(Color(255, 255, 42, 0) / 255)
+	elseif min_reached then
+		detection_text:set_text(utf8.to_upper(managers.localization:text("bm_menu_stats_min_detection") .. ((has_advmov and advmov_desc) or "") ))
+		detection_text:set_color(tweak_data.screen_colors.ghost_color)
+		detection_value:set_color(tweak_data.screen_colors.text)
+	else
+		detection_text:set_text(utf8.to_upper(managers.localization:text("bm_menu_stats_detection") .. ((has_advmov and advmov_desc) or "") ))
+		detection_text:set_color(tweak_data.screen_colors.text)
+		detection_value:set_color(tweak_data.screen_colors.text)
 	end
 end
 

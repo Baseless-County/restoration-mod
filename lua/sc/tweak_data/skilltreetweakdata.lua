@@ -94,7 +94,8 @@ function SkillTreeTweakData:init(tweak_data)
 		"sentry_gun_silent",
 		"player_tape_loop_duration_1",
 		"player_civ_calming_alerts",
-		"player_detection_risk_stamina_regen"
+		"player_detection_risk_stamina_regen",
+		"player_detection_risk_dash_count"
 	}
 
 --[[   SKILLTREES   ]]--

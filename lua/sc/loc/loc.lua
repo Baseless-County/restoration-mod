@@ -186,6 +186,12 @@ Hooks:Add("LocalizationManagerPostInit", "ResMod_english_Localization", function
 			["dmcwo_reelnames"] = "Real Weapon Names (DMCWO Port - WIP)",
 			["resmod_no_renames"] = "Vanilla Names (or use your own rename mods)",
 
+		["RestorationModAdvMovBackstepTitleID"] = "Dash backwards on forward-only inputs",
+		["RestorationModAdvMovBackstepDescID"] = "Enable forward-only inputs to dash backwards.",
+		["RestorationModAdvMovDashScreenEffectAlphaTitleID"] = "Dash Screen Effect Strength",
+		["RestorationModAdvMovDashScreenEffectAlphaDescID"] = "Set the transparency of the dash screen effect, set to 0 to disable. Default: 0.8",
+		["RestorationModAdvMovSlideScreenEffectAlphaTitleID"] = "Slide Screen Effect Strength",
+		["RestorationModAdvMovSlideScreenEffectAlphaDescID"] = "Set the transparency of the slide screen effect, set to 0 to disable. Default: 0.8",
 		["RestorationModDisableAdvMovTFTitleID"] = "Disable Wall-run/jump",
 		["RestorationModDisableAdvMovTFDescID"] = "Disables the wall-run/jump aspects of Advanced Movement.",
 		["RestorationModAdvMovMeleeTitleID"] = "Melee Behavior",
@@ -2012,6 +2018,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_menu_stats_detection"] = "Encumbrance",
 		["bm_menu_stats_min_detection"] = "Encumbrance",
 		["bm_menu_stats_max_detection"] = "Encumbrance",
+		["bm_menu_stats_dash_limit"] = "Dash Limit:",
 
 		--Attachment type names--
 		["bm_menu_barrel_ext"] = "Muzzle",
@@ -2136,6 +2143,9 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_menu_dodge_grace_jp_cap"] = "#{important_1}#Pro-Job## rating",
 		["bm_menu_dodge_grace_both"] = " and ",
 		["bm_menu_dodge_grace_diff_cap"] = "risk level of #{risk}#$risk_level##",
+
+		["bm_menu_dash_grace"] = "GRACE PERIOD ON DASH: #{skill_color}#$dash_grace##",
+		["bm_menu_dash_grace_dodge"] = "\n - WITH DODGE READY: #{skill_color}#$dash_grace_dodge##",
 
 		["bm_menu_armor_grinding_1"] = "Armor regenerated every tick: #{skill_color}#$passive_armor_regen##",
 		["bm_menu_armor_grinding_2"] = "Armor regenerated every tick: #{skill_color}#$passive_armor_regen## \nArmor regenerated when damaging enemies: #{skill_color}#$active_armor_regen##",
@@ -5597,7 +5607,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 				--Unseen Strike, formally Dire Need--
 				["menu_backstab_beta_sc"] = "Unseen Strike",
-				["menu_backstab_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nIf you do not take damage for #{skill_color}#$skill_value_b1## seconds, you gain a #{skill_color}#$skill_value_b2## critical hit chance until you take damage.\n\nCritical hits deal #{skill_color}#50%## additional damage.\n\nACE: #{owned}#$pro##\nUnseen Strike's critical hit chance persists for #{skill_color}#$skill_value_p1## seconds after taking damage.",
+				["menu_backstab_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nIf you do not take damage for #{skill_color}#$skill_value_b1## seconds, you gain a #{skill_color}#$skill_value_b2## critical hit chance. The critical hit chance persists for #{skill_color}#$skill_value_b3## seconds after taking damage.\n\nCritical hits deal #{skill_color}#100%## additional damage.\n\nACE: #{owned}#$pro##\nUnseen Strike's critical hit chance persists for #{skill_color}#$skill_value_p1## seconds after taking damage.",
 
 				--Cleaner--
 				["menu_hitman_beta_sc"] = "Cleaner",
@@ -5605,7 +5615,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 				--Low Blow--
 				["menu_unseen_strike_beta_sc"] = "Low Blow",
-				["menu_unseen_strike_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou gain a #{skill_color}#$skill_value_b1## critical hit chance for every #{risk}#$skill_value_b2## points of encumbrance under #{risk}#$skill_value_b3##, up to a maximum of #{skill_color}#$skill_value_b4.##\n\nCritical hits deal #{skill_color}#50%## additional damage.\n\nACE: #{owned}#$pro##\nYou gain a #{skill_color}#$skill_value_p1## critical hit chance for every #{risk}#$skill_value_p2## point of encumbrance under #{risk}#$skill_value_p3##, up to a maximum of #{skill_color}#$skill_value_p4.##\n\nYour critical hit chance is increased by an additional #{skill_color}#$skill_value_p5## when attacking enemies from behind with guns or melee.",
+				["menu_unseen_strike_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou gain a #{skill_color}#$skill_value_b1## critical hit chance for every #{risk}#$skill_value_b2## points of encumbrance under #{risk}#$skill_value_b3##, up to a maximum of #{skill_color}#$skill_value_b4.##\n\nCritical hits deal #{skill_color}#100%## additional damage.\n\nACE: #{owned}#$pro##\nYou gain a #{skill_color}#$skill_value_p1## critical hit chance for every #{risk}#$skill_value_p2## point of encumbrance under #{risk}#$skill_value_p3##, up to a maximum of #{skill_color}#$skill_value_p4.##\n\nYour critical hit chance is increased by an additional #{skill_color}#$skill_value_p5## when attacking enemies from behind with guns or melee.",
 
 		--[[   FUGITIVE   ]]--
 

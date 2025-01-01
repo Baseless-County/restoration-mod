@@ -19393,6 +19393,63 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 
 		--[[     RJC9000'S MODS     ]]--
 			
+
+			if self.mptango41 then --Vanguard "PTRS-41" (Fuck you, Sledgehammer)
+				self.mptango41.categories = {
+					"snp",
+					"semi_snp",
+					"amr"
+				}
+				self.mptango41.recategorize = { "antim_snp" }
+				self.mptango41.hs_mult = 2
+				self.mptango41.damage_type = "anti_materiel"
+				self.mptango41.upgrade_blocks = nil
+				self.mptango41.tactical_reload = 1
+				self.mptango41.AMMO_MAX = 12
+				self.mptango41.fire_mode_data.fire_rate = 0.540540540
+				self.mptango41.sms = 0.2
+				self.mptango41.kick = deep_clone(self.stat_info.kick_tables.horizontal_recoil)
+				self.mptango41.kick_pattern = {
+					max_t = 0.6,
+					{0, self.stat_info.kick_tables.moderate_kick},
+					{2, self.stat_info.kick_tables.horizontal_recoil}
+				}
+				self.mptango41.supported = true
+				self.mptango41.ads_speed = 0.560
+				self.mptango41.damage_falloff = {
+					start_dist = 5000,
+					end_dist = 20000,
+					min_mult = 0.5
+				}
+				self.mptango41.stats = {
+					damage = 180,
+					spread = 91,
+					recoil = 1,
+					spread_moving = 8,
+					zoom = 1,
+					concealment = 12,
+					suppression = 4,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 400,
+					value = 9,
+					reload = 20
+				}
+				self.mptango41.armor_piercing_chance = 1
+				self.mptango41.reload_speed_multiplier = 0.85
+				self.mptango41.warsaw = true
+				self.mptango41.use_vapor_trail = true
+				self.mptango41.can_shoot_through_titan_shield = true
+				self.mptango41.stats_modifiers = nil
+				self.mptango41.panic_suppression_chance = 0.05
+				self.mptango41.lock_slide = true
+				self.mptango41.sounds.magazine_empty = "wp_pistol_slide_lock"
+				self.mptango41.timers.reload_empty = 4.8
+				self.mptango41.timers.reload_exit_empty = 1.15
+				self.mptango41.timers.reload_not_empty = 3.85
+				self.mptango41.timers.reload_exit_not_empty = 1.15
+			end
+
 			if self.madsen_lar then
 				self.madsen_lar.categories = { 
 					"assault_rifle",

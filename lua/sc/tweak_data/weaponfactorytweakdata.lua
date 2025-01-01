@@ -26450,6 +26450,19 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			end
 
 	--[[ RJC9000'S MODS ]]
+		if self.parts.wpn_fps_snp_mptango41_scope then
+
+			self.parts.wpn_fps_snp_mptango41_scope.stats = {
+				zoom = 20
+			}
+			self.parts.wpn_fps_snp_mptango41_scope.stance_mod = {
+				wpn_fps_snp_mptango41 = {
+					translation = Vector3(0.004, 4, -3.804)
+				}
+			}
+
+			
+		end
 
 		--TTI GEN-12
 		if self.parts.wpn_fps_shot_tti_dracarys_eotech then
