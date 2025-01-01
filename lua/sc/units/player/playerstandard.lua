@@ -5013,7 +5013,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 			-- relaxed wallrun conditions to enable jump maps
 			-- allow wallrunning while bouncing from wall to wall without explicitly enabling 
 			local wallkick_off_cooldown = (self._is_wallkicking and ((t - self._last_wallkick_t) > 0.2))
-			local dmgkick_off_cooldown = ((t - self._last_movekick_enemy_t) > 1)
+			local dmgkick_off_cooldown = ((t - (self._last_movekick_enemy_t or 0)) > 1)
 			local holding_jump = self._controller:get_input_bool("jump")
 			local no_wallrun = true --restoration.Options:GetValue("AdVMovResOpt/DisableAdvMovTF")
 			if not no_wallrun and not holding_jump and self._state_data.in_air and (tapping_sprint or wallkick_off_cooldown) and dmgkick_off_cooldown and mvector3.normalize(self:_get_sampled_xy()) > 0 then
