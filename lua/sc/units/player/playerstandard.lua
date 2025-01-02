@@ -113,11 +113,11 @@ function PlayerStandard:push(vel, override_vel, override_vel_mult, allow_sprint,
 
 		self._unit:mover():set_velocity(self._last_velocity_xy)
 	end
-	if not allow_sprint then
+	if force_crouch or not allow_sprint then
 		self:_interupt_action_running(managers.player:player_timer():time())
 	end
 	if force_crouch then
-		self:_start_action_ducking(managers.player:player_timer():time(), true)
+		self:_start_action_ducking(managers.player:player_timer():time())
 	end
 end
 
@@ -241,8 +241,14 @@ function PlayerStandard:_start_action_ducking(t, no_slide)
 	self._ext_network:send("action_change_pose", 2, self._unit:position())
 	self:_upd_attention()
 	
-	if AdvMov and PlayerStandard._check_slide and not no_slide and self._unit:movement():is_above_stamina_threshold() then
-		self:_check_slide()
+	if AdvMov and PlayerStandard._check_slide and self._unit:movement():is_above_stamina_threshold() then
+		if not no_slide then
+			self:_check_slide()
+		end
+		if self._is_wallrunning then
+			self._end_wallrun_kick_dir = self:_get_end_wallrun_kick_dir()
+			self:_cancel_wallrun(t, "fall")
+		end
 	end
 end
 
@@ -4606,7 +4612,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 	function PlayerStandard:_check_wallkick(t, dt)
 		if restoration.Options:GetValue("AdVMovResOpt/DisableAdvMovTF") or not self._unit:movement():is_above_stamina_threshold() then
 		else
-			--AdvMovWallKick(self, t, dt)
+			AdvMovWallKick(self, t, dt)
 		end
 	end
 
@@ -4643,7 +4649,6 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				damage_effect = 24.0,
 				attacker_unit = self._unit,
 				col_ray = target_ray_data.raydata,
-				name_id = "wallkick",
 				charge_lerp_value = 0,
 				shield_knock = can_shield_knock,
 				name_id = "fists"	
@@ -4739,12 +4744,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 	end
 
 	function PlayerStandard:_check_slide()
-		if not self._state_data.in_air or self._is_jumping then
-			self._is_wallkicking = nil
-		end
 		if not ((managers.groupai:state():whisper_mode() and AdvMov.settings.slidestealth == 1) or (not managers.groupai:state():whisper_mode() and AdvMov.settings.slideloud == 1)) then
 			local t = TimerManager:game():time()
-			if self._last_velocity_xy and (self._running or self._state_data.in_air) and not self._wallkick_is_clinging and not self._is_wallrunning and t - self._start_running_t > 0.1 then
+			if self._last_velocity_xy and (self._running or self._state_data.in_air or self._is_wallkicking) and not self._wallkick_is_clinging and t - self._start_running_t > 0.1 then
 				-- must be moving at least a certain speed to slide
 				local movedir = self._move_dir or self._last_velocity_xy -- don't use self:get_sampled_xy() in any of the other lines in here
 				local velocity = Vector3()
@@ -4763,8 +4765,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					end
 				end
 				--]]
-
-				if (self._is_wallkicking or (horizontal_speed > (walkspeed * 1.1))) and ((self._last_t - self._last_slide_time) > slide_cooldown) then
+				if not self._is_wallrunning and (self._is_wallkicking or (horizontal_speed > (walkspeed * 1.1) )) and ((self._last_t - self._last_slide_time) > slide_cooldown) then
 					self._is_sliding = true
 					self._slide_dir = mvector3.copy(movedir)
 					self._slide_slow_add = 0
@@ -4797,7 +4798,6 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 			end
 		end
 	end
-	
 
 	function PlayerStandard:_do_dash(input)
 		if not (managers.player:current_state() == "mask_off" or managers.player:current_state() == "civilian") then
@@ -4854,10 +4854,13 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					local dash_t_cap = (full_dodge and dash_stats.grace_cap_dodge) or dash_stats.grace_cap
 					local iframes = (math.min( dash_t_cap, (dash_base_t + dodge_t)) * ((dash_fatigue and dash_stats.fatigue_mult) or 1))
 					local effect_alpha = (restoration.Options:GetValue("AdVMovResOpt/AdvMovDashScreenEffectAlpha") or 0.8) * ((dash_fatigue and 0.5) or 1)
-					managers.hud:activate_effect_screen(iframes, ((last_dash and Vector3(1.0, 1.0, 0.625)) or (dash_fatigue and Vector3(1, 0.625, 1.0)) or Vector3(0.625, 0.625, 1.0)) * effect_alpha, true)
+					managers.hud:activate_effect_screen(iframes, ((last_dash and Vector3(1.0, 1.0, 0.625)) or (dash_fatigue and Vector3(1.0, 0.625, 0.625)) or Vector3(0.625, 0.625, 1.0)) * effect_alpha, true)
 					managers.player:apply_slow_debuff(1, 0.6, nil, true)
 					ch_dmg._last_received_dmg = math.huge
 					ch_dmg._next_allowed_dmg_t = Application:digest_value(t + iframes, true)
+					if dash_fatigue then
+						ch_dmg:fill_dodge_meter( -0.2 )
+					end
 					self._last_dash_iframes = t + iframes
 				end
 
@@ -4892,6 +4895,10 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 	local _update_movement_old = PlayerStandard._update_movement
 	function PlayerStandard:_update_movement(t, dt)
 		_update_movement_old(self, t, dt)
+
+		if not self._last_movekick_shake_t then
+			self._last_movekick_shake_t = 0
+		end
 
 		--SLIDING STUFF
 			self:_check_wallkick(t, dt)
@@ -4967,7 +4974,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					local has_kicked, kill = self:_do_movement_melee_damage(nil, self._is_wallkicking) -- do it really hard if you're still in midair
 					if has_kicked then
 						self._last_movekick_shake_t = t
-						if not kill then
+						if not kill or not self._is_sliding then
 							self._last_movekick_enemy_t = t
 						end
 					end
@@ -4977,7 +4984,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				if self._last_speed < (self._slide_end_speed) and ((t - self._last_wallkick_t) > 0.3) then
 					self:_cancel_slide(3)
 				end
-			elseif self._is_wallkicking or self._is_dashing then
+			elseif self._is_wallkicking then
 				-- coming in from that wallkick
 				if not self._state_data.in_air then
 					self._is_wallkicking = nil
@@ -4986,7 +4993,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					local has_kicked, kill = self:_do_movement_melee_damage(nil, self._is_wallkicking) -- megakick if wallkicking
 					if has_kicked then
 						self._last_movekick_shake_t = t
-						if not kill then
+						if not kill or not self._is_sliding then
 							self._last_movekick_enemy_t = t
 						end
 					end
@@ -5001,7 +5008,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					local has_kicked, kill = self:_do_movement_melee_damage(true, nil)
 					if has_kicked then
 						self._last_movekick_shake_t = t
-						if not kill then
+						if not kill or not self._is_sliding then
 							self._last_movekick_enemy_t = t
 						end
 					end
@@ -5013,9 +5020,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 			-- relaxed wallrun conditions to enable jump maps
 			-- allow wallrunning while bouncing from wall to wall without explicitly enabling 
 			local wallkick_off_cooldown = (self._is_wallkicking and ((t - self._last_wallkick_t) > 0.2))
-			local dmgkick_off_cooldown = ((t - (self._last_movekick_enemy_t or 0)) > 1)
+			local dmgkick_off_cooldown = ((t - self._last_movekick_enemy_t) > 1)
 			local holding_jump = self._controller:get_input_bool("jump")
-			local no_wallrun = true --restoration.Options:GetValue("AdVMovResOpt/DisableAdvMovTF")
+			local no_wallrun = restoration.Options:GetValue("AdVMovResOpt/DisableAdvMovTF")
 			if not no_wallrun and not holding_jump and self._state_data.in_air and (tapping_sprint or wallkick_off_cooldown) and dmgkick_off_cooldown and mvector3.normalize(self:_get_sampled_xy()) > 0 then
 				-- reduce cooldown if hitting a different wall
 				local lenghtmult = 1
@@ -5041,7 +5048,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					end
 				end
 				local wallrun_on_cooldown = (t - self._last_wallrun_t) < (self._new_wallrun_delay or 0)
-				if not self._is_wallrunning and not wallrun_on_cooldown and self._unit:movement():is_above_stamina_threshold() and not self:on_ladder() and nearest_ray then
+				if self:_can_stand() and not self._is_wallrunning and not wallrun_on_cooldown and self._unit:movement():is_above_stamina_threshold() and not self:on_ladder() and nearest_ray then
 					self._sprinting_speed = self:_get_modified_move_speed("run")
 					self._wallrun_speed = self._sprinting_speed * 1.5
 					self._wallrun_last_speed = self._wallrun_speed
@@ -5062,6 +5069,14 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 			end
 
 			if self._is_wallrunning then
+				self._is_wallkicking = nil
+				if self._is_sliding then
+					self:_cancel_slide() --cancel the slide before cancelling the crouch to avoid the speed penalty of ending a slide early
+				end
+				if self._state_data.ducking then
+					self:_end_action_ducking(t)
+				end
+
 				-- drain stamina, prevent regen
 				self._unit:movement():subtract_stamina(tweak_data.player.movement_state.stamina.STAMINA_DRAIN_RATE * dt * (self._wallrun_last_speed/self._sprinting_speed))
 					self._unit:movement():_restart_stamina_regen_timer()

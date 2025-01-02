@@ -429,7 +429,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		rate = 0.5,
 		cooldown = 1,
 		speed = 1.4,
-		fatigue_mult = 0.6,
+		fatigue_mult = 0.5,
 		grace_t = 0.25,
 		add_mult = 0.5,
 		add_mult_dodge = 1.5,
