@@ -39,7 +39,7 @@ function GamePlayCentralManager:_do_shotgun_push(unit, hit_pos, dir, distance, a
 	end
 
 	local scale = math.clamp(1 - distance / self:get_shotgun_push_range(attacker), 0.5, 1)
-	local rot_time = 1 + math.rand(2)
+	local rot_time = 0.5 --+ math.rand(2)
 	local asm = unit:anim_state_machine()
 
 	if asm and asm:get_global("tank") == 1 then
