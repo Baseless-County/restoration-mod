@@ -5839,9 +5839,9 @@ Hooks:PostHook(UpgradesTweakData, "init", "ResOtherModSkills", function(self)
 		}
 		
 		self.values.player.tachi_hot_duration = {
-			4,
 			6,
-			8
+			8,
+			10
 		}
 
 		self.definitions.player_tachi_hot_amount_3 = {

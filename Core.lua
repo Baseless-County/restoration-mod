@@ -745,6 +745,14 @@ restoration.AdvMovMelee = {
 	"resmod_advmov_melee_off"
 }
 
+restoration.queued_impact_effects_type = {
+	"impactfx_type_default", 
+	--Default setting; shotguns play their bullet impact fx all at once at risk of performance if too many are set to play at once, everything else is put into a queue for sequential playback at the cost of having impacts potentially lagging behind if too many get queued too quickly
+	"impactfx_type_immediate",
+	--All weapons play their impact FX all at once at the risk of performance if too many are set to play at once
+	"impactfx_type_queued"
+	--All weapons have their impact FX all put into a queue for sequential playback at the cost of having impact playback potentially lagging behind if too many get queued too quickly
+}
 -- Detect if ResMod is active to disable PDTH Challenges Standalone
 DisablePDTHChallengeStandalone = DisablePDTHChallengeStandalone or {}
 

@@ -111,31 +111,6 @@ function GamePlayCentralManager:set_flashlights_on(flashlights_on)
 		end
 	end
 end
-function GamePlayCentralManager:request_play_footstep( unit, m_pos )
-	if self._camera_pos then
-		local dis = mvector3.distance_sq( self._camera_pos, m_pos )
-		if dis < 250000 then -- absolute max footstep distance -- 500*500
-			if #self._footsteps < 3 then	-- max 3 queued footsteps
-				table.insert( self._footsteps, { unit = unit, dis = dis } )
-			end
-		end
-	end
-end
-
-function GamePlayCentralManager:set_flashlights_on(flashlights_on)
-	if self._flashlights_on == flashlights_on then
-		return
-	end
-
-	self._flashlights_on = flashlights_on
-	local weapons = World:find_units_quick("all", 13)
-
-	for _, weapon in ipairs(weapons) do
-		if weapon:base().flashlight_state_changed then
-			weapon:base():flashlight_state_changed()
-		end
-	end
-end
 
 -- This need for PJ outlines changes (for 6th sense skill)
 Hooks:OverrideFunction(GamePlayCentralManager, "auto_highlight_enemy", function(self, unit, use_player_upgrades)
@@ -174,3 +149,21 @@ Hooks:OverrideFunction(GamePlayCentralManager, "auto_highlight_enemy", function(
 
 	return true
 end)
+
+function GamePlayCentralManager:play_impact_sound_and_effects(params)
+	local effect_limit = (restoration.Options:GetValue("OTHER/Performance/QueuedImpactFXLimitEnabled") and restoration.Options:GetValue("OTHER/Performance/QueuedImpactFXLimit")) or math.huge
+	local impact_effect_type = restoration.Options:GetValue("OTHER/Performance/QueuedImpactFXType") or 1
+	if params then
+		if impact_effect_type == 2 then
+			params.immediate = true
+		elseif impact_effect_type == 3 then
+			params.immediate = nil
+		end
+	end
+
+	if params.immediate then
+		self:_play_bullet_hit(params)
+	elseif effect_limit and #self._bullet_hits < effect_limit then
+		table.insert(self._bullet_hits, params)
+	end
+end
