@@ -20937,6 +20937,67 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.rmary2.sounds.magazine_empty = "wp_rifle_slide_lock"
 			end
 
+			if self.pkilo then 
+				self.pkilo.categories = {
+					"lmg",
+					"smg",
+					"mmg"
+				}
+				self.pkilo.recategorize = { "heavy_mg" }
+				self.pkilo.damage_type = "machine_gun"
+				self.pkilo.warsaw = true
+				self.pkilo.lock_slide = true
+				self.pkilo.sounds.magazine_empty = "wp_rifle_slide_lock"
+				self.pkilo.sms = sms_preset.lmg_120
+				self.pkilo.weapon_movement_penalty = sms_preset.lmg_120
+				self.pkilo.fire_mode_data.fire_rate = 0.08
+				self.pkilo.CAN_TOGGLE_FIREMODE = false
+				self.pkilo.CLIP_AMMO_MAX = 100
+				self.pkilo.AMMO_MAX = 120
+				self.pkilo.kick = self.stat_info.kick_tables.random_recoil
+				self.pkilo.kick_pattern = {
+					{0, self.stat_info.kick_tables.random_recoil},
+					{16, self.stat_info.kick_tables.right_kick},
+					{22, self.stat_info.kick_tables.moderate_left_kick},
+					{34, self.stat_info.kick_tables.right_recoil},
+					{45, self.stat_info.kick_tables.horizontal_right_recoil}
+				}
+				self.pkilo.always_use_standing = true
+				self.pkilo.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
+				self.pkilo.supported = true
+				self.pkilo.ads_speed = 0.580
+				self.pkilo.damage_falloff = {
+					start_dist = 1800,
+					end_dist = 5400,
+					min_mult = 0.4
+				}
+				self.pkilo.stats = {
+					damage = 60,
+					spread = 66,
+					recoil = 51,
+					spread_moving = 5,
+					zoom = 1,
+					concealment = 15,
+					suppression = 5,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 400,
+					value = 9,
+					reload = 20
+				}
+				self.pkilo.stats_modifiers = nil
+				self.pkilo.sounds.spin_start = "wp_m60_reload_lever_release"
+				self.pkilo.spin_up_shoot = true
+				self.pkilo.spin_up_t = 0.05
+				self.pkilo.spin_down_t = 0.00000001
+				self.pkilo.panic_suppression_chance = 0.05
+				self.pkilo.timers.reload_not_empty = 7.5
+				self.pkilo.timers.reload_exit_not_empty = 1.6
+				self.pkilo.timers.reload_empty = 8
+				self.pkilo.timers.reload_exit_empty = 1
+				self.pkilo.timers.equip = 1
+			end
+
 			--MW2022 M4
 			if self.mike4_2022 then
 				self.mike4_2022.nato = true
