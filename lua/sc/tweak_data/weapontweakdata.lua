@@ -20986,15 +20986,16 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					reload = 20
 				}
 				self.pkilo.stats_modifiers = nil
-				self.pkilo.sounds.spin_start = "wp_m60_reload_lever_release"
+				self.pkilo.sounds.stop_fire = "scar_stop"
+				self.pkilo.sounds.spin_start = "wp_m249_lever_release"
 				self.pkilo.spin_up_shoot = true
 				self.pkilo.spin_up_t = 0.05
 				self.pkilo.spin_down_t = 0.00000001
 				self.pkilo.panic_suppression_chance = 0.05
 				self.pkilo.timers.reload_not_empty = 7.5
 				self.pkilo.timers.reload_exit_not_empty = 1.6
-				self.pkilo.timers.reload_empty = 8
-				self.pkilo.timers.reload_exit_empty = 1
+				self.pkilo.timers.reload_empty = 7.5
+				self.pkilo.timers.reload_exit_empty = 1.6
 				self.pkilo.timers.equip = 1
 			end
 

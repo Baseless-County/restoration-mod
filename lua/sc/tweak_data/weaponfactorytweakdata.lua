@@ -28221,6 +28221,29 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
+		if self.parts.wpn_fps_lmg_pkilo_stock_medium then
+			
+			self.wpn_fps_lmg_pkilo.override = self.wpn_fps_lmg_pkilo.override or {}
+
+
+			for i, part_id in pairs(self.wpn_fps_lmg_pkilo.uses_parts) do
+				if self.parts[part_id] and self.parts[part_id].pcs and self.parts[part_id].type then
+					if self.parts[part_id].type == "sight" then
+						self.wpn_fps_lmg_pkilo.override[part_id] = self.wpn_fps_lmg_pkilo.override[part_id] or {}
+						self.wpn_fps_lmg_pkilo.override[part_id].custom_stats = self.parts[part_id].custom_stats and deep_clone(self.parts[part_id].custom_stats) or {}
+						self.wpn_fps_lmg_pkilo.override[part_id].custom_stats.big_scope = true 
+					end
+					if ((self.parts[part_id].global_value and self.parts[part_id].global_value ~= "pkilomod") or not self.parts[part_id].global_value) and 
+						(self.parts[part_id].type == "grip" or self.parts[part_id].type == "stock") then
+						self.wpn_fps_lmg_pkilo.uses_parts[i] = "resmod_dummy"
+					end
+				end
+			end
+			self.wpn_fps_lmg_pkilo_npc.uses_parts = deep_clone(self.wpn_fps_lmg_pkilo.uses_parts)
+
+		end
+
+
 		if self.parts.wpn_fps_shot_vecho_stock_tac then --MW2022 Vepr-12
 
 			self.parts.wpn_fps_shot_vecho_receiver.custom_stats = {
