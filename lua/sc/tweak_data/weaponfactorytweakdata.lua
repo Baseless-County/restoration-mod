@@ -2584,6 +2584,10 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_sights", "resmod_sights", function
 			self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_lmg_mx63 = {
 				translation = Vector3(0, 4.8, -0.09)
 			}
+			self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_lmg_pkilo = {
+				translation = Vector3(0.028, 6.75, -0.087),
+				rotation = Rotation(0.05, 0, 0)
+			}
 
 			self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_snp_m200 = {
 				translation = Vector3(0.0, 2, -4.03)
@@ -28222,6 +28226,91 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		end
 
 		if self.parts.wpn_fps_lmg_pkilo_stock_medium then
+			self.parts.wpn_fps_lmg_pkilo_grip.supported = true
+			self.parts.wpn_fps_lmg_pkilo_grip.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_grip.custom_stats = {}
+			self.parts.wpn_fps_lmg_pkilo_grip_black.supported = true
+			self.parts.wpn_fps_lmg_pkilo_grip_black.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_grip_black.custom_stats = {}
+			self.parts.wpn_fps_lmg_pkilo_grip_v2.supported = true
+			self.parts.wpn_fps_lmg_pkilo_grip_v2.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_grip_v2.custom_stats = {}
+
+			self.parts.wpn_fps_lmg_pkilo_stock.supported = true
+			self.parts.wpn_fps_lmg_pkilo_stock.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_stock.custom_stats = {}
+			self.parts.wpn_fps_lmg_pkilo_stock_black.supported = true
+			self.parts.wpn_fps_lmg_pkilo_stock_black.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_stock_black.custom_stats = {}
+			self.parts.wpn_fps_lmg_pkilo_stock_v2.supported = true
+			self.parts.wpn_fps_lmg_pkilo_stock_v2.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_stock_v2.custom_stats = {}
+
+			self.parts.wpn_fps_lmg_pkilo_magazine_v2.supported = true
+			self.parts.wpn_fps_lmg_pkilo_magazine_v2.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_magazine_v2.custom_stats = {}
+			self.parts.wpn_fps_lmg_pkilo_magazine_v2.supported = true
+			self.parts.wpn_fps_lmg_pkilo_xmag.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_xmag.custom_stats = {}
+			self.parts.wpn_fps_lmg_pkilo_xmag_large.supported = true
+			self.parts.wpn_fps_lmg_pkilo_xmag_large.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_xmag_large.custom_stats = {}
+
+			self.parts.wpn_fps_lmg_pkilo_flash_hider.supported = true
+			self.parts.wpn_fps_lmg_pkilo_flash_hider.stats = {value = 0}
+			self.parts.wpn_fps_lmg_pkilo_flash_hider.custom_stats = {}
+			self.parts.wpn_fps_lmg_pkilo_flash_hider.perks = nil
+
+			--BARRELS
+				self.parts.wpn_fps_lmg_pkilo_barrel_short.supported = true
+				self.parts.wpn_fps_lmg_pkilo_barrel_short.stats = deep_clone(barrels.short_b2_stats)
+				self.parts.wpn_fps_lmg_pkilo_barrel_short.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_barrel_short.custom_stats = deep_clone(barrels.short_b2_stats)
+
+				self.parts.wpn_fps_lmg_pkilo_barrel_long.supported = true
+				self.parts.wpn_fps_lmg_pkilo_barrel_long.stats = deep_clone(barrels.long_b2_stats)
+				self.parts.wpn_fps_lmg_pkilo_barrel_long.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_barrel_long.custom_stats = deep_clone(barrels.long_b2_stats)
+
+				self.parts.wpn_fps_lmg_pkilo_barrel_heavy.supported = true
+				self.parts.wpn_fps_lmg_pkilo_barrel_heavy.stats = deep_clone(barrels.long_b2_stats)
+				self.parts.wpn_fps_lmg_pkilo_barrel_heavy.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_barrel_heavy.stats.recoil = 4
+				self.parts.wpn_fps_lmg_pkilo_barrel_heavy.stats.concealment = -4
+				self.parts.wpn_fps_lmg_pkilo_barrel_heavy.custom_stats = deep_clone(barrels.long_b2_stats)
+				self.parts.wpn_fps_lmg_pkilo_barrel_heavy.custom_stats.ads_speed_mult = 1.3
+
+			--GRIPS
+				self.parts.wpn_fps_lmg_pkilo_grip_01.supported = true
+				self.parts.wpn_fps_lmg_pkilo_grip_01.stats = deep_clone(grips.acc_1)
+				self.parts.wpn_fps_lmg_pkilo_grip_01.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_grip_01.custom_stats = nil
+
+				self.parts.wpn_fps_lmg_pkilo_grip_02.supported = true
+				self.parts.wpn_fps_lmg_pkilo_grip_02.stats = deep_clone(grips.quickdraw_1)
+				self.parts.wpn_fps_lmg_pkilo_grip_02.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_grip_02.custom_stats = deep_clone(grips.quickdraw_1)
+
+				self.parts.wpn_fps_lmg_pkilo_grip_03.supported = true
+				self.parts.wpn_fps_lmg_pkilo_grip_03.stats = deep_clone(grips.recoil_1)
+				self.parts.wpn_fps_lmg_pkilo_grip_03.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_grip_03.custom_stats = nil
+
+			--STOCKS
+				self.parts.wpn_fps_lmg_pkilo_stock_heavy.supported = true
+				self.parts.wpn_fps_lmg_pkilo_stock_heavy.stats = { value = 0, spread = 1, concealment = -1}
+				self.parts.wpn_fps_lmg_pkilo_stock_heavy.custom_stats = {}
+				self.parts.wpn_fps_lmg_pkilo_stock_light.supported = true
+				self.parts.wpn_fps_lmg_pkilo_stock_light.stats = { value = 0, spread = 2, recoil = -2, concealment = -1}
+				self.parts.wpn_fps_lmg_pkilo_stock_light.custom_stats = {}
+				self.parts.wpn_fps_lmg_pkilo_stock_medium.supported = true
+				self.parts.wpn_fps_lmg_pkilo_stock_medium.stats = deep_clone(stocks.fixed_to_hvy_rec_stats)
+				self.parts.wpn_fps_lmg_pkilo_stock_medium.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_stock_medium.custom_stats = deep_clone(stocks.fixed_to_hvy_rec_stats)
+				self.parts.wpn_fps_lmg_pkilo_stock_no.supported = true
+				self.parts.wpn_fps_lmg_pkilo_stock_no.stats = deep_clone(stocks.remove_fixed_stats)
+				self.parts.wpn_fps_lmg_pkilo_stock_no.stats.value = 0
+				self.parts.wpn_fps_lmg_pkilo_stock_no.custom_stats = deep_clone(stocks.remove_fixed_stats)
 			
 			self.wpn_fps_lmg_pkilo.override = self.wpn_fps_lmg_pkilo.override or {}
 
@@ -42839,6 +42928,9 @@ Hooks:PostHook(WeaponFactoryTweakData, "init", "socomstuff_init", function(self)
 end)
 
 --Override stance_mod data
+Hooks:PostHook(WeaponFactoryTweakData, "init", "pkilo_mod_init", function(self)
+end)
+
 Hooks:PostHook(WeaponFactoryTweakData, "init", "mg34ModInit", function(self)
 end)
 Hooks:PostHook(WeaponFactoryTweakData, "init", "fort500Init", function(self)

@@ -20977,7 +20977,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					recoil = 51,
 					spread_moving = 5,
 					zoom = 1,
-					concealment = 15,
+					concealment = 14,
 					suppression = 5,
 					alert_size = 2,
 					extra_ammo = 101,
