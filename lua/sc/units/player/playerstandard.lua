@@ -4852,7 +4852,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 			end
 
 			if self._running then
-				self:_end_action_running(t)
+				self:_end_action_running(self._last_t)
 			end
 
 			if not kill then 
