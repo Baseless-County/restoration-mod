@@ -266,12 +266,12 @@ function PlayerBipod:_update_check_actions(t, dt)
 		self._shooting = new_action
 	end
 
-	new_action = new_action or self:_check_action_jump(t, input)
-	new_action = new_action or self:_check_action_run(t, input)
-	new_action = new_action or self:_check_change_weapon(t, input)
-	new_action = new_action or self:_check_action_unmount_bipod(t, input)
-	new_action = new_action or self:_check_action_intimidate(t, input)
-	new_action = new_action or self:_check_action_throw_projectile(t, input)
+	--[[new_action = new_action or]] self:_check_action_jump(t, input)
+	--[[new_action = new_action or]] self:_check_action_run(t, input)
+	--[[new_action = new_action or]] self:_check_change_weapon(t, input)
+	--[[new_action = new_action or]] self:_check_action_unmount_bipod(t, input)
+	--[[new_action = new_action or]] self:_check_action_intimidate(t, input)
+	--[[new_action = new_action or]] self:_check_action_throw_projectile(t, input)
 
 	self:_check_action_steelsight(t, input)
 	self:_check_use_item(t, input)

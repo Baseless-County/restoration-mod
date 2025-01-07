@@ -2857,31 +2857,40 @@ end
 
 function PlayerStandard:_primary_regen_ammo(t, dt)
 	local primary = self._unit:inventory():unit_by_selection(2):base()
-	local active = self._unit:inventory():equipped_selection() == 2
+	local active = primary and self._unit:inventory():equipped_selection() == 2
 	if primary then
-		primary._primary_regen_rate = primary._primary_regen_rate or primary._regen_rate or 10
+		local regen_ammo_time = primary._starwars.regen_ammo_time or 0.5
+		local regen_rate = primary._starwars.regen_rate or 10
+		local overheat_pen = primary._starwars.overheat_pen or 2.75
+		local regen_rate_overheat = primary._starwars.regen_rate_overheat or 4.5
+		local can_reload = primary._starwars.can_reload
+		local no_regen_on_empty = primary._starwars.no_regen_on_empty
+		local mag_regen = primary._starwars.mag_regen
+		local shut_up = primary._starwars.shut_up
+
+		primary._primary_regen_rate = primary._primary_regen_rate or regen_rate
 		primary._primary_regenerate_ammo_timer = primary._primary_regenerate_ammo_timer or 0
 		if primary:get_ammo_total() <= 0 then
 			return
 		end
 		if active and self._shooting then
 			primary._primary_recharge_yell = nil
-			primary._primary_regenerate_ammo_timer = primary._regen_ammo_time or 0.5
+			primary._primary_regenerate_ammo_timer = regen_ammo_time
 		end
 		if primary:clip_empty() then
 			if active and self._shooting then
 				self:_check_stop_shooting()
 				self:_interupt_action_steelsight(t)
 			end
-			primary._primary_regen_rate = primary._regen_rate_overheat or 4.5
-			primary._primary_overheat_pen = primary._overheat_pen or 2.75
+			primary._primary_regen_rate = regen_rate_overheat
+			primary._primary_overheat_pen = overheat_pen
 		end
 		if primary._primary_overheat_pen and primary._primary_overheat_pen <= 0 then
 			--log( "COOL" )
 			if active then
 				primary._sound_fire:post_event("wp_sentrygun_swap_ammo")
 			end
-			primary._primary_regen_rate = primary._regen_rate or 10
+			primary._primary_regen_rate = regen_rate
 			primary._primary_overheat_pen = nil
 			primary._primary_overheat_yell = nil
 		end
@@ -2889,7 +2898,9 @@ function PlayerStandard:_primary_regen_ammo(t, dt)
 			primary._primary_overheat_pen = primary._primary_overheat_pen - dt
 			--log( "OVERHEAT TIME: " .. tostring(self._primary_overheat_pen) )
 			if not primary._primary_overheat_yell then
-				managers.player:local_player():sound():say("g29",false,nil)
+				if not shut_up then
+					managers.player:local_player():sound():say("g29",false,nil)
+				end
 				primary._sound_fire:post_event("turret_cooldown")
 				primary._primary_overheat_yell = true
 			end
@@ -2901,7 +2912,7 @@ function PlayerStandard:_primary_regen_ammo(t, dt)
 		if primary._primary_regenerate_ammo_timer then
 			primary._primary_regenerate_ammo_timer = primary._primary_regenerate_ammo_timer - dt
 			if primary._primary_regenerate_ammo_timer < 0 then
-				self:primary_add_ammo(dt * primary._primary_regen_rate)
+				self:primary_add_ammo(dt * primary._primary_regen_rate, mag_regen)
 				if not primary._primary_recharge_yell then
 					primary._primary_recharge_yell = true
 					if active then
@@ -2913,13 +2924,16 @@ function PlayerStandard:_primary_regen_ammo(t, dt)
 	end
 end
 
-function PlayerStandard:primary_add_ammo(value)
+function PlayerStandard:primary_add_ammo(value, mag_regen)
 	local primary = self._unit:inventory():unit_by_selection(2):base()
 	self._primary_add_bullet = self._primary_add_bullet or value
 	if self._primary_add_bullet then
 		self._primary_add_bullet = self._primary_add_bullet + value
 		if math.floor(self._primary_add_bullet+0.5) >= 1 then
 			primary:set_ammo_remaining_in_clip( primary:get_ammo_remaining_in_clip() + math.floor(self._primary_add_bullet+0.5))
+			if true then
+				primary:set_ammo_total( primary:get_ammo_total() + math.floor(self._primary_add_bullet+0.5))
+			end
 			managers.hud:set_ammo_amount(primary:selection_index(), primary:ammo_info())
 			self._primary_add_bullet = nil
 		end
@@ -2928,31 +2942,40 @@ end
 
 function PlayerStandard:_secondary_regen_ammo(t, dt)
 	local secondary = self._unit:inventory():unit_by_selection(1):base()
-	local active = self._unit:inventory():equipped_selection() == 1
+	local active = secondary and self._unit:inventory():equipped_selection() == 1
 	if secondary then
-		secondary._secondary_regen_rate = secondary._secondary_regen_rate or secondary._regen_rate or 10
+		local regen_ammo_time = secondary._starwars.regen_ammo_time or 0.5
+		local regen_rate = secondary._starwars.regen_rate or 10
+		local overheat_pen = secondary._starwars.overheat_pen or 2.75
+		local regen_rate_overheat = secondary._starwars.regen_rate_overheat or 4.5
+		local can_reload = secondary._starwars.can_reload
+		local no_regen_on_empty = secondary._starwars.no_regen_on_empty
+		local mag_regen = secondary._starwars.mag_regen
+		local shut_up = secondary._starwars.shut_up
+
+		secondary._secondary_regen_rate = secondary._secondary_regen_rate or regen_rate
 		secondary._secondary_regenerate_ammo_timer = secondary._secondary_regenerate_ammo_timer or 0
 		if secondary:get_ammo_total() <= 0 then
 			return
 		end
 		if active and self._shooting then
 			secondary._secondary_recharge_yell = nil
-			secondary._secondary_regenerate_ammo_timer = secondary._regen_ammo_time or 0.5
+			secondary._secondary_regenerate_ammo_timer = regen_ammo_time
 		end
 		if secondary:clip_empty() then
 			if active and self._shooting then
 				self:_check_stop_shooting()
 				self:_interupt_action_steelsight(t)
 			end
-			secondary._secondary_regen_rate = secondary._regen_rate_overheat or 4.5
-			secondary._secondary_overheat_pen = secondary._overheat_pen or 2.75
+			secondary._secondary_regen_rate = regen_rate_overheat
+			secondary._secondary_overheat_pen = overheat_pen
 		end
 		if secondary._secondary_overheat_pen and secondary._secondary_overheat_pen <= 0 then
 			--log( "COOL" )
 			if active then
 				secondary._sound_fire:post_event("wp_sentrygun_swap_ammo")
 			end
-			secondary._secondary_regen_rate = secondary._regen_rate or 10
+			secondary._secondary_regen_rate = regen_rate
 			secondary._secondary_overheat_pen = nil
 			secondary._secondary_overheat_yell = nil
 		end
@@ -2960,18 +2983,21 @@ function PlayerStandard:_secondary_regen_ammo(t, dt)
 			secondary._secondary_overheat_pen = secondary._secondary_overheat_pen - dt
 			--log( "OVERHEAT TIME: " .. tostring(self._secondary_overheat_pen) )
 			if not secondary._secondary_overheat_yell then
-				managers.player:local_player():sound():say("g29",false,nil)
+				if not shut_up then
+					managers.player:local_player():sound():say("g29",false,nil)
+				end
 				secondary._sound_fire:post_event("turret_cooldown")
 				secondary._secondary_overheat_yell = true
 			end
 		end
-		if (secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_total()) or (secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_max_per_clip()) then
+		if (secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_total()) or (secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_max_per_clip()) then 
+			--log("NO AMMO")
 			secondary._secondary_regenerate_ammo_timer = nil
 		end
 		if secondary._secondary_regenerate_ammo_timer then
 			secondary._secondary_regenerate_ammo_timer = secondary._secondary_regenerate_ammo_timer - dt
 			if secondary._secondary_regenerate_ammo_timer < 0 then
-				self:secondary_add_ammo(dt * secondary._secondary_regen_rate)
+				self:secondary_add_ammo(dt * secondary._secondary_regen_rate, mag_regen)
 				if not secondary._secondary_recharge_yell then
 					secondary._secondary_recharge_yell = true
 					if active then
@@ -2983,13 +3009,16 @@ function PlayerStandard:_secondary_regen_ammo(t, dt)
 	end
 end
 
-function PlayerStandard:secondary_add_ammo(value)
+function PlayerStandard:secondary_add_ammo(value, mag_regen)
 	local secondary = self._unit:inventory():unit_by_selection(1):base()
 	self._secondary_add_bullet = self._secondary_add_bullet or value
 	if self._secondary_add_bullet then
 		self._secondary_add_bullet = self._secondary_add_bullet + value
 		if math.floor(self._secondary_add_bullet+0.5) >= 1 then
 			secondary:set_ammo_remaining_in_clip( secondary:get_ammo_remaining_in_clip() + math.floor(self._secondary_add_bullet+0.5))
+			if true then
+				secondary:set_ammo_total( secondary:get_ammo_total() + math.floor(self._secondary_add_bullet+0.5))
+			end
 			managers.hud:set_ammo_amount(secondary:selection_index(), secondary:ammo_info())
 			self._secondary_add_bullet = nil
 		end
@@ -5275,8 +5304,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					end
 				end
 
-				if self._is_dashing and ((t - (self._last_dash_time or 0)) > 0.30) then
+				if self._is_dashing and (t > (self._last_dash_iframes or 0)) then
 					self._is_dashing = nil
+					log("DASH END")
 				end
 			end
 

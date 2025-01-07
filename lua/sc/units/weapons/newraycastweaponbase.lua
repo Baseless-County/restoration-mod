@@ -1302,7 +1302,7 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 				if restoration.Options:GetValue("OTHER/GCGPYPMMSAC") then
 					self._cbfd_to_add_this_check_elsewhere = true
 				else
-					self._starwars = true
+					self._starwars = deep_clone(stats.starwars)
 				end
 			end
 			if stats.empire then
@@ -1317,18 +1317,6 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 			if stats.mandalorian then
 				self._mandalorian = true
 			end
-			if stats.regen_rate then
-				self._regen_rate = stats.regen_rate
-			end	
-			if stats.regen_rate_overheat then
-				self._regen_rate_overheat = stats.regen_rate_overheat
-			end	
-			if stats.regen_ammo_time then
-				self._regen_ammo_time = stats.regen_ammo_time
-			end	
-			if stats.overheat_pen then
-				self._overheat_pen = stats.overheat_pen
-			end	
 			if stats.muzzleflash then
 				self._muzzle_effect_pls = stats.muzzleflash
 			end
@@ -1454,8 +1442,8 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 
 	local ignore_tracer = nil
 	if self._trail_effect_table then
-		if self._starwars == true then
-			self._use_shell_ejection_effect = nil
+		if self._starwars then
+			self._use_shell_ejection_effect = (self._starwars.use_shell_eject and self._use_shell_ejection_effect) or nil
 			ignore_tracer = true
 			if self._empire then
 				self._trail_effect_table.effect = Idstring("_dmc/effects/sterwers_trail_e" .. ((self:is_npc() and "_npc") or "" ))
@@ -1744,24 +1732,31 @@ function NewRaycastWeaponBase:fire_rate_multiplier( ignore_anims )
 	return multiplier
 end
 
-local fire_original = NewRaycastWeaponBase.fire
 function NewRaycastWeaponBase:fire(...)
-	local result = fire_original(self, ...)
-	self._shots_fired = self._shots_fired + 0.5 --increases in half increments due some double call bug for this function (Should really figure this out)
-	if not self._starwars then
-		self._shots_fired_mag = self._shots_fired_mag + 0.5
+	local ray_res = NewRaycastWeaponBase.super.fire(self, ...)
+
+	if self._fire_mode == ids_burst and self._bullets_fired > 1 and not self:weapon_tweak_data().sounds.fire_single then
+		self:_fire_sound()
 	end
-	if result and not self.AKIMBO and self:in_burst_mode() then
+
+	self._shots_fired = self._shots_fired + 1 --increases in half increments due some double call bug for this function (Should really figure this out)
+
+	if not self._starwars then
+		self._shots_fired_mag = self._shots_fired_mag + 1
+	end
+
+	if ray_res and not self.AKIMBO and self:in_burst_mode() then
 		if self:clip_empty() then
 			self:cancel_burst()
 		else
-			self._burst_rounds_fired = self._burst_rounds_fired + 0.5
-			self._burst_rounds_remaining = (self._burst_rounds_remaining <= 0 and self._burst_size or self._burst_rounds_remaining) - 0.5
+			self._burst_rounds_fired = self._burst_rounds_fired + 1
+			self._burst_rounds_remaining = (self._burst_rounds_remaining <= 0 and self._burst_size or self._burst_rounds_remaining) - 1
 			if self._burst_rounds_remaining <= 0 then
 				self:cancel_burst()
 			end
 		end
 	end
+
 	if self._disable_steelsight_recoil_anim then
 		local camera = self._setup.user_unit:camera() and alive(self._setup.user_unit:camera():camera_unit()) and self._setup.user_unit:camera():camera_unit()
 		if camera and managers.player:player_unit():movement():current_state():in_steelsight() then
@@ -1769,8 +1764,8 @@ function NewRaycastWeaponBase:fire(...)
 		end
 	end
 
-	return result
-end	
+	return ray_res
+end
 
 local toggle_firemode_original = NewRaycastWeaponBase.toggle_firemode
 function NewRaycastWeaponBase:toggle_firemode(...)
@@ -1791,7 +1786,7 @@ end
 
 
 function NewRaycastWeaponBase:can_reload()
-	if self:ammo_base()._starwars then
+	if self:ammo_base()._starwars and not self:ammo_base()._starwars.can_reload then
 		return false
 	else
 		return self:ammo_base():get_ammo_remaining_in_clip() < self:ammo_base():get_ammo_total()

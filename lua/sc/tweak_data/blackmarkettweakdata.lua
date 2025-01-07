@@ -99,8 +99,6 @@ Hooks:PostHook(BlackMarketTweakData, "_init_masks", "ResMaskFixes", function(sel
 
 end)
 
-
-
 --This is a helmet, not a mask--
 Hooks:PostHook(BlackMarketTweakData, "_init_masks", "ResMasks", function(self, tweak_data)	
 	--Classic Helmet
@@ -4658,7 +4656,7 @@ function BlackMarketTweakData:_init_melee_weapons(tweak_data)
 	self.melee_weapons.fists.stats.charge_time = 0.5
 	self.melee_weapons.fists.stats.range = 150
 	self.melee_weapons.fists.stats.concealment = 30
-	self.melee_weapons.fists.stats.speed_mult = 1.05
+	self.melee_weapons.fists.stats.speed_mult = 1.08
 
 	--[[     BLUNT     ]]
 		--Tough love, tooth shot--

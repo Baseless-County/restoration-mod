@@ -11537,11 +11537,12 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_mg42", "resmod_mg42", function(sel
 	}		
 	self.parts.wpn_fps_lmg_mg42_b_vg38.custom_stats = {
 		muzzleflash = "effects/payday2/particles/weapons/9mm_auto_silence_fps",
-		starwars = true,
-		regen_ammo_time = 3, 
-		regen_rate = 9, 
-		overheat_pen = 4, 
-		regen_rate_overheat = 4.5, 
+		starwars = {
+			regen_ammo_time = 3, 
+			regen_rate = 9, 
+			overheat_pen = 4, 
+			regen_rate_overheat = 4.5
+		},
 		rof_mult = 0.52083,
 		armor_piercing_override = 0.25,
 		falloff_start_mult = 0.8,
@@ -11674,11 +11675,12 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_c96", "resmod_c96", function(self)
 	}
 	self.parts.wpn_fps_pis_c96_nozzle.custom_stats = { 
 		muzzleflash = "effects/payday2/particles/weapons/9mm_auto_silence_fps",
-		starwars = true,
-		regen_ammo_time = 2, 
-		regen_rate = 3,
-		overheat_pen = 2, 
-		regen_rate_overheat = 1.5,
+		starwars = {
+			regen_ammo_time = 2, 
+			regen_rate = 3,
+			overheat_pen = 2, 
+			regen_rate_overheat = 1.5,
+		},
 		rof_mult = 0.35,
 		armor_piercing_override = 0.5,
 		lock_semi = true
@@ -11782,11 +11784,12 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_sterling", "resmod_sterling", func
 	}
 	self.parts.wpn_fps_smg_sterling_b_e11.custom_stats = {
 		muzzleflash = "effects/payday2/particles/weapons/9mm_auto_silence_fps",
-		starwars = true,
-		regen_ammo_time = 1.4, 
-		regen_rate = 6, 
-		overheat_pen = 2,
-		regen_rate_overheat = 3,
+		starwars = {
+			regen_ammo_time = 1.4, 
+			regen_rate = 6, 
+			overheat_pen = 2,
+			regen_rate_overheat = 3,
+		},
 		rof_mult = 0.7272727,
 		falloff_start_mult = 1.25,
 		falloff_end_mult = 1.25,
