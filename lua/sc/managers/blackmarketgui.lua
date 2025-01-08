@@ -4778,6 +4778,7 @@ function BlackMarketGui:update_info_text()
 				local stat_attachment_desc = nil
 				local rays = (weapon_tweak and weapon_tweak.rays) or 1
 				local starwars = nil
+				local keep_ammo = weapon_tweak.keep_ammo or nil
 				local description = nil
 				if custom_stats then
 					for part_id, stats in pairs(custom_stats) do
@@ -4806,6 +4807,9 @@ function BlackMarketGui:update_info_text()
 						end
 						if stats.ap_desc then
 							ap_desc = stats.ap_desc
+						end
+						if stats.keep_ammo then
+							keep_ammo = stats.keep_ammo
 						end
 						if stats.starwars then
 							starwars = true
@@ -4943,7 +4947,7 @@ function BlackMarketGui:update_info_text()
 				end
 
 				local magazine_envy = Global.mutators.mutator_values.MutatorMagazineMartyr and Global.mutators.mutator_values.MutatorMagazineMartyr.enabled
-				if magazine_envy and (starwars or weapon_tweak.keep_ammo == 1 or weapon_tweak.timers.shotgun_reload or weapon_tweak.timers.shotgun_reload_exit_empty) then
+				if magazine_envy and (starwars or keep_ammo == 1 or weapon_tweak.timers.shotgun_reload or weapon_tweak.timers.shotgun_reload_exit_empty) then
 					if slot_data.global_value and slot_data.global_value ~= "normal" or weapon_tweak.has_description then
 						updated_texts[4].text = updated_texts[4].text .. "\n##" .. managers.localization:text("mutator_letthesleepinggoddie_no_effect") .. "##"
 					else

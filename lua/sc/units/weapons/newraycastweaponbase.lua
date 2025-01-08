@@ -74,7 +74,7 @@ else
 			return
 		end
 		local ammo_base = self._reload_ammo_base or self:ammo_base()
-		local no_purse = not bypass_purse and ammo_base:weapon_tweak_data().keep_ammo == 0 
+		local no_purse = not bypass_purse and self._keep_ammo == 0 
 
 		if ammo_base:weapon_tweak_data().uses_clip == true then
 			if ammo_base:get_ammo_remaining_in_clip() <= ammo_base:get_ammo_max_per_clip()  then
@@ -1009,6 +1009,8 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 		self._use_vapor_trail = self:weapon_tweak_data().use_vapor_trail
 		self._use_sniper_trail = self:weapon_tweak_data().use_sniper_trail
 
+		self._keep_ammo = self:weapon_tweak_data().keep_ammo
+
 		if not self:is_npc() then
 			self._descope_on_fire = self:weapon_tweak_data().descope_on_fire
 			self._descope_on_fire_ignore_setting = self:weapon_tweak_data().descope_on_fire_ignore_setting
@@ -1298,6 +1300,9 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 				self._natascha = stats.natascha
 			end
 
+			if stats.keep_ammo then
+				self._keep_ammo = stats.keep_ammo
+			end
 			if stats.starwars then
 				if restoration.Options:GetValue("OTHER/GCGPYPMMSAC") then
 					self._cbfd_to_add_this_check_elsewhere = true
