@@ -1140,7 +1140,9 @@ function InstantBulletBase:on_collision(col_ray, weapon_unit, user_unit, damage,
 	end
 
 	if do_shotgun_push then
-		--managers.game_play_central:do_shotgun_push(col_ray.unit, col_ray.position, col_ray.ray, col_ray.distance, user_unit)
+		local dir = col_ray.ray
+		mvector3.multiply(dir, 0.75)
+		--managers.game_play_central:do_shotgun_push(col_ray.unit, col_ray.position, dir, col_ray.distance, user_unit)
 	end
 
 	--Unsure if the old version of playing impact effects will work with the new stuff, leaving the new stuff as-is for now

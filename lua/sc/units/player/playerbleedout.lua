@@ -216,3 +216,10 @@ function PlayerBleedOut:update(t, dt)
 		return update_orig(self, t, dt)
 	end
 end
+
+local _update_check_actions_orig = PlayerBleedOut._update_check_actions
+function PlayerBleedOut:_update_check_actions(t, dt)
+	_update_check_actions_orig(self, t, dt)
+	local input = self:_get_input(t, dt)
+	self:_check_action_run(t, input)
+end
