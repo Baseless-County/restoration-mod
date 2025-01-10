@@ -22037,6 +22037,45 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			self.amt.timers = deep_clone(self.deagle.timers)
 		end	
 
+
+		if self.ump then --Matthelzor's UMP-45
+						self.ump.fire_mode_data.fire_rate = 0.1
+						self.ump.auto.fire_rate = 0.1
+						self.ump.has_description = false
+						self.ump.AMMO_MAX = 125
+						self.ump.CLIP_AMMO_MAX = 25
+						self.ump.BURST_FIRE = 2
+						self.ump.BURST_FIRE_RECOIL_MULTIPLIER = 0.1
+						self.ump.BURST_DELAY = 0.08
+						self.ump.ADAPTIVE_BURST_SIZE = false							
+						self.ump.kick = self.stat_info.kick_tables.even_recoil
+						self.ump.panic_suppression_chance = 0.05
+						self.ump.supported = true
+						self.ump.ads_speed = 0.160
+						self.ump.damage_falloff = {
+							start_dist = 1200,
+							end_dist = 3500,
+							min_mult = 0.3
+						}
+						self.ump.stats = {
+							damage = 30,
+							spread = 66,
+							recoil = 81,
+							spread_moving = 7,
+							zoom = 1,
+							concealment = 27,
+							suppression = 9,
+							alert_size = 2,
+							extra_ammo = 101,
+							total_ammo_mod = 200,
+							value = 1,
+							reload = 20
+						}
+						self.ump.stats_modifiers = nil
+						self.ump.reload_speed_multiplier = 1.0
+		end	
+
+
 		if self.k3 then
 					self.k3.categories = {
 						"lmg",
