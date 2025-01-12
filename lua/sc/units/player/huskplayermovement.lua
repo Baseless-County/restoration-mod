@@ -276,7 +276,7 @@ end]]
 
 
 function HuskPlayerMovement:sync_call_civilian(civilian_unit)
-	if civilian_unit and civilian_unit.unit:base():char_tweak().is_escort then
+	if civilian_unit and civilian_unit:base():char_tweak().is_escort then
 		return
 	end
 	if not self._sympathy_civ and civilian_unit:brain():is_available_for_assignment({
