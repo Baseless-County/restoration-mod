@@ -7138,7 +7138,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_serbu", "resmod_serbu", function(s
 	self.parts.wpn_fps_shot_shorty_m_extended_short.supported = true
 	self.parts.wpn_fps_shot_shorty_m_extended_short.stats = {
 		value = 1, 
-		extra_ammo = 2, 
+		extra_ammo = 1, 
 		concealment = -1
 	}
 	self.parts.wpn_fps_shot_shorty_m_extended_short.custom_stats = {
@@ -33356,6 +33356,8 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_ass_contraband_body_sayhello.override.wpn_fps_smg_car9_o_rail = {
 					parent = "exclusive_set_o"
 				}
+
+				self.parts.wpn_fps_ass_contraband_body_sayhello.override.wpn_fps_ass_contraband_o_standard.stance_mod = {}
 		
 				--G2 Kit
 				self.parts.wpn_fps_snp_contender_receiver_hunt.supported = true

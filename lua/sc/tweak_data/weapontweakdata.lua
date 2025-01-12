@@ -24190,14 +24190,14 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				if weap.weapon_movement_penalty then
 					weap.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 					weap.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
-					weap.rms = (1 + weap.weapon_movement_penalty) / 2
+					weap.rms = (1 + weap.weapon_movement_penalty) / 1.5
 					if not table.contains(weap.categories, "lmg_moving") and not table.contains(weap.categories, "wolf_brigade") and not table.contains(weap.categories, "minigun") then
 						weap.sms = weap.sms / 1.2
 						weap.rms = weap.weapon_movement_penalty
 						weap.zoom_recoil_reduction = 0.025
 					end
-					weap.smt_mult = 5
-					weap.smt_range = { 0.75, 1.35 }
+					weap.smt_mult = 4
+					weap.smt_range = { 0.75, 1.25 }
 				end
 				weap.ene_hs_mult = 0.5
 			end
