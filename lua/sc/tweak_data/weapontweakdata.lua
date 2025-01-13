@@ -10192,7 +10192,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.amcar.stats = {
 							damage = 20,
-							spread = 75,
+							spread = 76,
 							recoil = 81,
 							spread_moving = 6,
 							zoom = 1,
@@ -10234,16 +10234,16 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.s552.AMMO_MAX = 180
 						self.s552.supported = true
-						self.s552.ads_speed = 0.240
+						self.s552.ads_speed = 0.280
 						self.s552.damage_falloff = {
 							start_dist = 2600,
-							end_dist = 7800,
+							end_dist = 7000,
 							min_mult = 0.6
 						}
 						self.s552.stats = {
 							damage = 20,
-							spread = 86,
-							recoil = 81,
+							spread = 83,
+							recoil = 77,
 							spread_moving = 6,
 							zoom = 1,
 							concealment = 26,
@@ -10332,7 +10332,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							{22, self.stat_info.kick_tables.moderate_kick}
 						}
 						self.vhs.supported = true
-						self.vhs.ads_speed = 0.240
+						self.vhs.ads_speed = 0.260
 						self.vhs.damage_falloff = {
 							start_dist = 2100,
 							end_dist = 6500,
