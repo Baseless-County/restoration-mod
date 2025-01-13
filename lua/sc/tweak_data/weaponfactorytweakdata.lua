@@ -2860,7 +2860,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_sights", "resmod_sights", function
 		rotation = Rotation(-0.025, 0, 0)
 	}
 	self.parts.wpn_upg_o_marksmansight_rear_vanilla.stance_mod = deep_clone(self.parts.wpn_upg_o_marksmansight_rear.stance_mod)
-	self.parts.wpn_upg_o_marksmansight_rear_vanilla.type = "sight_vanilla" --fixes the "_steelsight" variants of sights parenting to this like on the RIS attachment on the Mac-10
+	--self.parts.wpn_upg_o_marksmansight_rear_vanilla.type = "sight_vanilla" --fixes the "_steelsight" variants of sights parenting to this like on the RIS attachment on the Mac-10
 
 	--Angled Sight
 	self.parts.wpn_fps_upg_o_45iron.pcs = {}
@@ -5687,7 +5687,7 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_saiga", "resmod_saiga", function(s
 	self.wpn_fps_shot_saiga.override = {
 		wpn_upg_o_marksmansight_rear_vanilla = {
 			a_obj = "a_or",
-			forbids = table.list_add(self.parts.wpn_upg_o_marksmansight_rear_vanilla.forbids, {"wpn_fps_upg_o_ak_scopemount"})
+			--forbids = table.list_add(self.parts.wpn_upg_o_marksmansight_rear_vanilla.forbids, {"wpn_fps_upg_o_ak_scopemount"})
 		},
 		wpn_upg_o_marksmansight_front = {a_obj = "a_of"},
 		wpn_fps_upg_a_slug = deep_clone(shot_ammo.a_slug_semi_override),
@@ -6954,6 +6954,14 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_mac10", "resmod_mac10", function(s
 	self.parts.wpn_fps_smg_mac10_s_skel.custom_stats = deep_clone(stocks.nocheeks_to_fixed_rec3_stats)
 
 	self.wpn_fps_smg_mac10.override = self.wpn_fps_smg_mac10.override or {}
+
+	for i, part_id in pairs(self.wpn_fps_smg_mac10.uses_parts) do
+		if part_id ~= "wpn_upg_o_marksmansight_rear_vanilla" and self.parts[part_id] and self.parts[part_id].type and self.parts[part_id].type == "sight" then	
+			self.wpn_fps_smg_mac10.override[part_id] = { 
+				forbids = table.list_add(self.parts[part_id].forbids, {"wpn_upg_o_marksmansight_rear_vanilla"})
+			}	
+		end
+	end
 
 	self.wpn_fps_smg_mac10.override.wpn_fps_smg_schakal_vg_surefire = { stats = deep_clone(self.parts.wpn_fps_upg_vg_ass_smg_verticalgrip.stats) }
 
