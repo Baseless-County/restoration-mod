@@ -919,7 +919,7 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 
 		if params and params.action_forbidden ~= nil then
 			action_forbidden = params.action_forbidden
-		elseif self:_is_reloading() or self:_changing_weapon() or self:_is_meleeing() or self._use_item_expire_t or self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:_is_throwing_projectile() or self:_is_deploying_bipod() or self._menu_closed_fire_cooldown > 0 or self:is_switching_stances() then
+		elseif self:_is_reloading() or self:_is_overheating() or self:_changing_weapon() or self:_is_meleeing() or self._use_item_expire_t or self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:_is_throwing_projectile() or self:_is_deploying_bipod() or self._menu_closed_fire_cooldown > 0 or self:is_switching_stances() then
 			action_forbidden = true
 		else
 			action_forbidden = false
@@ -1935,7 +1935,7 @@ function PlayerStandard:_start_action_running(t)
 	local cancel_sprint = restoration.Options:GetValue("OTHER/WeaponHandling/SprintCancel")
 	
 	--Skip sprinting animations of player is doing melee things.
-	if not self:_changing_weapon() and not self:_is_charging_weapon() and not self:_is_meleeing() and (not self:_is_reloading() or (not self.RUN_AND_RELOAD or (self.RUN_AND_RELOAD and (cancel_sprint == true or self._equipped_unit:base()._starwars)))) then
+	if not self:_changing_weapon() and not self:_is_charging_weapon() and not self:_is_meleeing() and (not self:_is_reloading() or (not self.RUN_AND_RELOAD or (self.RUN_AND_RELOAD and cancel_sprint == true))) then
 		if not self._equipped_unit:base():run_and_shoot_allowed() then
 			self._ext_camera:play_redirect(self:get_animation("start_running"))	
 		else
@@ -1972,7 +1972,7 @@ function PlayerStandard:_end_action_running(t)
 		self._end_running_expire_t = t + sprintout_anim_time / speed_multiplier
 		--Adds a few melee related checks to avoid cutting off animations.
 		local cancel_sprint = restoration.Options:GetValue("OTHER/WeaponHandling/SprintCancel")
-		local stop_running = not self:_changing_weapon() and not self:_is_charging_weapon() and not self:_is_meleeing() and not self._equipped_unit:base():run_and_shoot_allowed() and ((not self:_is_reloading() or (not self.RUN_AND_RELOAD or (self.RUN_AND_RELOAD and self._equipped_unit:base()._starwars))))
+		local stop_running = not self:_changing_weapon() and not self:_is_charging_weapon() and not self:_is_meleeing() and not self._equipped_unit:base():run_and_shoot_allowed() and ((not self:_is_reloading() or not self.RUN_AND_RELOAD))
 		
 		if stop_running then
 			self._ext_camera:play_redirect(self:get_animation("stop_running"), math.min(speed_multiplier, 2) )
@@ -2683,6 +2683,7 @@ Hooks:PreHook(PlayerStandard, "update", "ResWeaponUpdate", function(self, t, dt)
 	self:_update_d_scope_t(t, dt)
 	self:_update_spread_stun_t(t, dt)
 	self:_update_drain_stamina(t, dt)
+	self:_is_overheating(t, dt)
 
 	local weapon = alive(self._equipped_unit) and self._equipped_unit:base()
 	if weapon and weapon:weapon_tweak_data().ads_spool then
@@ -2863,8 +2864,7 @@ function PlayerStandard:_primary_regen_ammo(t, dt)
 		local regen_rate = primary._starwars.regen_rate or 10
 		local overheat_pen = primary._starwars.overheat_pen or 2.75
 		local regen_rate_overheat = primary._starwars.regen_rate_overheat or 4.5
-		local can_reload = primary._starwars.can_reload
-		local no_regen_on_empty = primary._starwars.no_regen_on_empty
+		local empty_no_regen = primary._starwars.empty_no_regen
 		local mag_regen = primary._starwars.mag_regen
 		local shut_up = primary._starwars.shut_up
 
@@ -2882,12 +2882,12 @@ function PlayerStandard:_primary_regen_ammo(t, dt)
 				self:_check_stop_shooting()
 				self:_interupt_action_steelsight(t)
 			end
-			primary._primary_regen_rate = regen_rate_overheat
-			primary._primary_overheat_pen = overheat_pen
+			primary._primary_regen_rate = (empty_no_regen and 0) or regen_rate_overheat
+			primary._primary_overheat_pen = (empty_no_regen and 0) or overheat_pen
 		end
 		if primary._primary_overheat_pen and primary._primary_overheat_pen <= 0 then
 			--log( "COOL" )
-			if active then
+			if active and not empty_no_regen then
 				primary._sound_fire:post_event("wp_sentrygun_swap_ammo")
 			end
 			primary._primary_regen_rate = regen_rate
@@ -2897,7 +2897,7 @@ function PlayerStandard:_primary_regen_ammo(t, dt)
 		if primary._primary_overheat_pen then
 			primary._primary_overheat_pen = primary._primary_overheat_pen - dt
 			--log( "OVERHEAT TIME: " .. tostring(self._primary_overheat_pen) )
-			if not primary._primary_overheat_yell then
+			if not primary._primary_overheat_yell and not empty_no_regen then
 				if not shut_up then
 					managers.player:local_player():sound():say("g29",false,nil)
 				end
@@ -2905,11 +2905,15 @@ function PlayerStandard:_primary_regen_ammo(t, dt)
 				primary._primary_overheat_yell = true
 			end
 		end
-		if (primary:get_ammo_remaining_in_clip() >= primary:get_ammo_total()) or (primary:get_ammo_remaining_in_clip() >= primary:get_ammo_max_per_clip()) then 
-			--log("NO AMMO")
+		if (not empty_no_regen and 
+				(primary:get_ammo_remaining_in_clip() >= primary:get_ammo_total()) or 
+				(primary:get_ammo_remaining_in_clip() >= primary:get_ammo_max_per_clip())) or 
+			(empty_no_regen and 
+				primary:clip_empty()) then 
+			--log("STOP REGEN")
 			primary._primary_regenerate_ammo_timer = nil
 		end
-		if primary._primary_regenerate_ammo_timer then
+		if primary._primary_regenerate_ammo_timer and (empty_no_regen and not primary:clip_empty()) and ((active and not self:_is_reloading()) or (not active)) then
 			primary._primary_regenerate_ammo_timer = primary._primary_regenerate_ammo_timer - dt
 			if primary._primary_regenerate_ammo_timer < 0 then
 				self:primary_add_ammo(dt * primary._primary_regen_rate, mag_regen)
@@ -2931,7 +2935,7 @@ function PlayerStandard:primary_add_ammo(value, mag_regen)
 		self._primary_add_bullet = self._primary_add_bullet + value
 		if math.floor(self._primary_add_bullet+0.5) >= 1 then
 			primary:set_ammo_remaining_in_clip( primary:get_ammo_remaining_in_clip() + math.floor(self._primary_add_bullet+0.5))
-			if true then
+			if mag_regen then
 				primary:set_ammo_total( primary:get_ammo_total() + math.floor(self._primary_add_bullet+0.5))
 			end
 			managers.hud:set_ammo_amount(primary:selection_index(), primary:ammo_info())
@@ -2939,6 +2943,7 @@ function PlayerStandard:primary_add_ammo(value, mag_regen)
 		end
 	end
 end
+
 
 function PlayerStandard:_secondary_regen_ammo(t, dt)
 	local secondary = self._unit:inventory():unit_by_selection(1):base()
@@ -2948,8 +2953,7 @@ function PlayerStandard:_secondary_regen_ammo(t, dt)
 		local regen_rate = secondary._starwars.regen_rate or 10
 		local overheat_pen = secondary._starwars.overheat_pen or 2.75
 		local regen_rate_overheat = secondary._starwars.regen_rate_overheat or 4.5
-		local can_reload = secondary._starwars.can_reload
-		local no_regen_on_empty = secondary._starwars.no_regen_on_empty
+		local empty_no_regen = secondary._starwars.empty_no_regen
 		local mag_regen = secondary._starwars.mag_regen
 		local shut_up = secondary._starwars.shut_up
 
@@ -2967,12 +2971,12 @@ function PlayerStandard:_secondary_regen_ammo(t, dt)
 				self:_check_stop_shooting()
 				self:_interupt_action_steelsight(t)
 			end
-			secondary._secondary_regen_rate = regen_rate_overheat
-			secondary._secondary_overheat_pen = overheat_pen
+			secondary._secondary_regen_rate = (empty_no_regen and 0) or regen_rate_overheat
+			secondary._secondary_overheat_pen = (empty_no_regen and 0) or overheat_pen
 		end
 		if secondary._secondary_overheat_pen and secondary._secondary_overheat_pen <= 0 then
 			--log( "COOL" )
-			if active then
+			if active and not empty_no_regen then
 				secondary._sound_fire:post_event("wp_sentrygun_swap_ammo")
 			end
 			secondary._secondary_regen_rate = regen_rate
@@ -2982,7 +2986,7 @@ function PlayerStandard:_secondary_regen_ammo(t, dt)
 		if secondary._secondary_overheat_pen then
 			secondary._secondary_overheat_pen = secondary._secondary_overheat_pen - dt
 			--log( "OVERHEAT TIME: " .. tostring(self._secondary_overheat_pen) )
-			if not secondary._secondary_overheat_yell then
+			if not secondary._secondary_overheat_yell and not empty_no_regen then
 				if not shut_up then
 					managers.player:local_player():sound():say("g29",false,nil)
 				end
@@ -2990,11 +2994,15 @@ function PlayerStandard:_secondary_regen_ammo(t, dt)
 				secondary._secondary_overheat_yell = true
 			end
 		end
-		if (secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_total()) or (secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_max_per_clip()) then 
-			--log("NO AMMO")
+		if (not empty_no_regen and 
+				(secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_total()) or 
+				(secondary:get_ammo_remaining_in_clip() >= secondary:get_ammo_max_per_clip())) or 
+			(empty_no_regen and 
+				secondary:clip_empty()) then 
+			--log("STOP REGEN")
 			secondary._secondary_regenerate_ammo_timer = nil
 		end
-		if secondary._secondary_regenerate_ammo_timer then
+		if secondary._secondary_regenerate_ammo_timer and (empty_no_regen and not secondary:clip_empty()) and (not self:_is_reloading() and active) then
 			secondary._secondary_regenerate_ammo_timer = secondary._secondary_regenerate_ammo_timer - dt
 			if secondary._secondary_regenerate_ammo_timer < 0 then
 				self:secondary_add_ammo(dt * secondary._secondary_regen_rate, mag_regen)
@@ -3016,7 +3024,7 @@ function PlayerStandard:secondary_add_ammo(value, mag_regen)
 		self._secondary_add_bullet = self._secondary_add_bullet + value
 		if math.floor(self._secondary_add_bullet+0.5) >= 1 then
 			secondary:set_ammo_remaining_in_clip( secondary:get_ammo_remaining_in_clip() + math.floor(self._secondary_add_bullet+0.5))
-			if true then
+			if mag_regen then
 				secondary:set_ammo_total( secondary:get_ammo_total() + math.floor(self._secondary_add_bullet+0.5))
 			end
 			managers.hud:set_ammo_amount(secondary:selection_index(), secondary:ammo_info())
@@ -3025,10 +3033,16 @@ function PlayerStandard:secondary_add_ammo(value, mag_regen)
 	end
 end
 
-function PlayerStandard:_is_reloading()
+function PlayerStandard:_is_overheating()
 	local primary = alive(self._unit) and self._unit.inventory and self._unit:inventory().unit_by_selection and self._unit:inventory():unit_by_selection(2):base()
+	local primary_can_reload = primary and primary._starwars and primary._starwars.can_reload
 	local secondary = alive(self._unit) and self._unit.inventory and self._unit:inventory().unit_by_selection and self._unit:inventory():unit_by_selection(1):base()
-	return (primary and primary._primary_overheat_pen and self._unit:inventory():equipped_selection() == 2) or (secondary and secondary._secondary_overheat_pen and self._unit:inventory():equipped_selection() == 1) or self._state_data.reload_expire_t or self._state_data.reload_enter_expire_t or self._state_data.reload_exit_expire_t
+	local secondary_can_reload = secondary and secondary._starwars and secondary._starwars.can_reload
+	return (primary and primary._primary_overheat_pen and self._unit:inventory():equipped_selection() == 2 and not primary_can_reload) or (secondary and secondary._secondary_overheat_pen and self._unit:inventory():equipped_selection() == 1 and not secondary_can_reload)
+end
+
+function PlayerStandard:_is_reloading()
+	return self._state_data.reload_expire_t or self._state_data.reload_enter_expire_t or self._state_data.reload_exit_expire_t
 end
 
 function PlayerStandard:_in_burst()
@@ -3324,7 +3338,7 @@ function PlayerStandard:_start_action_steelsight(t, gadget_state)
 		end
 	end
 	--Here!
-	if self:_changing_weapon() or self:_is_reloading() or self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:_is_meleeing() or self._use_item_expire_t or self:_is_throwing_projectile() or self:_on_zipline() or self._d_scope_t then
+	if self:_changing_weapon() or self:_is_overheating() or self:_is_reloading() or self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:_is_meleeing() or self._use_item_expire_t or self:_is_throwing_projectile() or self:_on_zipline() or self._d_scope_t then
 		self._steelsight_wanted = true
 
 		return
@@ -4485,7 +4499,7 @@ function PlayerStandard:_check_action_cash_inspect(t, input)
 		return
 	end
 
-	local action_forbidden = self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:is_deploying() or self:_changing_weapon() or self:_is_throwing_projectile() or self:_is_meleeing() or self:_on_zipline() or self:running() or self:_is_reloading() or self:in_steelsight() or self:is_equipping() or self:shooting() or self:_is_cash_inspecting(t) or self:_in_burst()
+	local action_forbidden = self:_interacting() and not managers.player:has_category_upgrade("player", "no_interrupt_interaction") or self:is_deploying() or self:_changing_weapon() or self:_is_throwing_projectile() or self:_is_meleeing() or self:_on_zipline() or self:running() or self:_is_overheating() or self:_is_reloading() or self:in_steelsight() or self:is_equipping() or self:shooting() or self:_is_cash_inspecting(t) or self:_in_burst()
 
 	if action_forbidden then
 		return

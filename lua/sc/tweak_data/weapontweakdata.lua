@@ -9268,7 +9268,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.amcar.stats = {
 							damage = 20,
-							spread = 75,
+							spread = 76,
 							recoil = 81,
 							spread_moving = 6,
 							zoom = 1,
@@ -9303,16 +9303,16 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.s552.kick = self.stat_info.kick_tables.moderate_kick
 						self.s552.AMMO_MAX = 180
 						self.s552.supported = true
-						self.s552.ads_speed = 0.240
+						self.s552.ads_speed = 0.280
 						self.s552.damage_falloff = {
 							start_dist = 2600,
-							end_dist = 7800,
+							end_dist = 7000,
 							min_mult = 0.6
 						}
 						self.s552.stats = {
 							damage = 20,
-							spread = 86,
-							recoil = 81,
+							spread = 83,
+							recoil = 77,
 							spread_moving = 6,
 							zoom = 1,
 							concealment = 26,
@@ -9386,7 +9386,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.vhs.CAN_TOGGLE_FIREMODE = true
 						self.vhs.kick = self.stat_info.kick_tables.moderate_kick
 						self.vhs.supported = true
-						self.vhs.ads_speed = 0.240
+						self.vhs.ads_speed = 0.260
 						self.vhs.damage_falloff = {
 							start_dist = 2100,
 							end_dist = 6500,
@@ -23650,14 +23650,14 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				if weap.weapon_movement_penalty then
 					weap.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
 					weap.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
-					weap.rms = (1 + weap.weapon_movement_penalty) / 2
+					weap.rms = (1 + weap.weapon_movement_penalty) / 1.5
 					if not table.contains(weap.categories, "lmg_moving") and not table.contains(weap.categories, "wolf_brigade") and not table.contains(weap.categories, "minigun") then
 						weap.sms = weap.sms / 1.2
 						weap.rms = weap.weapon_movement_penalty
 						weap.zoom_recoil_reduction = 0.025
 					end
-					weap.smt_mult = 5
-					weap.smt_range = { 0.75, 1.35 }
+					weap.smt_mult = 4
+					weap.smt_range = { 0.75, 1.25 }
 				end
 				weap.ene_hs_mult = 1.0
 			end
