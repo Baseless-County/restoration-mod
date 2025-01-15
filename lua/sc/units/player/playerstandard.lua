@@ -2123,6 +2123,7 @@ function PlayerStandard:_do_chainsaw_damage(t)
 			action_data.damage_effect = damage_effect
 			action_data.attacker_unit = self._unit
 			action_data.col_ray = col_ray
+			action_data.variant = "melee"
 
 			if shield_knock then
 				action_data.shield_knock = can_shield_knock
