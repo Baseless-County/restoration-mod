@@ -4862,7 +4862,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 	end
 		
 	local faction = {
-		'p90','x_p90','mp7','lemming','olympic','x_olympic','m16','amcar','new_m4','ak5','s552','g36','aug','famas','l85a2','vhs','tecci','hajk','komodo','new_m14','scar','fal','galil','g3','msr','tti','scout','m134','shuno','par','hk21','hk51b','m249','par','m60','corgi','contraband','awp','kacchainsaw'
+		'p90','x_p90','mp7','lemming','olympic','x_olympic','m16','amcar','new_m4','ak5','s552','g36','aug','famas','l85a2','vhs','tecci','hajk','komodo','new_m14','scar','fal','galil','g3','msr','tti','scout','m134','shuno','par','hk21','hk51b','m249','par','m60','corgi','contraband','awp','kacchainsaw','victor'
 	}	
 	for i, wep_id in ipairs(faction) do
 		self[ wep_id ].nato = true
@@ -5082,7 +5082,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 	--Weapon specific attachment category names
 		self.new_raging_bull.override_mod_type_name = {
 			["slide"] = "barrel",
-			["upper_reciever"] = "cylinder"
+			["upper_reciever"] = "cylinder",
+			["extra"] = "sight_mount"
 		}
 		self.x_rage.override_mod_type_name = {
 			["slide"] = "barrel",
@@ -5153,6 +5154,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		self.g36.override_mod_type_name = {
 			["foregrip"] = "forebarrelgrip"
 		}
+		self.new_m14.override_mod_type_name = {
+			["extra"] = "sight_mount"
+		}
 		self.g3.override_mod_type_name = {
 			["stock"] = "jiisuri_stock", --:^)
 		}
@@ -5167,7 +5171,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			["extra"] = "foregrip"
 		}
 		self.deagle.override_mod_type_name = {
-			["slide"] = "barrel"
+			["slide"] = "barrel",
+			["extra"] = "sight_mount",
 		}
 		self.x_deagle.override_mod_type_name = {
 			["slide"] = "barrel"
@@ -5183,6 +5188,21 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 		}
 		self.m1928.override_mod_type_name = {
 			["foregrip"] = "vertical_grip"
+		}
+		self.akmsu.override_mod_type_name = {
+			["extra"] = "sight_mount"
+		}
+		self.ak74.override_mod_type_name = {
+			["extra"] = "sight_mount"
+		}
+		self.akm.override_mod_type_name = {
+			["extra"] = "sight_mount"
+		}
+		self.akm_gold.override_mod_type_name = {
+			["extra"] = "sight_mount"
+		}
+		self.rpk.override_mod_type_name = {
+			["extra"] = "sight_mount"
 		}
 
 	self.c96.uses_clip = true
@@ -9665,7 +9685,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						reload = 20
 					}
 					self.rpk.stats_modifiers = nil
-					self.rpk.panic_suppression_chance = 0.055
+					self.rpk.panic_suppression_chance = 0.05
 					self.rpk.bipod_req_scope = true
 					self.rpk.timers.reload_exit_empty = 1.45
 					self.rpk.timers.reload_exit_not_empty = 0.85
