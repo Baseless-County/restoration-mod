@@ -8913,7 +8913,6 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.cobray.reload_speed_multiplier = 1.26
 						self.cobray.reload_not_empty_speed_multiplier = 0.8
 
-
 			--[[     HEAVY SMGs     ]]
 
 				--PRIMARIES
@@ -9426,7 +9425,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.m1928.timers.reload_exit_empty = 1.35
 						self.m1928.panic_suppression_chance = 0.05
 
-			--[[     LIGHT MGs      ]]
+			--[[     LIGHT MGs     ]]
 
 				--Boot (HK416c)
 					self.tecci.has_description = true
@@ -10065,7 +10064,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.ranc_heavy_machine_gun.can_shoot_through_wall = true
 						self.ranc_heavy_machine_gun.can_shoot_through_titan_shield = true
 
-			--[[     MINIGUNS      ]]
+			--[[     MINIGUNS     ]]
 
 				--Microgun (I hate how this is probably one of the more "functional" handheld minigun configurations)
 					self.shuno.categories = {
@@ -12620,7 +12619,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.contender.timers.reload_exit_not_empty = 0.8
 						self.contender.timers.reload_exit_empty = self.contender.timers.reload_exit_not_empty
 
-			--[[     ANTI-MATERIEL SNIPERS     ]]
+			--[[     ANTI-MATERIEL     ]]
 
 				--Thanatos .50 cal
 					self.m95.upgrade_blocks = nil

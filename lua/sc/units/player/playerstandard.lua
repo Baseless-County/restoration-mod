@@ -5320,7 +5320,6 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 
 				if self._is_dashing and (t > (self._last_dash_iframes or 0)) then
 					self._is_dashing = nil
-					log("DASH END")
 				end
 			end
 
