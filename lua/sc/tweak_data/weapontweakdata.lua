@@ -20976,10 +20976,10 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.pkilo.kick = self.stat_info.kick_tables.random_recoil
 				self.pkilo.kick_pattern = {
 					{0, self.stat_info.kick_tables.random_recoil},
-					{16, self.stat_info.kick_tables.right_kick},
-					{22, self.stat_info.kick_tables.moderate_left_kick},
-					{34, self.stat_info.kick_tables.right_recoil},
-					{45, self.stat_info.kick_tables.horizontal_right_recoil}
+					{10, self.stat_info.kick_tables.right_kick},
+					{14, self.stat_info.kick_tables.moderate_left_kick},
+					{23, self.stat_info.kick_tables.right_recoil},
+					{38, self.stat_info.kick_tables.horizontal_right_recoil}
 				}
 				self.pkilo.always_use_standing = true
 				self.pkilo.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
