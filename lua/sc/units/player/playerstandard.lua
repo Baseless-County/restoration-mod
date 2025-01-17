@@ -4806,8 +4806,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				attacker_unit = self._unit,
 				col_ray = target_ray_data.raydata,
 				charge_lerp_value = 0,
-				shield_knock = self._is_sliding and can_shield_knock,
-				name_id = "fists"
+				shield_knock = (self._is_sliding or strongkick) and can_shield_knock,
+				name_id = managers.localization:text("bm_melee_advmov"),
+				variant = "melee"
 			}
 			if targetunit:in_slot(8) and alive(targetunit:parent()) and not targetunit:parent():character_damage():is_immune_to_shield_knockback() then
 				-- shield behaviors
@@ -4815,6 +4816,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				finaltarget = targetunit:parent()
 			end
 			local kill = nil
+			local final_dmg = nil
 			if finaltarget and finaltarget:character_damage() and finaltarget:character_damage().damage_melee and dmg_data then -- blanket "what the fuck is crashing" prevention since i don't know how to reproduce it consistently
 				local atk_dir_z_offset = -100
 				local is_bulldozer = finaltarget:base():has_tag("tank")
@@ -4823,6 +4825,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					dmg_data.damage_effect = dmg_data.damage_effect * 2
 					atk_dir_z_offset = atk_dir_z_offset * 2
 				end
+				final_dmg = dmg_data.damage
 				-- hit enemy
 				-- apply damage
 				finaltarget:character_damage():damage_melee(dmg_data)
@@ -4875,16 +4878,15 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				if finaltarget:character_damage() and finaltarget:character_damage().melee_hit_sfx then
 					hit_sfx = finaltarget:character_damage():melee_hit_sfx()
 				end
-				if self._using_superblt then
-					local kick_stage = 0 + ((self._is_jumping and 1) or 0) + ((self._is_sliding and 1) or 0) + ((strongkick and 1) or 0)
-					if kick_stage == 3 then
+				if self._using_superblt and final_dmg then
+					if final_dmg > 23.9 then
 						self._inf_sound:post_event("kick_heavy")
-					elseif kick_stage == 2 then
+					elseif final_dmg > 11.9 then
 						self._inf_sound:post_event("kick_light")
-					elseif kick_stage == 1 then
-						self:_play_melee_sound("fists", hit_sfx, 0)
-					else
+					elseif final_dmg > 5.9 then
 						self:_play_melee_sound("weapon", hit_sfx, 0)
+					else
+						self:_play_melee_sound("fists", hit_sfx, 0)
 					end
 				else
 					self:_play_melee_sound("fists", hit_sfx, 0)

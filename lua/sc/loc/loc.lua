@@ -261,6 +261,7 @@ Hooks:Add("LocalizationManagerPostInit", "ResMod_english_Localization", function
 					["resmod_advmov_melee_on"] = "Default",
 					["resmod_advmov_melee_loud_only"] = "Loud Only",
 					["resmod_advmov_melee_off"] = "Disabled",
+		["bm_melee_advmov"] = "Kick",
 
 		--EXTRA OPTIONS
 		["RestorationModAltLastDownColorTitleID"] = "Alternative Last Down Color Grading",
