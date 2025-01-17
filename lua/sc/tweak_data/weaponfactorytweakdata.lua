@@ -5000,6 +5000,121 @@ end)
 					self.wpn_fps_smg_mp9_npc.uses_parts = deep_clone(self.wpn_fps_smg_mp9.uses_parts)
 				end)
 
+			--M11/9
+				Hooks:PostHook(WeaponFactoryTweakData, "_init_cobray", "resmod_cobray", function(self)
+					
+					--80's Calling
+					self.parts.wpn_fps_smg_cobray_body_upper_jacket.pcs = {}
+					self.parts.wpn_fps_smg_cobray_body_upper_jacket.supported = true
+					self.parts.wpn_fps_smg_cobray_body_upper_jacket.stats = {
+						value = 0
+					}
+					
+					--Slotted Barrel Extension
+					self.parts.wpn_fps_smg_cobray_ns_barrelextension.pcs = {
+						10,
+						20,
+						30,
+						40
+					}
+					self.parts.wpn_fps_smg_cobray_ns_barrelextension.supported = true
+					self.parts.wpn_fps_smg_cobray_ns_barrelextension.stats = deep_clone(barrels.long_b2_stats)
+					self.parts.wpn_fps_smg_cobray_ns_barrelextension.custom_stats = deep_clone(barrels.long_b2_stats)
+					
+					--Werbell's Suppressor
+					self.parts.wpn_fps_smg_cobray_ns_silencer.pcs = {
+						10,
+						20,
+						30,
+						40
+					}
+					self.parts.wpn_fps_smg_cobray_ns_silencer.supported = true
+					self.parts.wpn_fps_smg_cobray_ns_silencer.has_description = true
+					self.parts.wpn_fps_smg_cobray_ns_silencer.desc_id = "bm_wp_upg_suppressor"
+					self.parts.wpn_fps_smg_cobray_ns_silencer.stats = deep_clone(muzzle_device.supp_c_alt_stats)
+					self.parts.wpn_fps_smg_cobray_ns_silencer.perks = {"silencer"}
+
+					if not self.wpn_fps_smg_cobray.override then
+						self.wpn_fps_smg_cobray.override = {}
+					end
+
+					self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_standard = {
+						stats = deep_clone(stocks.nocheeks_to_adj_dual_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_adj_dual_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_pts = {
+						stats = deep_clone(stocks.nocheeks_to_adj_acc_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_adj_acc_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_sho_sko12_stock = {
+						stats = deep_clone(stocks.nocheeks_to_adj_acc_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_adj_acc_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_crane = {
+						stats = deep_clone(stocks.nocheeks_to_adj_rec_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_adj_rec_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_mk46 = {
+						stats = deep_clone(stocks.nocheeks_to_adj_rec_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_adj_rec_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_snp_victor_s_mod0 = {
+						stats = deep_clone(stocks.nocheeks_to_adj_rec_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_adj_rec_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_ubr = {
+						stats = deep_clone(stocks.nocheeks_to_hvy_acc1_rec2_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_hvy_acc1_rec2_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_snp_tti_s_vltor = {
+						stats = deep_clone(stocks.nocheeks_to_hvy_acc2_rec1_stats),
+						custom_stats = deep_clone(stocks.nocheeks_to_hvy_acc2_rec1_stats)
+					}
+					self.wpn_fps_smg_cobray.override.wpn_fps_smg_mac10_s_no = {
+						stats = deep_clone(stocks.remove_nocheeks_stats),
+						custom_stats = deep_clone(stocks.remove_nocheeks_stats)
+					}
+
+					--Disabling Vertical Grip Mods
+					for i, part_id in pairs(self.wpn_fps_smg_cobray.uses_parts) do
+						attachment_list = {
+							"wpn_fps_upg_vg_ass_smg_verticalgrip",
+							"wpn_fps_upg_vg_ass_smg_stubby",
+							"wpn_fps_upg_vg_ass_smg_afg"
+						}
+						for _, remove_id in ipairs(attachment_list) do
+							if part_id == remove_id then
+								self.wpn_fps_smg_cobray.uses_parts[i] = "wpn_fps_upg_vg_ass_smg_stubby_vanilla"
+							end
+						end
+					end	
+					
+					table.insert(self.wpn_fps_smg_cobray.uses_parts, "wpn_fps_smg_mac10_s_skel")
+					table.insert(self.wpn_fps_smg_cobray.uses_parts, "wpn_fps_smg_mac10_s_no")	
+						
+					self.wpn_fps_smg_cobray_npc.uses_parts = deep_clone(self.wpn_fps_smg_cobray.uses_parts)		
+				end)
+				Hooks:PostHook(WeaponFactoryTweakData, "_init_x_cobray", "resmod_cobray", function(self)
+					--Disabling Vertical Grip Mods
+					for i, part_id in pairs(self.wpn_fps_smg_x_cobray.uses_parts) do
+						attachment_list = {
+							"wpn_fps_upg_vg_ass_smg_verticalgrip",
+							"wpn_fps_upg_vg_ass_smg_stubby",
+							"wpn_fps_upg_vg_ass_smg_afg"
+						}
+						for _, remove_id in ipairs(attachment_list) do
+							if part_id == remove_id then
+								self.wpn_fps_smg_x_cobray.uses_parts[i] = "wpn_fps_upg_vg_ass_smg_stubby_vanilla"
+							end
+						end
+					end	
+					
+					table.insert(self.wpn_fps_smg_x_cobray.uses_parts, "wpn_fps_smg_mac10_s_skel")
+					table.insert(self.wpn_fps_smg_x_cobray.uses_parts, "wpn_fps_smg_mac10_s_no")	
+						
+					self.wpn_fps_smg_x_cobray_npc.uses_parts = deep_clone(self.wpn_fps_smg_x_cobray.uses_parts)		
+				end)
+
 			--SR2M
 				Hooks:PostHook(WeaponFactoryTweakData, "_init_sr2", "resmod_sr2", function(self)
 					
@@ -5475,6 +5590,21 @@ end)
 							spread = 2
 						},
 						animations = {}
+					}
+					self.wpn_fps_smg_x_mp5.override.wpn_fps_upg_vg_ass_smg_stubby = {
+						stats = {
+							value = 0
+						}
+					}
+					self.wpn_fps_smg_x_mp5.override.wpn_fps_upg_vg_ass_smg_afg = {
+						stats = {
+							value = 0
+						}
+					}
+					self.wpn_fps_smg_x_mp5.override.wpn_fps_upg_vg_ass_smg_verticalgrip = {
+						stats = {
+							value = 0
+						}
 					}
 				end)
 
@@ -20278,100 +20408,6 @@ end)
 		end
 
 
---M11/9
-Hooks:PostHook(WeaponFactoryTweakData, "_init_cobray", "resmod_cobray", function(self)
-	
-	--80's Calling
-	self.parts.wpn_fps_smg_cobray_body_upper_jacket.pcs = {}
-	self.parts.wpn_fps_smg_cobray_body_upper_jacket.supported = true
-	self.parts.wpn_fps_smg_cobray_body_upper_jacket.stats = {
-		value = 0
-	}
-	
-	--Slotted Barrel Extension
-	self.parts.wpn_fps_smg_cobray_ns_barrelextension.pcs = {
-		10,
-		20,
-		30,
-		40
-	}
-	self.parts.wpn_fps_smg_cobray_ns_barrelextension.supported = true
-	self.parts.wpn_fps_smg_cobray_ns_barrelextension.stats = deep_clone(barrels.long_b2_stats)
-	self.parts.wpn_fps_smg_cobray_ns_barrelextension.custom_stats = deep_clone(barrels.long_b2_stats)
-	
-	--Werbell's Suppressor
-	self.parts.wpn_fps_smg_cobray_ns_silencer.pcs = {
-		10,
-		20,
-		30,
-		40
-	}
-	self.parts.wpn_fps_smg_cobray_ns_silencer.supported = true
-	self.parts.wpn_fps_smg_cobray_ns_silencer.has_description = true
-	self.parts.wpn_fps_smg_cobray_ns_silencer.desc_id = "bm_wp_upg_suppressor"
-	self.parts.wpn_fps_smg_cobray_ns_silencer.stats = deep_clone(muzzle_device.supp_c_alt_stats)
-	self.parts.wpn_fps_smg_cobray_ns_silencer.perks = {"silencer"}
-
-	if not self.wpn_fps_smg_cobray.override then
-		self.wpn_fps_smg_cobray.override = {}
-	end
-
-	self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_standard = {
-		stats = deep_clone(stocks.nocheeks_to_adj_dual_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_adj_dual_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_pts = {
-		stats = deep_clone(stocks.nocheeks_to_adj_acc_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_adj_acc_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_sho_sko12_stock = {
-		stats = deep_clone(stocks.nocheeks_to_adj_acc_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_adj_acc_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_crane = {
-		stats = deep_clone(stocks.nocheeks_to_adj_rec_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_adj_rec_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_mk46 = {
-		stats = deep_clone(stocks.nocheeks_to_adj_rec_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_adj_rec_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_snp_victor_s_mod0 = {
-		stats = deep_clone(stocks.nocheeks_to_adj_rec_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_adj_rec_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_upg_m4_s_ubr = {
-		stats = deep_clone(stocks.nocheeks_to_hvy_acc1_rec2_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_hvy_acc1_rec2_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_snp_tti_s_vltor = {
-		stats = deep_clone(stocks.nocheeks_to_hvy_acc2_rec1_stats),
-		custom_stats = deep_clone(stocks.nocheeks_to_hvy_acc2_rec1_stats)
-	}
-	self.wpn_fps_smg_cobray.override.wpn_fps_smg_mac10_s_no = {
-		stats = deep_clone(stocks.remove_nocheeks_stats),
-		custom_stats = deep_clone(stocks.remove_nocheeks_stats)
-	}
-
-	--Disabling Vertical Grip Mods
-	for i, part_id in pairs(self.wpn_fps_smg_cobray.uses_parts) do
-		attachment_list = {
-			"wpn_fps_upg_vg_ass_smg_verticalgrip",
-			"wpn_fps_upg_vg_ass_smg_stubby",
-			"wpn_fps_upg_vg_ass_smg_afg"
-		}
-		for _, remove_id in ipairs(attachment_list) do
-			if part_id == remove_id then
-				self.wpn_fps_smg_cobray.uses_parts[i] = "wpn_fps_upg_vg_ass_smg_stubby_vanilla"
-			end
-		end
-	end	
-	
-	table.insert(self.wpn_fps_smg_cobray.uses_parts, "wpn_fps_smg_mac10_s_skel")
-	table.insert(self.wpn_fps_smg_cobray.uses_parts, "wpn_fps_smg_mac10_s_no")	
-		
-	self.wpn_fps_smg_cobray_npc.uses_parts = deep_clone(self.wpn_fps_smg_cobray.uses_parts)		
-end)
 
 --FLAMETHROWER
 Hooks:PostHook(WeaponFactoryTweakData, "_init_flamethrower_mk2", "resmod_flamethrower_mk2", function(self)
