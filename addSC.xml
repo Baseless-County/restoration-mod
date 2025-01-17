@@ -1347,7 +1347,7 @@
     <effect				path="_dmc/effects/shell_shak_smol" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/shell_shak_sniper" force="false" load="true" unload="true" reload="true"/>
     <effect				path="effects/payday2/particles/weapons/shells/shell_shak" force="true"/>
-	<!--Weapon Mod Trails-->
+	<!--Weapon Mod Trails and Muzzle Effects-->
 	<!--NATO Tracer-->
     <effect				path="_dmc/effects/nato_trail" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/nato_streak" force="false" load="true" unload="true" reload="true"/>
@@ -1392,6 +1392,9 @@
     <effect				path="_dmc/effects/parts/knockback_streak" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/concussion_trail" force="false" load="true" unload="true" reload="true"/>
     <effect				path="_dmc/effects/parts/concussion_streak" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/heavy_suppressed" force="false" load="true" unload="true" reload="true"/>
+    <effect				path="_dmc/effects/heavy_muzzle" force="false" load="true" unload="true" reload="true"/>
+
 	<!--Cloud-->
 	<effect				path="effects/payday2/particles/explosions/red_mist" load="false"/>
 	
@@ -1451,7 +1454,7 @@
 	<texture			path="guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_o_arbiter_irons_dmc"/>
 	<texture			path="guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_o_dd_irons_dmc"/>
 	<texture			path="guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_o_ecp_irons_dmc"/>
-	
+
 	<!--
 		Weapon Reticles
 		001 - EOTech

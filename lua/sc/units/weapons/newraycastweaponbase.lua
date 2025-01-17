@@ -1008,6 +1008,7 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 
 		self._use_vapor_trail = self:weapon_tweak_data().use_vapor_trail
 		self._use_sniper_trail = self:weapon_tweak_data().use_sniper_trail
+		self._use_silenced_muzzleflash = nil
 
 		self._keep_ammo = self:weapon_tweak_data().keep_ammo
 
@@ -1310,6 +1311,9 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 					self._starwars = deep_clone(stats.starwars)
 				end
 			end
+			if stats.use_silenced_muzzleflash then
+				self._use_silenced_muzzleflash = true
+			end
 			if stats.empire then
 				self._empire = true
 			end
@@ -1435,6 +1439,10 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 				self._ammo_data.ammo_pickup_max_mul = self._ammo_data.ammo_pickup_max_mul and self._ammo_data.ammo_pickup_max_mul * stats.ammo_pickup_max_mul or stats.ammo_pickup_max_mul
 			end
 		end
+	end
+
+	if self._use_silenced_muzzleflash then
+		self._muzzle_effect = Idstring(self:weapon_tweak_data().muzzleflash_silenced or "effects/payday2/particles/weapons/9mm_auto_silence_fps")
 	end
 
 	if self._cbfd_to_add_this_check_elsewhere then

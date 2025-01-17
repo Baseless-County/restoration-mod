@@ -1955,7 +1955,7 @@ local crew_wep_preset = {
 		self.m249_npc.sounds.prefix = "m249_npc"
 		self.m249_npc.use_data.selection_index = 2
 		self.m249_npc.DAMAGE = 2.4
-		self.m249_npc.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+		self.m249_npc.muzzleflash = "_dmc/effects/heavy_muzzle"
 		self.m249_npc.shell_ejection = "effects/payday2/particles/weapons/shells/shell_556_lmg"
 		self.m249_npc.CLIP_AMMO_MAX = 200
 		self.m249_npc.NR_CLIPS_MAX = 2
@@ -1992,7 +1992,7 @@ local crew_wep_preset = {
 		self.hk23_sc_npc = deep_clone(self.hk21_sc_npc)	
 		self.hk23_sc_npc.use_data.selection_index = 2
 		self.hk23_sc_npc.DAMAGE = 2
-		self.hk23_sc_npc.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+		self.hk23_sc_npc.muzzleflash = "_dmc/effects/heavy_muzzle"
 		self.hk23_sc_npc.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 		self.hk23_sc_npc.CLIP_AMMO_MAX = 50
 		self.hk23_sc_npc.NR_CLIPS_MAX = 5
@@ -9390,7 +9390,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						{28, self.stat_info.kick_tables.even_recoil},
 						{33, self.stat_info.kick_tables.right_recoil}
 					}
-					self.tecci.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+					self.tecci.muzzleflash = "_dmc/effects/heavy_muzzle"
+					self.tecci.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 					self.tecci.CLIP_AMMO_MAX = 100
 					self.tecci.AMMO_MAX = 360
 					self.tecci.fire_mode_data.fire_rate = 0.07692307
@@ -9445,7 +9446,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						{43, self.stat_info.kick_tables.left_recoil}
 					}
 					self.m249.always_use_standing = true
-					self.m249.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+					self.m249.muzzleflash = "_dmc/effects/heavy_muzzle"
+					self.m249.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 					self.m249.supported = true
 					self.m249.ads_speed = 0.420
 					self.m249.damage_falloff = {
@@ -9664,7 +9666,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						{31, self.stat_info.kick_tables.right_kick},
 					}
 					self.hk51b.panic_suppression_chance = 0.05
-					self.hk51b.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+					self.hk51b.muzzleflash = "_dmc/effects/heavy_muzzle"
+					self.hk51b.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 					self.hk51b.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 					self.hk51b.supported = true
 					self.hk51b.ads_speed = 0.420
@@ -9723,7 +9726,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							crouching = 0.7,
 							steelsight = 1.2
 						}
-						self.mg42.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+						self.mg42.muzzleflash = "_dmc/effects/heavy_muzzle"
+						self.mg42.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 						self.mg42.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 						self.mg42.supported = true
 						self.mg42.ads_speed = 0.500
@@ -9782,7 +9786,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.hk21.always_use_standing = true
 						self.hk21.panic_suppression_chance = 0.05
-						self.hk21.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+						self.hk21.muzzleflash = "_dmc/effects/heavy_muzzle"
+						self.hk21.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 						self.hk21.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 						self.hk21.supported = true
 						self.hk21.ads_speed = 0.520
@@ -9825,7 +9830,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.hcar.CLIP_AMMO_MAX = 20
 						self.hcar.AMMO_MAX = 120
 						self.hcar.fire_mode_data.fire_rate = 0.12
-						self.hcar.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+						self.hcar.muzzleflash = "_dmc/effects/heavy_muzzle"
+						self.hcar.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 						self.hcar.kick = self.stat_info.kick_tables.random_right_recoil
 						self.hcar.kick_pattern = {
 							{0, self.stat_info.kick_tables.random_right_recoil},
@@ -9880,7 +9886,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 							{30, self.stat_info.kick_tables.left_recoil}
 						}
 						self.m60.always_use_standing = true
-						self.m60.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+						self.m60.muzzleflash = "_dmc/effects/heavy_muzzle"
+						self.m60.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 						self.m60.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 						self.m60.supported = true
 						self.m60.ads_speed = 0.560
@@ -9936,7 +9943,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.par.always_use_standing = true
 						self.par.panic_suppression_chance = 0.05
-						self.par.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+						self.par.muzzleflash = "_dmc/effects/heavy_muzzle"
+						self.par.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 						self.par.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 						self.par.supported = true
 						self.par.ads_speed = 0.540
@@ -10035,7 +10043,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						{26, self.stat_info.kick_tables.moderate_kick},
 						{40, self.stat_info.kick_tables.moderate_right_kick}
 					}
-					self.shuno.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+					self.shuno.muzzleflash = "_dmc/effects/heavy_muzzle"
 					self.shuno.panic_suppression_chance = 0.05
 					self.shuno.supported = true
 					self.shuno.ads_speed = 0.500
@@ -11129,8 +11137,6 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.tkb.fire_mode_data.volley.armor_piercing_chance = 0
 						self.tkb.fire_mode_data.volley.trail_effect = "_dmc/effects/warsaw_trail"
 						self.tkb.trail_effect = "_dmc/effects/warsaw_trail"
-						self.tkb.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-						self.tkb.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
 						self.tkb.kick = self.stat_info.kick_tables.moderate_kick
 						self.tkb.kick_pattern = {
 							{0, self.stat_info.kick_tables.horizontal_recoil},
@@ -19804,7 +19810,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.alpha57_prim.recategorize = { "light_smg" }		
 				self.alpha57_prim.damage_type = "machine_gun"
 				self.alpha57_prim.has_description = true
-				self.alpha57_prim.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.alpha57_prim.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.alpha57_prim.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.alpha57_prim.kick = self.stat_info.kick_tables.even_recoil
 				self.alpha57_prim.kick_pattern = {
 					{0, self.stat_info.kick_tables.even_recoil},
@@ -20358,7 +20365,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.stoner63a.AMMO_MAX = 300
 				self.stoner63a.kick = self.stat_info.kick_tables.random_right_recoil
 				self.stoner63a.always_use_standing = true
-				self.stoner63a.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.stoner63a.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.stoner63a.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.stoner63a.supported = true
 				self.stoner63a.ads_speed = 0.400
 				self.stoner63a.damage_falloff = {
@@ -20801,8 +20809,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.malima.CLIP_AMMO_MAX = 30
 				self.malima.AMMO_MAX = 120
 				self.malima.FIRE_MODE = "auto"
-				self.malima.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-				self.malima.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
+				self.malima.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.malima.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.malima.fire_mode_data = {}
 				self.malima.fire_mode_data.fire_rate = 0.0923076
 				self.malima.CAN_TOGGLE_FIREMODE = true
@@ -20923,7 +20931,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					{38, self.stat_info.kick_tables.horizontal_right_recoil}
 				}
 				self.pkilo.always_use_standing = true
-				self.pkilo.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps"
+				self.pkilo.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.pkilo.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.pkilo.supported = true
 				self.pkilo.ads_speed = 0.580
 				self.pkilo.damage_falloff = {
@@ -20965,8 +20974,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mike4_2022.recategorize = { "light_ar" }
 				self.mike4_2022.damage_type = "assault_rifle"
 				self.mike4_2022.has_description = false
-				self.mike4_2022.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-				self.mike4_2022.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
+				self.mike4_2022.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.mike4_2022.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.mike4_2022.tactical_reload = 1
 				self.mike4_2022.AMMO_MAX = 150
 				self.mike4_2022.fire_mode_data.fire_rate = 0.074074
@@ -21055,8 +21064,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.akilo_2022.recategorize = { "heavy_ar" }
 					self.akilo_2022.damage_type = "assault_rifle"
 					self.akilo_2022.has_description = false
-					self.akilo_2022.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-					self.akilo_2022.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
+					self.akilo_2022.muzzleflash = "_dmc/effects/heavy_muzzle"
+					self.akilo_2022.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 					self.akilo_2022.tactical_reload = 1
 					self.akilo_2022.AMMO_MAX = 120
 					self.akilo_2022.fire_mode_data.fire_rate = 0.1
@@ -21093,8 +21102,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.akilo105_2022.recategorize = { "light_ar" }
 					self.akilo105_2022.damage_type = "assault_rifle"
 					self.akilo105_2022.has_description = false
-					self.akilo105_2022.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-					self.akilo105_2022.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
+					self.akilo105_2022.muzzleflash = "_dmc/effects/heavy_muzzle"
+					self.akilo105_2022.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 					self.akilo105_2022.tactical_reload = 1
 					self.akilo105_2022.AMMO_MAX = 150
 					self.akilo105_2022.fire_mode_data.fire_rate = 0.09202453
@@ -21831,7 +21840,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.raid_ww2_bren.fire_mode_data.fire_rate = 0.12
 				self.raid_ww2_bren.AMMO_MAX = 160
 				self.raid_ww2_bren.kick = self.stat_info.kick_tables.random_right_recoil
-				self.raid_ww2_bren.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.raid_ww2_bren.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.raid_ww2_bren.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.raid_ww2_bren.supported = true
 				self.raid_ww2_bren.ads_speed = 0.480
 				self.raid_ww2_bren.damage_falloff = {
@@ -21977,7 +21987,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.madsen_mg.fire_mode_data.fire_rate = 0.1333333
 				self.madsen_mg.AMMO_MAX = 120
 				self.madsen_mg.kick = self.stat_info.kick_tables.random_left_recoil
-				self.madsen_mg.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.madsen_mg.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.madsen_mg.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.madsen_mg.supported = true
 				self.madsen_mg.ads_speed = 0.480
 				self.madsen_mg.damage_falloff = {
@@ -22417,7 +22428,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mx63.BURST_FIRE = false
 				self.mx63.kick = {}
 				self.mx63.kick = self.stat_info.kick_tables.random_recoil
-				self.mx63.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.mx63.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.mx63.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.mx63.supported = true
 				self.mx63.ads_speed = 0.400
 				self.mx63.damage_falloff = {
@@ -22853,7 +22865,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.mg34.AMMO_MAX = 160
 				self.mg34.kick = self.stat_info.kick_tables.vertical_kick
 				self.mg34.always_use_standing = true
-				self.mg34.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.mg34.muzzleflash = "_dmc/effects/heavy_muzzle"
+				self.mg34.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 				self.mg34.shell_ejection = "effects/payday2/particles/weapons/shells/shell_762_lmg"
 				self.mg34.supported = true
 				self.mg34.ads_speed = 0.580
@@ -23187,7 +23200,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.xm214a.fire_mode_data.fire_rate = 0.05
 				self.xm214a.CAN_TOGGLE_FIREMODE = false
 				self.xm214a.kick = self.stat_info.kick_tables.moderate_kick
-				self.xm214a.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
+				self.xm214a.muzzleflash = "_dmc/effects/heavy_muzzle"
 				self.xm214a.panic_suppression_chance = 0.05
 				self.xm214a.supported = true
 				self.xm214a.ads_speed = 0.400
@@ -24149,8 +24162,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 
 			if table.contains(weap.categories, "lmg") or table.contains(weap.categories, "minigun") then
 				if weap.weapon_movement_penalty then
-					weap.muzzleflash = "effects/payday2/particles/weapons/tkb_muzzle"
-					weap.muzzleflash_silenced = "effects/payday2/particles/weapons/tkb_suppressed"
+					weap.muzzleflash = "_dmc/effects/heavy_muzzle"
+					weap.muzzleflash_silenced = "_dmc/effects/heavy_suppressed"
 					weap.rms = (1 + weap.weapon_movement_penalty) / 1.5
 					if not table.contains(weap.categories, "lmg_moving") and not table.contains(weap.categories, "wolf_brigade") and not table.contains(weap.categories, "minigun") then
 						weap.sms = weap.sms / 1.2
