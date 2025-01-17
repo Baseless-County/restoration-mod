@@ -10569,11 +10569,17 @@ end)
 					self.wpn_fps_smg_akmsu.override.wpn_fps_rpg7_sight_adapter = {
 						custom_stats = { big_scope = true }
 					}
+					self.wpn_fps_smg_akmsu.override.wpn_fps_upg_vg_ass_smg_stubby = {
+						stats = {}
+					}
+					self.wpn_fps_smg_akmsu.override.wpn_fps_upg_vg_ass_smg_verticalgrip = {
+						stats = {}
+					}
+					self.wpn_fps_smg_akmsu.override.wpn_fps_upg_vg_ass_smg_afg = {
+						stats = {}
+					}
 					self.wpn_fps_smg_akmsu.override.wpn_fps_smg_schakal_vg_surefire = {
-						stats = { 
-							recoil = 4,
-							concealment = -2
-						}
+						stats = {}
 					}
 					self.wpn_fps_smg_akmsu.override.wpn_fps_pis_usp_fl_adapter = { a_obj = "a_vg" }
 
