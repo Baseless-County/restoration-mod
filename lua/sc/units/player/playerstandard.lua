@@ -117,7 +117,7 @@ function PlayerStandard:push(vel, override_vel, override_vel_mult, allow_sprint,
 		self:_interupt_action_running(managers.player:player_timer():time())
 	end
 	if force_crouch then
-		self:_start_action_ducking(managers.player:player_timer():time())
+		self:_start_action_ducking(managers.player:player_timer():time(), true)
 	end
 end
 
