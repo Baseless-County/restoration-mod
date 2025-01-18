@@ -3975,6 +3975,7 @@ function PlayerStandard:_update_reload_timers(t, dt, input)
 	
 	--Moved earlier in function to avoid math on nil value.
 	local speed_multiplier = self._equipped_unit:base():reload_speed_multiplier()
+	local anim_multiplier = self._equipped_unit:base()._reload_anim_multiplier or 1
 	
 	if self._state_data.reload_expire_t then
 		local interupt = nil
@@ -4000,7 +4001,7 @@ function PlayerStandard:_update_reload_timers(t, dt, input)
 				if not interupt then
 					self._equipped_unit:base():on_reload()
 				end
-				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or (self._equipped_unit:base():reload_exit_expire_t() or empty_use_mag_timer)) / speed_multiplier
+				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or (self._equipped_unit:base():reload_exit_expire_t() or empty_use_mag_timer)) / (speed_multiplier * anim_multiplier)
 				managers.statistics:reloaded()
 				managers.hud:set_ammo_amount(self._equipped_unit:base():selection_index(), self._equipped_unit:base():ammo_info())
 			elseif self._equipped_unit:base():reload_exit_expire_t() then
@@ -4008,15 +4009,15 @@ function PlayerStandard:_update_reload_timers(t, dt, input)
 				local animation_name = (not always_use_empty_reload and is_reload_not_empty and "reload_not_empty_exit") or "reload_exit"
 				local animation = self:get_animation(animation_name)
 				
-				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or self._equipped_unit:base():reload_exit_expire_t()) / speed_multiplier
+				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or self._equipped_unit:base():reload_exit_expire_t()) / (speed_multiplier * anim_multiplier)
 
-				local result = self._ext_camera:play_redirect(animation, speed_multiplier)
+				local result = self._ext_camera:play_redirect(animation, speed_multiplier * anim_multiplier)
 				
-				self._equipped_unit:base():tweak_data_anim_play(animation_name, speed_multiplier, nil, reload_fix_offset2)
+				self._equipped_unit:base():tweak_data_anim_play(animation_name, speed_multiplier * anim_multiplier, nil, reload_fix_offset2)
 
 				if reload_fix_offset then
 					local reload_anim = is_reload_not_empty and "reload_not_empty" or "reload"
-					self._equipped_unit:base():tweak_data_anim_play(reload_anim, speed_multiplier, reload_fix_offset)
+					self._equipped_unit:base():tweak_data_anim_play(reload_anim, speed_multiplier * anim_multiplier, reload_fix_offset)
 				end
 				
 				
@@ -4091,6 +4092,7 @@ function PlayerStandard:_start_action_reload(t)
 			weapon:tweak_data_anim_stop("fire")
 	
 			local speed_multiplier = weapon:reload_speed_multiplier()
+			local anim_multiplier = weapon._reload_anim_multiplier or 1
 			local reload_prefix = weapon:reload_prefix() or ""
 			local reload_name_id = anims_tweak.reload_name_id or weapon.name_id
 	
@@ -4099,11 +4101,11 @@ function PlayerStandard:_start_action_reload(t)
 	
 			weapon:start_reload()
 
-			self._ext_camera:play_redirect(Idstring(reload_prefix .. reload_anim .. "_" .. reload_name_id), speed_multiplier)
+			self._ext_camera:play_redirect(Idstring(reload_prefix .. reload_anim .. "_" .. reload_name_id), speed_multiplier * anim_multiplier)
 			self._state_data.reload_expire_t = t + expire_t / speed_multiplier
 	
-			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier) then
-				weapon:tweak_data_anim_play("reload", speed_multiplier)
+			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier * anim_multiplier) then
+				weapon:tweak_data_anim_play("reload", speed_multiplier * anim_multiplier)
 			end
 	
 			self._ext_network:send("reload_weapon", ignore_fullreload and 0 or 1, speed_multiplier)
@@ -4116,6 +4118,7 @@ function PlayerStandard:_start_action_reload(t)
 			weapon:tweak_data_anim_stop("fire_steelsight")
 	
 			local speed_multiplier = weapon:reload_speed_multiplier()
+			local anim_multiplier = weapon._reload_anim_multiplier or 1
 			local empty_reload = weapon:clip_empty() and 1 or 0
 	
 			if weapon:use_shotgun_reload() then
@@ -4139,14 +4142,14 @@ function PlayerStandard:_start_action_reload(t)
 			end
 	
 			local reload_ids = Idstring(string.format("%s%s_%s", reload_prefix, reload_anim, reload_name_id))
-			local result = self._ext_camera:play_redirect(reload_ids, speed_multiplier)
+			local result = self._ext_camera:play_redirect(reload_ids, speed_multiplier * anim_multiplier)
 	
 			Application:trace("PlayerStandard:_start_action_reload( t ): ", reload_ids)
 	
 			self._state_data.reload_expire_t = t + (reload_tweak or weapon:reload_expire_t(is_reload_not_empty) or reload_default_expire_t) / speed_multiplier
 	
-			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier) then
-				weapon:tweak_data_anim_play("reload", speed_multiplier)
+			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier * anim_multiplier) then
+				weapon:tweak_data_anim_play("reload", speed_multiplier * anim_multiplier)
 				Application:trace("PlayerStandard:_start_action_reload( t ): ", reload_anim)
 			end
 	

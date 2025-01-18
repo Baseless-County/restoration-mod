@@ -1000,6 +1000,7 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 		self._movement_speed_add = 0
 
 		self._melee_speed_mult = 1
+		self._reload_anim_multiplier = 1
 
 		self._hipfire_mult = 1
 		self._ads_moving_mult = 1
@@ -1364,6 +1365,9 @@ function NewRaycastWeaponBase:_update_stats_values(disallow_replenish, ammo_data
 			end
 			if stats.big_scope then
 				self._has_big_scope = true
+			end
+			if stats.reload_anim_mult then
+				self._reload_anim_multiplier = self._reload_anim_multiplier * stats.reload_anim_mult
 			end
 			if stats.movement_speed_add then
 				self._movement_speed_add = self._movement_speed_add + stats.movement_speed_add
