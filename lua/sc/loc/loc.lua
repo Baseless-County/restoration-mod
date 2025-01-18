@@ -1423,6 +1423,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization", function(loc)
 		["bm_menu_sms_info_2"] = " while shooting.",
 		["bm_menu_stat_sms_info_2"] = " while shooting due to current attachments.",
 		["bm_menu_weapon_slot_search_empty"] = "\n##NO RESULTS FOUND FOR## ##\"$search\"##",
+		["bm_menu_weapon_anim_warning"] = "#{important_1}#The animation swap this attachment provides does not sync with the reload timers!##",
 		["bm_menu_weapon_slot_warning_1"] = "\n##//////////               DO  NOT  USE               //////////\n",
 		["bm_menu_weapon_slot_warning_2"] = "\n//////////               DO  NOT  USE               //////////##",
 		["bm_menu_weapon_slot_warning_primary"] = "WEAPON WAS MOVED TO THE PRIMARY SLOT\nWILL CRASH IF USED IN-HEIST AS A SECONDARY",
@@ -4865,7 +4866,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 		["loading_gameplay_res_13"] = "Cloakers perform their iconic screech when they are about to jump kick you.",
 		["loading_gameplay_res_14"] = "Cloaker Jump Kicks will cuff you instead of down you.",
 		["loading_gameplay_res_15"] = "Flashbangs cannot be broken on Death Sentence. Your opinion, my choice.",
-		["loading_gameplay_res_16"] = "You can parry melee attacks by charging your own. This can be upgraded to work against cloaker kicks.",
+		["loading_gameplay_res_16"] = "You can parry most enemy melee attacks by charging your own. This can be upgraded to work against cloaker kicks and shield bashes.",
 		["loading_gameplay_res_17"] = "Enemy melee attacks are quick and deadly. Keep your distance!",
 		["loading_gameplay_res_18"] = "You know what's better than smacking enemies with a baseball bat? Smacking them in the head with a baseball bat for headshot damage.",
 		["loading_gameplay_res_19"] = "Snipers take a brief period of time to focus before firing. Mind their lasers!",
@@ -5466,7 +5467,7 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 				--Iron Man
 				["menu_juggernaut_beta_sc"] = "Iron Man",
-				["menu_juggernaut_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou can wear the #{skill_color}#Improved Combined Tactical Vest.##\n\nWhen you melee Shield enemies, they get staggered from the sheer force.\n\n#{risk}#NOTE:## #{important_1}#Titan Shields and Captain Winters## #{risk}#cannot be staggered.##\n\nACE: #{owned}#$pro##\nYour armor recovers #{skill_color}#$skill_value_p1## faster. $anarc_disable\n\nYour ability to stagger Shields is extended to your ranged weapons; chances are increased the higher the total damage of the weapon is.",
+				["menu_juggernaut_beta_desc_sc"] = "BASIC: #{owned}#$basic##\nYou can wear the #{skill_color}#Improved Combined Tactical Vest.##\n\nWhen you melee or parry Shield enemies, they get staggered from the sheer force.\n\n#{risk}#NOTE:## #{important_1}#Titan Shields and Captain Winters## #{risk}#cannot be staggered or parried.##\n\nACE: #{owned}#$pro##\nYour armor recovers #{skill_color}#$skill_value_p1## faster. $anarc_disable\n\nYour ability to stagger Shields is extended to your ranged weapons; chances are increased the higher the total damage of the weapon is.",
 
 			--[[   SUPPORT SUBTREE   ]]--
 				--Scavenger
