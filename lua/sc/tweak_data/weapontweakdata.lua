@@ -4250,6 +4250,90 @@ function WeaponTweakData:_init_stats()
 					},
 					min_h_recoil = 0.44
 				},
+				pattern_vd1 = { --Downward variants
+					standing = {
+						0.95 * -self.stat_info.stance_recoil_mults.standing,
+						0.85 * -self.stat_info.stance_recoil_mults.standing,
+						0.10 * -self.stat_info.stance_recoil_mults.standing,
+						0.10 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.95 * -self.stat_info.stance_recoil_mults.crouching,
+						0.85 * -self.stat_info.stance_recoil_mults.crouching,
+						0.10 * -self.stat_info.stance_recoil_mults.crouching,
+						0.10 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.95 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.85 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.10 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.10 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.05
+				},
+				pattern_vd2 = {
+					standing = {
+						0.75 * -self.stat_info.stance_recoil_mults.standing,
+						0.65 * -self.stat_info.stance_recoil_mults.standing,
+						0.30 * -self.stat_info.stance_recoil_mults.standing,
+						0.30 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.75 * -self.stat_info.stance_recoil_mults.crouching,
+						0.65 * -self.stat_info.stance_recoil_mults.crouching,
+						0.30 * -self.stat_info.stance_recoil_mults.crouching,
+						0.30 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.75 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.65 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.30 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.30 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.18
+				},
+				pattern_vd3 = {
+					standing = {
+						0.65 * -self.stat_info.stance_recoil_mults.standing,
+						0.55 * -self.stat_info.stance_recoil_mults.standing,
+						0.40 * -self.stat_info.stance_recoil_mults.standing,
+						0.40 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.65 * -self.stat_info.stance_recoil_mults.crouching,
+						0.55 * -self.stat_info.stance_recoil_mults.crouching,
+						0.40 * -self.stat_info.stance_recoil_mults.crouching,
+						0.40 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.65 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.55 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.31
+				},
+				pattern_vd4 = {
+					standing = {
+						0.55 * -self.stat_info.stance_recoil_mults.standing,
+						0.45 * -self.stat_info.stance_recoil_mults.standing,
+						0.50 * -self.stat_info.stance_recoil_mults.standing,
+						0.50 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.55 * -self.stat_info.stance_recoil_mults.crouching,
+						0.45 * -self.stat_info.stance_recoil_mults.crouching,
+						0.50 * -self.stat_info.stance_recoil_mults.crouching,
+						0.50 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.55 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.45 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.44
+				},
 			--Patterns that go left; strength of direction gets more aggressive with each step
 				pattern_l1 = { --Slight steer to the left
 					standing = {
@@ -4356,6 +4440,132 @@ function WeaponTweakData:_init_stats()
 					},
 					min_h_recoil = 0.26
 				},
+				pattern_lh = { --Just left lol
+					standing = {
+						0.00 * self.stat_info.stance_recoil_mults.standing,
+						0.00 * self.stat_info.stance_recoil_mults.standing,
+						0.75 * -self.stat_info.stance_recoil_mults.standing,
+						0.65 * -self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.00 * self.stat_info.stance_recoil_mults.crouching,
+						0.00 * self.stat_info.stance_recoil_mults.crouching,
+						0.75 * -self.stat_info.stance_recoil_mults.crouching,
+						0.65 * -self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.00 * self.stat_info.stance_recoil_mults.steelsight,
+						0.00 * self.stat_info.stance_recoil_mults.steelsight,
+						0.75 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.65 * -self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.26
+				},
+				pattern_ld1 = { --Downward variants
+					standing = {
+						0.95 * -self.stat_info.stance_recoil_mults.standing,
+						0.85 * -self.stat_info.stance_recoil_mults.standing,
+						0.15 * -self.stat_info.stance_recoil_mults.standing,
+						0.05 * -self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.95 * -self.stat_info.stance_recoil_mults.crouching,
+						0.85 * -self.stat_info.stance_recoil_mults.crouching,
+						0.15 * -self.stat_info.stance_recoil_mults.crouching,
+						0.05 * -self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.95 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.85 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.15 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.05 * -self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.02
+				},
+				pattern_ld2 = {
+					standing = {
+						0.70 * -self.stat_info.stance_recoil_mults.standing,
+						0.50 * -self.stat_info.stance_recoil_mults.standing,
+						0.50 * -self.stat_info.stance_recoil_mults.standing,
+						0.30 * -self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.70 * -self.stat_info.stance_recoil_mults.crouching,
+						0.50 * -self.stat_info.stance_recoil_mults.crouching,
+						0.50 * -self.stat_info.stance_recoil_mults.crouching,
+						0.30 * -self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.70 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.30 * -self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.08
+				},
+				pattern_ld3 = {
+					standing = {
+						0.60 * -self.stat_info.stance_recoil_mults.standing,
+						0.40 * -self.stat_info.stance_recoil_mults.standing,
+						0.60 * -self.stat_info.stance_recoil_mults.standing,
+						0.40 * -self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.60 * -self.stat_info.stance_recoil_mults.crouching,
+						0.40 * -self.stat_info.stance_recoil_mults.crouching,
+						0.60 * -self.stat_info.stance_recoil_mults.crouching,
+						0.40 * -self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.60 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.60 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * -self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.14
+				},
+				pattern_ld4 = {
+					standing = {
+						0.50 * -self.stat_info.stance_recoil_mults.standing,
+						0.40 * -self.stat_info.stance_recoil_mults.standing,
+						0.60 * -self.stat_info.stance_recoil_mults.standing,
+						0.50 * -self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.50 * -self.stat_info.stance_recoil_mults.crouching,
+						0.40 * -self.stat_info.stance_recoil_mults.crouching,
+						0.60 * -self.stat_info.stance_recoil_mults.crouching,
+						0.50 * -self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.50 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.60 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * -self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.20
+				},
+				pattern_ld5 = {
+					standing = {
+						0.45 * -self.stat_info.stance_recoil_mults.standing,
+						0.30 * -self.stat_info.stance_recoil_mults.standing,
+						0.70 * -self.stat_info.stance_recoil_mults.standing,
+						0.55 * -self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.45 * -self.stat_info.stance_recoil_mults.crouching,
+						0.30 * -self.stat_info.stance_recoil_mults.crouching,
+						0.70 * -self.stat_info.stance_recoil_mults.crouching,
+						0.55 * -self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.45 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.30 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.70 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.55 * -self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.26
+				},
 			--Patterns that go right; strength of direction gets more aggressive with each step
 				pattern_r1 = { --Slight steer to the right
 					standing = {
@@ -4457,6 +4667,132 @@ function WeaponTweakData:_init_stats()
 					steelsight = {
 						0.45 * self.stat_info.stance_recoil_mults.steelsight,
 						0.30 * self.stat_info.stance_recoil_mults.steelsight,
+						0.70 * self.stat_info.stance_recoil_mults.steelsight,
+						0.55 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.26
+				},
+				pattern_rh = { --Just right lol
+					standing = {
+						0.00 * self.stat_info.stance_recoil_mults.standing,
+						0.00 * self.stat_info.stance_recoil_mults.standing,
+						0.75 * self.stat_info.stance_recoil_mults.standing,
+						0.65 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.00 * self.stat_info.stance_recoil_mults.crouching,
+						0.00 * self.stat_info.stance_recoil_mults.crouching,
+						0.75 * self.stat_info.stance_recoil_mults.crouching,
+						0.65 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.00 * self.stat_info.stance_recoil_mults.steelsight,
+						0.00 * self.stat_info.stance_recoil_mults.steelsight,
+						0.75 * self.stat_info.stance_recoil_mults.steelsight,
+						0.65 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.26
+				},
+				pattern_rd1 = { --Downward variants
+					standing = {
+						0.95 * -self.stat_info.stance_recoil_mults.standing,
+						0.85 * -self.stat_info.stance_recoil_mults.standing,
+						0.15 * self.stat_info.stance_recoil_mults.standing,
+						0.05 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.95 * -self.stat_info.stance_recoil_mults.crouching,
+						0.85 * -self.stat_info.stance_recoil_mults.crouching,
+						0.15 * self.stat_info.stance_recoil_mults.crouching,
+						0.05 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.95 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.85 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.15 * self.stat_info.stance_recoil_mults.steelsight,
+						0.05 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.02
+				},
+				pattern_rd2 = {
+					standing = {
+						0.70 * -self.stat_info.stance_recoil_mults.standing,
+						0.50 * -self.stat_info.stance_recoil_mults.standing,
+						0.50 * self.stat_info.stance_recoil_mults.standing,
+						0.30 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.70 * -self.stat_info.stance_recoil_mults.crouching,
+						0.50 * -self.stat_info.stance_recoil_mults.crouching,
+						0.50 * self.stat_info.stance_recoil_mults.crouching,
+						0.30 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.70 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * self.stat_info.stance_recoil_mults.steelsight,
+						0.30 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.08
+				},
+				pattern_rd3 = {
+					standing = {
+						0.60 * -self.stat_info.stance_recoil_mults.standing,
+						0.40 * -self.stat_info.stance_recoil_mults.standing,
+						0.60 * self.stat_info.stance_recoil_mults.standing,
+						0.40 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.60 * -self.stat_info.stance_recoil_mults.crouching,
+						0.40 * -self.stat_info.stance_recoil_mults.crouching,
+						0.60 * self.stat_info.stance_recoil_mults.crouching,
+						0.40 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.60 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.60 * self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.14
+				},
+				pattern_rd4 = {
+					standing = {
+						0.50 * -self.stat_info.stance_recoil_mults.standing,
+						0.40 * -self.stat_info.stance_recoil_mults.standing,
+						0.60 * self.stat_info.stance_recoil_mults.standing,
+						0.50 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.50 * -self.stat_info.stance_recoil_mults.crouching,
+						0.40 * -self.stat_info.stance_recoil_mults.crouching,
+						0.60 * self.stat_info.stance_recoil_mults.crouching,
+						0.50 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.50 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.40 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.60 * self.stat_info.stance_recoil_mults.steelsight,
+						0.50 * self.stat_info.stance_recoil_mults.steelsight
+					},
+					min_h_recoil = 0.20
+				},
+				pattern_rd5 = { 
+					standing = {
+						0.45 * -self.stat_info.stance_recoil_mults.standing,
+						0.30 * -self.stat_info.stance_recoil_mults.standing,
+						0.70 * self.stat_info.stance_recoil_mults.standing,
+						0.55 * self.stat_info.stance_recoil_mults.standing
+					},
+					crouching = {
+						0.45 * -self.stat_info.stance_recoil_mults.crouching,
+						0.30 * -self.stat_info.stance_recoil_mults.crouching,
+						0.70 * self.stat_info.stance_recoil_mults.crouching,
+						0.55 * self.stat_info.stance_recoil_mults.crouching
+					},
+					steelsight = {
+						0.45 * -self.stat_info.stance_recoil_mults.steelsight,
+						0.30 * -self.stat_info.stance_recoil_mults.steelsight,
 						0.70 * self.stat_info.stance_recoil_mults.steelsight,
 						0.55 * self.stat_info.stance_recoil_mults.steelsight
 					},
@@ -8702,6 +9038,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.new_mp5.kick = self.stat_info.kick_tables.even_recoil
 						self.new_mp5.kick_pattern = {
 							{0, self.stat_info.kick_tables.right_recoil},
+							{11, self.stat_info.kick_tables.moderate_kick},
 							{13, self.stat_info.kick_tables.left_kick},
 							{20, self.stat_info.kick_tables.moderate_kick},
 							{22, self.stat_info.kick_tables.even_recoil}
@@ -8743,6 +9080,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.x_mp5.kick = self.stat_info.kick_tables.even_recoil
 						self.x_mp5.kick_pattern = {
 							{0, self.stat_info.kick_tables.right_recoil},
+							{11, self.stat_info.kick_tables.moderate_kick},
 							{13, self.stat_info.kick_tables.left_kick},
 							{20, self.stat_info.kick_tables.moderate_kick},
 							{22, self.stat_info.kick_tables.even_recoil}

@@ -1226,16 +1226,23 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 						local recoil_count = weap_base._shot_recoil_count or 0
 						local recoil_stage = nil
 						if weap_tweak_data.kick_pattern then
-							local function shot_recoil_pattern(shot_count, recoil_table)
+							local function shot_recoil_pattern(shot_count, recoil_table, weap_base)
 								local stage = nil
 								for i, k in pairs(recoil_table) do
-									if type(i) == "number" and shot_count >= recoil_table[i][1] then
-										stage = i
+									if type(i) == "number" then
+										if shot_count >= recoil_table[i][1] then
+											if type(recoil_table[i][2]) == "table" then
+												stage = i
+											else
+												stage = i - 1
+												weap_base._shot_recoil_count = recoil_table[i][2]
+											end
+										end
 									end
 								end
 								return stage
 							end
-							recoil_stage = shot_recoil_pattern(recoil_count, weap_tweak_data.kick_pattern)
+							recoil_stage = shot_recoil_pattern(recoil_count, weap_tweak_data.kick_pattern, weap_base)
 						end
 						local kick_tweak_data = weap_tweak_data.kick[fire_mode] or (recoil_stage and weap_tweak_data.kick_pattern[recoil_stage][2]) or weap_tweak_data.kick
 						local always_standing = weap_tweak_data.always_use_standing
