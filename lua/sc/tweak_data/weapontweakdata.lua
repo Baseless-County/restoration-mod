@@ -22275,6 +22275,59 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.or12.timers.reload_empty = 3.21
 				self.or12.timers.reload_exit_empty = 1.0
 			end
+			
+			if self.haymaker then
+				self.haymaker.recategorize = { "light_shot" }
+				self.haymaker.categories = { "shotgun" }
+				self.haymaker.damage_type = "shotgun"
+				self.haymaker.damage_type_single_ray = "sniper"
+				self.haymaker.tactical_reload = 1
+				self.haymaker.BURST_FIRE = false
+				self.haymaker.fire_mode_data.fire_rate = 0.24
+				self.haymaker.CLIP_AMMO_MAX = 20
+				self.haymaker.AMMO_MAX = 60
+				self.haymaker.kick = self.stat_info.kick_tables.vertical_kick
+				self.haymaker.kick_pattern = {
+					{0, self.stat_info.kick_tables.left_recoil},
+					{3, self.stat_info.kick_tables.right_recoil},
+					{8, self.stat_info.kick_tables.right_kick},
+					{12, self.stat_info.kick_tables.even_recoil}
+				}
+				self.haymaker.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps" --"effects/particles/shotgun/shotgun_gen"
+				self.haymaker.FIRE_MODE = "single"				
+				self.haymaker.CAN_TOGGLE_FIREMODE = false
+				self.haymaker.rays = 9
+				self.haymaker.supported = true
+				self.haymaker.ads_speed = 0.380
+				self.haymaker.damage_falloff = {
+					start_dist = 600,
+					end_dist = 3400,
+					min_mult = 0.15
+				}
+				self.haymaker.stats = {
+					damage = 120,
+					spread = 33,
+					recoil = 55,
+					spread_moving = 7,
+					zoom = 1,
+					concealment = 19,
+					suppression = 8,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 400,
+					value = 1,
+					reload = 20
+				}
+				self.haymaker.stats_modifiers = nil
+				self.haymaker.lock_slide = true
+				self.haymaker.sounds.magazine_empty = "wp_rifle_slide_lock"
+				self.haymaker.panic_suppression_chance = 0.05
+				self.haymaker.panic_suppression_chance = 0.05
+				self.haymaker.timers.reload_empty = 4
+				self.haymaker.timers.reload_exit_empty = 0.9
+				self.haymaker.timers.reload_not_empty = 3
+				self.haymaker.timers.reload_exit_not_empty = 0.7
+			end
 
 			if self.ntw20 then
 				self.ntw20.categories = {
