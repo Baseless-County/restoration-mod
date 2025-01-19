@@ -36649,8 +36649,8 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		
 			--STOCKs
 				self.parts.wpn_fps_sho_haymaker_s_no.supported = true
-				self.parts.wpn_fps_sho_haymaker_s_no.stats = deep_clone(stock.remove_adj_stats)
-				self.parts.wpn_fps_sho_haymaker_s_no.custom_stats = deep_clone(stock.remove_adj_stats)
+				self.parts.wpn_fps_sho_haymaker_s_no.stats = deep_clone(stocks.remove_adj_stats)
+				self.parts.wpn_fps_sho_haymaker_s_no.custom_stats = deep_clone(stocks.remove_adj_stats)
 		end
 
 	--[[ SILENT ENFORCER'S MODS ]]
