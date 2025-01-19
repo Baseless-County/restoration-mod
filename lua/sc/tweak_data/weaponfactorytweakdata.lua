@@ -28630,6 +28630,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 					reload = -7
 				}
 				self.parts.wpn_fps_shot_vecho_drum.custom_stats = {
+					reload_anim_mult = 1.555,
 					ads_speed_mult = 1.125
 				}
 				self.parts.wpn_fps_shot_vecho_xmag.supported = true
@@ -36651,6 +36652,20 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_sho_haymaker_s_no.supported = true
 				self.parts.wpn_fps_sho_haymaker_s_no.stats = deep_clone(stocks.remove_adj_stats)
 				self.parts.wpn_fps_sho_haymaker_s_no.custom_stats = deep_clone(stocks.remove_adj_stats)
+
+			self.wpn_fps_sho_haymaker.override = {
+				wpn_fps_upg_a_slug = deep_clone(shot_ammo.a_slug_semi_override),
+				wpn_fps_upg_a_custom = deep_clone(shot_ammo.a_custom_semi_override),
+				wpn_fps_upg_a_custom_free = deep_clone(shot_ammo.a_custom_semi_override),
+				wpn_fps_upg_a_explosive = deep_clone(shot_ammo.a_explosive_semi_override),
+				wpn_fps_upg_a_rip = deep_clone(shot_ammo.a_rip_semi_override),
+				wpn_fps_upg_a_piercing = deep_clone(shot_ammo.a_piercing_semi_override),
+				wpn_fps_upg_a_dragons_breath = deep_clone(shot_ammo.a_dragons_breath_semi_override)
+			}
+			self.wpn_fps_sho_haymaker.override.wpn_fps_upg_m4_s_standard = {
+				stats = {},
+				custom_stats = {}
+			}
 		end
 
 	--[[ SILENT ENFORCER'S MODS ]]
