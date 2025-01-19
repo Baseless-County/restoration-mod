@@ -2172,7 +2172,7 @@ end)
 					self.parts.wpn_fps_pis_czech_m_extended.stats = {
 						value = 1,
 						reload = -4,
-						extra_ammo = 7,
+						extra_ammo = 8,
 						concealment = -2
 					}
 					
@@ -2220,7 +2220,7 @@ end)
 						stats = {
 							value = 1,
 							reload = -4,
-							extra_ammo = 14,
+							extra_ammo = 16,
 							concealment = -2
 						}
 					}
@@ -36296,6 +36296,48 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 			self.parts.wpn_fps_snp_tti_body_hk417.override.wpn_fps_upg_o_car4_irons_dmc = {
 				parent = "exclusive_set"
+			}
+		end
+
+		if self.parts.wpn_fps_pis_czshadow_g_ergo then --CZ ACCUSHADOW
+			self.parts.wpn_fps_pis_czshadow_g_drab.supported = true
+			self.parts.wpn_fps_pis_czshadow_g_drab.stats = deep_clone(grips.quickdraw_1)
+			self.parts.wpn_fps_pis_czshadow_g_drab.custom_stats = deep_clone(grips.quickdraw_1)
+			self.parts.wpn_fps_pis_czshadow_g_ergo.supported = true
+			self.parts.wpn_fps_pis_czshadow_g_ergo.stats = deep_clone(grips.recoil_acc)
+			self.parts.wpn_fps_pis_czshadow_g_ergo.custom_stats = deep_clone(grips.recoil_acc)
+
+			self.parts.wpn_fps_pis_czshadow_m_extended.supported = true
+			self.parts.wpn_fps_pis_czshadow_m_extended.stats = {
+				value = 4,
+				extra_ammo = 1,
+				concealment = -1
+			}
+			self.parts.wpn_fps_pis_czshadow_m_extended.custom_stats = {}
+			self.parts.wpn_fps_pis_czshadow_m_smooth.stats = {
+				value = 4,
+				spread = -1,
+				concealment = -1,
+				reload = 3
+			}
+			self.parts.wpn_fps_pis_czshadow_m_smooth.custom_stats = {}
+			self.parts.wpn_fps_pis_czshadow_m_sp.supported = true
+			self.parts.wpn_fps_pis_czshadow_m_sp.stats = {
+				value = 1,
+				extra_ammo = -1,
+				concealment = 1
+			}
+			self.parts.wpn_fps_pis_czshadow_m_sp.custom_stats = {
+				ads_speed_mult = 1.025
+			}
+
+			self.wpn_fps_pis_czshadow.override.wpn_fps_pis_czech_g_luxury = nil
+			self.wpn_fps_pis_czshadow.override.wpn_fps_pis_czech_m_extended = {
+				stats = {
+					reload = -4,
+					extra_ammo = 9,
+					concealment = -2
+				}
 			}
 		end
 
