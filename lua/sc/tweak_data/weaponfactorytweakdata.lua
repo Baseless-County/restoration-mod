@@ -28630,7 +28630,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 					reload = -7
 				}
 				self.parts.wpn_fps_shot_vecho_drum.custom_stats = {
-					reload_anim_mult = 1.555,
+					reload_anim_mult = 1.4444,
 					ads_speed_mult = 1.125
 				}
 				self.parts.wpn_fps_shot_vecho_xmag.supported = true
