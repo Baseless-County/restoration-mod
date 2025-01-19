@@ -28663,7 +28663,6 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 						rof_mult = 1.1775
 					}
 				--]]
-				self.parts.wpn_fps_shot_vecho_bolt_ext.name_id = "bm_wp_wpn_fps_shot_vecho_bolt_light"
 				self.parts.wpn_fps_shot_vecho_bolt_ext.supported = true
 				self.parts.wpn_fps_shot_vecho_bolt_ext.stats = {
 					value = 0,
@@ -28684,7 +28683,6 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 						rof_mult = 0.915887
 					}
 				--]]
-				self.parts.wpn_fps_shot_vecho_bolt_light.name_id = "bm_wp_wpn_fps_shot_vecho_bolt_ext"
 				self.parts.wpn_fps_shot_vecho_bolt_light.supported = true
 				self.parts.wpn_fps_shot_vecho_bolt_light.stats = {
 					value = 0,
@@ -36640,7 +36638,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_sho_haymaker_m_30rnd_pd3.supported = true
 				self.parts.wpn_fps_sho_haymaker_m_30rnd_pd3.stats = {
 					value = 8,
-					extra_ammo = 15,
+					extra_ammo = 10,
 					concealment = -4,
 					reload = -4
 				}
