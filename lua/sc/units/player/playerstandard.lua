@@ -1233,9 +1233,9 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 										if shot_count >= recoil_table[i][1] then
 											if type(recoil_table[i][2]) == "table" then
 												stage = i
-											else
+											elseif type(recoil_table[i][2]) == "number" then
 												stage = i - 1
-												weap_base._shot_recoil_count = recoil_table[i][2]
+												weap_base._shot_recoil_count = recoil_table[i][2] or 0
 											end
 										end
 									end
