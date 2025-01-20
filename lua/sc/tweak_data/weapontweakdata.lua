@@ -22547,6 +22547,45 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.czshadow.stats_modifiers = nil
 				self.czshadow.panic_suppression_chance = 0.05
 				self.czshadow.timers = deep_clone(self.b92fs.timers)
+				--Akimbo
+					self.x_czshadow.recategorize = { "light_pis" }
+					self.x_czshadow.damage_type = "light_pistol"
+					self.x_czshadow.fire_mode_data.fire_rate =  0.08333
+					self.x_czshadow.AMMO_MAX = 150
+					self.x_czshadow.CLIP_AMMO_MAX = 30
+					self.x_czshadow.tactical_reload = 2
+					self.x_czshadow.lock_slide = true
+					self.x_czshadow.kick = self.stat_info.kick_tables.even_recoil
+					self.x_czshadow.kick_pattern = {
+						{0, self.stat_info.kick_tables.moderate_kick},
+						{3, self.stat_info.kick_tables.right_kick},
+						{8, self.stat_info.kick_tables.moderate_left_kick},
+						{14, self.stat_info.kick_tables.even_recoil}
+					}
+					self.x_czshadow.supported = true
+					self.x_czshadow.ads_speed = 0.140
+					self.x_czshadow.damage_falloff = {
+						start_dist = 1700,
+						end_dist = 3300,
+						min_mult = 0.25
+					}
+					self.x_czshadow.stats = {
+						damage = 24,
+						spread = 41,
+						recoil = 65,
+						spread_moving = 9,
+						zoom = 1,
+						concealment = 30,
+						suppression = 12,
+						alert_size = 2,
+						extra_ammo = 101,
+						total_ammo_mod = 400,
+						value = 1,
+						reload = 20
+					}
+					self.x_czshadow.stats_modifiers = nil
+					self.x_czshadow.panic_suppression_chance = 0.05
+					self.x_czshadow.timers = deep_clone(self.x_b92fs.timers)
 			end
 		
 		--[[     HYLIE'S MODS     ]]--
@@ -24479,6 +24518,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			if not weap.supported then
 				weap.always_play_anims = true
 				self:generate_custom_weapon_stats(weap)	
+			end
+			if weap.animations then
+				weap.animations.magazine_empty = nil 
 			end
 
 			if weap.fire_mode_data then

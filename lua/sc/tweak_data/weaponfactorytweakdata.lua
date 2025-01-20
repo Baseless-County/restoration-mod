@@ -966,8 +966,8 @@ local grips = {
 	},
 		acc_2_recoil = {
 			value = 3,
-			spread = 1,
-			recoil = -2
+			spread = 2,
+			recoil = -4
 		},
 		acc_dual = {
 			value = 5,
@@ -983,7 +983,7 @@ local grips = {
 		concealment = -2,
 		ads_speed_mult = 1.05
 	},
-	dual_stat_2_red = {
+	dual_stat_2_rec = {
 		value = 8,
 		spread = 1,
 		recoil = 4,
@@ -2172,7 +2172,7 @@ end)
 					self.parts.wpn_fps_pis_czech_m_extended.stats = {
 						value = 1,
 						reload = -4,
-						extra_ammo = 8,
+						extra_ammo = 7,
 						concealment = -2
 					}
 					
@@ -2220,7 +2220,7 @@ end)
 						stats = {
 							value = 1,
 							reload = -4,
-							extra_ammo = 16,
+							extra_ammo = 14,
 							concealment = -2
 						}
 					}
@@ -26610,6 +26610,149 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 	--[[ RJC9000'S MODS ]]
 		if self.parts.wpn_fps_snp_mptango41_scope then
 
+			self.parts.wpn_fps_snp_mptango41_grip.supported = true
+			self.parts.wpn_fps_snp_mptango41_grip.stats = {}
+			self.parts.wpn_fps_snp_mptango41_grip.custom_stats = {}
+			self.parts.wpn_fps_snp_mptango41_receiver.supported = true
+			self.parts.wpn_fps_snp_mptango41_receiver.stats = {}
+			self.parts.wpn_fps_snp_mptango41_receiver.custom_stats = {hip_mult = 4}
+
+			--BARRELS
+				self.parts.wpn_fps_snp_mptango41_barrel_cb.supported = true
+				self.parts.wpn_fps_snp_mptango41_barrel_cb.stats = {
+					value = 0,
+					concealment = 1,
+					spread = -1
+				}
+				self.parts.wpn_fps_snp_mptango41_barrel_cb.custom_stats = nil
+
+				self.parts.wpn_fps_snp_mptango41_barrel_hb.supported = true
+				self.parts.wpn_fps_snp_mptango41_barrel_hb.stats = deep_clone(barrels.long_b2_stats)
+				self.parts.wpn_fps_snp_mptango41_barrel_hb.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_barrel_hb.stats.concealment = -1
+				self.parts.wpn_fps_snp_mptango41_barrel_hb.custom_stats = deep_clone(barrels.long_b2_stats)
+				self.parts.wpn_fps_snp_mptango41_barrel_hb.custom_stats.ads_speed_mult = 1.025
+				self.parts.wpn_fps_snp_mptango41_barrel_hb.custom_stats.rof_mult = 0.66666
+
+				self.parts.wpn_fps_snp_mptango41_barrel_mk.supported = true
+				self.parts.wpn_fps_snp_mptango41_barrel_mk.stats = deep_clone(barrels.long_b3_stats)
+				self.parts.wpn_fps_snp_mptango41_barrel_mk.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_barrel_mk.custom_stats = deep_clone(barrels.long_b3_stats)
+
+				self.parts.wpn_fps_snp_mptango41_barrel_rof.supported = true
+				self.parts.wpn_fps_snp_mptango41_barrel_rof.stats = deep_clone(barrels.short_b3_stats)
+				self.parts.wpn_fps_snp_mptango41_barrel_rof.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_barrel_rof.stats.concealment = 1
+				self.parts.wpn_fps_snp_mptango41_barrel_rof.custom_stats = deep_clone(barrels.short_b3_stats)
+				self.parts.wpn_fps_snp_mptango41_barrel_rof.custom_stats.ads_speed_mult = 0.975
+				self.parts.wpn_fps_snp_mptango41_barrel_rof.custom_stats.rof_mult = 1.1081
+
+			--GRIP TAPE
+				self.parts.wpn_fps_snp_mptango41_grip_bkl.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_bkl.stats = deep_clone(grips.quickdraw_1)
+				self.parts.wpn_fps_snp_mptango41_grip_bkl.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_bkl.custom_stats = deep_clone(grips.quickdraw_1)
+
+				self.parts.wpn_fps_snp_mptango41_grip_fab.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_fab.stats = deep_clone(grips.quickdraw_2)
+				self.parts.wpn_fps_snp_mptango41_grip_fab.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_fab.custom_stats = deep_clone(grips.quickdraw_2)
+
+				self.parts.wpn_fps_snp_mptango41_grip_gra.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_gra.stats = deep_clone(grips.acc_recoil)
+				self.parts.wpn_fps_snp_mptango41_grip_gra.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_gra.custom_stats = nil
+
+				self.parts.wpn_fps_snp_mptango41_grip_grv.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_grv.stats = deep_clone(grips.dual_stat_1)
+				self.parts.wpn_fps_snp_mptango41_grip_grv.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_grv.custom_stats = deep_clone(grips.dual_stat_1)
+
+				self.parts.wpn_fps_snp_mptango41_grip_lea.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_lea.stats = deep_clone(grips.quickdraw_acc)
+				self.parts.wpn_fps_snp_mptango41_grip_lea.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_lea.custom_stats = deep_clone(grips.quickdraw_acc)
+
+				self.parts.wpn_fps_snp_mptango41_grip_pin.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_pin.stats = deep_clone(grips.recoil_2)
+				self.parts.wpn_fps_snp_mptango41_grip_pin.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_pin.custom_stats = deep_clone(grips.recoil_2)
+
+				self.parts.wpn_fps_snp_mptango41_grip_rub.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_rub.stats = deep_clone(grips.recoil_acc)
+				self.parts.wpn_fps_snp_mptango41_grip_rub.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_rub.custom_stats = deep_clone(grips.recoil_acc)
+
+				self.parts.wpn_fps_snp_mptango41_grip_stp.supported = true
+				self.parts.wpn_fps_snp_mptango41_grip_stp.stats = deep_clone(grips.recoil_1)
+				self.parts.wpn_fps_snp_mptango41_grip_stp.value = 0
+				self.parts.wpn_fps_snp_mptango41_grip_stp.custom_stats = deep_clone(grips.recoil_1)
+
+			--MAGS
+				self.parts.wpn_fps_snp_mptango41_magazine_extended.supported = true
+				self.parts.wpn_fps_snp_mptango41_magazine_extended.stats = {
+					value = 0,
+					extra_ammo = 2,
+					concealment = -1,
+					reload = -3
+				}
+				self.parts.wpn_fps_snp_mptango41_magazine_extended.custom_stats = {
+					ads_speed_mult = 1.025
+				}
+
+				self.parts.wpn_fps_snp_mptango41_magazine_extended_large.supported = true
+				self.parts.wpn_fps_snp_mptango41_magazine_extended_large.stats = {
+					value = 0,
+					extra_ammo = 5,
+					concealment = -3,
+					reload = -5
+				}
+				self.parts.wpn_fps_snp_mptango41_magazine_extended_large.custom_stats = {
+					ads_speed_mult = 1.075
+				}
+
+				self.parts.wpn_fps_snp_mptango41_magazine_fast.supported = true
+				self.parts.wpn_fps_snp_mptango41_magazine_fast.stats = {
+					value = 0,
+					extra_ammo = -2,
+					spread = -1,
+					reload = 8
+				}
+				self.parts.wpn_fps_snp_mptango41_magazine_fast.custom_stats = {
+					ads_speed_mult = 0.975
+				}
+
+			--STOCKS
+				self.parts.wpn_fps_snp_mptango41_stock_hv.supported = true
+				self.parts.wpn_fps_snp_mptango41_stock_hv.stats = deep_clone(stocks.adj_to_fixed_rec_stats)
+				self.parts.wpn_fps_snp_mptango41_stock_hv.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_stock_hv.custom_stats = deep_clone(stocks.adj_to_fixed_rec_stats)
+
+				self.parts.wpn_fps_snp_mptango41_stock_mk.supported = true
+				self.parts.wpn_fps_snp_mptango41_stock_mk.stats = deep_clone(stocks.adj_to_fold_stats)
+				self.parts.wpn_fps_snp_mptango41_stock_mk.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_stock_mk.custom_stats = deep_clone(stocks.adj_to_fold_stats)
+				
+				self.parts.wpn_fps_snp_mptango41_stock_ri.supported = true
+				self.parts.wpn_fps_snp_mptango41_stock_ri.stats = deep_clone(stocks.adj_to_nocheeks_stats)
+				self.parts.wpn_fps_snp_mptango41_stock_ri.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_stock_ri.custom_stats = deep_clone(stocks.adj_to_nocheeks_stats)
+
+				self.parts.wpn_fps_snp_mptango41_stock_s.supported = true
+				self.parts.wpn_fps_snp_mptango41_stock_s.stats = deep_clone(stocks.adj_to_folded_stats)
+				self.parts.wpn_fps_snp_mptango41_stock_s.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_stock_s.custom_stats = deep_clone(stocks.adj_to_folded_stats)
+
+				self.parts.wpn_fps_snp_mptango41_stock_sn.supported = true
+				self.parts.wpn_fps_snp_mptango41_stock_sn.stats = deep_clone(stocks.adj_rec_stats)
+				self.parts.wpn_fps_snp_mptango41_stock_sn.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_stock_sn.custom_stats = deep_clone(stocks.adj_rec_stats)
+
+				self.parts.wpn_fps_snp_mptango41_stock_sp.supported = true
+				self.parts.wpn_fps_snp_mptango41_stock_sp.stats = deep_clone(stocks.adj_hvy_rec_stats)
+				self.parts.wpn_fps_snp_mptango41_stock_sp.stats.value = 0
+				self.parts.wpn_fps_snp_mptango41_stock_sp.custom_stats = deep_clone(stocks.adj_hvy_rec_stats)
+
 			self.parts.wpn_fps_snp_mptango41_scope.stats = {
 				zoom = 20
 			}
@@ -36377,10 +36520,27 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.wpn_fps_pis_czshadow.override.wpn_fps_pis_czech_m_extended = {
 				stats = {
 					reload = -4,
-					extra_ammo = 11,
+					extra_ammo = 10,
 					concealment = -2
 				},
 				a_obj = "a_m_2"
+			}
+
+			self.wpn_fps_pis_x_czshadow.override.wpn_fps_pis_czech_m_extended = {
+				stats = {
+					reload = -4,
+					extra_ammo = 20,
+					concealment = -2
+				},
+				a_obj = "a_m_2"
+			}
+			self.wpn_fps_pis_x_czshadow.override.wpn_fps_pis_czshadow_m_extended = {
+				stats = {
+					value = 4,
+					extra_ammo = 6,
+					concealment = -1,
+					reload = -1
+				}
 			}
 		end
 
