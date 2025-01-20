@@ -4912,11 +4912,11 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				self._unit:movement():_restart_stamina_regen_timer()
 			end
 
-			if self._running then
+			if enemy_ray and self._running then
 				self:_end_action_running(self._last_t)
 			end
 
-			if not kill then 
+			if enemy_ray and not kill then 
 				self:_cancel_slide()
 				self._is_wallkicking = nil
 			end
