@@ -36314,7 +36314,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				recoil = -2,
 				concealment = -1
 			}
-			self.parts.wpn_fps_pis_czshadow_ns_sparrow.stats = {
+			self.parts.wpn_fps_pis_czshadow_ns_sparrow.custom_stats = {
 				falloff_start_mult = 1.15,
 				falloff_end_mult = 1.15
 			}
