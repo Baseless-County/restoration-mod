@@ -273,7 +273,7 @@ function PlayerStandard:_end_action_ducking(t, skip_can_stand_check)
 	if AdvMov and PlayerStandard._cancel_slide then
 		local dash_stats = tweak_data.upgrades.values.player.dash_stats
 		local dash_base_t = dash_stats.grace_t
-		if self._is_sliding and ((self._last_slide_time and self._last_slide_time + (dash_base_t * 2) > t) or (self._last_dash_time > t)) and not self._dash_slide then
+		if self._is_sliding and ((self._last_slide_time and (self._last_slide_time + (dash_base_t * 2)) > t) or (self._last_dash_time and (self._last_dash_time > t))) and not self._dash_slide then
 			managers.player:apply_slow_debuff(1, 0.5, nil, true)
 			self._unit:movement():subtract_stamina(tweak_data.player.movement_state.stamina.JUMP_STAMINA_DRAIN * 0.5)
 		end

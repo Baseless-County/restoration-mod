@@ -22513,7 +22513,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.czshadow.damage_type = "light_pistol"
 				self.czshadow.fire_mode_data.fire_rate =  0.08333
 				self.czshadow.AMMO_MAX = 75
-				self.czshadow.CLIP_AMMO_MAX = 17
+				self.czshadow.CLIP_AMMO_MAX = 15
 				self.czshadow.tactical_reload = 1
 				self.czshadow.lock_slide = true
 				self.czshadow.kick = self.stat_info.kick_tables.even_recoil

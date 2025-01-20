@@ -36300,6 +36300,25 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		end
 
 		if self.parts.wpn_fps_pis_czshadow_g_ergo then --CZ ACCUSHADOW
+			self.parts.wpn_fps_pis_czshadow_ns_auto.supported = true
+			self.parts.wpn_fps_pis_czshadow_ns_auto.stats = {
+				value = 4,
+				recoil = 4,
+				concealment = -1,
+				spread = -1
+			}
+			self.parts.wpn_fps_pis_czshadow_ns_sparrow.supported = true
+			self.parts.wpn_fps_pis_czshadow_ns_sparrow.stats = {
+				value = 2,
+				spread = 2,
+				recoil = -2,
+				concealment = -1
+			}
+			self.parts.wpn_fps_pis_czshadow_ns_sparrow.stats = {
+				falloff_start_mult = 1.15,
+				falloff_end_mult = 1.15
+			}
+
 			self.parts.wpn_fps_pis_czshadow_g_drab.supported = true
 			self.parts.wpn_fps_pis_czshadow_g_drab.stats = deep_clone(grips.quickdraw_1)
 			self.parts.wpn_fps_pis_czshadow_g_drab.custom_stats = deep_clone(grips.quickdraw_1)
@@ -36307,37 +36326,61 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_pis_czshadow_g_ergo.stats = deep_clone(grips.recoil_acc)
 			self.parts.wpn_fps_pis_czshadow_g_ergo.custom_stats = deep_clone(grips.recoil_acc)
 
+			self.parts.wpn_fps_pis_czshadow_body_auto.supported = true
+			self.parts.wpn_fps_pis_czshadow_body_auto.stats = {
+				value = 6,
+				recoil = -6,
+				spread = -2
+			}
+			self.parts.wpn_fps_pis_czshadow_body_auto.custom_stats = {
+				rof_mult = 1.25,
+				lock_auto = true
+			}
+			self.parts.wpn_fps_pis_czshadow_body_standard.supported = true
+			self.parts.wpn_fps_pis_czshadow_body_standard.stats = {
+				value = 4,
+				spread = 1,
+				recoil = -2
+			}
+			self.parts.wpn_fps_pis_czshadow_body_standard.custom_stats = {}
+			self.parts.wpn_fps_pis_czshadow_body_short.supported = true
+			self.parts.wpn_fps_pis_czshadow_body_short.stats = deep_clone(barrels.short_b1_stats)
+			self.parts.wpn_fps_pis_czshadow_body_short.custom_stats = deep_clone(barrels.short_b1_stats)
+			self.parts.wpn_fps_pis_czshadow_body_compact.supported = true
+			self.parts.wpn_fps_pis_czshadow_body_compact.stats = deep_clone(barrels.short_b2_stats)
+			self.parts.wpn_fps_pis_czshadow_body_compact.custom_stats = deep_clone(barrels.short_b2_stats)
+
 			self.parts.wpn_fps_pis_czshadow_m_extended.supported = true
 			self.parts.wpn_fps_pis_czshadow_m_extended.stats = {
 				value = 4,
-				extra_ammo = 1,
-				concealment = -1
+				extra_ammo = 3,
+				concealment = -1,
+				reload = -1
 			}
 			self.parts.wpn_fps_pis_czshadow_m_extended.custom_stats = {}
+			self.parts.wpn_fps_pis_czshadow_m_smooth.supported = true
 			self.parts.wpn_fps_pis_czshadow_m_smooth.stats = {
 				value = 4,
-				spread = -1,
-				concealment = -1,
-				reload = 3
+				reload = 1,
+				spread = -1
 			}
 			self.parts.wpn_fps_pis_czshadow_m_smooth.custom_stats = {}
 			self.parts.wpn_fps_pis_czshadow_m_sp.supported = true
 			self.parts.wpn_fps_pis_czshadow_m_sp.stats = {
 				value = 1,
-				extra_ammo = -1,
-				concealment = 1
+				concealment = 1,
+				reload = -1,
 			}
-			self.parts.wpn_fps_pis_czshadow_m_sp.custom_stats = {
-				ads_speed_mult = 0.975
-			}
+			self.parts.wpn_fps_pis_czshadow_m_sp.custom_stats = {}
 
 			self.wpn_fps_pis_czshadow.override.wpn_fps_pis_czech_g_luxury = nil
 			self.wpn_fps_pis_czshadow.override.wpn_fps_pis_czech_m_extended = {
 				stats = {
 					reload = -4,
-					extra_ammo = 9,
+					extra_ammo = 11,
 					concealment = -2
-				}
+				},
+				a_obj = "a_m_2"
 			}
 		end
 
