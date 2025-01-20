@@ -9733,8 +9733,8 @@ end)
 
 					self.wpn_fps_ass_komodo.override = self.wpn_fps_ass_komodo.override or {}
 					self.wpn_fps_ass_komodo.override.wpn_fps_upg_o_arbiter_irons_dmc = {
-						third_unit = "units/pd2_dlc_joy/weapons/wpn_fps_smg_shepheard_pts/wpn_third_smg_shepheard_o_short",
-						unit = "units/pd2_dlc_joy/weapons/wpn_fps_smg_shepheard_pts/wpn_fps_smg_shepheard_o_short"
+						third_unit = "units/pd2_dlc_rota/weapons/wpn_fps_sho_rota_pts/wpn_third_sho_rota_o_standard",
+						unit = "units/pd2_dlc_rota/weapons/wpn_fps_sho_rota_pts/wpn_fps_sho_rota_o_standard"
 					}
 
 					table.insert(self.wpn_fps_ass_komodo.uses_parts, "wpn_fps_upg_o_arbiter_irons_dmc")
@@ -36328,7 +36328,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				concealment = 1
 			}
 			self.parts.wpn_fps_pis_czshadow_m_sp.custom_stats = {
-				ads_speed_mult = 1.025
+				ads_speed_mult = 0.975
 			}
 
 			self.wpn_fps_pis_czshadow.override.wpn_fps_pis_czech_g_luxury = nil

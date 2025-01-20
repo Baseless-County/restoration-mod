@@ -255,7 +255,7 @@ end
 function PlayerStandard:_end_action_ducking(t, skip_can_stand_check)
 	local slide_threshold = self._slide_speed and self._slide_end_speed and self._slide_end_speed * 10 >= self._slide_speed
 
-	if --[[(is_pro and self._is_sliding and not slide_threshold) or]] not skip_can_stand_check and not self:_can_stand() then
+	if (self._is_sliding and self._state_data.in_air) or (self._dash_slide and (self._last_dash_time + 0.25 > t)) or not skip_can_stand_check and not self:_can_stand() then
 		return
 	end
 
@@ -273,7 +273,7 @@ function PlayerStandard:_end_action_ducking(t, skip_can_stand_check)
 	if AdvMov and PlayerStandard._cancel_slide then
 		local dash_stats = tweak_data.upgrades.values.player.dash_stats
 		local dash_base_t = dash_stats.grace_t
-		if self._is_sliding and self._last_slide_time and self._last_slide_time + (dash_base_t * 2) > t then
+		if self._is_sliding and ((self._last_slide_time and self._last_slide_time + (dash_base_t * 2) > t) or (self._last_dash_time > t)) and not self._dash_slide then
 			managers.player:apply_slow_debuff(1, 0.5, nil, true)
 			self._unit:movement():subtract_stamina(tweak_data.player.movement_state.stamina.JUMP_STAMINA_DRAIN * 0.5)
 		end
@@ -1913,7 +1913,7 @@ function PlayerStandard:_start_action_running(t)
 
 	--local slide_threshold = self._slide_speed and self._slide_end_speed and self._slide_end_speed * 4 >= self._slide_speed and self._unit:movement():is_above_stamina_threshold() 
 
-	if (self._shooting or self._spin_up_shoot) and not self._equipped_unit:base():run_and_shoot_allowed() or (self:_is_charging_weapon() and not self._equipped_unit:base():run_and_shoot_allowed()) or --[[self:_changing_weapon() or]] self._use_item_expire_t or self._state_data.in_air or self:_is_throwing_projectile() --[[or (is_pro and self._is_sliding and not slide_threshold)]] or self:_in_burst() or self._state_data.ducking and not self:_can_stand() then
+	if (self._shooting or self._spin_up_shoot) and not self._equipped_unit:base():run_and_shoot_allowed() or (self:_is_charging_weapon() and not self._equipped_unit:base():run_and_shoot_allowed()) or --[[self:_changing_weapon() or]] self._use_item_expire_t or self._state_data.in_air or self:_is_throwing_projectile() --[[or (is_pro and self._is_sliding and not slide_threshold)]] or self:_in_burst() or self._state_data.ducking and not self:_can_stand() or (self._dash_slide and (self._last_dash_time + 0.5 > t)) then
 		self._running_wanted = true
 		return
 	end
@@ -4926,7 +4926,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 			self._is_wallkicking = nil
 		end
 		if not ((managers.groupai:state():whisper_mode() and AdvMov.settings.slidestealth == 1) or (not managers.groupai:state():whisper_mode() and AdvMov.settings.slideloud == 1)) then
-			if self._last_velocity_xy and (self._running or self._is_dashing or ( self._last_run_t and self._state_data.in_air and self._last_run_t + 1 > self._last_t ) or self._is_wallkicking) and not self._wallkick_is_clinging and (self._last_t - (self._start_running_t or 0)) > 0.1 then
+			if self._last_velocity_xy and (self._running or (self._last_dash_time and (self._last_dash_time + 0.25 > self._last_t)) or ( self._last_run_t and self._state_data.in_air and self._last_run_t + 0.5 > self._last_t ) or self._is_wallkicking) and not self._wallkick_is_clinging and (self._last_t - (self._start_running_t or 0)) > 0.1 then
 				-- must be moving at least a certain speed to slide
 				local movedir = self._move_dir or self._last_velocity_xy -- don't use self:get_sampled_xy() in any of the other lines in here
 				local velocity = Vector3()
@@ -4946,13 +4946,14 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				end
 				--]]
 				if not self._is_wallrunning and (self._is_wallkicking or (horizontal_speed > (walkspeed * 1.1) )) and ((self._last_t - self._last_slide_time) > slide_cooldown) then
+					self._dash_slide = (self._last_dash_time and (self._last_dash_time + 0.25 > self._last_t))
 					self._is_sliding = true
 					self._slide_dir = mvector3.copy(movedir)
 					self._slide_slow_add = 0
 					self._slide_desired_dir = mvector3.copy(movedir)
 					self._sprinting_speed = self:_get_modified_move_speed("run")
 					-- make it feel like a speedy slide
-					self._slide_speed = math.clamp(self._sprinting_speed * 1.3, 1000, 1500) --self._tweak_data.movement.speed.RUNNING_MAX * 1.3
+					self._slide_speed = math.clamp(self._sprinting_speed * 1.5, 1250, 1500) --self._tweak_data.movement.speed.RUNNING_MAX * 1.3
 					self._slide_refresh_t = 0
 					self._slide_last_z = self._unit:position().z
 					self._slide_last_speed = self._slide_speed
@@ -5035,8 +5036,6 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					local iframes = (math.min( dash_t_cap, (dash_base_t + dodge_t)) * ((dash_fatigue and dash_stats.fatigue_mult) or 1))
 					local effect_alpha = (restoration.Options:GetValue("AdVMovResOpt/AdvMovDashScreenEffectAlpha") or 0.8) * ((dash_fatigue and 0.5) or 1)
 					managers.hud:activate_effect_screen(iframes, ((last_dash and Vector3(1.0, 1.0, 0.625)) or (dash_fatigue and Vector3(1.0, 0.625, 0.625)) or Vector3(0.625, 0.625, 1.0)) * effect_alpha, true)
-					managers.player:apply_slow_debuff(1, 0.6, nil, true)
-					self:_shooting_move_speed_timer(self._last_t, self._last_dt, true)
 					ch_dmg._last_received_dmg = math.huge
 					ch_dmg._next_allowed_dmg_t = Application:digest_value(self._last_t + iframes, true)
 					if dash_fatigue then
@@ -5070,6 +5069,13 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 		return false
 	end
 
+	function PlayerStandard:_cancel_slide(timemult)
+		self._is_sliding = nil
+		self._dash_slide = nil
+		self._slide_has_played_shaker = nil
+		self:_stance_entered(nil, timemult)
+	end
+
 	Hooks:RemovePostHook( "slide_update" )
 	Hooks:RemovePostHook( "check_wallrun_update" )
 	Hooks:RemovePostHook( "dash_update" )
@@ -5089,11 +5095,12 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				if not self._state_data.in_air then
 					-- calculate stamina drain scaling based on current speed vs standard running speed
 					local drain_mult = self._slide_speed/self._sprinting_speed
+					log(tostring( self:_get_modified_move_speed("run") ))
 					-- drain stamina, prevent regen
 					self._unit:movement():subtract_stamina(tweak_data.player.movement_state.stamina.STAMINA_DRAIN_RATE * dt * drain_mult)
-					if drain_mult > 0.50 then
+					--if drain_mult > 0.50 then
 						self._unit:movement():_restart_stamina_regen_timer()
-					end
+					--end
 				end
 
 				-- slow slide down as it continues
@@ -5333,6 +5340,8 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 
 				if self._is_dashing and (t > (self._last_dash_iframes or 0)) then
 					self._is_dashing = nil
+					managers.player:apply_slow_debuff(1, 0.4, nil, true)
+					self:_shooting_move_speed_timer(self._last_t, self._last_dt, true)
 				end
 			end
 
