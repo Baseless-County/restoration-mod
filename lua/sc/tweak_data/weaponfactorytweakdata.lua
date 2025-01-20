@@ -36336,13 +36336,13 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				rof_mult = 1.25,
 				lock_auto = true
 			}
-			self.parts.wpn_fps_pis_czshadow_body_standard.supported = true
-			self.parts.wpn_fps_pis_czshadow_body_standard.stats = {
+			self.parts.wpn_fps_pis_czshadow_body_sp.supported = true
+			self.parts.wpn_fps_pis_czshadow_body_sp.stats = {
 				value = 4,
 				spread = 1,
 				recoil = -2
 			}
-			self.parts.wpn_fps_pis_czshadow_body_standard.custom_stats = {}
+			self.parts.wpn_fps_pis_czshadow_body_sp.custom_stats = {}
 			self.parts.wpn_fps_pis_czshadow_body_short.supported = true
 			self.parts.wpn_fps_pis_czshadow_body_short.stats = deep_clone(barrels.short_b1_stats)
 			self.parts.wpn_fps_pis_czshadow_body_short.custom_stats = deep_clone(barrels.short_b1_stats)
