@@ -117,7 +117,7 @@ function PlayerStandard:push(vel, override_vel, override_vel_mult, allow_sprint,
 		self:_interupt_action_running(managers.player:player_timer():time())
 	end
 	if force_crouch then
-		self:_start_action_ducking(managers.player:player_timer():time())
+		self:_start_action_ducking(managers.player:player_timer():time(), true)
 	end
 end
 
@@ -255,7 +255,7 @@ end
 function PlayerStandard:_end_action_ducking(t, skip_can_stand_check)
 	local slide_threshold = self._slide_speed and self._slide_end_speed and self._slide_end_speed * 10 >= self._slide_speed
 
-	if --[[(is_pro and self._is_sliding and not slide_threshold) or]] not skip_can_stand_check and not self:_can_stand() then
+	if (self._is_sliding and self._state_data.in_air) or (self._dash_slide and (self._last_dash_time + 0.25 > t)) or not skip_can_stand_check and not self:_can_stand() then
 		return
 	end
 
@@ -273,7 +273,7 @@ function PlayerStandard:_end_action_ducking(t, skip_can_stand_check)
 	if AdvMov and PlayerStandard._cancel_slide then
 		local dash_stats = tweak_data.upgrades.values.player.dash_stats
 		local dash_base_t = dash_stats.grace_t
-		if self._is_sliding and self._last_slide_time and self._last_slide_time + (dash_base_t * 2) > t then
+		if self._is_sliding and ((self._last_slide_time and (self._last_slide_time + (dash_base_t * 2)) > t) or (self._last_dash_time and (self._last_dash_time > t))) and not self._dash_slide then
 			managers.player:apply_slow_debuff(1, 0.5, nil, true)
 			self._unit:movement():subtract_stamina(tweak_data.player.movement_state.stamina.JUMP_STAMINA_DRAIN * 0.5)
 		end
@@ -1218,24 +1218,31 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 							end
 						end
 						local srm = weap_base._srm
-						local shots_fired = srm and math.max(weap_base._shot_recoil_count - 1 - (srm[3] or 0), 0)  or 0
+						local shots_fired = srm and math.max(weap_base._shot_recoil_magnitude_count - 1 - (srm[3] or 0), 0)  or 0
 						local shots_fired_mult = srm and math.round(100000 * math.clamp( 1 - (shots_fired * srm[1]) , srm[2][1], srm[2][2])) / 100000
 						local recoil_multiplier = (weap_base:recoil() + weap_base:recoil_addend()) * weap_base:recoil_multiplier() * (shots_fired_mult or 1)
 						local stance_mults = weap_tweak_data.stance_multipliers or nil
 						recoil_multiplier = recoil_multiplier * ((stance_mults and (self._state_data.in_steelsight and stance_mults.steelsight or self._state_data.ducking and stance_mults.crouching or stance_mults.standing)) or 1)
-						local recoil_count = weap_base._shot_recoil_count or 0
+						local recoil_count = weap_base._shot_recoil_pattern_count or 0
 						local recoil_stage = nil
 						if weap_tweak_data.kick_pattern then
-							local function shot_recoil_pattern(shot_count, recoil_table)
+							local function shot_recoil_pattern(shot_count, recoil_table, weap_base)
 								local stage = nil
 								for i, k in pairs(recoil_table) do
-									if type(i) == "number" and shot_count >= recoil_table[i][1] then
-										stage = i
+									if type(i) == "number" then
+										if shot_count >= recoil_table[i][1] then
+											if type(recoil_table[i][2]) == "table" then
+												stage = i
+											elseif type(recoil_table[i][2]) == "number" then
+												stage = i - 1
+												weap_base._shot_recoil_pattern_count = recoil_table[i][2] or 0
+											end
+										end
 									end
 								end
 								return stage
 							end
-							recoil_stage = shot_recoil_pattern(recoil_count, weap_tweak_data.kick_pattern)
+							recoil_stage = shot_recoil_pattern(recoil_count, weap_tweak_data.kick_pattern, weap_base)
 						end
 						local kick_tweak_data = weap_tweak_data.kick[fire_mode] or (recoil_stage and weap_tweak_data.kick_pattern[recoil_stage][2]) or weap_tweak_data.kick
 						local always_standing = weap_tweak_data.always_use_standing
@@ -1906,7 +1913,7 @@ function PlayerStandard:_start_action_running(t)
 
 	--local slide_threshold = self._slide_speed and self._slide_end_speed and self._slide_end_speed * 4 >= self._slide_speed and self._unit:movement():is_above_stamina_threshold() 
 
-	if (self._shooting or self._spin_up_shoot) and not self._equipped_unit:base():run_and_shoot_allowed() or (self:_is_charging_weapon() and not self._equipped_unit:base():run_and_shoot_allowed()) or --[[self:_changing_weapon() or]] self._use_item_expire_t or self._state_data.in_air or self:_is_throwing_projectile() --[[or (is_pro and self._is_sliding and not slide_threshold)]] or self:_in_burst() or self._state_data.ducking and not self:_can_stand() then
+	if (self._shooting or self._spin_up_shoot) and not self._equipped_unit:base():run_and_shoot_allowed() or (self:_is_charging_weapon() and not self._equipped_unit:base():run_and_shoot_allowed()) or --[[self:_changing_weapon() or]] self._use_item_expire_t or self._state_data.in_air or self:_is_throwing_projectile() --[[or (is_pro and self._is_sliding and not slide_threshold)]] or self:_in_burst() or self._state_data.ducking and not self:_can_stand() or (self._dash_slide and (self._last_dash_time + 0.5 > t)) then
 		self._running_wanted = true
 		return
 	end
@@ -2123,6 +2130,7 @@ function PlayerStandard:_do_chainsaw_damage(t)
 			action_data.damage_effect = damage_effect
 			action_data.attacker_unit = self._unit
 			action_data.col_ray = col_ray
+			action_data.variant = "melee"
 
 			if shield_knock then
 				action_data.shield_knock = can_shield_knock
@@ -2817,7 +2825,8 @@ function PlayerStandard:_last_shot_recoil_t(t, dt)
 				self._last_recoil_t = self._last_recoil_t - dt
 				if self._last_recoil_t < 0 then
 					self._last_recoil_t = nil
-					weapon._shot_recoil_count = 0
+					weapon._shot_recoil_pattern_count = 0
+					weapon._shot_recoil_magnitude_count = 0
 				end
 			end
 		end
@@ -3961,12 +3970,14 @@ function PlayerStandard:_update_reload_timers(t, dt, input)
 	if self._state_data.reload_enter_expire_t and self._state_data.reload_enter_expire_t <= t then
 		self._equipped_unit:base():tweak_data_anim_stop("fire")
 		self._equipped_unit:base():tweak_data_anim_stop("fire_steelsight")
+		self._equipped_unit:base():tweak_data_anim_stop("magazine_empty")
 		self._state_data.reload_enter_expire_t = nil
 		self:_start_action_reload(t)
 	end
 	
 	--Moved earlier in function to avoid math on nil value.
 	local speed_multiplier = self._equipped_unit:base():reload_speed_multiplier()
+	local anim_multiplier = self._equipped_unit:base()._reload_anim_multiplier or 1
 	
 	if self._state_data.reload_expire_t then
 		local interupt = nil
@@ -3992,7 +4003,7 @@ function PlayerStandard:_update_reload_timers(t, dt, input)
 				if not interupt then
 					self._equipped_unit:base():on_reload()
 				end
-				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or (self._equipped_unit:base():reload_exit_expire_t() or empty_use_mag_timer)) / speed_multiplier
+				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or (self._equipped_unit:base():reload_exit_expire_t() or empty_use_mag_timer)) / (speed_multiplier * anim_multiplier)
 				managers.statistics:reloaded()
 				managers.hud:set_ammo_amount(self._equipped_unit:base():selection_index(), self._equipped_unit:base():ammo_info())
 			elseif self._equipped_unit:base():reload_exit_expire_t() then
@@ -4000,15 +4011,15 @@ function PlayerStandard:_update_reload_timers(t, dt, input)
 				local animation_name = (not always_use_empty_reload and is_reload_not_empty and "reload_not_empty_exit") or "reload_exit"
 				local animation = self:get_animation(animation_name)
 				
-				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or self._equipped_unit:base():reload_exit_expire_t()) / speed_multiplier
+				self._state_data.reload_exit_expire_t = t + ((is_reload_not_empty and self._equipped_unit:base():reload_not_empty_exit_expire_t()) or self._equipped_unit:base():reload_exit_expire_t()) / (speed_multiplier * anim_multiplier)
 
-				local result = self._ext_camera:play_redirect(animation, speed_multiplier)
+				local result = self._ext_camera:play_redirect(animation, speed_multiplier * anim_multiplier)
 				
-				self._equipped_unit:base():tweak_data_anim_play(animation_name, speed_multiplier, nil, reload_fix_offset2)
+				self._equipped_unit:base():tweak_data_anim_play(animation_name, speed_multiplier * anim_multiplier, nil, reload_fix_offset2)
 
 				if reload_fix_offset then
 					local reload_anim = is_reload_not_empty and "reload_not_empty" or "reload"
-					self._equipped_unit:base():tweak_data_anim_play(reload_anim, speed_multiplier, reload_fix_offset)
+					self._equipped_unit:base():tweak_data_anim_play(reload_anim, speed_multiplier * anim_multiplier, reload_fix_offset)
 				end
 				
 				
@@ -4059,6 +4070,7 @@ Hooks:PostHook(PlayerStandard, "_start_action_reload_enter", "ResStopFireAnimRel
 	if weap_base and weap_base:can_reload() then
 		weap_base:tweak_data_anim_stop("fire")
 		weap_base:tweak_data_anim_stop("fire_steelsight")
+		weap_base:tweak_data_anim_stop("magazine_empty")
 		if weap_base.AKIMBO then
 			weap_base._second_gun:base():tweak_data_anim_stop("magazine_empty")
 			weap_base._second_gun:base():tweak_data_anim_stop("reload")
@@ -4081,8 +4093,11 @@ function PlayerStandard:_start_action_reload(t)
 		end
 		if ((ignore_fullreload and clip_empty) or (ignore_nonemptyreload and not clip_empty)) then
 			weapon:tweak_data_anim_stop("fire")
+			weapon:tweak_data_anim_stop("fire_steelsight")
+			weapon:tweak_data_anim_stop("magazine_empty")
 	
 			local speed_multiplier = weapon:reload_speed_multiplier()
+			local anim_multiplier = weapon._reload_anim_multiplier or 1
 			local reload_prefix = weapon:reload_prefix() or ""
 			local reload_name_id = anims_tweak.reload_name_id or weapon.name_id
 	
@@ -4091,11 +4106,11 @@ function PlayerStandard:_start_action_reload(t)
 	
 			weapon:start_reload()
 
-			self._ext_camera:play_redirect(Idstring(reload_prefix .. reload_anim .. "_" .. reload_name_id), speed_multiplier)
+			self._ext_camera:play_redirect(Idstring(reload_prefix .. reload_anim .. "_" .. reload_name_id), speed_multiplier * anim_multiplier)
 			self._state_data.reload_expire_t = t + expire_t / speed_multiplier
 	
-			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier) then
-				weapon:tweak_data_anim_play("reload", speed_multiplier)
+			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier * anim_multiplier) then
+				weapon:tweak_data_anim_play("reload", speed_multiplier * anim_multiplier)
 			end
 	
 			self._ext_network:send("reload_weapon", ignore_fullreload and 0 or 1, speed_multiplier)
@@ -4106,8 +4121,10 @@ function PlayerStandard:_start_action_reload(t)
 		
 			weapon:tweak_data_anim_stop("fire")
 			weapon:tweak_data_anim_stop("fire_steelsight")
+			weapon:tweak_data_anim_stop("magazine_empty")
 	
 			local speed_multiplier = weapon:reload_speed_multiplier()
+			local anim_multiplier = weapon._reload_anim_multiplier or 1
 			local empty_reload = weapon:clip_empty() and 1 or 0
 	
 			if weapon:use_shotgun_reload() then
@@ -4131,14 +4148,14 @@ function PlayerStandard:_start_action_reload(t)
 			end
 	
 			local reload_ids = Idstring(string.format("%s%s_%s", reload_prefix, reload_anim, reload_name_id))
-			local result = self._ext_camera:play_redirect(reload_ids, speed_multiplier)
+			local result = self._ext_camera:play_redirect(reload_ids, speed_multiplier * anim_multiplier)
 	
 			Application:trace("PlayerStandard:_start_action_reload( t ): ", reload_ids)
 	
 			self._state_data.reload_expire_t = t + (reload_tweak or weapon:reload_expire_t(is_reload_not_empty) or reload_default_expire_t) / speed_multiplier
 	
-			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier) then
-				weapon:tweak_data_anim_play("reload", speed_multiplier)
+			if not weapon:tweak_data_anim_play(reload_anim, speed_multiplier * anim_multiplier) then
+				weapon:tweak_data_anim_play("reload", speed_multiplier * anim_multiplier)
 				Application:trace("PlayerStandard:_start_action_reload( t ): ", reload_anim)
 			end
 	
@@ -4805,8 +4822,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				attacker_unit = self._unit,
 				col_ray = target_ray_data.raydata,
 				charge_lerp_value = 0,
-				shield_knock = self._is_sliding and can_shield_knock,
-				name_id = "fists"
+				shield_knock = (self._is_sliding or strongkick) and can_shield_knock,
+				name_id = managers.localization:text("bm_melee_advmov"),
+				variant = "melee"
 			}
 			if targetunit:in_slot(8) and alive(targetunit:parent()) and not targetunit:parent():character_damage():is_immune_to_shield_knockback() then
 				-- shield behaviors
@@ -4814,6 +4832,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				finaltarget = targetunit:parent()
 			end
 			local kill = nil
+			local final_dmg = nil
 			if finaltarget and finaltarget:character_damage() and finaltarget:character_damage().damage_melee and dmg_data then -- blanket "what the fuck is crashing" prevention since i don't know how to reproduce it consistently
 				local atk_dir_z_offset = -100
 				local is_bulldozer = finaltarget:base():has_tag("tank")
@@ -4822,6 +4841,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					dmg_data.damage_effect = dmg_data.damage_effect * 2
 					atk_dir_z_offset = atk_dir_z_offset * 2
 				end
+				final_dmg = dmg_data.damage
 				-- hit enemy
 				-- apply damage
 				finaltarget:character_damage():damage_melee(dmg_data)
@@ -4874,16 +4894,15 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				if finaltarget:character_damage() and finaltarget:character_damage().melee_hit_sfx then
 					hit_sfx = finaltarget:character_damage():melee_hit_sfx()
 				end
-				if self._using_superblt then
-					local kick_stage = 0 + ((self._is_jumping and 1) or 0) + ((self._is_sliding and 1) or 0) + ((strongkick and 1) or 0)
-					if kick_stage == 3 then
+				if self._using_superblt and final_dmg then
+					if final_dmg > 23.9 then
 						self._inf_sound:post_event("kick_heavy")
-					elseif kick_stage == 2 then
+					elseif final_dmg > 11.9 then
 						self._inf_sound:post_event("kick_light")
-					elseif kick_stage == 1 then
-						self:_play_melee_sound("fists", hit_sfx, 0)
-					else
+					elseif final_dmg > 5.9 then
 						self:_play_melee_sound("weapon", hit_sfx, 0)
+					else
+						self:_play_melee_sound("fists", hit_sfx, 0)
 					end
 				else
 					self:_play_melee_sound("fists", hit_sfx, 0)
@@ -4894,11 +4913,11 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				self._unit:movement():_restart_stamina_regen_timer()
 			end
 
-			if self._running then
+			if enemy_ray and self._running then
 				self:_end_action_running(self._last_t)
 			end
 
-			if not kill then 
+			if enemy_ray and not kill then 
 				self:_cancel_slide()
 				self._is_wallkicking = nil
 			end
@@ -4913,7 +4932,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 			self._is_wallkicking = nil
 		end
 		if not ((managers.groupai:state():whisper_mode() and AdvMov.settings.slidestealth == 1) or (not managers.groupai:state():whisper_mode() and AdvMov.settings.slideloud == 1)) then
-			if self._last_velocity_xy and (self._running or self._is_dashing or ( self._last_run_t and self._state_data.in_air and self._last_run_t + 1 > self._last_t ) or self._is_wallkicking) and not self._wallkick_is_clinging and (self._last_t - (self._start_running_t or 0)) > 0.1 then
+			if self._last_velocity_xy and (self._running or (self._last_dash_time and (self._last_dash_time + 0.25 > self._last_t)) or ( self._last_run_t and self._state_data.in_air and self._last_run_t + 0.5 > self._last_t ) or self._is_wallkicking) and not self._wallkick_is_clinging and (self._last_t - (self._start_running_t or 0)) > 0.1 then
 				-- must be moving at least a certain speed to slide
 				local movedir = self._move_dir or self._last_velocity_xy -- don't use self:get_sampled_xy() in any of the other lines in here
 				local velocity = Vector3()
@@ -4933,13 +4952,14 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				end
 				--]]
 				if not self._is_wallrunning and (self._is_wallkicking or (horizontal_speed > (walkspeed * 1.1) )) and ((self._last_t - self._last_slide_time) > slide_cooldown) then
+					self._dash_slide = (self._last_dash_time and (self._last_dash_time + 0.25 > self._last_t))
 					self._is_sliding = true
 					self._slide_dir = mvector3.copy(movedir)
 					self._slide_slow_add = 0
 					self._slide_desired_dir = mvector3.copy(movedir)
 					self._sprinting_speed = self:_get_modified_move_speed("run")
 					-- make it feel like a speedy slide
-					self._slide_speed = math.clamp(self._sprinting_speed * 1.3, 1000, 1500) --self._tweak_data.movement.speed.RUNNING_MAX * 1.3
+					self._slide_speed = math.clamp(self._sprinting_speed * 1.5, 1250, 1500) --self._tweak_data.movement.speed.RUNNING_MAX * 1.3
 					self._slide_refresh_t = 0
 					self._slide_last_z = self._unit:position().z
 					self._slide_last_speed = self._slide_speed
@@ -5022,8 +5042,6 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					local iframes = (math.min( dash_t_cap, (dash_base_t + dodge_t)) * ((dash_fatigue and dash_stats.fatigue_mult) or 1))
 					local effect_alpha = (restoration.Options:GetValue("AdVMovResOpt/AdvMovDashScreenEffectAlpha") or 0.8) * ((dash_fatigue and 0.5) or 1)
 					managers.hud:activate_effect_screen(iframes, ((last_dash and Vector3(1.0, 1.0, 0.625)) or (dash_fatigue and Vector3(1.0, 0.625, 0.625)) or Vector3(0.625, 0.625, 1.0)) * effect_alpha, true)
-					managers.player:apply_slow_debuff(1, 0.6, nil, true)
-					self:_shooting_move_speed_timer(self._last_t, self._last_dt, true)
 					ch_dmg._last_received_dmg = math.huge
 					ch_dmg._next_allowed_dmg_t = Application:digest_value(self._last_t + iframes, true)
 					if dash_fatigue then
@@ -5057,6 +5075,13 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 		return false
 	end
 
+	function PlayerStandard:_cancel_slide(timemult)
+		self._is_sliding = nil
+		self._dash_slide = nil
+		self._slide_has_played_shaker = nil
+		self:_stance_entered(nil, timemult)
+	end
+
 	Hooks:RemovePostHook( "slide_update" )
 	Hooks:RemovePostHook( "check_wallrun_update" )
 	Hooks:RemovePostHook( "dash_update" )
@@ -5076,11 +5101,12 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				if not self._state_data.in_air then
 					-- calculate stamina drain scaling based on current speed vs standard running speed
 					local drain_mult = self._slide_speed/self._sprinting_speed
+					log(tostring( self:_get_modified_move_speed("run") ))
 					-- drain stamina, prevent regen
 					self._unit:movement():subtract_stamina(tweak_data.player.movement_state.stamina.STAMINA_DRAIN_RATE * dt * drain_mult)
-					if drain_mult > 0.50 then
+					--if drain_mult > 0.50 then
 						self._unit:movement():_restart_stamina_regen_timer()
-					end
+					--end
 				end
 
 				-- slow slide down as it continues
@@ -5318,9 +5344,10 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					end
 				end
 
-				if self._is_dashing and (t > (self._last_dash_iframes or 0)) then
+				if self._is_dashing and (t > (self._last_dash_time or 0) + 0.25) then
 					self._is_dashing = nil
-					log("DASH END")
+					managers.player:apply_slow_debuff(1, 0.5, nil, true)
+					self:_shooting_move_speed_timer(self._last_t, self._last_dt, true)
 				end
 			end
 
