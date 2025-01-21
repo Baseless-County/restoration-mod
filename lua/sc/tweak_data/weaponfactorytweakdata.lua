@@ -41265,7 +41265,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.wpn_fps_ass_famas.override[override_id].stats = self.parts[override_id] and deep_clone(self.parts[override_id].stats)
 			self.wpn_fps_ass_famas.override[override_id].stats.extra_ammo = (self.wpn_fps_ass_famas.override[override_id].stats.extra_ammo or 0) + 5
 			self.wpn_fps_ass_famas.override[override_id].stats.concealment = (self.wpn_fps_ass_famas.override[override_id].stats.concealment or 0) - 1
-			self.wpn_fps_ass_famas.override[override_id].stats.reload = (self.wpn_fps_ass_famas.override[override_id].stats.concealment or 0) - 2
+			self.wpn_fps_ass_famas.override[override_id].stats.reload = (self.wpn_fps_ass_famas.override[override_id].stats.reload or 0) - 2
 		end
 	end
 	self.wpn_fps_ass_famas.override.wpn_fps_m4_uupg_m_std.stats = {
