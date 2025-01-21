@@ -1218,12 +1218,12 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 							end
 						end
 						local srm = weap_base._srm
-						local shots_fired = srm and math.max(weap_base._shot_recoil_count - 1 - (srm[3] or 0), 0)  or 0
+						local shots_fired = srm and math.max(weap_base._shot_recoil_magnitude_count - 1 - (srm[3] or 0), 0)  or 0
 						local shots_fired_mult = srm and math.round(100000 * math.clamp( 1 - (shots_fired * srm[1]) , srm[2][1], srm[2][2])) / 100000
 						local recoil_multiplier = (weap_base:recoil() + weap_base:recoil_addend()) * weap_base:recoil_multiplier() * (shots_fired_mult or 1)
 						local stance_mults = weap_tweak_data.stance_multipliers or nil
 						recoil_multiplier = recoil_multiplier * ((stance_mults and (self._state_data.in_steelsight and stance_mults.steelsight or self._state_data.ducking and stance_mults.crouching or stance_mults.standing)) or 1)
-						local recoil_count = weap_base._shot_recoil_count or 0
+						local recoil_count = weap_base._shot_recoil_pattern_count or 0
 						local recoil_stage = nil
 						if weap_tweak_data.kick_pattern then
 							local function shot_recoil_pattern(shot_count, recoil_table, weap_base)
@@ -1235,7 +1235,7 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 												stage = i
 											elseif type(recoil_table[i][2]) == "number" then
 												stage = i - 1
-												weap_base._shot_recoil_count = recoil_table[i][2] or 0
+												weap_base._shot_recoil_pattern_count = recoil_table[i][2] or 0
 											end
 										end
 									end
@@ -2825,7 +2825,8 @@ function PlayerStandard:_last_shot_recoil_t(t, dt)
 				self._last_recoil_t = self._last_recoil_t - dt
 				if self._last_recoil_t < 0 then
 					self._last_recoil_t = nil
-					weapon._shot_recoil_count = 0
+					weapon._shot_recoil_pattern_count = 0
+					weapon._shot_recoil_magnitude_count = 0
 				end
 			end
 		end

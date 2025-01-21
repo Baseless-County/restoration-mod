@@ -74,7 +74,8 @@ function RaycastWeaponBase:setup(setup_data, damage_multiplier)
 	end
 	self._shots_without_releasing_trigger = 0
 	self._no_cheevo_kills_without_releasing_trigger = 0
-	self._shot_recoil_count = 0
+	self._shot_recoil_pattern_count = 0
+	self._shot_recoil_magnitude_count = 0
 end
 
 function RaycastWeaponBase:get_damage_type()
@@ -620,7 +621,8 @@ function RaycastWeaponBase:fire(from_pos, direction, dmg_mul, shoot_player, spre
 	end
 	--MG Specialist Skill
 	if is_player then
-		self._shot_recoil_count = (self._shot_recoil_count or 0) + 1
+		self._shot_recoil_pattern_count = (self._shot_recoil_pattern_count or 0) + 1
+		self._shot_recoil_magnitude_count = (self._shot_recoil_magnitude_count or 0) + 1
 		if self._shots_without_releasing_trigger then
 			self._shots_without_releasing_trigger = self._shots_without_releasing_trigger + 1
 			if self._bullets_until_free and self._shots_without_releasing_trigger % self._bullets_until_free == 0 then
