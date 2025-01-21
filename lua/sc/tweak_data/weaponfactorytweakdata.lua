@@ -16111,6 +16111,10 @@ end)
 						translation = Vector3(0.01, -11.6, -3.13),
 						rotation = Rotation(-0.05, 0, -1.07)
 					}
+					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_sho_haymaker = {
+						translation = Vector3(-0.022, 8.4, -0.738),
+						rotation = Rotation(-0.1, 0, 0)
+					}
 
 				
 					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_shot_f500 = {
@@ -26716,10 +26720,11 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 					value = 0,
 					extra_ammo = -2,
 					spread = -1,
-					reload = 8
+					reload = 10
 				}
 				self.parts.wpn_fps_snp_mptango41_magazine_fast.custom_stats = {
-					ads_speed_mult = 0.975
+					ads_speed_mult = 0.975,
+					reload_anim_mult = 0.925
 				}
 
 			--STOCKS
@@ -36896,6 +36901,12 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_sho_haymaker_s_no.stats = deep_clone(stocks.remove_adj_stats)
 				self.parts.wpn_fps_sho_haymaker_s_no.custom_stats = deep_clone(stocks.remove_adj_stats)
 
+			self.parts.wpn_fps_sho_haymaker_o_std.stance_mod = {
+				wpn_fps_sho_haymaker = {
+					translation = Vector3(-0.05, 0, -0.3),
+					rotation = Rotation(-0.1, 0, 0)
+				}
+			}
 			self.wpn_fps_sho_haymaker.override = {
 				wpn_fps_upg_a_slug = deep_clone(shot_ammo.a_slug_semi_override),
 				wpn_fps_upg_a_custom = deep_clone(shot_ammo.a_custom_semi_override),

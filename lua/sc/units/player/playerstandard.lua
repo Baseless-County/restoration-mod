@@ -5343,9 +5343,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					end
 				end
 
-				if self._is_dashing and (t > (self._last_dash_iframes or 0)) then
+				if self._is_dashing and (t > (self._last_dash_time or 0) + 0.25) then
 					self._is_dashing = nil
-					managers.player:apply_slow_debuff(1, 0.4, nil, true)
+					managers.player:apply_slow_debuff(1, 0.5, nil, true)
 					self:_shooting_move_speed_timer(self._last_t, self._last_dt, true)
 				end
 			end
