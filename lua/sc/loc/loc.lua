@@ -5147,8 +5147,8 @@ Hooks:Add("LocalizationManagerPostInit", "SC_Localization_Skills", function(loc)
 
 		["mutator_spawn_mult"] = "Amplified Response",
 		["menu_mutator_enemy_spawn"] = "ENEMY SPAWN MULTIPLIER",
-		["mutator_spawn_mult_desc"] = "Increased enemy spawns.",
-		["mutator_spawn_mult_longdesc"] = "More enemies will spawn during assault phases. The Overkill™ way!",
+		["mutator_spawn_mult_desc"] = "Modified enemy spawns.",
+		["mutator_spawn_mult_longdesc"] = "More (or less) enemies will spawn during assault phases. The Overkill™ way!",
 
 		["mutator_birthday"] = "Balloon Poppers",
 		["mutator_birthday_desc"] = "Special kills spawn balloons that provide buffs.",

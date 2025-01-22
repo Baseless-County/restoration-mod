@@ -1532,10 +1532,10 @@ local crew_wep_preset = {
 		self.argos_bravo_npc.sounds.prefix = "ultima_npc"		
 	end
 	
-	--Vanilla Deagle, less lethal
+	--Vanilla Deagle, less lethal (Marshal Shields)
 	function WeaponTweakData:_init_data_deagle_npc()
 		self.deagle_npc = deep_clone(self.raging_bull_npc)
-		self.deagle_npc.DAMAGE = 2.4 --same dmg as titan shield's beretta
+		self.deagle_npc.DAMAGE = 3 --Slightly more damage than the standard pistol, just so Marshal shields are a bit more balanced compared to their standard Titan Shield counterpart
 		self.deagle_npc.CLIP_AMMO_MAX = 8
 		self.deagle_npc.sounds.prefix = "deagle_npc"
 		self.deagle_npc.anim_usage = "is_pistol"
