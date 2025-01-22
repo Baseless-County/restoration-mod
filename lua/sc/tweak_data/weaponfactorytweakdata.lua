@@ -26767,6 +26767,40 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				}
 			}
 
+			self.wpn_fps_snp_mptango41.adds = self.wpn_fps_snp_mptango41.adds or {}
+
+			attachment_list = {
+				"wpn_fps_upg_o_specter",
+				"wpn_fps_upg_o_aimpoint",
+				"wpn_fps_upg_o_docter",
+				"wpn_fps_upg_o_eotech",
+				"wpn_fps_upg_o_t1micro",
+				"wpn_fps_upg_o_cmore",
+				"wpn_fps_upg_o_aimpoint_2",
+				"wpn_fps_upg_o_cs",
+				"wpn_fps_upg_o_rx30",
+				"wpn_fps_upg_o_rx01",
+				"wpn_fps_upg_o_reflex",
+				"wpn_fps_upg_o_eotech_xps",
+				"wpn_fps_upg_o_uh",
+				"wpn_fps_upg_o_fc1",
+				"wpn_fps_upg_o_tf90",
+				"wpn_fps_upg_o_poe",
+				"wpn_fps_upg_o_health",
+				"wpn_fps_upg_o_northtac",
+				"wpn_fps_upg_o_hamr",
+				"wpn_fps_upg_o_atibal",
+				"wpn_fps_upg_o_spot",
+				"wpn_fps_upg_o_bmg"
+			}
+
+			for i, part_id in ipairs(attachment_list) do
+				table.insert(self.wpn_fps_snp_mptango41.uses_parts, part_id)
+				self.wpn_fps_snp_mptango41.override[part_id] = { a_obj = "a_o_meme"}
+			end
+
+			self.wpn_fps_snp_mptango41_npc.adds = deep_clone(self.wpn_fps_snp_mptango41.adds)	
+			self.wpn_fps_snp_mptango41_npc.uses_parts = deep_clone(self.wpn_fps_snp_mptango41.uses_parts)	
 			
 		end
 
@@ -28637,8 +28671,13 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 		if self.parts.wpn_fps_shot_vecho_stock_tac then --MW2022 Vepr-12
 
+			self.parts.wpn_fps_shot_vecho_stock.supported = true
+			self.parts.wpn_fps_shot_vecho_stock.stats = {}
+			self.parts.wpn_fps_shot_vecho_stock.custom_stats = {}
+
+			self.parts.wpn_fps_shot_vecho_receiver.supported = true
 			self.parts.wpn_fps_shot_vecho_receiver.custom_stats = {
-				hip_mult = 6
+				hip_mult = 2
 			}
 
 			--BARRELS
@@ -28800,17 +28839,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_shot_vecho_handguard_survarium.custom_stats = {}
 
 			--BOLTS
-				--Dashbolt (uses hardbolt model)
-				--[[
-					self.parts.wpn_fps_shot_vecho_bolt_ext.supported = true
-					self.parts.wpn_fps_shot_vecho_bolt_ext.stats = {
-						value = 0,
-						recoil = -4
-					}
-					self.parts.wpn_fps_shot_vecho_bolt_ext.custom_stats = {
-						rof_mult = 1.1775
-					}
-				--]]
+				--Hardbolt
 				self.parts.wpn_fps_shot_vecho_bolt_ext.supported = true
 				self.parts.wpn_fps_shot_vecho_bolt_ext.stats = {
 					value = 0,
@@ -28820,17 +28849,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 					rof_mult = 0.915887
 				}
 
-				--Hardbolt (uses Dashbolt model)
-				--[[
-					self.parts.wpn_fps_shot_vecho_bolt_light.supported = true
-					self.parts.wpn_fps_shot_vecho_bolt_light.stats = {
-						value = 0,
-						spread = 4
-					}
-					self.parts.wpn_fps_shot_vecho_bolt_light.custom_stats = {
-						rof_mult = 0.915887
-					}
-				--]]
+				--Dashbolt
 				self.parts.wpn_fps_shot_vecho_bolt_light.supported = true
 				self.parts.wpn_fps_shot_vecho_bolt_light.stats = {
 					value = 0,
@@ -28839,6 +28858,33 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_shot_vecho_bolt_light.custom_stats = {
 					rof_mult = 1.1775
 				}
+
+			--STOCKS
+				self.parts.wpn_fps_shot_vecho_stock_akilo.supported = true
+				self.parts.wpn_fps_shot_vecho_stock_akilo.stats = deep_clone(stocks.adj_to_fixed_acc_stats)
+				self.parts.wpn_fps_shot_vecho_stock_akilo.custom_stats = deep_clone(stocks.adj_to_fixed_acc_stats)
+
+				self.parts.wpn_fps_shot_vecho_stock_vecho_tac.supported = true
+				self.parts.wpn_fps_shot_vecho_stock_vecho_tac.stats = deep_clone(stocks.adj_hvy_acc_stats)
+				self.parts.wpn_fps_shot_vecho_stock_vecho_tac.custom_stats = deep_clone(stocks.adj_hvy_acc_stats)
+				self.parts.wpn_fps_shot_vecho_stock_tac.supported = true
+				self.parts.wpn_fps_shot_vecho_stock_tac.stats = deep_clone(stocks.adj_hvy_rec_stats)
+				self.parts.wpn_fps_shot_vecho_stock_tac.custom_stats = deep_clone(stocks.adj_hvy_rec_stats)
+
+				self.parts.wpn_fps_shot_vecho_stock_tac02.supported = true
+				self.parts.wpn_fps_shot_vecho_stock_tac02.stats = deep_clone(stocks.adj_to_nocheeks_stats)
+				self.parts.wpn_fps_shot_vecho_stock_tac02.custom_stats = deep_clone(stocks.adj_to_nocheeks_stats)
+				self.parts.wpn_fps_shot_vecho_stock_akilo74_skeleton.supported = true
+				self.parts.wpn_fps_shot_vecho_stock_akilo74_skeleton.stats = deep_clone(stocks.adj_to_nocheeks_stats)
+				self.parts.wpn_fps_shot_vecho_stock_akilo74_skeleton.custom_stats = deep_clone(stocks.adj_to_nocheeks_stats)
+
+				self.parts.wpn_fps_shot_vecho_stock_akilo74.supported = true
+				self.parts.wpn_fps_shot_vecho_stock_akilo74.stats = deep_clone(stocks.adj_to_fold_stats)
+				self.parts.wpn_fps_shot_vecho_stock_akilo74.custom_stats = deep_clone(stocks.adj_to_fold_stats)
+
+				self.parts.wpn_fps_shot_vecho_stock_akilo74_no.supported = true
+				self.parts.wpn_fps_shot_vecho_stock_akilo74_no.stats = deep_clone(stocks.remove_adj_stats)
+				self.parts.wpn_fps_shot_vecho_stock_akilo74_no.custom_stats = deep_clone(stocks.remove_adj_stats)
 
 			self.wpn_fps_shot_vecho.override = self.wpn_fps_shot_vecho.override or {}
 			self.wpn_fps_shot_vecho.override.wpn_fps_upg_a_slug = deep_clone(shot_ammo.a_slug_semi_override)
@@ -28857,6 +28903,9 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 					end
 				end
 			end
+
+			table.insert(self.wpn_fps_shot_vecho.uses_parts, "wpn_fps_shot_vecho_stock_akilo74_no")
+
 			self.wpn_fps_shot_vecho_npc.uses_parts = deep_clone(self.wpn_fps_shot_vecho.uses_parts)
 
 		end
@@ -36851,6 +36900,10 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		end
 
 		if self.parts.wpn_fps_sho_haymaker_m_5rnd then
+			self.parts.wpn_fps_sho_haymaker_body_std.supported = true
+			self.parts.wpn_fps_sho_haymaker_body_std.custom_stats = {
+				hip_mult = 2
+			}
 			--BARRELS
 				self.parts.wpn_fps_sho_haymaker_b_long.supported = true
 				self.parts.wpn_fps_sho_haymaker_b_long.stats = deep_clone(barrels.long_b3_stats)

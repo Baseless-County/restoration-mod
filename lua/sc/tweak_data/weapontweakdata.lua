@@ -119,12 +119,12 @@ local crew_wep_preset = {
 	sniper_auto = {
 		mag_capacity = 8,
 		fire_rate = 3.75,
-		damage = 9.0
+		damage = 9.0 / 1.25
 	},
 	sniper_bolt = {	
 		mag_capacity = 5,
 		fire_rate = 7.5,
-		damage = 18.0
+		damage = 18.0 / 1.25
 	}
 }
 
@@ -21690,7 +21690,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			if self.vecho then
 				self.vecho.categories = {
 					"shotgun",
-					"shotgun_auto"
+					"shotgun_light"
 				}
 				self.vecho.recategorize = { "light_shot" }
 				self.vecho.damage_type = "shotgun"
@@ -21711,19 +21711,19 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					{7, self.stat_info.kick_tables.moderate_right_kick}
 				}
 				self.vecho.supported = true
-				self.vecho.ads_speed = 0.340
+				self.vecho.ads_speed = 0.300
 				self.vecho.damage_falloff = {
-					start_dist = 300,
-					end_dist = 2500,
+					start_dist = 400,
+					end_dist = 2600,
 					min_mult = 0.15
 				}
 				self.vecho.stats = {
 					damage = 120,
-					spread = 21,
+					spread = 23,
 					recoil = 39,
 					spread_moving = 7,
 					zoom = 1,
-					concealment = 24,
+					concealment = 25,
 					suppression = 9,
 					alert_size = 2,
 					extra_ammo = 101,
@@ -22533,8 +22533,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.czshadow.stats = {
 					damage = 24,
-					spread = 51,
-					recoil = 75,
+					spread = 56,
+					recoil = 77,
 					spread_moving = 9,
 					zoom = 1,
 					concealment = 30,
@@ -22574,8 +22574,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					}
 					self.x_czshadow.stats = {
 						damage = 24,
-						spread = 41,
-						recoil = 65,
+						spread = 46,
+						recoil = 67,
 						spread_moving = 9,
 						zoom = 1,
 						concealment = 30,
@@ -22698,8 +22698,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			end
 			
 			if self.haymaker then
+				self.haymaker.categories = { "shotgun", "shotgun_light" }
 				self.haymaker.recategorize = { "light_shot" }
-				self.haymaker.categories = { "shotgun" }
 				self.haymaker.damage_type = "shotgun"
 				self.haymaker.damage_type_single_ray = "sniper"
 				self.haymaker.tactical_reload = 1
@@ -22721,13 +22721,13 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.haymaker.supported = true
 				self.haymaker.ads_speed = 0.380
 				self.haymaker.damage_falloff = {
-					start_dist = 600,
-					end_dist = 3400,
+					start_dist = 500,
+					end_dist = 2800,
 					min_mult = 0.15
 				}
 				self.haymaker.stats = {
 					damage = 120,
-					spread = 33,
+					spread = 27,
 					recoil = 55,
 					spread_moving = 7,
 					zoom = 1,
