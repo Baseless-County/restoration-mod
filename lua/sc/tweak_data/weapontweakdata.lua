@@ -8679,7 +8679,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					self.m249.timers.reload_exit_empty = 1.2
 					self.m249.timers.reload_exit_not_empty = 1.2
 					self.m249.panic_suppression_chance = 0.05
-					self.m249.reload_speed_multiplier = 0.9
+					self.m249.reload_speed_multiplier = 0.88
 			
 				--IM AT SOUP (KAC ChainSAW)
 					self.kacchainsaw.categories = {
@@ -11865,7 +11865,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.benelli.desc_id = "bm_benelli_sc_desc"
 						self.benelli.use_data.selection_index = 1
 						self.benelli.has_description = true					
-						self.benelli.AMMO_MAX = 60
+						self.benelli.AMMO_MAX = 30
 						self.benelli.CLIP_AMMO_MAX = 5
 						self.benelli.rays = 9
 						self.benelli.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps" --"effects/particles/shotgun/shotgun_gen"
@@ -15004,6 +15004,47 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.holygrail.timers.reload_exit_not_empty = 0.3
 			end
 
+			
+				if self.hk416 then --Pawcio's HK416
+					self.hk416.nato = true
+					self.hk416.recategorize = { "light_ar" }
+					self.hk416.damage_type = "assault_rifle"
+					self.hk416.use_data.selection_index = 1
+					self.hk416.has_description = false						
+					self.hk416.tactical_reload = 1		
+					self.hk416.AMMO_MAX = 150
+					self.hk416.sounds.fire = "m16_fire_single"
+					self.hk416.sounds.fire_single = "m16_fire_single"
+					self.hk416.sounds.fire_auto = "m16_fire"
+					self.hk416.fire_mode_data.fire_rate = 0.08571428571
+					self.hk416.kick = self.stat_info.kick_tables.moderate_kick
+					self.hk416.supported = true
+					self.hk416.ads_speed = 0.280
+					self.hk416.damage_falloff = {
+						start_dist = 2100,
+						end_dist = 6300,
+						min_mult = 0.4166
+					}
+					self.hk416.stats = {
+						damage = 24,
+						spread = 81,
+						recoil = 83,
+						spread_moving = 6,
+						zoom = 1,
+						concealment = 25,
+						suppression = 8,
+						alert_size = 2,
+						extra_ammo = 101,
+						total_ammo_mod = 200,
+						value = 1,
+						reload = 20
+					}
+					self.hk416.stats_modifiers = nil
+					self.hk416.sounds.magazine_empty = "wp_rifle_slide_lock"
+					self.hk416.reload_speed_multiplier = 1.0
+					self.hk416.panic_suppression_chance = 0.05
+				end
+
 			if self.ppk20 then
 						self.ppk20.BURST_FIRE = false
 						self.ppk20.AMMO_MAX = 150
@@ -17218,6 +17259,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 
 			if self.svd then
 				self.svd.recategorize = { "heavy_snp" }
+				self.svd.use_data.selection_index = 1
 				self.svd.categories = {
 					"snp",
 					"semi_snp"
@@ -20377,12 +20419,12 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.sig_xm250.recategorize = { "light_mg" }
 				self.sig_xm250.damage_type = "machine_gun"
-				self.sig_xm250.sms = sms_preset.lmg_60
-				self.sig_xm250.weapon_movement_penalty = sms_preset.lmg_60
-				self.sig_xm250.CLIP_AMMO_MAX = 50
-				self.sig_xm250.AMMO_MAX = 240
+				self.sig_xm250.sms = sms_preset.lmg_48
+				self.sig_xm250.weapon_movement_penalty = sms_preset.lmg_48
+				self.sig_xm250.CLIP_AMMO_MAX = 100
+				self.sig_xm250.AMMO_MAX = 300
 				self.sig_xm250.FIRE_MODE = "auto"
-				self.sig_xm250.fire_mode_data.fire_rate = 0.075
+				self.sig_xm250.fire_mode_data.fire_rate = 0.08
 				self.sig_xm250.CAN_TOGGLE_FIREMODE = false
 				self.sig_xm250.BURST_FIRE = false
 				self.sig_xm250.kick = {}

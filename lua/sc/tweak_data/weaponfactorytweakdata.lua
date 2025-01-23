@@ -3731,8 +3731,6 @@ Hooks:PostHook(WeaponFactoryTweakData, "_init_m4", "resmod_m4", function(self)
 	self.parts.wpn_fps_upg_m4_m_pmag.stats = {
 		value = 1,
 		concealment = 1,
-		extra_ammo = -5,
-		reload = 3
 	}
 	self.parts.wpn_fps_upg_m4_m_pmag.custom_stats = { 
 		ads_speed_mult = 0.975
@@ -37137,6 +37135,22 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 	end
 
 
+		if self.parts.wpn_fps_ass_l85a2_b_heavy then --Alcat101's L86 LSW Barrel
+			self.parts.wpn_fps_ass_l85a2_b_heavy.supported = true
+			self.parts.wpn_fps_ass_l85a2_b_heavy.stats = deep_clone(barrels.long_b3_stats)
+			self.parts.wpn_fps_ass_l85a2_b_heavy.custom_stats = deep_clone(barrels.long_b3_stats)
+		end
+
+		if self.parts.wpn_fps_ass_l85a2_vg_back then --Alcat101's L86 LSW Back Grip
+			self.parts.wpn_fps_ass_l85a2_vg_back.supported = true
+			self.parts.wpn_fps_ass_l85a2_vg_back.stats = {
+				value = 1,
+				recoil = 2,
+				concealment = -2
+			}
+		end
+
+
 		if self.parts.wpn_fps_lmg_k3_m_quad then -- Alcat101's K3
 			self.parts.wpn_fps_lmg_k3_m_quad.supported = true
 			self.parts.wpn_fps_lmg_k3_m_quad.stats = {
@@ -37175,7 +37189,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			}
 		end
 
-		if self.parts.wpn_fps_lmg_par_m_can then
+		if self.parts.wpn_fps_lmg_par_m_can then   --Various M240 Attachments
 			self.parts.wpn_fps_lmg_par_m_can.supported = true
 			self.parts.wpn_fps_lmg_par_m_can.stats = {
 				value = 1,
