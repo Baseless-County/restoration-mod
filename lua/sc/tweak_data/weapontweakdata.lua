@@ -5927,7 +5927,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.x_g18c.timers.reload_exit_empty = 0.55
 						self.x_g18c.timers.reload_exit_not_empty = 0.65	
 
-					--CZ ACCUSHADOW
+					--CZ ACCUSHADOW BUT SOMEHOW FULL AUTO
 						self.czech.has_description = true
 						self.czech.desc_id = "bm_czech_sc_desc"				
 						self.czech.CLIP_AMMO_MAX = 18
@@ -6178,16 +6178,16 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.stech.CLIP_AMMO_MAX = 20
 						self.stech.supported = true
-						self.stech.ads_speed = 0.140
+						self.stech.ads_speed = 0.160
 						self.stech.damage_falloff = {
-							start_dist = 1800,
-							end_dist = 3800,
+							start_dist = 1300,
+							end_dist = 3100,
 							min_mult = 0.2083
 						}
 						self.stech.stats = {
 							damage = 24,
 							spread = 60,
-							recoil = 79,
+							recoil = 73,
 							spread_moving = 9,
 							zoom = 1,
 							concealment = 30,
@@ -6200,7 +6200,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.stech.stats_modifiers = nil
 						self.stech.panic_suppression_chance = 0.05
-						self.stech.reload_speed_multiplier = 1.3
+						self.stech.reload_speed_multiplier = 1.2
 						self.stech.timers.reload_exit_empty = 0.7
 						self.stech.timers.reload_not_empty = 1.89
 						self.stech.timers.reload_exit_not_empty = 0.7
@@ -6217,16 +6217,16 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.x_stech.CLIP_AMMO_MAX = 40
 						self.x_stech.supported = true
-						self.x_stech.ads_speed = 0.140
+						self.x_stech.ads_speed = 0.160
 						self.x_stech.damage_falloff = {
-							start_dist = 1800,
-							end_dist = 3800,
+							start_dist = 1300,
+							end_dist = 3100,
 							min_mult = 0.2083
 						}
 						self.x_stech.stats = {
 							damage = 24,
 							spread = 50,
-							recoil = 69,
+							recoil = 63,
 							spread_moving = 9,
 							zoom = 1,
 							concealment = 30,
@@ -19698,6 +19698,101 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 
 		--[[     RJC9000'S MODS     ]]--
 			
+			if self.l403a1 then
+				self.l403a1.nato = true
+				self.l403a1.recategorize = { "light_ar" }
+				self.l403a1.damage_type = "assault_rifle"
+				self.l403a1.has_description = false
+				self.l403a1.tactical_reload = 1
+				self.l403a1.AMMO_MAX = 150
+				self.l403a1.fire_mode_data.fire_rate = 0.08276
+				self.l403a1.kick = self.stat_info.kick_tables.moderate_right_kick
+				self.l403a1.kick_pattern = {
+					{ 0, self.stat_info.kick_tables.right_recoil },
+					{ 4, self.stat_info.kick_tables.moderate_right_kick },
+					{ 9, self.stat_info.kick_tables.right_kick },
+					{ 15, self.stat_info.kick_tables.moderate_kick },
+					{ 21, self.stat_info.kick_tables.left_kick },
+				}
+				self.l403a1.supported = true
+				self.l403a1.ads_speed = 0.300
+				self.l403a1.damage_falloff = {
+					start_dist = 2500,
+					end_dist = 7000,
+					min_mult = 0.4166
+				}
+				self.l403a1.stats = {
+					damage = 24,
+					spread = 83,
+					recoil = 81,
+					zoom = 1,
+					concealment = 24,
+					suppression = 9,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 400,
+					value = 1,
+					reload = 20
+				}
+				self.l403a1.stats_modifiers = nil
+				self.l403a1.panic_suppression_chance = 0.05
+				self.l403a1.keep_ammo = 1
+				self.l403a1.lock_slide = true
+				self.l403a1.lock_slide_offset = 0.066
+				self.l403a1.timers.reload_not_empty = 1.35
+				self.l403a1.timers.reload_exit_not_empty = 0.9
+				self.l403a1.timers.reload_empty = 2.3
+				self.l403a1.timers.reload_exit_empty = 0.7
+			end
+
+			if self.l119a2 then
+				self.l119a2.nato = true
+				self.l119a2.recategorize = { "light_ar" }
+				self.l119a2.damage_type = "assault_rifle"
+				self.l119a2.has_description = false
+				self.l119a2.tactical_reload = 1
+				self.l119a2.AMMO_MAX = 150
+				self.l119a2.fire_mode_data.fire_rate = 0.08
+				self.l119a2.kick = self.stat_info.kick_tables.moderate_kick
+				self.l119a2.kick_pattern = {
+					{ 0, self.stat_info.kick_tables.moderate_kick },
+					{ 3, self.stat_info.kick_tables.left_recoil },
+					{ 9, self.stat_info.kick_tables.moderate_left_kick },
+					{ 12, self.stat_info.kick_tables.moderate_kick },
+					{ 17, self.stat_info.kick_tables.moderate_right_kick },
+				}
+				self.l119a2.supported = true
+				self.l119a2.ads_speed = 0.280
+				self.l119a2.damage_falloff = {
+					start_dist = 1900,
+					end_dist = 6200,
+					min_mult = 0.4166
+				}
+				self.l119a2.stats = {
+					damage = 24,
+					spread = 81,
+					recoil = 83,
+					zoom = 1,
+					concealment = 25,
+					suppression = 9,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 400,
+					value = 1,
+					reload = 20
+				}
+				self.l119a2.stats_modifiers = nil
+				self.l119a2.panic_suppression_chance = 0.05
+				self.l119a2.keep_ammo = 1
+				self.l119a2.reload_speed_multiplier = 1.25
+				self.l119a2.timers.reload_not_empty = 2.42
+				self.l119a2.timers.reload_empty = 2.9
+				self.l119a2.timers.reload_exit_empty = 0.55
+				self.l119a2.timers.reload_exit_not_empty = 1.1
+				self.l119a2.lock_slide = true
+				self.l119a2.lock_slide_offset = 0.066
+			end
+
 			if self.mptango41 then --Vanguard "PTRS-41" (Fuck you, Sledgehammer)
 				self.mptango41.categories = {
 					"snp",

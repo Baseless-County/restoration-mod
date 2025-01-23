@@ -6133,7 +6133,7 @@ Hooks:PostHook(BlackMarketTweakData, "init", "CustomMelee", function(self, tweak
 	self.melee_weapons.broad.info_id = "bm_melee_broad_info"
 	self.melee_weapons.broad.stats.cleave = 3
 	self.melee_weapons.broad.stats.raycasts = 20
-	self.melee_weapons.broad.stats.raycasts_h = 25
+	self.melee_weapons.broad.stats.raycasts_h = 30
 	self.melee_weapons.broad.stats.raycasts_charge = nil
 	self.melee_weapons.broad.stats.min_damage = 9
 	self.melee_weapons.broad.stats.max_damage = 12.001

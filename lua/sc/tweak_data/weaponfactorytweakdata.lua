@@ -16165,6 +16165,13 @@ end)
 					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_ass_stango44 = {
 						translation = Vector3(0.006, 5.3, -3.495)
 					}
+					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_ass_l119a2 = {
+						translation = Vector3(-0.022, 6, -0.105)
+					}
+					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_ass_l403a1 = {
+						translation = Vector3(0.042, 6.6, -0.565),
+						rotation = Rotation(0.06, -0.06, -0.2)
+					}
 
 			
 					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_ass_akilo_2022 = {
@@ -16284,6 +16291,9 @@ end)
 					}
 					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_snp_martinihenry = {
 						translation = Vector3(-0.022, -8, -4.022)
+					}
+					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_snp_mptango41 = {
+						translation = Vector3(-0.01, 21.3, -3.805)
 					}
 
 				--CUSTOM WEAPS THAT NEED REALIGNMENT
@@ -26612,6 +26622,156 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			end
 
 	--[[ RJC9000'S MODS ]]
+		if self.parts.wpn_fps_ass_l403a1_receiver_lower then
+
+			self.parts.wpn_fps_ass_l403a1_irons_rear.pcs = nil
+			self.parts.wpn_fps_ass_l403a1_irons_rear.supported = true
+			self.parts.wpn_fps_ass_l403a1_irons_rear.stats = {value = 0}
+			self.parts.wpn_fps_ass_l403a1_irons_rear_folded.pcs = nil
+			self.parts.wpn_fps_ass_l403a1_irons_rear_folded.supported = true
+			self.parts.wpn_fps_ass_l403a1_irons_rear_folded.stats = {value = 0}
+			self.parts.wpn_fps_ass_l403a1_stock.supported = true
+			self.parts.wpn_fps_ass_l403a1_stock.stats = {value = 0}
+			self.parts.wpn_fps_ass_l403a1_stock.custom_stats = nil
+			self.parts.wpn_fps_ass_l403a1_suppressor.supported = true
+			self.parts.wpn_fps_ass_l403a1_suppressor.stats = {value = 0, alert_size = -1, suppression = 12}
+			self.parts.wpn_fps_ass_l403a1_suppressor.custom_stats = nil
+			self.parts.wpn_fps_ass_l403a1_suppressor_no_cover.supported = true
+			self.parts.wpn_fps_ass_l403a1_suppressor_no_cover.stats = {value = 0, alert_size = -1, suppression = 12}
+			self.parts.wpn_fps_ass_l403a1_suppressor_no_cover.custom_stats = nil
+			self.parts.wpn_fps_ass_l403a1_grip.supported = true
+			self.parts.wpn_fps_ass_l403a1_grip.stats = {value = 0}
+			self.parts.wpn_fps_ass_l403a1_grip.custom_stats = nil
+
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor.supported = true
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor.desc_id = "bm_wp_upg_o_3_rds"
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor.has_description = true
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor.stats = {
+				value = 8,
+				zoom = 20
+			}
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor.stance_mod = deep_clone(self.parts.wpn_fps_upg_o_specter.stance_mod)
+			for i, weap in pairs(self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor.stance_mod) do
+				if weap and i ~= wep_id and weap.translation then
+					weap.translation = weap.translation + Vector3(-0.006, -6, 0)
+				end
+			end
+
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor_piggyback.supported = true
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor_piggyback.stats = {
+				value = 0,
+				gadget_zoom = 1
+			}
+			self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor_piggyback.stance_mod = deep_clone(self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor.stance_mod)
+			for i, weap in pairs(self.parts.wpn_fps_ass_l403a1_optic_vortex_eleanor_piggyback.stance_mod) do
+				if weap and i ~= wep_id and weap.translation then
+					weap.translation = weap.translation + Vector3(0, -5, -4.4)
+				end
+			end
+
+			--BARRELS
+				self.parts.wpn_fps_ass_l403a1_barrel_11.supported = true
+				self.parts.wpn_fps_ass_l403a1_barrel_11.stats = deep_clone(barrels.short_b2_stats)
+				self.parts.wpn_fps_ass_l403a1_barrel_11.custom_stats = deep_clone(barrels.short_b2_stats)
+
+				self.parts.wpn_fps_ass_l403a1_barrel_14.supported = true
+				self.parts.wpn_fps_ass_l403a1_barrel_14.stats = deep_clone(barrels.long_b1_stats)
+				self.parts.wpn_fps_ass_l403a1_barrel_14.custom_stats = deep_clone(barrels.long_b1_stats)
+
+			--HANDGUARDS
+				self.parts.wpn_fps_ass_l403a1_handguard_short.supported = true
+				self.parts.wpn_fps_ass_l403a1_handguard_short.stats = {
+					value = 2,
+					concealment = 1,
+					recoil = -2
+				}
+				self.parts.wpn_fps_ass_l403a1_handguard_short.custom_stats = nil
+				self.parts.wpn_fps_ass_l403a1_handguard_ff_ras5.supported = true
+				self.parts.wpn_fps_ass_l403a1_handguard_ff_ras5.stats = {
+					value = 2,
+					concealment = 1,
+					recoil = -2
+				}
+				self.parts.wpn_fps_ass_l403a1_handguard_ff_ras5.custom_stats = nil
+
+				self.parts.wpn_fps_ass_l403a1_handguard_urx3_13.supported = true
+				self.parts.wpn_fps_ass_l403a1_handguard_urx3_13.stats = {
+					value = 2,
+					concealment = -1,
+					recoil = 2,
+					spread = 1
+				}
+				self.parts.wpn_fps_ass_l403a1_handguard_urx3_13.custom_stats = nil
+
+
+			self.wpn_fps_ass_l403a1.default_blueprint = {
+				"wpn_fps_ass_l403a1_barrel",
+				"wpn_fps_ass_l403a1_bolt",
+				"wpn_fps_ass_l403a1_charging_handle",
+				"wpn_fps_ass_l403a1_grip",
+				"wpn_fps_ass_l403a1_handguard",
+				"wpn_fps_ass_l403a1_magazine",
+				"wpn_fps_ass_l403a1_receiver_lower",
+				"wpn_fps_ass_l403a1_receiver_upper",
+				"wpn_fps_ass_l403a1_irons_rear",
+				"wpn_fps_ass_l403a1_stock",
+				"wpn_fps_ass_l403a1_suppressor",
+
+			}
+
+			attachment_list = {
+				"wpn_fps_upg_o_uh",
+				"wpn_fps_upg_o_fc1",
+				"wpn_fps_upg_o_tf90",
+				"wpn_fps_upg_o_poe",
+				"wpn_fps_upg_o_health",
+				"wpn_fps_upg_o_northtac",
+				"wpn_fps_upg_o_hamr",
+				"wpn_fps_upg_o_atibal",
+				"wpn_fps_upg_o_bmg"
+			}
+
+			for i, part_id in ipairs(attachment_list) do
+				table.insert(self.wpn_fps_ass_l403a1.uses_parts, part_id)
+			end
+
+			self.wpn_fps_ass_l403a1.adds = self.wpn_fps_ass_l403a1.adds or {}
+
+			for i, part_id in ipairs(self.wpn_fps_ass_l403a1.uses_parts) do
+				if not table.contains(self.wpn_fps_ass_l403a1.default_blueprint, part_id) then
+					if self.parts[part_id] and self.parts[part_id].type and self.parts[part_id].type == "sight" then
+						self.wpn_fps_ass_l403a1.adds[part_id] = {
+							"wpn_fps_ass_l403a1_irons_rear_folded"
+						}
+					end
+				end
+			end
+
+			self.wpn_fps_ass_l403a1.override = self.wpn_fps_ass_l403a1.override or {}
+			self.wpn_fps_ass_l403a1.override.wpn_fps_upg_m4_s_standard = {
+				stats = {},
+				custom_stats = {}
+			}
+
+			self.wpn_fps_ass_l403a1_npc.default_blueprint = deep_clone(self.wpn_fps_ass_l403a1.default_blueprint)
+			self.wpn_fps_ass_l403a1_npc.uses_parts = deep_clone(self.wpn_fps_ass_l403a1.uses_parts)	
+			self.wpn_fps_ass_l403a1_npc.adds = deep_clone(self.wpn_fps_ass_l403a1.adds)
+			self.wpn_fps_ass_l403a1_npc.override = deep_clone(self.wpn_fps_ass_l403a1.override)	
+		end
+
+		if self.parts.wpn_fps_ass_l119a2_magazine_pmag then
+
+			for i, part_id in ipairs(self.wpn_fps_ass_l119a2.default_blueprint) do
+				self.parts[part_id].pcs = nil
+			end
+
+			self.wpn_fps_ass_l119a2.override = self.wpn_fps_ass_l119a2.override or {}
+			self.wpn_fps_ass_l119a2.override.wpn_fps_upg_m4_s_standard = {
+				stats = {},
+				custom_stats = {}
+			}
+		end
+
 		if self.parts.wpn_fps_snp_mptango41_scope then
 
 			self.parts.wpn_fps_snp_mptango41_grip.supported = true
@@ -26801,7 +26961,6 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 			self.wpn_fps_snp_mptango41_npc.adds = deep_clone(self.wpn_fps_snp_mptango41.adds)	
 			self.wpn_fps_snp_mptango41_npc.uses_parts = deep_clone(self.wpn_fps_snp_mptango41.uses_parts)	
-			
 		end
 
 		--TTI GEN-12
