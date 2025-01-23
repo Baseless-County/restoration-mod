@@ -1306,7 +1306,12 @@ function CharacterTweakData:_init_sniper(presets)
 	self.sniper.allowed_poses = {stand = true}
 	self.sniper.move_speed = presets.move_speed.very_fast
 	self.sniper.shooting_death = false
-	self.sniper.no_move_and_shoot = true
+	--I don't want to add a new tweak_table just for one heist
+	if job == "watchdogs_2" or job == "watchdogs_2_day" then
+		self.sniper.no_move_and_shoot = false
+	else	
+		self.sniper.no_move_and_shoot = true
+	end
 	self.sniper.move_and_shoot_cooldown = 1
 	self.sniper.suppression = nil
 	self.sniper.melee_weapon = nil
@@ -3130,7 +3135,7 @@ function CharacterTweakData:_init_phalanx_vip(presets)
 	self.phalanx_vip.flammable = false
 	self.phalanx_vip.can_be_tased = false
 	self.phalanx_vip.ecm_vulnerability = nil
-	self.phalanx_vip.die_sound_event = "l2n_x01a_any_3p"
+	self.phalanx_vip.die_sound_event = "l2n_burndeath" --more effective death scream
 	self.phalanx_vip.kill_taunt = "a02"
 	self.phalanx_vip.must_headshot = true
 	self.phalanx_vip.ends_assault_on_death = true
@@ -3207,7 +3212,7 @@ end
 
 function CharacterTweakData:_init_spring(presets)
 	self.spring = deep_clone(self.tank)
-	self.spring.tags = {"law", "custom", "special", "captain", "spring", "tank"}
+	self.spring.tags = {"law", "custom", "special", "captain", "spring"}
 	self.spring.move_speed = presets.move_speed.very_slow
 	self.spring.rage_move_speed = presets.move_speed.fast
 	self.spring.can_throw_frag = true

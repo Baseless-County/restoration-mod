@@ -521,7 +521,7 @@ local weapons_map = {
 	[Idstring("units/payday2/characters/ene_gang_black_3/ene_gang_black_3"):key()] = {"c45", "mac11", "mossberg", "ak47", "raging_bull"},
 	[Idstring("units/payday2/characters/ene_gang_black_4/ene_gang_black_4"):key()] = {"c45", "mac11", "mossberg", "ak47", "raging_bull"},
 	
-	[Idstring("units/payday2/characters/ene_gang_black_enforcer/ene_gang_black_enforcer"):key()] = {"ak47", "r870"},
+	[Idstring("units/payday2/characters/ene_gang_black_enforcer/ene_gang_black_enforcer"):key()] = {"ak47", "rpk_lmg", "saiga"},
 
 	--Russian Gangster Weapon Changes
 	[Idstring("units/payday2/characters/ene_gang_russian_1/ene_gang_russian_1"):key()] = {"c45", "mac11", "mossberg", "ak47", "raging_bull"},
@@ -530,12 +530,14 @@ local weapons_map = {
 	[Idstring("units/payday2/characters/ene_gang_russian_4/ene_gang_russian_4"):key()] = {"c45", "mac11", "mossberg", "ak47", "raging_bull"},
 	[Idstring("units/payday2/characters/ene_gang_russian_5/ene_gang_russian_5"):key()] = {"c45", "mac11", "mossberg", "ak47", "raging_bull"},
 
+	[Idstring("units/payday2/characters/ene_gang_mobster_enforcer/ene_gang_mobster_enforcer"):key()] = {"m32", "rpk_lmg", "saiga"},
+
 	-- colombians
 	[Idstring("units/pd2_dlc_flat/characters/ene_gang_colombian_1/ene_gang_colombian_1"):key()] = {"m1911_npc", "ak47", "r870", "raging_bull"},
 	[Idstring("units/pd2_dlc_flat/characters/ene_gang_colombian_2/ene_gang_colombian_2"):key()] = {"m1911_npc", "ak47", "r870", "raging_bull"},
 	[Idstring("units/pd2_dlc_flat/characters/ene_gang_colombian_3/ene_gang_colombian_3"):key()] = {"m1911_npc", "ak47", "r870", "raging_bull"},
 	
-	[Idstring("units/pd2_dlc_flat/characters/ene_gang_colombian_enforcer/ene_gang_colombian_enforcer"):key()] = {"ak47", "r870"},
+	[Idstring("units/pd2_dlc_flat/characters/ene_gang_colombian_enforcer/ene_gang_colombian_enforcer"):key()] = {"ak47", "rpk_lmg", "saiga"},
 	
 	--Bolivian Weapons
 	[Idstring("units/pd2_dlc_friend/characters/ene_bolivian_thug_outdoor_01/ene_bolivian_thug_outdoor_01"):key()] = {"c45", "mac11", "mossberg", "raging_bull"},
@@ -729,7 +731,12 @@ function CopBase:default_weapon_name(...)
 		self._default_weapon_id = "aa12_dozer"
 		self._weapon_set = true
 	end
-	
+	--Scripted Reaper Titan Snipers carry modified M308 (For consistency with factions)
+	if self._tweak_table == "heavy_swat_sniper_scripted" and faction == "russia" or self._tweak_table == "heavy_swat_sniper_scripted" and faction == "federales" then
+		self._default_weapon_id = "heavy_zeal_sniper"
+		self._weapon_set = true
+	end
+
 	if not self._weapon_set and weapon_override then
 		self._default_weapon_id = type(weapon_override) == "table" and table.random(weapon_override) or weapon_override
 		self._weapon_set = true
