@@ -512,7 +512,7 @@ function PlayerStandard:_check_change_weapon(t, input)
 			}
 			self._change_weapon_pressed_expire_t = t + 0.33
 
-			self:_start_action_unequip_weapon(t, data)
+			self:_start_action_unequip_weapon(t, data, true)
 
 			new_action = true
 
@@ -4175,15 +4175,25 @@ function PlayerStandard:_start_action_reload(t)
  	end
 end
 
-function PlayerStandard:_get_swap_speed_multiplier()
+function PlayerStandard:_get_swap_speed_multiplier(use_alt)
 	local multiplier = 1
-	local weapon_tweak_data = self._equipped_unit:base():weapon_tweak_data()
+	local weap_base = self._equipped_unit:base()
+	local weapon_tweak = weap_base and weap_base:weapon_tweak_data()
+	local alt_swap = (self._unit:inventory():equipped_selection() == 1 and self._unit:inventory():unit_by_selection(2):base()) or 
+		(self._unit:inventory():equipped_selection() == 2 and self._unit:inventory():unit_by_selection(1):base())
+	local alt_swap_tweak = alt_swap and alt_swap:weapon_tweak_data()
+	if weapon_tweak and weapon_tweak.use_unequip_swap then
+		use_alt = nil
+	end
 	multiplier = multiplier * managers.player:upgrade_value("weapon", "swap_speed_multiplier", 1)
 	multiplier = multiplier * managers.player:upgrade_value("weapon", "passive_swap_speed_multiplier", 1)
-	multiplier = multiplier * tweak_data.weapon.stats.mobility[self._equipped_unit:base():get_concealment() + 1] --Get concealment bonus/penalty.
+	multiplier = multiplier * tweak_data.weapon.stats.mobility[ (
+		(use_alt and alt_swap:get_concealment()) or 
+		(weap_base:get_concealment())
+	) + 1] --Get concealment bonus/penalty.
 
 	--Get per category multipliers (IE: Pistols swap faster, Akimbos swap slower, ect).
-	for _, category in ipairs(weapon_tweak_data.categories) do
+	for _, category in ipairs((use_alt and alt_swap_tweak.categories) or weapon_tweak.categories) do
 		multiplier = multiplier * managers.player:upgrade_value(category, "swap_speed_multiplier", 1)
 		multiplier = multiplier * (tweak_data[category] and tweak_data[category].swap_bonus or 1)
 	end
@@ -4193,7 +4203,7 @@ function PlayerStandard:_get_swap_speed_multiplier()
 	end
 
 	--Get per weapon multiplier.
-	multiplier = multiplier * (weapon_tweak_data.swap_speed_multiplier or 1)
+	multiplier = multiplier * ((use_alt and alt_swap_tweak.swap_speed_multiplier) or weapon_tweak.swap_speed_multiplier or 1)
 
 	multiplier = multiplier * managers.player:upgrade_value("team", "crew_faster_swap", 1)
 
@@ -4544,8 +4554,8 @@ function PlayerStandard:_check_action_cash_inspect(t, input)
 	managers.player:send_message(Message.OnCashInspectWeapon)
 end
 
-function PlayerStandard:_start_action_unequip_weapon(t, data)
-	local speed_multiplier = self:_get_swap_speed_multiplier()
+function PlayerStandard:_start_action_unequip_weapon(t, data, alt_swap)
+	local speed_multiplier = self:_get_swap_speed_multiplier(alt_swap)
 
 	self._equipped_unit:base():tweak_data_anim_stop("equip")
 	self._equipped_unit:base():tweak_data_anim_play("unequip", speed_multiplier)
