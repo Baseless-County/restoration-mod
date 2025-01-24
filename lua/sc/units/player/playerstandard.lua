@@ -4182,6 +4182,9 @@ function PlayerStandard:_get_swap_speed_multiplier(use_alt)
 	local alt_swap = (self._unit:inventory():equipped_selection() == 1 and self._unit:inventory():unit_by_selection(2):base()) or 
 		(self._unit:inventory():equipped_selection() == 2 and self._unit:inventory():unit_by_selection(1):base())
 	local alt_swap_tweak = alt_swap and alt_swap:weapon_tweak_data()
+	if weapon_tweak and weapon_tweak.use_unequip_swap then
+		use_alt = nil
+	end
 	multiplier = multiplier * managers.player:upgrade_value("weapon", "swap_speed_multiplier", 1)
 	multiplier = multiplier * managers.player:upgrade_value("weapon", "passive_swap_speed_multiplier", 1)
 	multiplier = multiplier * tweak_data.weapon.stats.mobility[ (

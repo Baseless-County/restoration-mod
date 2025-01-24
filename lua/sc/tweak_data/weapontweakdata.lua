@@ -3735,6 +3735,7 @@ function WeaponTweakData:_init_stats()
 
 	--Weapon swap speed multiplier from concealment.
 	--Calculated using fancier math than just y = mx+b to give linear returns to players.
+	--[[
 	self.stats.mobility = {
 		0.400,
 		0.410,
@@ -3745,7 +3746,7 @@ function WeaponTweakData:_init_stats()
 		0.475,
 		0.490,
 		0.506,
-		0.524, 
+		0.524,
 		0.542,
 		0.562,
 		0.584,
@@ -3770,6 +3771,13 @@ function WeaponTweakData:_init_stats()
 		2.148,
 		2.500
 	}
+	--]]
+	--Attempted to redo the math on this to reduce the range of this stat; the math is not 100% exact but it's close enough for me
+	self.stats.mobility = {}
+	for i = 0, 1, 1/33 do
+		local k = math.lerp( 1.9, 0.8, i)
+		table.insert( self.stats.mobility, math.ceil(1/k*1000)/1000 )
+	end
 	
 	self.stats.extra_ammo = {}
 	for i = -100, 1500, 1 do
@@ -5643,6 +5651,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.fmg9.stats_modifiers = nil
 						self.fmg9.panic_suppression_chance = 0.05	
 						self.fmg9.swap_speed_multiplier = 0.45
+						self.fmg9.use_unequip_swap = true
 
 					--Beretta Auto (93R)
 						self.beer.has_description = true
@@ -7191,7 +7200,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						}
 						self.sub2000.panic_suppression_chance = 0.05
 						self.sub2000.stats_modifiers = nil
-						self.sub2000.swap_speed_multiplier = 0.5
+						self.sub2000.use_unequip_swap = true
+						self.sub2000.swap_speed_multiplier = 0.4
 						self.sub2000.timers.reload_exit_empty = 0.85
 						self.sub2000.timers.reload_exit_not_empty = 0.95
 
@@ -8298,6 +8308,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.peacemaker.timers.shotgun_reload_first_shell_offset = 0.5
 						self.peacemaker.timers.shotgun_reload_exit_empty = 0.7
 						self.peacemaker.timers.shotgun_reload_exit_not_empty = 0.7
+						self.peacemaker.use_unequip_swap = true
+						self.peacemaker.swap_speed_multiplier = 0.9
 
 		--[[     MGs     ]]--
 
@@ -16846,7 +16858,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.fmgnine.stats_modifiers = nil
 				self.fmgnine.panic_suppression_chance = 0.05
-				self.fmgnine.swap_speed_multiplier = 0.52
+				self.fmgnine.use_unequip_swap = true
+				self.fmgnine.swap_speed_multiplier = 0.5
 				self.fmgnine.timers.equip = 1.5
 				self.fmgnine.timers.reload_not_empty = 2.07
 				self.fmgnine.timers.reload_exit_not_empty = 0.8
@@ -16895,7 +16908,8 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.x_fmgnine.stats_modifiers = nil
 				self.x_fmgnine.panic_suppression_chance = 0.05
-				self.x_fmgnine.swap_speed_multiplier = 0.52
+				self.x_fmgnine.use_unequip_swap = true
+				self.x_fmgnine.swap_speed_multiplier = 0.5
 				self.x_fmgnine.timers.equip = 1.8
 				self.x_fmgnine.timers.reload_not_empty = 2.5
 				self.x_fmgnine.timers.reload_exit_not_empty = 0.8
