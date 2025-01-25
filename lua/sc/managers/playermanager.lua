@@ -1151,7 +1151,8 @@ function PlayerManager:apply_slow_debuff(duration, power, was_from_enemy, ignore
 			start_time = Application:time()
 		}
 		if not ignore_hud then
-			managers.hud:activate_effect_screen(duration, {0.0, 0.2, power})
+			local effect_alpha = (restoration.Options:GetValue("HUD/Extra/ScreenEffectAlpha") or 1)
+			managers.hud:activate_effect_screen(duration, Vector3(0.0, 0.2, power) * effect_alpha)
 		end
 	end
 end
