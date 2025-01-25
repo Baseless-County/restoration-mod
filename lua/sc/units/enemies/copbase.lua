@@ -731,11 +731,6 @@ function CopBase:default_weapon_name(...)
 		self._default_weapon_id = "aa12_dozer"
 		self._weapon_set = true
 	end
-	--Scripted Reaper Titan Snipers carry modified M308 (For consistency with factions)
-	if self._tweak_table == "heavy_swat_sniper_scripted" and faction == "russia" or self._tweak_table == "heavy_swat_sniper_scripted" and faction == "federales" then
-		self._default_weapon_id = "heavy_zeal_sniper"
-		self._weapon_set = true
-	end
 
 	if not self._weapon_set and weapon_override then
 		self._default_weapon_id = type(weapon_override) == "table" and table.random(weapon_override) or weapon_override

@@ -553,7 +553,7 @@ function PlayerDamage:damage_bullet(attack_data)
 		end
 	end
 
-	if attacker_unit:base()._tweak_table == "tank" or attacker_unit:base()._tweak_table == "tank_black" or attacker_unit:base()._tweak_table == "tank_skull" or attacker_unit:base()._tweak_table == "tank_medic" or attacker_unit:base()._tweak_table == "tank_mini" or attacker_unit:base()._tweak_table == "tank_biker" then
+	if attacker_unit:base()._tweak_table == "tank" or attacker_unit:base()._tweak_table == "tank_black" or attacker_unit:base()._tweak_table == "tank_skull" or attacker_unit:base()._tweak_table == "tank_medic" or attacker_unit:base()._tweak_table == "tank_mini" or attacker_unit:base()._tweak_table == "tank_biker" or attacker_unit:base()._tweak_table == "tank_titan" or attacker_unit:base()._tweak_table == "tank_titan_assault" or attacker_unit:base()._tweak_table == "tank_hw" or attacker_unit:base()._tweak_table == "tank_hw_black" then
 		managers.achievment:set_script_data("dodge_this_fail", true)
 	end
 	

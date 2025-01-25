@@ -210,6 +210,20 @@ function StatisticsManager:init()
 			explosion = 0,
 			tied = 0
 		}
+	self._defaults.killed.heavy_swat_sniper_scripted = {
+			count = 0,
+			head_shots = 0,
+			melee = 0,
+			explosion = 0,
+			tied = 0
+		}
+	self._defaults.killed.marshal_marksman_scripted = {
+			count = 0,
+			head_shots = 0,
+			melee = 0,
+			explosion = 0,
+			tied = 0
+		}	
 	self._defaults.killed.tank_biker = {
 			count = 0,
 			head_shots = 0,
@@ -332,6 +346,13 @@ function StatisticsManager:init()
 		}
 	--Weekend	
 	self._defaults.killed.weekend_dmr = {
+			count = 0,
+			head_shots = 0,
+			melee = 0,
+			explosion = 0,
+			tied = 0
+		}
+		self._defaults.killed.weekend_dmr_scripted = {
 			count = 0,
 			head_shots = 0,
 			melee = 0,
