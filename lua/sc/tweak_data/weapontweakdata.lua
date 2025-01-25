@@ -19757,6 +19757,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.l403a1.timers.reload_exit_not_empty = 0.9
 				self.l403a1.timers.reload_empty = 2.3
 				self.l403a1.timers.reload_exit_empty = 0.7
+				self.l403a1.sounds.magazine_empty = "wp_rifle_slide_lock"
 			end
 
 			if self.l119a2 then
@@ -19805,6 +19806,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.l119a2.timers.reload_exit_not_empty = 1.1
 				self.l119a2.lock_slide = true
 				self.l119a2.lock_slide_offset = 0.066
+				self.l119a2.sounds.magazine_empty = "wp_rifle_slide_lock"
 			end
 
 			if self.mptango41 then --Vanguard "PTRS-41" (Fuck you, Sledgehammer)
