@@ -8,7 +8,7 @@ local murky_heavy_shotgun = (difficulty == 8 and "units/pd2_mod_sharks/character
 local murky_tank = (difficulty == 8 and "units/pd2_mod_sharks/characters/ene_murky_fbi_tank_benelli/ene_murky_fbi_tank_benelli") or "units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"
 local murky_tank_black = "units/pd2_mod_sharks/characters/ene_murky_fbi_tank_saiga/ene_murky_fbi_tank_saiga"
 local murky_tank_skull = "units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"
-local titandozer = "units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2"
+local titandozer = "units/pd2_dlc_vip/characters/ene_vip_2_assault/ene_vip_2_assault"
 local murky_taser = "units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"
 local murky_cloaker = "units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"
 local hard_above = difficulty >= 3

@@ -2853,11 +2853,6 @@ ElementSpawnEnemyDummy.enemy_mapping = {
 	[Idstring("units/pd2_dlc_bex/characters/ene_swat_medic_policia_federale_r870/ene_swat_medic_policia_federale_r870"):key()] = "medic",
 	[Idstring("units/pd2_dlc_bex/characters/ene_swat_tazer_policia_federale/ene_swat_tazer_policia_federale"):key()] = "taser",
 	[Idstring("units/pd2_dlc_bex/characters/ene_swat_cloaker_policia_federale/ene_swat_cloaker_policia_federale"):key()] = "cloaker",
-	--Resmod Specific Units
-	--Murkywater
-	--Specials
-	[Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"):key()] = "res_taser",
-	[Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"):key()] = "res_cloaker",
 	--Custom Factions
 	--FSB
 	--Security

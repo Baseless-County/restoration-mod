@@ -950,7 +950,7 @@ function CharacterTweakData:_init_heavy_swat(presets)
 	self.heavy_swat_sniper_scripted.access = "sniper"
 	self.heavy_swat_sniper_scripted.detection = presets.detection.sniper
 	self.heavy_swat_sniper_scripted.no_move_and_shoot = true --making sure that they won't shoot upon spawn and move to their SO spot
-	self.heavy_swat_sniper_scripted.HEALTH_INIT = 9.75 --lower their health up to 50%
+	self.heavy_swat_sniper_scripted.HEALTH_INIT = 9 --lower their health to 90 HP
 	self.heavy_swat_sniper_scripted.headshot_dmg_mul = 3.75
 	self.heavy_swat_sniper_scripted.die_sound_event_2 = "mga_death_scream"
 	self.heavy_swat_sniper_scripted.damage.hurt_severity = presets.hurt_severities.no_hurts
@@ -988,7 +988,7 @@ function CharacterTweakData:_init_heavy_swat(presets)
 	self.weekend_dmr_scripted.access = "sniper"
 	self.weekend_dmr_scripted.detection = presets.detection.sniper
 	self.weekend_dmr_scripted.no_move_and_shoot = true
-	self.weekend_dmr_scripted.HEALTH_INIT = 14.75 
+	self.weekend_dmr_scripted.HEALTH_INIT = 14 --lower their health to 140 HP
 	self.weekend_dmr_scripted.headshot_dmg_mul = 4.75
 	self.weekend_dmr_scripted.die_sound_event_2 = "mga_death_scream"
 	self.weekend_dmr_scripted.damage.hurt_severity = presets.hurt_severities.no_hurts
@@ -2646,6 +2646,10 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_titan.damage.explosion_damage_mul = 1.25
 	self.tank_titan.damage.rocket_damage_mul = 1.25
 	self.tank_titan.melee_push_multiplier = 2 --he punches you harder now
+	--this is just for his LMG variant
+	self.tank_titan.dt_suppress = {
+		range = 600
+	}
 	self.tank_titan.is_special = true
 	self.tank_titan.no_asu = true
 	self.tank_titan.heal_cooldown = 22.5
