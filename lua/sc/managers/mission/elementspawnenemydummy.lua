@@ -2613,6 +2613,23 @@ if level_id == "jolly" then
 		"units/pd2_mod_bravo/characters/ene_bravo_dmr_scripted/ene_bravo_dmr_scripted"
 	}
 end
+if level_id == "wetwork_burn" then
+	ElementSpawnEnemyDummy.faction_mapping.murkywater.sm_wish.murky_guard = {
+		"units/pd2_mod_omnia/characters/ene_omnia_crew/ene_omnia_crew",
+		"units/pd2_mod_omnia/characters/ene_omnia_crew_2/ene_omnia_crew_2",
+		"units/pd2_mod_omnia/characters/ene_omnia_crew/ene_omnia_crew",
+		"units/pd2_mod_omnia/characters/ene_omnia_crew_2/ene_omnia_crew_2",
+		"units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy",
+		"units/pd2_mod_omnia/characters/ene_omnia_heavy_r870/ene_omnia_heavy_r870"
+	}
+	ElementSpawnEnemyDummy.faction_mapping.murkywater.sm_wish.sniper = {
+		"units/pd2_mod_omnia/characters/ene_omnia_sniper/ene_omnia_sniper",
+		"units/pd2_mod_omnia/characters/ene_omnia_sniper_2/ene_omnia_sniper_2",
+		"units/pd2_mod_omnia/characters/ene_omnia_sniper/ene_omnia_sniper",
+		"units/pd2_mod_omnia/characters/ene_omnia_sniper_2/ene_omnia_sniper_2",
+		"units/pd2_dlc_vip/characters/ene_titan_sniper_scripted/ene_titan_sniper_scripted"
+	}
+end	
 
 ElementSpawnEnemyDummy.faction_mapping.america.normal = ElementSpawnEnemyDummy.faction_mapping.america.overkill
 ElementSpawnEnemyDummy.faction_mapping.america.hard = ElementSpawnEnemyDummy.faction_mapping.america.overkill

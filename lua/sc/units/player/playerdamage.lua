@@ -382,7 +382,8 @@ function PlayerDamage:_apply_damage(attack_data, damage_info, variant, t)
 	if ((attack_data.armor_piercing or variant == "explosion" or variant == "fire") and not self._unpierceable) or self_damage then
 		attack_data.damage = attack_data.damage - health_subtracted
 		if not _G.IS_VR then --Add screen effect to signify armor piercing attack.
-			managers.hud:activate_effect_screen(0.75, {1, 0.2, 0})
+			local effect_alpha = (restoration.Options:GetValue("HUD/Extra/ScreenEffectAlpha") or 1)
+			managers.hud:activate_effect_screen(0.75, Vector3(1, 0.2, 0) * effect_alpha)
 		end
 	else
 		attack_data.damage = attack_data.damage * armor_reduction_multiplier
@@ -552,7 +553,7 @@ function PlayerDamage:damage_bullet(attack_data)
 		end
 	end
 
-	if attacker_unit:base()._tweak_table == "tank" or attacker_unit:base()._tweak_table == "tank_black" or attacker_unit:base()._tweak_table == "tank_skull" or attacker_unit:base()._tweak_table == "tank_medic" or attacker_unit:base()._tweak_table == "tank_mini" or attacker_unit:base()._tweak_table == "tank_biker" then
+	if attacker_unit:base()._tweak_table == "tank" or attacker_unit:base()._tweak_table == "tank_black" or attacker_unit:base()._tweak_table == "tank_skull" or attacker_unit:base()._tweak_table == "tank_medic" or attacker_unit:base()._tweak_table == "tank_mini" or attacker_unit:base()._tweak_table == "tank_biker" or attacker_unit:base()._tweak_table == "tank_titan" or attacker_unit:base()._tweak_table == "tank_titan_assault" or attacker_unit:base()._tweak_table == "tank_hw" or attacker_unit:base()._tweak_table == "tank_hw_black" then
 		managers.achievment:set_script_data("dodge_this_fail", true)
 	end
 	
@@ -603,6 +604,7 @@ function PlayerDamage:damage_bullet(attack_data)
 		local knockback_resistance = pm:upgrade_value("player", "knockback_resistance", 1) or 1
 		--Pain and suffering
 		if distance then
+			local effect_alpha = (restoration.Options:GetValue("HUD/Extra/ScreenEffectAlpha") or 1)
 			--Scab Gunner
 			if tweak_data.character[attacker_unit:base()._tweak_table].dt_suppress and alive(self._unit) and not driving then
 				range = tweak_data.character[attacker_unit:base()._tweak_table].dt_suppress.range
@@ -620,7 +622,7 @@ function PlayerDamage:damage_bullet(attack_data)
 				}
 				self._unit:camera():play_shaker(vars[math.random(#vars)], 0.02)
 				self._unit:movement():current_state()._spread_stun_t = 0.5
-				managers.hud:activate_effect_screen(0.5, {0.6, 0.3, 0.1})
+				managers.hud:activate_effect_screen(0.5, Vector3(0.6, 0.3, 0.1) * effect_alpha)
 			end
 
 			--Shotgunner
@@ -633,7 +635,7 @@ function PlayerDamage:damage_bullet(attack_data)
 					}
 					self._unit:camera():play_shaker(vars[math.random(#vars)], 0.25, 0.5)
 					self._unit:movement():current_state()._d_scope_t = 0.5
-					managers.hud:activate_effect_screen(0.7, {0.35, 0.25, 0.1})
+					managers.hud:activate_effect_screen(0.7, Vector3(0.35, 0.25, 0.1) * effect_alpha)
 				end
 			end
 

@@ -763,7 +763,38 @@ function GroupAITweakData:_init_unit_categories(difficulty_index)
 			}
 		},
 		access = access_type_all
-	}				
+	}
+
+	self.unit_categories.omnia_LPF = {
+		unit_types = {
+			america = {
+				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+			},
+			russia = {
+				Idstring("units/pd2_mod_reapers/characters/ene_subject_enforcer/ene_subject_enforcer")
+			},
+			zombie = {
+				Idstring("units/pd2_mod_halloween/characters/ene_omnia_lpf/ene_omnia_lpf")
+			},
+			murkywater = {
+				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+			},
+			federales = {
+				Idstring("units/pd2_mod_reapers/characters/ene_akan_lpf/ene_akan_lpf")
+			},				
+			nypd = {
+				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+			},		
+			lapd = {
+				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+			},
+			fbi = {
+				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+			}
+		},
+		access = access_type_all
+    }
+
 	if difficulty_index <= 6 then
 		self.unit_categories.fbi_vet = {
 			unit_types = {
@@ -8691,32 +8722,32 @@ end
 	--Titan Snipers that spawn with Winters on DS, clone the real one but set the captain flag
 	self.unit_categories.Phalanx_sniper = deep_clone(self.unit_categories.titan_sniper)
 	self.unit_categories.Phalanx_sniper.ignore_spawn_cap = true
-    --OMNIA LPFs that spawn with Winters on DS (Pro Job only)
-    self.unit_categories.omnia_LPF = {
+	--LMG Titandozers that spawn with Winters on DS (Pro Job only)
+	self.unit_categories.Phalanx_dozer = {
 		unit_types = {
 			america = {
-				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
 			},
 			russia = {
-				Idstring("units/pd2_mod_reapers/characters/ene_subject_enforcer/ene_subject_enforcer")
+				Idstring("units/pd2_mod_reapers/characters/ene_vip_2/ene_vip_2")
 			},
 			zombie = {
-				Idstring("units/pd2_mod_halloween/characters/ene_omnia_lpf/ene_omnia_lpf")
+				Idstring("units/payday2/characters/ene_bulldozer_4/ene_bulldozer_4")
 			},
 			murkywater = {
-				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
 			},
 			federales = {
-				Idstring("units/pd2_mod_reapers/characters/ene_akan_lpf/ene_akan_lpf")
+				Idstring("units/pd2_mod_reapers/characters/ene_vip_2/ene_vip_2")
 			},				
 			nypd = {
-				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
 			},		
 			lapd = {
-				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
 			},
 			fbi = {
-				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
 			}
 		},
 		access = access_type_all,
@@ -16928,11 +16959,11 @@ function GroupAITweakData:_init_enemy_spawn_groups(difficulty_index)
 					rank = 2
 				},
 				{
-					unit = "omnia_LPF",
+					unit = "Phalanx_dozer", --they're scary
 					freq = 1,
 					amount_min = 2,
 					amount_max = 2,
-					tactics = self._tactics.FBI_medic_flank,
+					tactics = self._tactics.Cap_winters_minion,
 					rank = 2
 				},
 				{

@@ -4,8 +4,7 @@ local security_guard_3 = "units/payday2/characters/ene_security_3/ene_security_3
 local security_table = {security_guard_1, security_guard_1, security_guard_2, security_guard_2, security_guard_3}
 local difficulty = tweak_data:difficulty_to_index(Global.game_settings and Global.game_settings.difficulty or "normal")
 local pro_job = Global.game_settings and Global.game_settings.one_down
-local diff_scaling_1 = 0.125 * difficulty
-local diff_scaling_2 = 0.065 * difficulty
+local diff_scaling = 0.065 * difficulty
 local shield = "units/payday2/characters/ene_shield_2/ene_shield_2"
 local sniper = "units/payday2/characters/ene_sniper_1/ene_sniper_1"
 local tank = "units/payday2/characters/ene_bulldozer_1/ene_bulldozer_1"
@@ -19,8 +18,8 @@ local overkill_above = difficulty >= 5
 local death_wish_above = difficulty >= 7
 local death_sentence = difficulty == 8
 local enabled_chance_more_guards = math.random() < 0.5
-local enabled_chance_shields = math.random() < diff_scaling_2
-local enabled_chance_dozers_exitvault = math.random() < diff_scaling_2
+local enabled_chance_shields = math.random() < diff_scaling
+local enabled_chance_dozers_exitvault = math.random() < diff_scaling
 local enabled_chance_dozers_ambush_escape = math.random() < 0.5
 local surprise_tank_chance = math.random() < 0.5
 

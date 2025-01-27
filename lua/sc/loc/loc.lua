@@ -775,6 +775,8 @@ Hooks:Add("LocalizationManagerPostInit", "ResMod_english_Localization", function
 		["RestorationModScaleDescID"] = "Changes HUD scaling. May require a restart.",
 		["RestorationModSizeOnScreenTitleID"] = "HUD size on screen",
 		["RestorationModSizeOnScreenDescID"] = "Changes the size of the HUD on the screen. May require a restart.",
+		["RestorationModScreenEffectAlphaTitleID"] = "Screen Effect Strength",
+		["RestorationModScreenEffectAlphaDescID"] = "Set the transparency of the screen effect when hit with slowdown or knockback. Default: 1",
 		["RestorationModTeammateTitleID"] = "Alpha teammates panel",
 		["RestorationModTeammateDescID"] = "Enable or disable the alpha teammates panel, which displays you & your team's statistics.",
 		["RestorationModHeistTimerTitleID"] = "Alpha heist timer",
