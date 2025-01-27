@@ -1125,16 +1125,18 @@ function PlayerStandard:_check_action_primary_attack(t, input, params)
 
 					local fired = nil
 					local fired_func = self._primary_action_get_value.fired[fire_mode]
+					local spin_up_semi = weap_base:weapon_tweak_data().spin_up_semi
+					local spin_up_check = (not spin_up_semi and fire_mode ~= "single") or spin_up_semi
 
 					if fired_func then
 						fired = fired_func(self, t, input, params, weap_unit, weap_base, start_shooting, fire_on_release, dmg_mul, nil, spread_mul, autohit_mul, suppression_mul)
-						self._spin_up_shoot = not self._already_fired and weap_base:weapon_tweak_data().spin_up_shoot
+						self._spin_up_shoot = spin_up_check and not self._already_fired and weap_base:weapon_tweak_data().spin_up_shoot
 					else
 						fired_func = self._primary_action_get_value.fired.default
 
 						if fired_func then
 							fired = fired_func(self, t, input, params, weap_unit, weap_base, start_shooting, fire_on_release, dmg_mul, nil, spread_mul, autohit_mul, suppression_mul)
-							self._spin_up_shoot = not self._already_fired and weap_base:weapon_tweak_data().spin_up_shoot
+							self._spin_up_shoot = spin_up_check and not self._already_fired and weap_base:weapon_tweak_data().spin_up_shoot
 						end
 					end
 
