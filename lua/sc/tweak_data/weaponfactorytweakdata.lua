@@ -29920,6 +29920,11 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				self.parts.wpn_fps_ass_mike4_2022_stock_2019.stats = { value = 0 }
 				self.parts.wpn_fps_ass_mike4_2022_stock_2019.custom_stats = nil
 				--Demo D50 Buffer Tube
+				self.parts.wpn_fps_ass_mike4_2022_stock_light.supported = true
+				self.parts.wpn_fps_ass_mike4_2022_stock_light.stats = deep_clone(stocks.adj_acc_stats)
+				self.parts.wpn_fps_ass_mike4_2022_stock_light.stats.value = 0
+				self.parts.wpn_fps_ass_mike4_2022_stock_light.custom_stats = deep_clone(stocks.adj_acc_stats)
+				--Demo D50 Buffer Tube
 				self.parts.wpn_fps_ass_mike4_2022_stock_no.supported = true
 				self.parts.wpn_fps_ass_mike4_2022_stock_no.stats = deep_clone(stocks.remove_adj_stats)
 				self.parts.wpn_fps_ass_mike4_2022_stock_no.stats.value = 0
