@@ -5110,6 +5110,30 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 		self:_stance_entered(nil, timemult)
 	end
 
+	function PlayerStandard:_cancel_wallrun(t, kick_off_mode, timemult)
+		local exit_wallrun_vel = Vector3()
+		if self._unit:mover() and self._end_wallrun_kick_dir and kick_off_mode == "fall" then
+			mvector3.add(exit_wallrun_vel, self._end_wallrun_kick_dir)
+			self._unit:mover():set_velocity(exit_wallrun_vel)
+		end
+
+		if self._unit:mover() then
+			self._unit:mover():set_gravity(Vector3(0, 0, -982))
+		end
+
+		if kick_off_mode == "jump" then
+			self:_do_wallkick()
+		end
+
+		if self._state_data.in_air then
+			self._state_data.enter_air_pos_z = self._pos.z
+		end
+		self._is_wallrunning = nil
+		self._last_wallrun_t = t
+		self._last_wallkick_t = t
+		self:_stance_entered(nil, timemult)
+	end
+
 	Hooks:RemovePostHook( "slide_update" )
 	Hooks:RemovePostHook( "check_wallrun_update" )
 	Hooks:RemovePostHook( "dash_update" )
@@ -5120,6 +5144,12 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 	--[ [
 		if not self._last_movekick_shake_t then
 			self._last_movekick_shake_t = 0
+		end
+
+		if self._wallkick_is_clinging and self._wallkick_hold_start_t and ((t - self._wallkick_hold_start_t) < 4) then
+			if self._state_data.in_air then
+				self._state_data.enter_air_pos_z = self._pos.z
+			end
 		end
 
 		--SLIDING STUFF
@@ -5391,7 +5421,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 		local nearest_ray2 = self:_get_nearest_wall_ray_dir(2, nil, nil, 40)
 		local nearest_wall_ray = nearest_ray1 or nearest_ray2
 		local speed = self:_get_modified_move_speed("run")
-		local kick_dir = Vector3(0, speed * 1.2, 0)
+		local kick_dir = Vector3(0, math.min(speed * 1.5, 950), 0)
 		local rotation = managers.player:equipped_weapon_unit():rotation()
 		local rotation_flat = self._ext_camera:rotation()
 		mvector3.set_x(rotation_flat, 0)
@@ -5432,6 +5462,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					self._unit:mover():set_gravity(Vector3(0, 0, -982))
 				end
 
+				if self._state_data.in_air then
+					self._state_data.enter_air_pos_z = self._pos.z
+				end
 				self._last_zdiff = zdiff
 		end
 

@@ -2865,6 +2865,7 @@ end)
 					table.insert(self.wpn_fps_pis_g17.uses_parts, "wpn_fps_smg_schakal_vg_surefire")
 
 					table.insert(self.wpn_fps_pis_g17.uses_parts, "wpn_fps_pis_g18c_s_stock")
+					table.insert(self.wpn_fps_pis_g17.uses_parts, "wpn_fps_upg_i_csglock")
 
 					self.wpn_fps_pis_g17.override.wpn_fps_pis_g18c_s_stock = {
 						adds = {"wpn_fps_pis_g17_s_mount"},
@@ -11069,6 +11070,11 @@ end)
 			--AK12
 				Hooks:PostHook(WeaponFactoryTweakData, "_init_flint", "resmod_flint", function(self)
 
+					self.parts.wpn_fps_ass_flint_o_standard.stance_mod = {
+						wpn_fps_ass_flint = {
+							translation = Vector3(0, -8, 0)
+						}
+					}
 					--AK17 Custom parts
 					--table.insert(self.wpn_fps_ass_flint.uses_parts, "wpn_fps_upg_m4_s_standard")
 					--table.insert(self.wpn_fps_ass_flint_npc.uses_parts, "wpn_fps_upg_m4_s_standard")	
@@ -11091,6 +11097,7 @@ end)
 					table.insert(self.wpn_fps_ass_flint.uses_parts, "wpn_lmg_rpk_m_ban")
 					table.insert(self.wpn_fps_ass_flint.uses_parts, "wpn_fps_upg_o_northtac")
 					table.insert(self.wpn_fps_ass_flint.uses_parts, "wpn_fps_upg_o_northtac_reddot")
+					table.insert(self.wpn_fps_ass_flint.uses_parts, "wpn_fps_upg_i_abakan")
 						
 					self.wpn_fps_ass_flint_npc.uses_parts = deep_clone(self.wpn_fps_ass_flint.uses_parts)	
 				end)
@@ -23966,6 +23973,53 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			value = 5,
 			spread = -5,
 			recoil = -8			
+		},
+		internal_part = true,
+		dlc = "sc"
+	}	
+
+	
+	self.parts.wpn_fps_upg_i_csglock = {
+		pcs = {},
+		type = "custom",
+		sub_type = "autofire",
+		name_id = "bm_wp_upg_i_csglock",
+		a_obj = "a_body",
+		has_description = true,
+		custom_stats = {
+			csglock_burst = true, add_burst = true, rof_mult = 0.5882352, ignore_rof_mult_anims = true
+		},
+		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_autofire",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		supported = true,
+		stats = {
+			value = 6,
+			spread = 4,
+			recoil = 4		
+		},
+		internal_part = true,
+		dlc = "sc"
+	}
+	
+	self.parts.wpn_fps_upg_i_abakan = {
+		pcs = {},
+		type = "custom",
+		sub_type = "autofire",
+		name_id = "bm_wp_upg_i_abakan",
+		a_obj = "a_body",
+		has_description = true,
+		custom_stats = {
+			abakan = true, rof_mult = 0.85714, ignore_rof_mult_anims = true
+		},
+		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_autofire",
+		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+		supported = true,
+		stats = {
+			value = 10,
+			spread = 1,
+			recoil = 2
 		},
 		internal_part = true,
 		dlc = "sc"

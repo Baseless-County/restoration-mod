@@ -877,7 +877,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 					self.values.smg.move_spread_multiplier = {0.4}
 				--Ace
 					self.values.smg.fire_rate_multiplier = {1.15, 1.15}
-					self.values.smg.full_auto_free_ammo = {5}
+					self.values.smg.full_auto_free_ammo = {4}
 					
 					self.skill_descs.sharpshooter = {
 						skill_value_b1 = tostring((1 - self.values.smg.move_spread_multiplier[1]) % 1 * 100) .."%", -- The movement penalty to accuracy
@@ -888,7 +888,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 			--Heavy Impact
 				--Basic
 					self.values.weapon.knock_down = {
-						0.2, --Ace
+						0.225, --Ace
 						0.2 --Unused
 					}
 				--Ace
@@ -905,7 +905,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 			--Body Expertise aka Spray N' Pray
 				self.values.player.ap_bullets = {0.5}
 				self.values.smg.ap_bullets = {1.0}
-				self.automatic_kills_to_damage_reset_t = 1.5 --delay to reset time (seconds)
+				self.automatic_kills_to_damage_reset_t = 1.2 --delay to reset time (seconds)
 				self.values.smg.automatic_kills_to_damage = {
 					{
 						3, --stack limit
