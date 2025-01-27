@@ -18048,6 +18048,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.sks.stats_modifiers = nil
 				self.sks.armor_piercing_chance = 0.25
+				self.sks.hs_mult = 1.5
 				self.sks.can_shoot_through_enemy = false
 				self.sks.ignore_reload_objects_not_empty = true
 				self.sks.panic_suppression_chance = 0.05
@@ -18100,6 +18101,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.skspug.stats_modifiers = nil
 				self.skspug.armor_piercing_chance = 0.25
+				self.skspug.hs_mult = 1.5
 				self.skspug.can_shoot_through_enemy = false
 				self.skspug.panic_suppression_chance = 0.05
 				self.skspug.timers = deep_clone(self.basset.timers)
@@ -24929,9 +24931,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						6,
 						0.3,
 						srm = {
-							0.02,
-							{0.8, 1.01},
-							6
+							0.025,
+							{0.7, 1},
+							5
 						}
 					}
 				elseif weap.recategorize[1] == "heavy_mg" then
@@ -24941,9 +24943,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						5.5,
 						0.2,
 						srm = {
-							0.0125,
-							{0.8, 1.01},
-							10
+							0.015,
+							{0.7, 1},
+							8
 						}
 					}
 				elseif weap.recategorize[1] == "miniguns" then

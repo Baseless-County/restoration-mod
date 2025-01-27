@@ -353,6 +353,7 @@ function PlayerManager:on_killshot(killed_unit, variant, headshot, weapon_id)
 
 	if variant == "melee" then
 		regen_health_bonus = regen_health_bonus + self:upgrade_value("player", "melee_kill_life_leech", 0)
+		player_unit:movement():add_stamina(player_unit:movement():_max_stamina() * self:upgrade_value("player", "melee_kill_stamina", 0))
 	end
 
 	if damage_ext and regen_health_bonus > 0 then

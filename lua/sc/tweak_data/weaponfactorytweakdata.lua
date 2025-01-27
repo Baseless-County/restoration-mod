@@ -1890,7 +1890,7 @@ end)
 					self.parts.wpn_fps_pis_beer_m_extended.stats = {
 						extra_ammo = 5,
 						value = 3,
-						reload = -2,
+						reload = -3,
 						concealment = -1
 					}
 					
@@ -1932,11 +1932,8 @@ end)
 					end			
 							
 					table.insert(self.wpn_fps_pis_beer.uses_parts, "wpn_fps_pis_beretta_co_co1")
-					table.insert(self.wpn_fps_pis_beer_npc.uses_parts, "wpn_fps_pis_beretta_co_co1")
 					table.insert(self.wpn_fps_pis_beer.uses_parts, "wpn_fps_pis_beretta_co_co2")
-					table.insert(self.wpn_fps_pis_beer_npc.uses_parts, "wpn_fps_pis_beretta_co_co2")		
 					table.insert(self.wpn_fps_pis_beer.uses_parts, "wpn_fps_upg_i_b93o")
-					table.insert(self.wpn_fps_pis_beer_npc.uses_parts, "wpn_fps_upg_i_b93o")
 						
 					self.wpn_fps_pis_beer_npc.override = deep_clone(self.wpn_fps_pis_beer.override)	
 					self.wpn_fps_pis_beer_npc.uses_parts = deep_clone(self.wpn_fps_pis_beer.uses_parts)			
@@ -1979,8 +1976,8 @@ end)
 					self.parts.wpn_fps_pis_maxim9_m_ext.stats = {
 						value = 6,
 						extra_ammo = 15,
-						concealment = -2,
-						reload = -4
+						concealment = -3,
+						reload = -5
 					}	
 					self.parts.wpn_fps_pis_maxim9_m_ext.custom_stats = {
 						ads_speed_mult = 1.075
@@ -2059,8 +2056,8 @@ end)
 						stats = {
 							value = 6,
 							extra_ammo = 30,
-							concealment = -2,
-							reload = -4
+							concealment = -3,
+							reload = -5
 						}
 					}
 					
@@ -2111,7 +2108,7 @@ end)
 						value = 1, 
 						extra_ammo = 10,
 						concealment = -1,
-						reload = -2
+						reload = -3
 					}
 					self.parts.wpn_fps_pis_lemming_m_ext.custom_stats = {
 						ads_speed_mult = 1.025
@@ -2427,6 +2424,9 @@ end)
 						reload = -4,
 						extra_ammo = 10,
 						concealment = -2
+					}
+					self.parts.wpn_fps_pis_stech_m_extended.custom_stats = {
+						ads_speed_mult = 1.05
 					}
 					
 					--Federales Stock
@@ -2747,6 +2747,9 @@ end)
 							extra_ammo = 23,
 							concealment = -3,
 							reload = -5
+						},
+						custom_stats = {
+							ads_speed_mult = 1.075
 						}
 					}
 					
@@ -2790,6 +2793,9 @@ end)
 							extra_ammo = 46,
 							concealment = -3,
 							reload = -5
+						},
+						custom_stats = {
+							ads_speed_mult = 1.075
 						}
 					}
 					self.wpn_fps_jowi.override.wpn_fps_pis_g26_b_standard = {
@@ -2879,7 +2885,7 @@ end)
 						value = 6,
 						extra_ammo = 32,
 						concealment = -2,
-						reload = -3
+						reload = -4
 					}
 					
 					self.wpn_fps_pis_x_g17.override.wpn_fps_pis_g18c_s_stock = {
@@ -2973,6 +2979,7 @@ end)
 					table.insert(self.wpn_fps_pis_beretta.uses_parts, "wpn_fps_upg_vg_ass_smg_verticalgrip")
 					table.insert(self.wpn_fps_pis_beretta.uses_parts, "wpn_fps_upg_vg_ass_smg_stubby")
 					table.insert(self.wpn_fps_pis_beretta.uses_parts, "wpn_fps_smg_schakal_vg_surefire")
+					table.insert(self.wpn_fps_pis_beretta.uses_parts, "wpn_fps_pis_beer_m_extended")
 					
 					self.wpn_fps_pis_beretta_npc.uses_parts = deep_clone(self.wpn_fps_pis_beretta.uses_parts)
 						
@@ -3065,8 +3072,11 @@ end)
 					self.parts.wpn_fps_pis_packrat_m_extended.stats = {
 						value = 1,
 						extra_ammo = 10,
-						concealment = -1,
-						reload = -2
+						concealment = -2,
+						reload = -4
+					}
+					self.parts.wpn_fps_pis_packrat_m_extended.custom_stats = {
+						ads_speed_mult = 1.05
 					}
 					
 					--Contractor Compensator
@@ -3108,8 +3118,8 @@ end)
 						stats = {
 							value = 1,
 							extra_ammo = 20,
-							concealment = -1,
-							reload = -2
+							concealment = -2,
+							reload = -4
 						}
 					}
 					
@@ -3161,6 +3171,9 @@ end)
 						value = 2,
 						concealment = -1,
 						reload = -3
+					}
+					self.parts.wpn_fps_pis_holt_m_extended.custom_stats = {
+						ads_speed_mult = 1.025
 					}
 					
 					--Override Table
@@ -3507,8 +3520,11 @@ end)
 					self.parts.wpn_fps_pis_p226_m_extended.stats = {
 						value = 3,
 						extra_ammo = 7,
-						reload = -3,
-						concealment = -1
+						reload = -4,
+						concealment = -2
+					}
+					self.parts.wpn_fps_pis_p226_m_extended.custom_stats = {
+						ads_speed_mult = 1.05
 					}
 
 					--Ventilated .40
@@ -3588,7 +3604,7 @@ end)
 						value = 6,
 						extra_ammo = 12,
 						concealment = -2,
-						reload = -3
+						reload = -4
 					}
 				end)
 
@@ -3716,8 +3732,11 @@ end)
 					self.parts.wpn_fps_pis_hs2000_m_extended.stats = {
 						value = 1,
 						extra_ammo = 9,
-						reload = -3,
-						concealment = -1
+						reload = -4,
+						concealment = -2
+					}
+					self.parts.wpn_fps_pis_hs2000_m_extended.custom_stats = {
+						ads_speed_mult = 1.05
 					}
 					
 					--Override Table
@@ -3871,6 +3890,9 @@ end)
 					--High Capacity Mag
 					self.parts.wpn_fps_pis_c96_m_extended.pcs = {}
 					self.parts.wpn_fps_pis_c96_m_extended.supported = true
+					self.parts.wpn_fps_pis_c96_m_extended.custom_stats = {
+						ads_speed_mult = 1.025
+					}
 					self.parts.wpn_fps_pis_c96_m_extended.stats = {
 						value = 1,
 						concealment = -1,
@@ -23934,7 +23956,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 		a_obj = "a_body",
 		has_description = true,
 		custom_stats = {
-			beretta_burst = true, lock_burst = true
+			beretta_burst = true, add_burst = true
 		},
 		alt_icon = "guis/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_i_autofire",
 		unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",

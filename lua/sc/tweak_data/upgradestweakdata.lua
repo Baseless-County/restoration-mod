@@ -2312,6 +2312,9 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 		0.02,
 		0.01 --Copycat, unused
 	}
+	self.values.player.melee_kill_stamina = {
+		0.2
+	}
 	self.killshot_close_panic_range = 1200
 	self.on_killshot_cooldown = 5
 	self.on_killshot_cooldown_reduction = 0.5
@@ -2878,6 +2881,7 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 	}
 	self.specialization_descs[9][5] = {
 		perk_value_1 = tostring(self.values.player.melee_kill_life_leech[1] * 100).."%", -- HP regen on melee kill
+		perk_value_3 = tostring(self.values.player.melee_kill_stamina[1] * 100).."%", -- stamina regen %; added under "perk_value_3" to avoid loc mistmatching
 		perk_value_2 = tostring(self.values.player.corpse_dispose_amount[2] - self.values.player.corpse_dispose_amount[1]) -- Additional body bag
 	}
 	self.specialization_descs[9][7] = {
@@ -4717,6 +4721,15 @@ function UpgradesTweakData:_player_definitions()
 		upgrade = {
 			value = 2,
 			upgrade = "melee_kill_life_leech",
+			category = "player"
+		}
+	}
+	self.definitions.player_melee_kill_stamina = { 
+		name_id = "menu_player_melee_kill_stamina",
+		category = "feature",
+		upgrade = {
+			value = 2,
+			upgrade = "melee_kill_stamina",
 			category = "player"
 		}
 	}

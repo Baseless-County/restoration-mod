@@ -3857,6 +3857,21 @@ function PlayerStandard:_do_melee_damage(t, bayonet_melee, melee_hit_ray, melee_
 			self:_check_melee_special_damage(col_ray, character_unit, defense_data, melee_entry)
 			self:_perform_sync_melee_damage(hit_unit, col_ray, action_data.damage, action_data.damage_effect)
 			
+			--[[ 
+			--WIP; makes use of Solo Queue Pixy's methods of applying push force on enemies killed through AdvMov 
+			if character_unit:character_damage()._health <= 0 then			
+				if not managers.groupai:state():whisper_mode() then
+					local hit_pos = mvector3.copy(character_unit:movement():m_pos())
+					local attack_dir = hit_pos - self._unit:movement():m_head_pos()
+						--trying to figure out how to make directional inputs affect push direction
+					local distance = mvector3.normalize(attack_dir)
+					local magnitude = 2
+					mvector3.multiply(attack_dir, magnitude)
+					managers.game_play_central:do_shotgun_push(character_unit, col_ray.hit_position, attack_dir, distance)
+				end
+			end
+			--]]
+			
 			return defense_data
 		else
 			self:_perform_sync_melee_damage(hit_unit, col_ray, damage, damage_effect)
@@ -4872,7 +4887,9 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 						magnitude = magnitude * AdvMov.settings.kickyeet
 					end
 					mvector3.multiply(attack_dir, magnitude)
-					managers.game_play_central:do_shotgun_push(finaltarget, target_ray_data.raydata.hit_position, attack_dir, distance)
+					if not managers.groupai:state():whisper_mode() then
+						managers.game_play_central:do_shotgun_push(finaltarget, target_ray_data.raydata.hit_position, attack_dir, distance)
+					end
 					kill = true
 				end
 				if self._last_movekick_shake_t and self._last_movekick_shake_t + 0.2 < self._last_t then
@@ -5087,6 +5104,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 
 	function PlayerStandard:_cancel_slide(timemult)
 		self._is_sliding = nil
+		self._slide_speed = nil
 		self._dash_slide = nil
 		self._slide_has_played_shaker = nil
 		self:_stance_entered(nil, timemult)
@@ -5111,7 +5129,6 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 				if not self._state_data.in_air then
 					-- calculate stamina drain scaling based on current speed vs standard running speed
 					local drain_mult = self._slide_speed/self._sprinting_speed
-					log(tostring( self:_get_modified_move_speed("run") ))
 					-- drain stamina, prevent regen
 					self._unit:movement():subtract_stamina(tweak_data.player.movement_state.stamina.STAMINA_DRAIN_RATE * dt * drain_mult)
 					--if drain_mult > 0.50 then
@@ -5204,7 +5221,7 @@ if AdvMov then --Everything here was originally from Solo Queue Pixy and none of
 					end
 				end
 				-- transition to slide bby
-				if self._state_data.ducking then
+				if self._state_data.ducking and not self._is_dashing then
 					self:_check_slide()
 				end
 			elseif self._running and (AdvMov.settings.runkick == true or self._state_data.in_air) then
