@@ -334,7 +334,7 @@ function GroupAITweakData:_init_chatter_data()
 		radius = 700,
 		max_nr = 10,
 		duration = {2, 4},
-		interval = {1.5, 3.5},
+		interval = {3.5, 4.5},
 		group_min = 0,
 		queue = "heal"
 	}	
