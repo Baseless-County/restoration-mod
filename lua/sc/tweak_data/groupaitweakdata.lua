@@ -17879,16 +17879,16 @@ end
 		}	
 	elseif difficulty_index == 7 then
 		self.enemy_spawn_groups.titan_snipers = {
-			spawn_cooldown = 50,
-			max_nr_simultaneous_groups = 2,
-			initial_spawn_delay = 35,
+			spawn_cooldown = 60,
+			max_nr_simultaneous_groups = 1,
+			initial_spawn_delay = 30,
 			amount = {
 				1,
 				1
 			},
 			spawn = {
 				{
-					respawn_cooldown = 50,
+					respawn_cooldown = 60,
 					amount_min = 1,
 					amount_max = 1,
 					rank = 1,
@@ -17926,7 +17926,7 @@ end
 	elseif difficulty_index == 8 then
 		self.enemy_spawn_groups.titan_snipers = {
 			spawn_cooldown = 45,
-			max_nr_simultaneous_groups = 3,
+			max_nr_simultaneous_groups = 2,
 			initial_spawn_delay = 30,
 			amount = {
 				1,
