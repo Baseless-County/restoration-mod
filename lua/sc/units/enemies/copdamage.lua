@@ -1670,7 +1670,8 @@ function CopDamage:damage_melee(attack_data)
 
 			result = {
 				type = "death",
-				variant = attack_data.variant
+				variant = attack_data.variant,
+				head_shot = head
 			}
 
 			if is_player and (attack_data.backstab or head) then

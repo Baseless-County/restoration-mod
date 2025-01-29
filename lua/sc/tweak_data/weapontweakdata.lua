@@ -10870,6 +10870,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.flint.AMMO_MAX = 150
 						self.flint.CLIP_AMMO_MAX = 30
 						self.flint.BURST_FIRE = 2
+						self.flint.BURST_FIRE_RATE_MULTIPLIER = 1.07142
 						self.flint.BURST_DELAY = 0.03
 						self.flint.BURST_FIRE_RECOIL_MULTIPLIER = 0.4
 						self.flint.BURST_FIRE_LAST_RECOIL_MULTIPLIER = 1.05
@@ -11655,7 +11656,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.asval.kick_pattern = {
 							{0, self.stat_info.kick_tables.moderate_kick},
 							{4, self.stat_info.kick_tables.right_kick},
-							{6, self.stat_info.kick_tables.pattern_r2},
+							{6, self.stat_info.kick_tables.right_recoil},
 							{7, self.stat_info.kick_tables.right_kick},
 							{11, self.stat_info.kick_tables.vertical_kick},
 							{12, self.stat_info.kick_tables.right_kick}
@@ -11663,9 +11664,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 						self.asval.supported = true
 						self.asval.ads_speed = 0.300
 						self.asval.damage_falloff = {
-							start_dist = 1100,
-							end_dist = 4800,
-							min_mult = 0.44444
+							start_dist = 1000,
+							end_dist = 3800,
+							min_mult = 0.53333
 						}
 						self.asval.stats = {
 							damage = 45,
@@ -22707,6 +22708,48 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			end
 		
 		--[[     HYLIE'S MODS     ]]--
+
+			if self.toz81 then
+				self.toz81.categories = {
+					"shotgun"
+				}
+				self.toz81.fire_mode_data.fire_rate = 0.15
+				self.toz81.rays = 6 --Uses wrong weapon base, this does nothing
+				self.toz81.kick = self.stat_info.kick_tables.left_kick
+				self.toz81.kick_pattern = {
+					{0, self.stat_info.kick_tables.moderate_left_kick},
+					{3, self.stat_info.kick_tables.right_recoil}
+				}
+				self.toz81.muzzleflash = "effects/payday2/particles/weapons/big_51b_auto_fps" --"effects/particles/shotgun/shotgun_gen"
+				self.toz81.BURST_FIRE = false
+				self.toz81.CAN_TOGGLE_FIREMODE = false
+				self.toz81.FIRE_MODE = "single"				
+				self.toz81.AMMO_MAX = 20
+				self.toz81.supported = true
+				self.toz81.ads_speed = 0.260
+				self.toz81.damage_falloff = {
+					start_dist = 500,
+					end_dist = 2600,
+					min_mult = 0.1333
+				}
+				self.toz81.stats = {
+					damage = 180,
+					spread = 61,
+					recoil = 71,
+					spread_moving = 5,
+					zoom = 1,
+					concealment = 25,
+					suppression = 7,
+					alert_size = 2,
+					extra_ammo = 101,
+					total_ammo_mod = 400,
+					value = 1,
+					reload = 20
+				}
+				self.toz81.stats_modifiers = nil
+				self.toz81.panic_suppression_chance = 0.05
+				self.toz81.timers = deep_clone(self.gre_m79.timers)
+			end
 
 			if self.bp12 then
 				self.bp12.recategorize = { "light_shot" }

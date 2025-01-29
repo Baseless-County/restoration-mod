@@ -2260,6 +2260,26 @@ end)
 			--CZ ACCUSHADOW
 				Hooks:PostHook(WeaponFactoryTweakData, "_init_czech", "resmod_czech", function(self)
 
+					self.parts.wpn_fps_pis_czech_body_standard_vg = deep_clone(self.parts.wpn_fps_pis_czech_body_standard)
+					self.parts.wpn_fps_pis_czech_body_standard_vg.visibility ={
+						{
+							objects = {
+								g_body = false
+							}
+						}
+
+					}
+					self.parts.wpn_fps_pis_czech_body_standard.visibility = {
+						{
+							objects = {
+								g_vertical = false
+							}
+						}
+					}
+					self.parts.wpn_fps_pis_czech_body_standard.adds = {
+						"wpn_fps_pis_czech_body_standard_vg"
+					}
+
 					--Sicario Barrel
 					self.parts.wpn_fps_pis_czech_b_long.pcs = {
 						10,
@@ -2330,13 +2350,40 @@ end)
 					self.wpn_fps_pis_czech.override.wpn_fps_pis_g18c_co_comp_2 = {
 						a_obj = "a_ns",
 						parent = "barrel"
-					}				
+					}
 
-					table.insert(self.wpn_fps_pis_czech.uses_parts, "wpn_fps_pis_g18c_co_1")
-					table.insert(self.wpn_fps_pis_czech_npc.uses_parts, "wpn_fps_pis_g18c_co_1")		
+					self.wpn_fps_pis_czech.override.wpn_fps_upg_vg_ass_smg_verticalgrip = {
+						parent = "lower_reciever",
+						a_obj = "a_fl",
+						custom_stats = { ads_speed_mult = 1.05 },
+						forbids = {"wpn_fps_pis_czech_body_standard_vg"},
+						allow_gadgets = true,
+						desc_id = "fucktheatf"
+					}
+					self.wpn_fps_pis_czech.override.wpn_fps_upg_vg_ass_smg_stubby = {
+						parent = "lower_reciever",
+						a_obj = "a_fl",
+						custom_stats = { ads_speed_mult = 1.025 },
+						forbids = {"wpn_fps_pis_czech_body_standard_vg"},
+						allow_gadgets = true,
+						desc_id = "fucktheatf"
+					}
+					self.wpn_fps_pis_czech.override.wpn_fps_smg_schakal_vg_surefire = {
+						parent = "lower_reciever",
+						a_obj = "a_fl",
+						custom_stats = { ads_speed_mult = 1.05 },
+						forbids = {},
+						desc_id = "fucktheatf",
+						forbids = {"wpn_fps_pis_czech_body_standard_vg"},
+						stats = deep_clone(self.parts.wpn_fps_upg_vg_ass_smg_verticalgrip.stats)
+					}
+
+					table.insert(self.wpn_fps_pis_czech.uses_parts, "wpn_fps_pis_g18c_co_1")	
 					table.insert(self.wpn_fps_pis_czech.uses_parts, "wpn_fps_pis_g18c_co_comp_2")
-					table.insert(self.wpn_fps_pis_czech_npc.uses_parts, "wpn_fps_pis_g18c_co_comp_2")		
-						
+					table.insert(self.wpn_fps_pis_czech.uses_parts, "wpn_fps_upg_vg_ass_smg_verticalgrip")
+					table.insert(self.wpn_fps_pis_czech.uses_parts, "wpn_fps_upg_vg_ass_smg_stubby")
+					table.insert(self.wpn_fps_pis_czech.uses_parts, "wpn_fps_smg_schakal_vg_surefire")
+
 					self.wpn_fps_pis_czech_npc.override = deep_clone(self.wpn_fps_pis_czech.override)	
 					self.wpn_fps_pis_czech_npc.uses_parts = deep_clone(self.wpn_fps_pis_czech.uses_parts)	
 				end)
@@ -2482,7 +2529,8 @@ end)
 					table.insert(self.wpn_fps_pis_stech.uses_parts, "wpn_fps_pis_g18c_co_1")
 					table.insert(self.wpn_fps_pis_stech.uses_parts, "wpn_fps_pis_g18c_co_comp_2")
 					table.insert(self.wpn_fps_pis_stech.uses_parts, "wpn_fps_upg_vg_ass_smg_verticalgrip")
-					table.insert(self.wpn_fps_pis_stech.uses_parts, "wpn_fps_upg_vg_ass_smg_stubby")	
+					table.insert(self.wpn_fps_pis_stech.uses_parts, "wpn_fps_upg_vg_ass_smg_stubby")
+					table.insert(self.wpn_fps_pis_stech.uses_parts, "wpn_fps_smg_schakal_vg_surefire")
 						
 					self.wpn_fps_pis_stech_npc.override = deep_clone(self.wpn_fps_pis_stech.override)	
 					self.wpn_fps_pis_stech_npc.uses_parts = deep_clone(self.wpn_fps_pis_stech.uses_parts)		
@@ -41083,6 +41131,7 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 		"wpn_fps_pis_g18c",
 		"wpn_fps_pis_stech",
+		"wpn_fps_pis_czech",
 
 		"wpn_fps_pis_ppk",
 		"wpn_fps_pis_g26",
@@ -41118,10 +41167,12 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 	for u, factory_id in ipairs(felony) do
 		if self[factory_id] then
 			self[factory_id].override = self[factory_id].override or {}
-			self[factory_id].override.wpn_fps_upg_vg_ass_smg_verticalgrip = {a_obj = "a_fl", custom_stats = { ads_speed_mult = 1.05 }, forbids = {}, desc_id = "fucktheatf"}
-			self[factory_id].override.wpn_fps_upg_vg_ass_smg_stubby = {a_obj = "a_fl", custom_stats = { ads_speed_mult = 1.025 }, forbids = {}, desc_id = "fucktheatf"}
-			self[factory_id].override.wpn_fps_smg_schakal_vg_surefire = {a_obj = "a_fl", custom_stats = { ads_speed_mult = 1.05 }, forbids = {}, desc_id = "fucktheatf", stats = deep_clone(self.parts.wpn_fps_upg_vg_ass_smg_verticalgrip.stats)}
-	
+			if not self[factory_id].override.wpn_fps_upg_vg_ass_smg_verticalgrip then --don't make the table if it already has one
+				self[factory_id].override.wpn_fps_upg_vg_ass_smg_verticalgrip = {a_obj = "a_fl", custom_stats = { ads_speed_mult = 1.05 }, forbids = {}, desc_id = "fucktheatf"}
+				self[factory_id].override.wpn_fps_upg_vg_ass_smg_stubby = {a_obj = "a_fl", custom_stats = { ads_speed_mult = 1.025 }, forbids = {}, desc_id = "fucktheatf"}
+				self[factory_id].override.wpn_fps_smg_schakal_vg_surefire = {a_obj = "a_fl", custom_stats = { ads_speed_mult = 1.05 }, forbids = {}, desc_id = "fucktheatf", stats = deep_clone(self.parts.wpn_fps_upg_vg_ass_smg_verticalgrip.stats)}
+			end
+
 			if self[factory_id].adds and self[factory_id].adds.wpn_fps_upg_fl_pis_laser then
 				self[factory_id].adds.wpn_fps_upg_vg_ass_smg_verticalgrip = deep_clone(self[factory_id].adds.wpn_fps_upg_fl_pis_laser)
 				self[factory_id].adds.wpn_fps_upg_vg_ass_smg_stubby = deep_clone(self[factory_id].adds.wpn_fps_upg_fl_pis_laser)
@@ -41141,8 +41192,11 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 				for _, override_id in ipairs(attachment_list) do
 					if part_id == override_id then	
 						for k, uses_part_id in pairs(self[factory_id].uses_parts) do
-							if self.parts[uses_part_id] and self.parts[uses_part_id].type and self.parts[uses_part_id].type == "gadget" then
+							if self.parts[uses_part_id] and self.parts[uses_part_id].type and self.parts[uses_part_id].type == "gadget" and 
+								not self[factory_id].override[override_id].allow_gadgets then
+
 								table.insert(self[factory_id].override[override_id].forbids, uses_part_id)
+
 							end 
 						end
 					end

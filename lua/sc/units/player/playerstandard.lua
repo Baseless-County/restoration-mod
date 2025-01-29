@@ -2641,7 +2641,6 @@ function PlayerStandard:_do_action_melee(t, input, skip_damage)
 		elseif self._stick_move then
 			if anim_attack_left_vars and angle and (angle <= 181) and (angle >= 134) then
 				self._melee_attack_var_h = true
-				self._melee_attack_var_left = true
 				self._melee_attack_var_l_r = "left"
 				self._melee_attack_var = anim_attack_left_vars and math.random(#anim_attack_left_vars)
 				anim_attack_param = anim_attack_left_vars and anim_attack_left_vars[self._melee_attack_var]
@@ -3858,21 +3857,30 @@ function PlayerStandard:_do_melee_damage(t, bayonet_melee, melee_hit_ray, melee_
 			local defense_data = character_unit:character_damage():damage_melee(action_data)
 			self:_check_melee_special_damage(col_ray, character_unit, defense_data, melee_entry)
 			self:_perform_sync_melee_damage(hit_unit, col_ray, action_data.damage, action_data.damage_effect)
-			
-			--[[ 
-			--WIP; makes use of Solo Queue Pixy's methods of applying push force on enemies killed through AdvMov 
-			if character_unit:character_damage()._health <= 0 then			
+
+			--[[
+			local do_push = melee_weapon.do_push
+			if defense_data and defense_data.head_shot and defense_data.type and defense_data.type == "death" then			
 				if not managers.groupai:state():whisper_mode() then
+					local rotation = self._unit:movement():m_head_rot()
+					local v_mult = (self._melee_attack_var_l_r and self._melee_attack_var_l_r[2]) or 0
+					local l_r = (self._melee_attack_var_l_r and (((self._melee_attack_var_l_r == "left" or self._melee_attack_var_l_r[1] == "left") and 1) or ((self._melee_attack_var_l_r == "right" or self._melee_attack_var_l_r[1] == "right") and -1))) or 0
+
+					local l_r_force = (1 - v_mult) * (l_r * -180)
+					local v_force = math.abs(l_r_force) > 90 and -1 or 1
+					local forward_vec = Vector3( l_r_force, -90 * -v_force , v_mult * -180 * v_force)
+
+					mvector3.rotate_with(forward_vec, rotation)
 					local hit_pos = mvector3.copy(character_unit:movement():m_pos())
-					local attack_dir = hit_pos - self._unit:movement():m_head_pos()
-						--trying to figure out how to make directional inputs affect push direction
+					local attack_dir = hit_pos - self._unit:movement():m_head_pos() + forward_vec
 					local distance = mvector3.normalize(attack_dir)
-					local magnitude = 2
+					local magnitude = 0.8 + math.lerp(0, 0.4, charge_lerp_value)
 					mvector3.multiply(attack_dir, magnitude)
 					managers.game_play_central:do_shotgun_push(character_unit, col_ray.hit_position, attack_dir, distance)
+
 				end
 			end
-			--]]
+			]]
 			
 			return defense_data
 		else
