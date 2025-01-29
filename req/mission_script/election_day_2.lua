@@ -71,13 +71,5 @@ return {
 	[102795] = swat_h,
 	[102796] = swat_ovk,
 	[102810] = swat_n,
-	[102811] = swat_h,
-	[102812] = swat_ovk,
-	[103125] = swat_ovk,
-	[103133] = swat_ovk,
-	[103134] = swat_ovk,
-	[103135] = swat_ovk,
-	[103136] = swat_ovk,
-	[103137] = swat_ovk,
-	[103138] = swat_ovk
+	[102811] = swat_h
 }
