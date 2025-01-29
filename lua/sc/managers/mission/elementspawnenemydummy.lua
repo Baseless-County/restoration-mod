@@ -2854,6 +2854,9 @@ ElementSpawnEnemyDummy.enemy_mapping = {
 	[Idstring("units/pd2_dlc_bex/characters/ene_swat_tazer_policia_federale/ene_swat_tazer_policia_federale"):key()] = "taser",
 	[Idstring("units/pd2_dlc_bex/characters/ene_swat_cloaker_policia_federale/ene_swat_cloaker_policia_federale"):key()] = "cloaker",
 	--Custom Factions
+	--Constantine
+	--Specials
+	[Idstring("units/payday2/characters/ene_sniper_dw/ene_sniper_dw"):key()] = "sniper",
 	--FSB
 	--Security
 	[Idstring("units/payday2/characters/ene_security_winter_1/ene_security_winter_1"):key()] = "security_1",
