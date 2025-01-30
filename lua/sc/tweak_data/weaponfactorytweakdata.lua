@@ -26748,6 +26748,81 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			end
 
 	--[[ RJC9000'S MODS ]]
+
+		if self.parts.wpn_fps_ass_rmary2_stock then
+			--TRIGGER
+				self.parts.wpn_fps_ass_rmary2_trigger.adds = nil
+				self.parts.wpn_fps_ass_rmary2_trigger_fast.supported = true
+				self.parts.wpn_fps_ass_rmary2_trigger_fast.stats = {
+					value = 8,
+					recoil = -6,
+					spread = -2
+				}
+				self.parts.wpn_fps_ass_rmary2_trigger_fast.custom_stats = {
+					rof_mult = 1.11038
+				}
+				self.parts.wpn_fps_ass_rmary2_trigger_fast.adds = nil
+
+			--MAGS
+				--FM 1
+				self.parts.wpn_fps_ass_rmary2_magazine_fast1.supported = true
+				self.parts.wpn_fps_ass_rmary2_magazine_fast1.stats = {
+					value = 2,
+					concealment = 1,
+					reload = 3,
+					extra_ammo = -5
+				}
+				self.parts.wpn_fps_ass_rmary2_magazine_fast1.custom_stats = { 
+					ads_speed_mult = 0.925
+				}
+				--FM 2
+				self.parts.wpn_fps_ass_rmary2_magazine_fast2.supported = true
+				self.parts.wpn_fps_ass_rmary2_magazine_fast2.stats = {
+					value = 3,
+					concealment = 2,
+					reload = 5,
+					extra_ammo = -10
+				}
+				self.parts.wpn_fps_ass_rmary2_magazine_fast2.custom_stats = { 
+					ads_speed_mult = 0.95
+				}
+				--EX 1
+				self.parts.wpn_fps_ass_rmary2_xmag1.supported = true
+				self.parts.wpn_fps_ass_rmary2_xmag1.stats = {
+					value = 7,
+					concealment = -2,
+					reload = -4,
+					extra_ammo = 10
+				}
+				self.parts.wpn_fps_ass_rmary2_xmag1.custom_stats = { 
+					ads_speed_mult = 1.05
+				}
+				--EX 2
+				self.parts.wpn_fps_ass_rmary2_xmag2.supported = true
+				self.parts.wpn_fps_ass_rmary2_xmag2.stats = {
+					value = 9,
+					concealment = -4,
+					reload = -6,
+					extra_ammo = 20
+				}
+				self.parts.wpn_fps_ass_rmary2_magazine_fast2.custom_stats = { 
+					ads_speed_mult = 1.1
+				}
+
+			for i, part_id in pairs(self.wpn_fps_ass_rmary2.uses_parts) do
+				attachment_list = {
+					"wpn_fps_upg_i_autofire",
+					"wpn_fps_upg_i_singlefire"
+				}
+				for _, remove_id in ipairs(attachment_list) do
+					if part_id == remove_id then
+						self.wpn_fps_ass_rmary2.uses_parts[i] = "resmod_dummy"
+					end
+				end
+			end
+			self.wpn_fps_ass_rmary2_npc.uses_parts = deep_clone(self.wpn_fps_ass_rmary2.uses_parts)
+		end
+
 		if self.parts.wpn_fps_ass_l403a1_receiver_lower then
 
 			self.parts.wpn_fps_ass_l403a1_irons_rear.pcs = nil
@@ -27381,18 +27456,6 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 			self.parts.wpn_fps_ass_ma40_scope.stats = { value = 0, zoom = 4, base_zoom_off = 1 }
 			self.parts.wpn_fps_ass_ma40_scope_ach.supported = true
 			self.parts.wpn_fps_ass_ma40_scope_ach.stats = { value = 0, zoom = 4, base_zoom_off = 1 }
-
-			for i, part_id in pairs(self.wpn_fps_ass_ma40.default_blueprint) do
-				attachment_list = {
-					"wpn_fps_upg_i_autofire"
-				}
-				for _, remove_id in ipairs(attachment_list) do
-					if part_id == remove_id then
-						self.wpn_fps_ass_ma40.default_blueprint[i] = "resmod_dummy"
-					end
-				end
-			end
-			table.insert(self.wpn_fps_ass_ma40.uses_parts, "wpn_fps_upg_i_singlefire")
 
 			self.wpn_fps_ass_ma40_npc.default_blueprint = deep_clone(self.wpn_fps_ass_ma40.default_blueprint)
 			self.wpn_fps_ass_ma40_npc.uses_parts = deep_clone(self.wpn_fps_ass_ma40.uses_parts)

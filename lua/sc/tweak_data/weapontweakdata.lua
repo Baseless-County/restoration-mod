@@ -21310,42 +21310,43 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 			if self.rmary2 then --RJC9000's B06 Goblin Mk2
 				self.rmary2.categories = { 
 					"assault_rifle",
-					"dmr_l"
+					"dmr_h"
 				}
 				self.rmary2.recategorize = { "dmr_ar" }
-				self.rmary2.damage_type = "assault_rifle"
+				self.rmary2.damage_type = "sniper"
 				self.rmary2.is_bullpup = true
 				self.rmary2.upgrade_blocks = nil
+				self.rmary2.tactical_reload = 1
 				self.rmary2.CLIP_AMMO_MAX = 20
-				self.rmary2.AMMO_MAX = 90
-				self.rmary2.fire_mode_data.fire_rate = 0.10169491
+				self.rmary2.AMMO_MAX = 60
+				self.rmary2.fire_mode_data.fire_rate = 0.129870129
 				self.rmary2.FIRE_MODE = "single"		
-				self.rmary2.CAN_TOGGLE_FIREMODE = true
+				self.rmary2.CAN_TOGGLE_FIREMODE = false
 				self.rmary2.BURST_FIRE = false
 				self.rmary2.kick = deep_clone(self.stat_info.kick_tables.vertical_kick)
 				self.rmary2.kick_pattern = {
-					{0, self.stat_info.kick_tables.left_kick},
-					{7, self.stat_info.kick_tables.pattern_l3},
-					{8, self.stat_info.kick_tables.moderate_left_kick},
-					{10, self.stat_info.kick_tables.vertical_kick},
-					{13, self.stat_info.kick_tables.moderate_left_kick}
+					{0, self.stat_info.kick_tables.moderate_kick},
+					{4, self.stat_info.kick_tables.left_kick},
+					{5, self.stat_info.kick_tables.moderate_left_kick},
+					{6, self.stat_info.kick_tables.left_recoil},
+					{9, self.stat_info.kick_tables.moderate_left_kick},
+					{12, self.stat_info.kick_tables.vertical_kick}
 				}			
-				self.rmary2.descope_on_dmg = true
 				self.rmary2.supported = true
-				self.rmary2.ads_speed = 0.300
+				self.rmary2.ads_speed = 0.260
 				self.rmary2.damage_falloff = {
-					start_dist = 900,
-					end_dist = 7000,
-					min_mult = 0.53333
+					start_dist = 4000,
+					end_dist = 7200,
+					min_mult = 0.4
 				}
 				self.rmary2.stats = {
-					damage = 45,
-					spread = 91,
-					recoil = 81,
-					spread_moving = 8,
+					damage = 60,
+					spread = 85,
+					recoil = 59,
+					spread_moving = 5,
 					zoom = 1,
-					concealment = 23,
-					suppression = 4,
+					concealment = 24,
+					suppression = 8,
 					alert_size = 2,
 					extra_ammo = 101,
 					total_ammo_mod = 400,
