@@ -2647,6 +2647,8 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_titan.damage.rocket_damage_mul = 1.25
 	self.tank_titan.melee_push_multiplier = 2 --he punches you harder now
 	--this is just for his LMG variant
+	self.tank_titan.no_omnia_heal = true
+	self.tank_titan.can_be_healed = false
 	self.tank_titan.dt_suppress = {
 		range = 600
 	}
@@ -2659,6 +2661,8 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_titan_assault = deep_clone(self.tank_titan)
 	self.tank_titan_assault.tags = {"law", "tank", "special", "tank_titan"}
 	self.tank_titan_assault.spawn_sound_event_2 = "cloaker_spawn"
+	self.tank_titan_assault.no_omnia_heal = false
+	self.tank_titan_assault.can_be_healed = true
 	if self:get_ai_group_type() == "federales" then
 		self.tank_titan_assault.dt_suppress = {
 			range = 600
