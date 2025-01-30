@@ -14749,11 +14749,11 @@ function CharacterTweakData:_presets(tweak_data)
 			r = 100,
 			acc = {0.8, 0.9},
 			dmg_mul = 1.25,
-			recoil = {0.35, 0.75},
+			recoil = {0.4, 0.7},
 			mode = {
 				0,
-				3,
-				3,
+				0,
+				0,
 				1
 			}
 		},
@@ -14761,180 +14761,180 @@ function CharacterTweakData:_presets(tweak_data)
 			r = 500,
 			acc = {0.7, 0.8},
 			dmg_mul = 1.25,
-			recoil = {0.35, 0.75},
+			recoil = {0.5, 0.8},
 			mode = {
 				0,
-				3,
-				3,
-				1
+				0,
+				0,
+				6
 			}
 		},
 		{
 			r = 1000,
 			acc = {0.6, 0.7},
 			dmg_mul = 1.25,
-			recoil = {0.35, 0.75},
+			recoil = {1, 1},
 			mode = {
-				1,
+				0,
+				0,
 				2,
-				2,
-				0
+				6
 			}
 		},
 		{
 			r = 1800,
 			acc = {0.5, 0.6},
 			dmg_mul = 1.25,
-			recoil = {0.35, 0.75},
+			recoil = {1, 1},
 			mode = {
-				1,
+				0,
+				0,
 				2,
-				2,
-				0
+				6
 			}
 		},
 		{
 			r = 2000,
 			acc = {0.4, 0.5},
 			dmg_mul = 1.25,
-			recoil = {0.4, 1.0},
+			recoil = {1, 1},
 			mode = {
-				3,
+				0,
+				0,
 				2,
-				2,
-				0
+				6
 			}
 		},
 		{
 			r = 2600,
 			acc = {0.3, 0.4},
 			dmg_mul = 1.25,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},
 		{
 			r = 2700,
 			acc = {0.2, 0.3},
 			dmg_mul = 1.25,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 2800,
 			acc = {0.2, 0.3},
 			dmg_mul = 1.1875,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 2900,
 			acc = {0.2, 0.3},
 			dmg_mul = 1.125,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 3000,
 			acc = {0.2, 0.3},
 			dmg_mul = 1.0625,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 3100,
 			acc = {0.2, 0.3},
 			dmg_mul = 1,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 3200,
 			acc = {0.2, 0.3},
 			dmg_mul = 0.9375,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 3300,
 			acc = {0.2, 0.3},
 			dmg_mul = 0.875,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 3400,
 			acc = {0.2, 0.3},
 			dmg_mul = 0.8125,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 3500,
 			acc = {0.2, 0.3},
 			dmg_mul = 0.75,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
 			r = 3600,
 			acc = {0.2, 0.3},
 			dmg_mul = 0.6875,
-			recoil = {1.5, 3},
+			recoil = {1, 2},
 			mode = {
-				3,
-				1,
-				1,
-				0
+				0,
+				0,
+				2,
+				6
 			}
 		},	
 		{
@@ -14943,9 +14943,9 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.625,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
-				1,
+				0,
+				2,
+				6,
 				0
 			}
 		},		
@@ -14955,9 +14955,9 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.5625,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
-				1,
+				0,
+				2,
+				6,
 				0
 			}
 		},	
@@ -14967,9 +14967,9 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.5,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
-				1,
+				0,
+				2,
+				6,
 				0
 			}
 		},	
@@ -14979,9 +14979,9 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.4375,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
-				1,
+				0,
+				2,
+				6,
 				0
 			}
 		},	
@@ -14991,9 +14991,9 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.375,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
-				1,
+				0,
+				2,
+				6,
 				0
 			}
 		},	
@@ -15003,9 +15003,9 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.3125,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
-				1,
+				0,
+				2,
+				6,
 				0
 			}
 		},	
@@ -15015,8 +15015,8 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.25,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
+				2,
+				6,
 				1,
 				0
 			}
@@ -15027,8 +15027,8 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.1875,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
+				2,
+				6,
 				1,
 				0
 			}
@@ -15039,8 +15039,8 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.125,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
+				2,
+				6,
 				1,
 				0
 			}
@@ -15051,8 +15051,8 @@ function CharacterTweakData:_presets(tweak_data)
 			dmg_mul = 0.0625,
 			recoil = {1.5, 3},
 			mode = {
-				3,
-				1,
+				2,
+				6,
 				1,
 				0
 			}
@@ -15386,7 +15386,10 @@ function CharacterTweakData:_presets(tweak_data)
 	--This doesn't really matter since Semi-autos for bots just use is_shotgun_mag anyway, but just in case
 	presets.weapon.gang_member.is_shotgun_semi = deep_clone(presets.weapon.gang_member.is_shotgun_mag)		
 	presets.weapon.gang_member.is_dmr = deep_clone(presets.weapon.gang_member.rifle)
+	presets.weapon.gang_member.is_dmr.spread = 8
+	presets.weapon.gang_member.is_dmr.RELOAD_SPEED = 0.9
 	presets.weapon.gang_member.is_sniper = deep_clone(presets.weapon.gang_member.rifle)
+	presets.weapon.gang_member.is_sniper.RELOAD_SPEED = 0.9
 	restoration.log_shit("SC: normal presets")
 	presets.weapon.normal.akimbo_pistol = deep_clone(presets.weapon.normal.is_pistol)
 	presets.weapon.normal.rifle = deep_clone(presets.weapon.normal.is_rifle)
