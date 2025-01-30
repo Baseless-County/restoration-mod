@@ -61,10 +61,10 @@ local damage_set = {
 		"ching_crew",
 		"tti_crew",
 		"qbu88_crew",
-	},
-	sniper_bolt = {
 		"siltstone_crew",
 		"wa2000_crew",
+	},
+	sniper_bolt = {
 		"model70_crew",
 		"msr_crew",
 		"r93_crew",

@@ -16327,6 +16327,10 @@ end)
 						wpn_fps_upg_a_piercing = deep_clone(shot_ammo.a_piercing_semi_override),
 						wpn_fps_upg_a_dragons_breath = deep_clone(shot_ammo.a_dragons_breath_semi_override)		
 					}
+
+					table.insert(self.wpn_fps_sho_ben.uses_parts, "wpn_fps_sho_ben_cnuy_hoshino")
+
+					self.wpn_fps_sho_ben_npc.uses_parts = deep_clone(self.wpn_fps_sho_ben.uses_parts)
 				end)
 
 			--SPAS-12
@@ -40417,6 +40421,42 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 					end
 				end
 			end
+	--Version 0.6.0
+		--Eye of Horus
+			self.parts.wpn_fps_sho_ben_cnuy_hoshino = {
+				type = "legendary",
+				name_id = "bm_wskn_benelli_cnuy_hoshino",
+				desc_id = "bm_wskn_benelli_cnuy_hoshino_desc_dmc",
+				is_a_unlockable = true,
+				a_obj = "a_body",
+				unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+				third_unit = "units/payday2/weapons/wpn_upg_dummy/wpn_upg_dummy",
+				supported = true,
+				stats = { value = 0 },
+				internal_part = false,
+				texture_bundle_folder = "boost_in_lootdrop",
+				alt_icon = "guis/dlcs/boost_in_lootdrop/textures/pd2/blackmarket/icons/mods/wpn_fps_upg_bonus_concealment_p3",
+				has_description = true,
+				override = {}
+			}
+			for k, used_part_id in ipairs(self.wpn_fps_sho_ben.uses_parts) do
+				if self.parts[used_part_id] and self.parts[used_part_id].type then
+					if self.parts[used_part_id].type == "barrel" then
+						self.parts.wpn_fps_sho_ben_cnuy_hoshino.override[used_part_id] = {
+							unit = "units/mods/weapons/wpn_fps_sho_ben_b_ojisan/wpn_fps_sho_ben_b_ojisan"
+						}
+					elseif self.parts[used_part_id].type == "foregrip" then
+						self.parts.wpn_fps_sho_ben_cnuy_hoshino.override[used_part_id] = {
+							unit = "units/mods/weapons/wpn_fps_sho_ben_fg_ojisan/wpn_fps_sho_ben_fg_ojisan"
+						}
+					elseif self.parts[used_part_id].type == "stock" then
+						self.parts.wpn_fps_sho_ben_cnuy_hoshino.override[used_part_id] = {
+							unit = "units/mods/weapons/wpn_fps_sho_ben_s_ojisan/wpn_fps_sho_ben_s_ojisan"
+						}
+					end
+				end
+			end
+
 
 --Make more attachments universally available, cartridge mismatching be damned
 	for factory_id, i in pairs(self) do
