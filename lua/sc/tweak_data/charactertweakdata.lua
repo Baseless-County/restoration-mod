@@ -2620,7 +2620,7 @@ function CharacterTweakData:_init_tank(presets)
 	table.insert(self.tank_medic.tags, "medic")
 	table.insert(self._enemy_list, "tank_medic")
 	
-	--Titandozer
+	--Titandozer, regular
 	self.tank_titan = deep_clone(self.tank)
 	self.tank_titan.weapon = deep_clone(presets.weapon.normal)
 	self.tank_titan.tags = {"law", "tank", "special", "tank_titan", "customvo"}	
@@ -2646,31 +2646,32 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_titan.damage.explosion_damage_mul = 1.25
 	self.tank_titan.damage.rocket_damage_mul = 1.25
 	self.tank_titan.melee_push_multiplier = 2 --he punches you harder now
-	--this is just for his LMG variant
-	self.tank_titan.no_omnia_heal = true
-	self.tank_titan.can_be_healed = false
-	self.tank_titan.dt_suppress = {
-		range = 600
-	}
 	self.tank_titan.is_special = true
 	self.tank_titan.no_asu = true
 	self.tank_titan.heal_cooldown = 22.5
 	table.insert(self._enemy_list, "tank_titan")
 	
-	--Titandozer, assault variant
+	--Titandozer, assault variant (used in assault groups)
 	self.tank_titan_assault = deep_clone(self.tank_titan)
 	self.tank_titan_assault.tags = {"law", "tank", "special", "tank_titan"}
 	self.tank_titan_assault.spawn_sound_event_2 = "cloaker_spawn"
-	self.tank_titan_assault.no_omnia_heal = false
-	self.tank_titan_assault.can_be_healed = true
 	if self:get_ai_group_type() == "federales" then
 		self.tank_titan_assault.dt_suppress = {
-			range = 600
+			range = 500
 	}
 	else
 		self.tank_titan_assault.dt_suppress = nil
 	end
 	table.insert(self._enemy_list, "tank_titan_assault")
+
+	--Titandozer, captain minion variant with LMG (Used only for Winters' Squad on DSPJ)
+	self.tank_titan_minion = deep_clone(self.tank_titan)
+	self.tank_titan_minion.tags = {"law", "tank", "special", "tank_titan"}
+	self.tank_titan_minion.no_omnia_heal = true
+	self.tank_titan_minion.dt_suppress = {
+		range = 500
+	}
+	table.insert(self._enemy_list, "tank_titan_minion")
 
 	--Halloween Bulldozer (Black)
 	self.tank_hw_black = deep_clone(self.tank_black)
@@ -2694,7 +2695,14 @@ function CharacterTweakData:_init_tank(presets)
 	self.tank_hw.weapon = deep_clone(presets.weapon.normal)
 	self.tank_hw.ignore_headshot = false
 	self.tank_hw.melee_anims = nil
-	table.insert(self._enemy_list, "tank_hw")	
+	table.insert(self._enemy_list, "tank_hw")
+	
+	--Halloween Bulldozer, captain minion variant with LMG (Used only for Winters' Squad on DSPJ)
+	self.tank_hw_minion = deep_clone(self.tank_titan_minion)
+	self.tank_hw_minion.weapon = deep_clone(presets.weapon.normal)
+	self.tank_hw_minion.ignore_headshot = false
+	self.tank_hw_minion.melee_anims = nil
+	table.insert(self._enemy_list, "tank_hw_minion")
 	
 	--Benelli (Bravo) Dozer
 	self.tank_mini = deep_clone(self.tank)
@@ -18086,8 +18094,8 @@ function CharacterTweakData:character_map()
 		table.insert(char_map.basic.list, "ene_city_guard_3")		
 		
 		--Other
-		table.insert(char_map.basic.list, "ene_bulldozer_2_hw")		
-		table.insert(char_map.basic.list, "ene_vip_2")		
+		table.insert(char_map.basic.list, "ene_bulldozer_2_hw")	
+		table.insert(char_map.basic.list, "ene_bulldozer_4_minion")			
 		table.insert(char_map.basic.list, "ene_mememan_1")
 		table.insert(char_map.basic.list, "ene_mememan_2")
 		table.insert(char_map.basic.list, "ene_bulldozer_biker_1")
@@ -18141,7 +18149,8 @@ function CharacterTweakData:character_map()
 			list = {
 				"ene_vip_1",
 				"ene_vip_2",
-				"ene_vip_2_assault",					
+				"ene_vip_2_assault",
+				"ene_vip_2_minion",					
 				"ene_spring",
 				"ene_vip_autumn",
 				"ene_spook_cloak_1",
@@ -18620,6 +18629,7 @@ function CharacterTweakData:character_map()
 				"ene_akan_medic_zdann",	
 				"ene_akan_lpf",
 				"ene_vip_2",
+				"ene_vip_2_minion",
 				"ene_titan_shotgun",
 				"ene_titan_rifle",
 				"ene_fbi_titan_1",
