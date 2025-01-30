@@ -11779,6 +11779,7 @@ function GroupAITweakData:_init_unit_categories(difficulty_index)
 		special_type = "shield"
 	}
 
+	--OMNIA Shields
 	self.unit_categories.SKM_FBI_shield_W7 = {
 		unit_types = {
 			america = {

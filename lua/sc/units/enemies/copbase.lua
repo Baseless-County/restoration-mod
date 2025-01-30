@@ -217,14 +217,14 @@ end
 
 function CopBase:enable_asu_laser(state)
 	local weapon = self._unit:inventory():equipped_unit()
-	if weapon then
+	if weapon and alive(weapon) then
 		weapon:base():set_asu_laser_enabled(state)
 	end
 end
 
 function CopBase:disable_asu_laser(state)
 	local weapon = self._unit:inventory():equipped_unit()
-	if weapon then
+	if weapon and alive(weapon) then
 		weapon:base():set_asu_laser_enabled(false)
 	end
 end
