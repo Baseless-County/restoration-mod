@@ -2018,6 +2018,7 @@ end)
 							falloff_start_mult = 0.5,
 							falloff_end_mult = 0.75
 						},
+						alt_desc = "bm_tranq_maxim_auto_sc_desc",
 						override = {
 							wpn_fps_pis_maxim9_a_tranq = {
 								custom_stats = {
@@ -26755,15 +26756,85 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 
 		if self.parts.wpn_fps_ass_rmary2_stock then
 			self.parts.wpn_fps_ass_rmary2_flash_hider.perks = nil
+			self.parts.wpn_fps_ass_rmary2_flash_hider.stats = {}
 			self.parts.wpn_fps_ass_rmary2_flash_hider.custom_stats = nil
-
+			self.parts.wpn_fps_ass_rmary2_barrel.stats = {}
+			self.parts.wpn_fps_ass_rmary2_barrel.custom_stats = nil
+			self.parts.wpn_fps_ass_rmary2_stock.stats = {}
+			self.parts.wpn_fps_ass_rmary2_stock.custom_stats = nil
+			self.parts.wpn_fps_ass_rmary2_grip.stats = {}
+			self.parts.wpn_fps_ass_rmary2_grip.custom_stats = nil
 			self.parts.wpn_fps_ass_rmary2_irons.stance_mod = {
 				wpn_fps_ass_rmary2 = {
 					translation = Vector3(0.08, 5, -1.47),
 					rotation = Rotation(0.12, -0.2, 1)
 				}
 			}
-			
+			--BARRELS
+				--Short
+				self.parts.wpn_fps_ass_rmary2_barrel_hical1.supported = true
+				self.parts.wpn_fps_ass_rmary2_barrel_hical1.stats = deep_clone(barrels.short_b1_stats)
+				self.parts.wpn_fps_ass_rmary2_barrel_hical1.custom_stats = deep_clone(barrels.short_b1_stats)
+				--CHF
+				self.parts.wpn_fps_ass_rmary2_barrel_hical2.supported = true
+				self.parts.wpn_fps_ass_rmary2_barrel_hical2.desc_id = "bm_wp_chf_50_desc"
+				self.parts.wpn_fps_ass_rmary2_barrel_hical2.has_description = true
+				self.parts.wpn_fps_ass_rmary2_barrel_hical2.stats = {
+					value = 10,
+					recoil = -10,
+					total_ammo_mod = -80
+				}
+				self.parts.wpn_fps_ass_rmary2_barrel_hical2.custom_stats = {
+					hs_mult = 1.5,
+					hs_mult_desc = true
+				}
+				self.parts.wpn_fps_ass_rmary2_barrel_velocity.supported = true
+				self.parts.wpn_fps_ass_rmary2_barrel_velocity.stats = {
+					value = 4,
+					recoil = 2,
+					concealment = -1
+				}
+				self.parts.wpn_fps_ass_rmary2_barrel_velocity.custom_stats = nil
+				self.parts.wpn_fps_ass_rmary2_barrel_mix.supported = true
+				self.parts.wpn_fps_ass_rmary2_barrel_mix.stats = deep_clone(barrels.long_b1_stats)
+				self.parts.wpn_fps_ass_rmary2_barrel_mix.stats.concealment = -2
+				self.parts.wpn_fps_ass_rmary2_barrel_mix.stats.recoil = 2
+				self.parts.wpn_fps_ass_rmary2_barrel_mix.custom_stats = deep_clone(barrels.long_b1_stats)
+				self.parts.wpn_fps_ass_rmary2_barrel_range.supported = true
+				self.parts.wpn_fps_ass_rmary2_barrel_range.stats = deep_clone(barrels.long_b3_stats)
+				self.parts.wpn_fps_ass_rmary2_barrel_range.custom_stats = deep_clone(barrels.long_b3_stats)
+			--GRIPS
+				self.parts.wpn_fps_ass_rmary2_grip_quickdraw.supported = true
+				self.parts.wpn_fps_ass_rmary2_grip_quickdraw.stats = deep_clone(grips.quickdraw_1)
+				self.parts.wpn_fps_ass_rmary2_grip_quickdraw.custom_stats = deep_clone(grips.quickdraw_1)
+				self.parts.wpn_fps_ass_rmary2_grip_quickdraw2.supported = true
+				self.parts.wpn_fps_ass_rmary2_grip_quickdraw2.stats = deep_clone(grips.dual_stat_1)
+				self.parts.wpn_fps_ass_rmary2_grip_quickdraw2.custom_stats = deep_clone(grips.dual_stat_1)
+				self.parts.wpn_fps_ass_rmary2_grip_sprintout.supported = true
+				self.parts.wpn_fps_ass_rmary2_grip_sprintout.stats = deep_clone(grips.acc_1)
+				self.parts.wpn_fps_ass_rmary2_grip_sprintout.custom_stats = deep_clone(grips.acc_1)
+				self.parts.wpn_fps_ass_rmary2_grip_sprintout2.supported = true
+				self.parts.wpn_fps_ass_rmary2_grip_sprintout2.stats = deep_clone(grips.quickdraw_2)
+				self.parts.wpn_fps_ass_rmary2_grip_sprintout2.custom_stats = deep_clone(grips.quickdraw_2)
+				self.parts.wpn_fps_ass_rmary2_grip_mix.supported = true
+				self.parts.wpn_fps_ass_rmary2_grip_mix.stats = deep_clone(grips.recoil_1)
+				self.parts.wpn_fps_ass_rmary2_grip_mix.custom_stats = deep_clone(grips.recoil_1)
+			--STOCKS
+				self.parts.wpn_fps_ass_rmary2_stock_adsmove.supported = true
+				self.parts.wpn_fps_ass_rmary2_stock_adsmove.stats = deep_clone(stocks.adj_acc_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_adsmove.custom_stats = deep_clone(stocks.adj_acc_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_flinch.supported = true
+				self.parts.wpn_fps_ass_rmary2_stock_flinch.stats = deep_clone(stocks.adj_rec_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_flinch.custom_stats = deep_clone(stocks.adj_rec_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_hipfiremove.supported = true
+				self.parts.wpn_fps_ass_rmary2_stock_hipfiremove.stats = deep_clone(stocks.adj_to_fold_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_hipfiremove.custom_stats = deep_clone(stocks.adj_to_fold_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_mix.supported = true
+				self.parts.wpn_fps_ass_rmary2_stock_mix.stats = deep_clone(stocks.adj_hvy_rec_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_mix.custom_stats = deep_clone(stocks.adj_hvy_rec_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_mix2.supported = true
+				self.parts.wpn_fps_ass_rmary2_stock_mix2.stats = deep_clone(stocks.adj_hvy_acc_stats)
+				self.parts.wpn_fps_ass_rmary2_stock_mix2.custom_stats = deep_clone(stocks.adj_hvy_acc_stats)
 			--TRIGGER
 				self.parts.wpn_fps_ass_rmary2_trigger.adds = nil
 				self.parts.wpn_fps_ass_rmary2_trigger_fast.supported = true

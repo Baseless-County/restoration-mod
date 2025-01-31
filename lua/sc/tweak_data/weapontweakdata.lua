@@ -21314,6 +21314,7 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				}
 				self.rmary2.recategorize = { "dmr_ar" }
 				self.rmary2.damage_type = "sniper"
+				self.rmary2.has_description = true
 				self.rmary2.is_bullpup = true
 				self.rmary2.upgrade_blocks = nil
 				self.rmary2.tactical_reload = 1
@@ -21353,7 +21354,9 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 					value = 9,
 					reload = 20
 				}
-				self.rmary2.armor_piercing_chance = 0.25
+				self.rmary2.armor_piercing_chance = 0.75
+				self.rmary2.can_shoot_through_enemy = true
+				self.rmary2.can_shoot_through_enemy_unlim = true
 				self.rmary2.stats_modifiers = nil
 				self.rmary2.panic_suppression_chance = 0.05
 				self.rmary2.timers.reload_exit_not_empty = 0.6
