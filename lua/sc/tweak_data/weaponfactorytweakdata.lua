@@ -19357,6 +19357,10 @@ end)
 					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_ass_g7 = {
 						translation = Vector3(0, -2.2, -3.17)
 					}
+					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_ass_rmary2 = {
+						translation = Vector3(0.08, 11.5, -3.3),
+						rotation = Rotation(0.12, -0.2, 0.55)
+					}
 
 					self.parts.wpn_fps_upg_o_specter.stance_mod.wpn_fps_lmg_sig_xm250 = {
 						translation = Vector3(0.02, 4, 0.03),
@@ -26750,6 +26754,16 @@ Hooks:PostHook( WeaponFactoryTweakData, "create_bonuses", "SC_mods", function(se
 	--[[ RJC9000'S MODS ]]
 
 		if self.parts.wpn_fps_ass_rmary2_stock then
+			self.parts.wpn_fps_ass_rmary2_flash_hider.perks = nil
+			self.parts.wpn_fps_ass_rmary2_flash_hider.custom_stats = nil
+
+			self.parts.wpn_fps_ass_rmary2_irons.stance_mod = {
+				wpn_fps_ass_rmary2 = {
+					translation = Vector3(0.08, 5, -1.47),
+					rotation = Rotation(0.12, -0.2, 1)
+				}
+			}
+			
 			--TRIGGER
 				self.parts.wpn_fps_ass_rmary2_trigger.adds = nil
 				self.parts.wpn_fps_ass_rmary2_trigger_fast.supported = true

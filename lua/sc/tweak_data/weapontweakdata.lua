@@ -21356,7 +21356,10 @@ Hooks:PostHook( WeaponTweakData, "init", "SC_weapons", function(self)
 				self.rmary2.armor_piercing_chance = 0.25
 				self.rmary2.stats_modifiers = nil
 				self.rmary2.panic_suppression_chance = 0.05
-				self.rmary2.sounds.magazine_empty = "wp_rifle_slide_lock"
+				self.rmary2.timers.reload_exit_not_empty = 0.6
+				self.rmary2.timers.reload_not_empty = 2.3
+				self.rmary2.timers.reload_exit_empty = 0.4
+				self.rmary2.timers.reload_empty = 3.3
 			end
 
 			if self.pkilo then 
