@@ -1329,10 +1329,10 @@ Hooks:PostHook(UpgradesTweakData, "_init_pd2_values", "ResSkillsInit", function(
 
 			--Rifleman
 				--Basic/Aced
-					self.values.assault_rifle.steelsight_accuracy_inc = {0.85, 0.7}
-					self.values.snp.steelsight_accuracy_inc = {0.85, 0.7}
-					self.values.assault_rifle.steelsight_range_inc = {1.15, 1.3}
-					self.values.snp.steelsight_range_inc = {1.15, 1.3}
+					self.values.assault_rifle.steelsight_accuracy_inc = {0.9, 0.8}
+					self.values.snp.steelsight_accuracy_inc = {0.9, 0.8}
+					self.values.assault_rifle.steelsight_range_inc = {1.1, 1.2}
+					self.values.snp.steelsight_range_inc = {1.1, 1.2}
 
 					self.values.assault_rifle.enter_steelsight_speed_multiplier = {1.075}
 					self.values.snp.enter_steelsight_speed_multiplier = {1.075}

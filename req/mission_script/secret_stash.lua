@@ -12,7 +12,7 @@ local difficulty = tweak_data:difficulty_to_index(Global.game_settings and Globa
 local pro_job = Global.game_settings and Global.game_settings.one_down
 local titan_shield = ((difficulty >= 6 and pro_job) and "units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault")
 local woman_spooc = ((difficulty == 8 and pro_job) and "units/pd2_dlc_vip/characters/ene_spook_cloak_1/ene_spook_cloak_1")
-local gas_dozer = (difficulty == 8 and dozertable_ds or (difficulty == 7 or difficulty == 6) and dozertable_mayhem_dw or (difficulty == 5 or difficulty == 4) and dozertable_vh_ovk) or greendozer
+local gas_dozer = (difficulty == 8 and dozertable_ds or (difficulty == 7 or difficulty == 6) and dozertable_mayhem_dw or (difficulty == 5 or difficulty == 4) and dozertable_vh_ovk)
 local overkill_above = difficulty >= 5	
 local disabled = {
 	values = {
@@ -21,7 +21,11 @@ local disabled = {
 }	
 local dozer_heli = {
 	values = {
-        enemy = gas_dozer
+        enemy = gas_dozer,
+		participate_to_group_ai = false
+	},
+	on_executed = {
+		{id = 400002, delay = 0}
 	}
 }
 local tshield = {
@@ -95,8 +99,6 @@ return {
 		}
 	},
 	--Replace the spawns with dozers
-	[103293] = dozer_heli,
-	[103294] = dozer_heli,
 	[104045] = dozer_heli,
 	[104046] = dozer_heli,
 	[104047] = dozer_heli,

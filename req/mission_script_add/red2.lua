@@ -437,7 +437,7 @@ return {
         ),
 		restoration:gen_so(
             400023,
-            "dozer_cloaker_hunt_so",
+            "dozer_hunt_so",
             Vector3(-2657, -3569, -90),
             Rotation(90, -0, -0),
             optsBulldozer_SO

@@ -8282,337 +8282,337 @@ function GroupAITweakData:_init_unit_categories(difficulty_index)
 	end
 	
 	if table.contains(restoration.omnia_support, job) then
-	if difficulty_index == 6 then
-	self.unit_categories.FBI_suit_M4_MP5.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),	
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_veteran_2/ene_murky_veteran_2"),
-			Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")	
-		}
-	elseif difficulty_index == 7 or difficulty_index == 8 then
-	self.unit_categories.FBI_suit_M4_MP5.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),	
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_veteran_1/ene_murky_veteran_1"),
-			Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")	
-		}
-	end	
+		if difficulty_index == 6 then
+			self.unit_categories.FBI_suit_M4_MP5.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),	
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_veteran_2/ene_murky_veteran_2"),
+				Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")	
+			}
+		elseif difficulty_index == 7 or difficulty_index == 8 then
+			self.unit_categories.FBI_suit_M4_MP5.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_2/ene_fbi_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_2/ene_omnia_hrt_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),	
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_veteran_1/ene_murky_veteran_1"),
+				Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")	
+			}
+		end	
 	
-	if difficulty_index >= 6 then
-		self.unit_categories.spooc.unit_types.murkywater = {
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook")
-		}
-		
-		self.unit_categories.CS_tazer.unit_types.murkywater = {
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_taser/ene_titan_taser")
-		}
+		if difficulty_index == 6 or difficulty_index == 7 then
+			self.unit_categories.spooc.unit_types.murkywater = {
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook")
+			}
+			
+			self.unit_categories.CS_tazer.unit_types.murkywater = {
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_taser/ene_titan_taser")
+			}
 
-		self.unit_categories.FBI_suit_stealth_MP5.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")							
-		}
-		self.unit_categories.GS_swat_M4.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),	
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),	
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle")
-		}
-		self.unit_categories.GS_swat_R870.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_2/ene_city_swat_2"),
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_3/ene_city_swat_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_2/ene_city_swat_2"),
-			Idstring("units/pd2_mod_sharks/characters/ene_city_swat_3/ene_city_swat_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun")
-		}
-		self.unit_categories.GS_heavy_G36.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
-		}
-		self.unit_categories.GS_heavy_R870.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_r870/ene_fbi_heavy_r870"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_r870/ene_fbi_heavy_r870"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy_r870/ene_omnia_heavy_r870")
-		}
-		self.unit_categories.GS_heavy_G36_w.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
-		}	
-		self.unit_categories.GS_shield.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),	
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault")
-		}
-		self.unit_categories.boom_M4203.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_grenadier_1/ene_grenadier_1"),
-			Idstring("units/pd2_mod_sharks/characters/ene_grenadier_1/ene_grenadier_1"),
-			Idstring("units/pd2_mod_omnia/characters/ene_grenadier_1/ene_grenadier_1")
-		}
-		self.unit_categories.FBI_tank.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"),
-			Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_minigun/ene_bulldozer_minigun")
-		}
-		self.unit_categories.BLACK_tank.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_saiga/ene_murky_fbi_tank_saiga"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_saiga/ene_murky_fbi_tank_saiga"),
-			Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_2/ene_bulldozer_2")
-		}
-		self.unit_categories.SKULL_tank.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"),
-			Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_3/ene_bulldozer_3")
-		}
-		self.unit_categories.medic_M4.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
-		}
-		self.unit_categories.titan_sniper.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_sniper/ene_titan_sniper")
-		}
-	end
-	
-	if difficulty_index == 8 then
-		self.unit_categories.spooc.unit_types.murkywater = {
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
-			Idstring("units/pd2_dlc_vip/characters/ene_spook_cloak_1/ene_spook_cloak_1")
-		}
+			self.unit_categories.FBI_suit_stealth_MP5.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")							
+			}
+			self.unit_categories.GS_swat_M4.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),	
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_1/ene_city_swat_1"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),	
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle")
+			}
+			self.unit_categories.GS_swat_R870.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_2/ene_city_swat_2"),
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_3/ene_city_swat_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_2/ene_city_swat_2"),
+				Idstring("units/pd2_mod_sharks/characters/ene_city_swat_3/ene_city_swat_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun")
+			}
+			self.unit_categories.GS_heavy_G36.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
+			}
+			self.unit_categories.GS_heavy_R870.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_r870/ene_fbi_heavy_r870"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_r870/ene_fbi_heavy_r870"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy_r870/ene_omnia_heavy_r870")
+			}
+			self.unit_categories.GS_heavy_G36_w.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_heavy_1/ene_fbi_heavy_1"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
+			}	
+			self.unit_categories.GS_shield.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),	
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_shield_city/ene_murky_shield_city"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault")
+			}
+			self.unit_categories.boom_M4203.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_grenadier_1/ene_grenadier_1"),
+				Idstring("units/pd2_mod_sharks/characters/ene_grenadier_1/ene_grenadier_1"),
+				Idstring("units/pd2_mod_omnia/characters/ene_grenadier_1/ene_grenadier_1")
+			}
+			self.unit_categories.FBI_tank.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"),
+				Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_minigun/ene_bulldozer_minigun")
+			}
+			self.unit_categories.BLACK_tank.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_saiga/ene_murky_fbi_tank_saiga"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_saiga/ene_murky_fbi_tank_saiga"),
+				Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_2/ene_bulldozer_2")
+			}
+			self.unit_categories.SKULL_tank.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"),
+				Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_3/ene_bulldozer_3")
+			}
+			self.unit_categories.medic_M4.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+			}
+			self.unit_categories.titan_sniper.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_sniper/ene_titan_sniper")
+			}
+		end
 		
-		self.unit_categories.CS_tazer.unit_types.murkywater = {
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_taser/ene_titan_taser")
-		}
+		if difficulty_index == 8 then
+			self.unit_categories.spooc.unit_types.murkywater = {
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),	
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_spook/ene_omnia_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_spook/ene_murky_spook"),
+				Idstring("units/pd2_dlc_vip/characters/ene_spook_cloak_1/ene_spook_cloak_1")
+			}
+			
+			self.unit_categories.CS_tazer.unit_types.murkywater = {
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_taser/ene_omnia_taser"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_tazer/ene_murky_tazer"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_taser/ene_titan_taser")
+			}
 
-		self.unit_categories.FBI_suit_stealth_MP5.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
-			Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")							
-		}
-		self.unit_categories.GS_swat_M4.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),	
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),	
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle")
-		}
-		self.unit_categories.GS_swat_R870.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_2/ene_zeal_city_2"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_3/ene_zeal_city_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_2/ene_zeal_city_2"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_3/ene_zeal_city_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun")
-		}
-		self.unit_categories.GS_heavy_G36.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
-		}
-		self.unit_categories.GS_heavy_R870.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy_r870/ene_zeal_swat_heavy_r870"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy_r870/ene_zeal_swat_heavy_r870"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy_r870/ene_omnia_heavy_r870")
-		}
-		self.unit_categories.GS_heavy_G36_w.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
-		}	
-		self.unit_categories.GS_shield.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),	
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault")
-		}
-		self.unit_categories.GS_shield_defend.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),	
-			Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
-			Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault")
-		}
-		self.unit_categories.boom_M4203.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_grenadier_1/ene_grenadier_1"),
-			Idstring("units/pd2_mod_omnia/characters/ene_grenadier_1/ene_grenadier_1")
-		}
-		self.unit_categories.FBI_tank.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"),
-			Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_minigun/ene_bulldozer_minigun")
-		}
-		self.unit_categories.BLACK_tank.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_saiga/ene_murky_fbi_tank_saiga"),
-			Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_2/ene_bulldozer_2")
-		}
-		self.unit_categories.SKULL_tank.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"),
-			Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_3/ene_bulldozer_3")
-		}
-		self.unit_categories.medic_M4.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
-			Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
-		}
-		self.unit_categories.titan_sniper.unit_types.murkywater = {
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
-			Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
-			Idstring("units/pd2_dlc_vip/characters/ene_titan_sniper/ene_titan_sniper")
-		}
+			self.unit_categories.FBI_suit_stealth_MP5.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_fbi_3/ene_fbi_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_hrt_3/ene_omnia_hrt_3"),
+				Idstring("units/pd2_dlc_vip/characters/ene_fbi_titan_1/ene_fbi_titan_1")							
+			}
+			self.unit_categories.GS_swat_M4.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),	
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_1/ene_zeal_city_1"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),	
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city/ene_omnia_city"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_rifle/ene_titan_rifle"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_rifle/ene_titan_rifle")
+			}
+			self.unit_categories.GS_swat_R870.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_2/ene_zeal_city_2"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_3/ene_zeal_city_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_2/ene_zeal_city_2"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_city_3/ene_zeal_city_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_2/ene_omnia_city_2"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_city_3/ene_omnia_city_3"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_shotgun/ene_titan_shotgun"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_shotgun/ene_titan_shotgun")
+			}
+			self.unit_categories.GS_heavy_G36.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
+			}
+			self.unit_categories.GS_heavy_R870.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy_r870/ene_zeal_swat_heavy_r870"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy_r870/ene_zeal_swat_heavy_r870"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy_r870/ene_omnia_heavy_r870")
+			}
+			self.unit_categories.GS_heavy_G36_w.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_heavy/ene_zeal_swat_heavy"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_heavy/ene_omnia_heavy")
+			}	
+			self.unit_categories.GS_shield.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),	
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault")
+			}
+			self.unit_categories.GS_shield_defend.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),	
+				Idstring("units/pd2_mod_sharks/characters/ene_zeal_swat_shield/ene_zeal_swat_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_shield/ene_omnia_shield"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault"),	
+				Idstring("units/pd2_dlc_vip/characters/ene_phalanx_1_assault/ene_phalanx_1_assault")
+			}
+			self.unit_categories.boom_M4203.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_grenadier_1/ene_grenadier_1"),
+				Idstring("units/pd2_mod_omnia/characters/ene_grenadier_1/ene_grenadier_1")
+			}
+			self.unit_categories.FBI_tank.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_r870/ene_murky_fbi_tank_r870"),
+				Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_minigun/ene_bulldozer_minigun")
+			}
+			self.unit_categories.BLACK_tank.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_saiga/ene_murky_fbi_tank_saiga"),
+				Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_2/ene_bulldozer_2")
+			}
+			self.unit_categories.SKULL_tank.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_fbi_tank_m249/ene_murky_fbi_tank_m249"),
+				Idstring("units/pd2_mod_omnia/characters/ene_bulldozer_3/ene_bulldozer_3")
+			}
+			self.unit_categories.medic_M4.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_sharks/characters/ene_murky_medic_m4/ene_murky_medic_m4"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_mod_omnia/characters/ene_omnia_medic/ene_omnia_medic"),
+				Idstring("units/pd2_dlc_vip/characters/ene_omnia_lpf/ene_omnia_lpf")
+			}
+			self.unit_categories.titan_sniper.unit_types.murkywater = {
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
+				Idstring("units/pd2_mod_sharks/characters/ene_titan_sniper/ene_titan_sniper"),
+				Idstring("units/pd2_dlc_vip/characters/ene_titan_sniper/ene_titan_sniper")
+			}
+		end
 	end
-end
 	
 	if Month == "04" and Day == "01" and restoration.Options:GetValue("OTHER/Holiday") then		
 		self.unit_categories.TIT_tank = {
@@ -8726,28 +8726,28 @@ end
 	self.unit_categories.Phalanx_dozer = {
 		unit_types = {
 			america = {
-				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2_minion/ene_vip_2_minion")
 			},
 			russia = {
-				Idstring("units/pd2_mod_reapers/characters/ene_vip_2/ene_vip_2")
+				Idstring("units/pd2_mod_reapers/characters/ene_vip_2_minion/ene_vip_2_minion")
 			},
 			zombie = {
-				Idstring("units/payday2/characters/ene_bulldozer_4/ene_bulldozer_4")
+				Idstring("units/payday2/characters/ene_bulldozer_4_minion/ene_bulldozer_4_minion")
 			},
 			murkywater = {
-				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2_minion/ene_vip_2_minion")
 			},
 			federales = {
-				Idstring("units/pd2_mod_reapers/characters/ene_vip_2/ene_vip_2")
+				Idstring("units/pd2_mod_reapers/characters/ene_vip_2_minion/ene_vip_2_minion")
 			},				
 			nypd = {
-				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2_minion/ene_vip_2_minion")
 			},		
 			lapd = {
-				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2_minion/ene_vip_2_minion")
 			},
 			fbi = {
-				Idstring("units/pd2_dlc_vip/characters/ene_vip_2/ene_vip_2")
+				Idstring("units/pd2_dlc_vip/characters/ene_vip_2_minion/ene_vip_2_minion")
 			}
 		},
 		access = access_type_all,
@@ -11779,6 +11779,7 @@ end
 		special_type = "shield"
 	}
 
+	--OMNIA Shields
 	self.unit_categories.SKM_FBI_shield_W7 = {
 		unit_types = {
 			america = {
